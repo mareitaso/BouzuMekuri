@@ -6,7 +6,9 @@ public class Deck : MonoBehaviour
 {
     [SerializeField]
     List<int> cards;//リストの宣言
-
+    private int drawcard;//引いたカード
+    public int handCount;//手札の枚数
+    public int DiscardCount;//捨て札の枚数
     public IEnumerable<int> GetCards()
     {
         foreach (int i in cards)//cardsの要素
@@ -47,8 +49,40 @@ public class Deck : MonoBehaviour
     }
     public void Draw()
     {
-        
-        int cou = cards.Count;
-        cards.RemoveAll(cards=>(int)cards == 50);//リスト内から50が削除される
+        if(cards.Count > 0)
+        {
+            drawcard = cards[0];//0番目を引いたカードとして登録
+            if(drawcard< 11)
+            {
+                Debug.Log("坊主");
+                handCount++;
+                DiscardCount+= handCount;//手札を捨て札に加算
+                handCount = 0;//手札を初期化
+            }else if(drawcard < 32)
+            {
+                Debug.Log("姫");
+                if (DiscardCount > 0)
+                {
+                    handCount += DiscardCount;//捨て札を回収
+                    handCount++;
+                    DiscardCount = 0;//捨て札を初期化
+
+                }
+                else
+                {
+                    handCount++;
+                }
+            }
+            else
+            {
+                Debug.Log("殿");
+                handCount++;//手札に追加
+            }
+            cards.RemoveAt(0);//0番目を削除
+        }
+        else
+        {
+            Debug.LogError("終わり");
+        }
     }
 }

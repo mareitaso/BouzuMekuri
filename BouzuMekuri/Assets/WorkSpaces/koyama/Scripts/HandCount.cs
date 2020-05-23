@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HandCount : MonoBehaviour
 {
-    public static HandCount Instance;
+    /*public static HandCount Instance;
     private void Awake()
     {
         if(Instance == null)
@@ -16,7 +16,7 @@ public class HandCount : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }*/
     public int handCount;//手札の枚数
     public int DiscardCount;//捨て札の枚数
 }
