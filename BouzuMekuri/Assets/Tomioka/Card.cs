@@ -9,6 +9,12 @@ public class Card : MonoBehaviour
     [SerializeField]
     private Text illust;
 
+    [SerializeField]
+    private Image card;
+
+    [SerializeField]
+    private Sprite spr;
+
     //百人一首のリスト
     [SerializeField]
     private List<int> HyakuninIsshu = new List<int>();
@@ -18,7 +24,7 @@ public class Card : MonoBehaviour
     void Awake()
     {
         //配列に追加
-        for (int i = 0; i < 100; i++)
+        for (int i = 1; i <= 100; i++)
         {
             HyakuninIsshu.Add(i);
         }
@@ -52,6 +58,7 @@ public class Card : MonoBehaviour
         else
         {
             illust.text = "カードがないよ";
+            spr = null;
         }
     }
 
@@ -70,5 +77,8 @@ public class Card : MonoBehaviour
         {
             illust.text = "殿だよ";
         }
+
+        spr = Resources.Load<Sprite>("Images/" + nowCard);
+        card.sprite = spr;
     }
 }
