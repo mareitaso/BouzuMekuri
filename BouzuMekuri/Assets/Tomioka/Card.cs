@@ -59,6 +59,7 @@ public class Card : MonoBehaviour
         {
             illust.text = "カードがないよ";
             spr = null;
+            card.sprite = spr;
         }
     }
 
