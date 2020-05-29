@@ -8,6 +8,10 @@ public class Deck : MonoBehaviour
     //富岡編集
     [SerializeField]
     private Image Yamahuda;
+    [SerializeField]
+    private Image Sutehuda;
+    [SerializeField]
+    private List<Image> Player;
 
     private int drawcard;//引いたカード
     public int DiscardCount;//捨て札の枚数
@@ -70,6 +74,7 @@ public class Deck : MonoBehaviour
                     hand.handCount[Count] += 1;
                     DiscardCount += hand.handCount[Count];//手札を捨て札に加算
                     hand.handCount[Count] = 0;//手札を初期化
+                    ImageChangeBouzu();
                 }
                 else if (drawcard < 33)
                 {
@@ -79,23 +84,26 @@ public class Deck : MonoBehaviour
                         hand.handCount[Count] += DiscardCount;//捨て札を回収
                         DiscardCount = 0;//捨て札を初期化
                         hand.handCount[Count] += 1;
-
+                        ImageChangeHime();
                     }
                     else
                     {
                         hand.handCount[Count] += 1;
+                        ImageChangeHime();
                     }
                 }
                 else
                 {
                     Debug.Log("殿" + Count + "のばん");
                     hand.handCount[Count] += 1;//手札に追加
+                    ImageChangeTono();
                 }
             }
             else
             {
                 Yamahuda.sprite = null;
                 Debug.LogError("終わり");
+                ImageChangeTono();
             }
             cards.RemoveAt(0);//0番目を削除
             Count++;
@@ -104,5 +112,21 @@ public class Deck : MonoBehaviour
                 Count = 0;
             }
         }
+    }
+
+    private void ImageChangeTono()
+    {
+        Player[Count].sprite = Resources.Load<Sprite>("Images/" + drawcard);
+    }
+    private void ImageChangeHime()
+    {
+        Player[Count].sprite = Resources.Load<Sprite>("Images/" + drawcard);
+        Sutehuda.sprite = null;
+    }
+
+    private void ImageChangeBouzu()
+    {
+        Player[Count].sprite = null;
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/" + drawcard);
     }
 }
