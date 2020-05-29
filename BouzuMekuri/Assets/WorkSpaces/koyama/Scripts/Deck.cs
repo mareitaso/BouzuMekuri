@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
+    private int drawcard;//引いたカード
+    public int DiscardCount;//捨て札の枚数
+    //[SerializeField]
+    //List<int> Playerhand = new List<int>();
     [SerializeField]
     List<int> cards;//リストの宣言
-    private int drawcard;//引いたカード
-    public int handCount;//手札の枚数
-    public int DiscardCount;//捨て札の枚数
+    public int Count;
+
+    public HandCount hand;
     public IEnumerable<int> GetCards()
     {
         foreach (int i in cards)//cardsの要素
@@ -49,40 +53,49 @@ public class Deck : MonoBehaviour
     }
     public void Draw()
     {
-        if(cards.Count > 0)
+        if (Count <= 3)//4人(仮)
         {
-            drawcard = cards[0];//0番目を引いたカードとして登録
-            if(drawcard< 11)
+            if (cards.Count > 0)//山札があるとき
             {
-                Debug.Log("坊主");
-                handCount++;
-                DiscardCount+= handCount;//手札を捨て札に加算
-                handCount = 0;//手札を初期化
-            }else if(drawcard < 32)
-            {
-                Debug.Log("姫");
-                if (DiscardCount > 0)
+                drawcard = cards[0];//0番目を引いたカードとして登録
+                if (drawcard < 11)
                 {
-                    handCount += DiscardCount;//捨て札を回収
-                    handCount++;
-                    DiscardCount = 0;//捨て札を初期化
+                    Debug.Log("坊主" + Count + "のばん");
+                    hand.handCount[Count] += 1;
+                    DiscardCount += hand.handCount[Count];//手札を捨て札に加算
+                    hand.handCount[Count] = 0;//手札を初期化
+                }
+                else if (drawcard < 32)
+                {
+                    Debug.Log("姫" + Count + "のばん");
+                    if (DiscardCount > 0)
+                    {
+                        hand.handCount[Count] += DiscardCount;//捨て札を回収
+                        DiscardCount = 0;//捨て札を初期化
+                        hand.handCount[Count] += 1;
 
+                    }
+                    else
+                    {
+                        hand.handCount[Count] += 1;
+                    }
                 }
                 else
                 {
-                    handCount++;
+                    Debug.Log("殿" + Count + "のばん");
+                    hand.handCount[Count] += 1;//手札に追加
                 }
             }
             else
             {
-                Debug.Log("殿");
-                handCount++;//手札に追加
+                Debug.LogError("終わり");
             }
             cards.RemoveAt(0);//0番目を削除
-        }
-        else
-        {
-            Debug.LogError("終わり");
+            Count++;
+            if (Count == 4)
+            {
+                Count = 0;
+            }
         }
     }
 }

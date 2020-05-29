@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 73088893}
   - component: {fileID: 73088892}
   - component: {fileID: 73088891}
-  - component: {fileID: 73088894}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -250,19 +249,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73088889}
   m_CullTransparentMesh: 0
---- !u!114 &73088894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 73088889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886088d067a72f3449cdb02be99bb97b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck: {fileID: 0}
 --- !u!1 &260630678
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,8 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de34885f0bf15c1499d62d74860e8837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handCount: 0
-  DiscardCount: 0
+  handCount: 00000000000000000000000000000000
 --- !u!4 &260630680
 Transform:
   m_ObjectHideFlags: 0
@@ -662,9 +647,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bedcfb47da0224685d65b021724f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards: 
-  handCount: 0
   DiscardCount: 0
+  cards: 
+  Count: 0
+  hand: {fileID: 260630679}
 --- !u!4 &2054158028
 Transform:
   m_ObjectHideFlags: 0
