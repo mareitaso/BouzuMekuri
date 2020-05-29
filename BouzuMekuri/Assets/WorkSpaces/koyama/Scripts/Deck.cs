@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
+    //富岡編集
+    [SerializeField]
+    private Image Yamahuda;
+
     private int drawcard;//引いたカード
     public int DiscardCount;//捨て札の枚数
     //[SerializeField]
@@ -23,7 +28,7 @@ public class Deck : MonoBehaviour
 
     public void Shuffle()
     {
-        if(cards == null)
+        if (cards == null)
         {
             cards = new List<int>();//初期化
         }
@@ -58,14 +63,15 @@ public class Deck : MonoBehaviour
             if (cards.Count > 0)//山札があるとき
             {
                 drawcard = cards[0];//0番目を引いたカードとして登録
-                if (drawcard < 11)
+                Yamahuda.sprite = Resources.Load<Sprite>("Images/" + drawcard);
+                if (drawcard < 12)
                 {
                     Debug.Log("坊主" + Count + "のばん");
                     hand.handCount[Count] += 1;
                     DiscardCount += hand.handCount[Count];//手札を捨て札に加算
                     hand.handCount[Count] = 0;//手札を初期化
                 }
-                else if (drawcard < 32)
+                else if (drawcard < 33)
                 {
                     Debug.Log("姫" + Count + "のばん");
                     if (DiscardCount > 0)
@@ -88,6 +94,7 @@ public class Deck : MonoBehaviour
             }
             else
             {
+                Yamahuda.sprite = null;
                 Debug.LogError("終わり");
             }
             cards.RemoveAt(0);//0番目を削除
