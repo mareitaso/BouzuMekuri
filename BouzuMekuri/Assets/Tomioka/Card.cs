@@ -65,11 +65,11 @@ public class Card : MonoBehaviour
     //テキストの変更
     private void TextChange()
     {
-        if (nowCard < 11)
+        if (nowCard <= 12)
         {
             illust.text = "坊主だよ";
         }
-        else if (nowCard < 32)
+        else if (nowCard <= 33)
         {
             illust.text = "姫だよ";
         }
