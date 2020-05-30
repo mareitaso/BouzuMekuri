@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Deck : MonoBehaviour
 {
+    /*
     //富岡編集
     [SerializeField]
     private Image Yamahuda;
@@ -12,14 +13,13 @@ public class Deck : MonoBehaviour
     private Image Sutehuda;
     [SerializeField]
     private List<Image> Player;
+    */
 
-    private int drawcard;//引いたカード
+    public int drawcard;//引いたカード
     public int DiscardCount;//捨て札の枚数
-    //[SerializeField]
-    //List<int> Playerhand = new List<int>();
     [SerializeField]
-    List<int> cards;//リストの宣言
-    public int Count;
+    public List<int> cards;//リストの宣言
+    public int Count;//ターンのカウント
 
     public HandCount hand;
     public IEnumerable<int> GetCards()
@@ -60,6 +60,7 @@ public class Deck : MonoBehaviour
     {
         Shuffle();//実行
     }
+    /*
     public void Draw()
     {
         if (Count <= 3)//4人(仮)
@@ -98,18 +99,19 @@ public class Deck : MonoBehaviour
                     hand.handCount[Count] += 1;//手札に追加
                     ImageChangeTono();
                 }
+                cards.RemoveAt(0);//0番目を削除
+                Count++;
+                if (Count == 4)
+                {
+                    Count = 0;
+                }
             }
             else
             {
                 Yamahuda.sprite = null;
                 Debug.LogError("終わり");
                 ImageChangeTono();
-            }
-            cards.RemoveAt(0);//0番目を削除
-            Count++;
-            if (Count == 4)
-            {
-                Count = 0;
+                hand.Settlement();
             }
         }
     }
@@ -128,5 +130,5 @@ public class Deck : MonoBehaviour
     {
         Player[Count].sprite = null;
         Sutehuda.sprite = Resources.Load<Sprite>("Images/" + drawcard);
-    }
+    }*/
 }
