@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
+    /// <summary>
+    /// それぞれのルールを追加
+    /// ただしのちに場所を変えpublicにする予定
+    /// </summary>
+    private bool BukanRule = true;
+    //private bool DantukiRule = true;
+    private bool TennouRule = true;
+
+
+
     //富岡編集
     [SerializeField]
     private Image Yamahuda;
@@ -110,6 +120,16 @@ public class Test : MonoBehaviour
                         ImageChangeHime();
                     }
                 }
+                ////武官ルール
+                //if (BukanRule == true)
+                //{
+                //    Bukan();
+                //}
+                ////天皇ルール
+                //if (TennouRule == true)
+                //{
+                //    Tennou();
+                //}
                 else
                 {
                     Debug.Log("殿" + Count + "のばん");
@@ -124,11 +144,17 @@ public class Test : MonoBehaviour
                 ImageChangeTono();
             }
             cards.RemoveAt(0);//0番目を削除
+
             ReverseRotation();
         }
     }
 
-    //現状10キーの0で反対になるがこの関数が呼ばれる前にboolを反対にすれば10キーは必要ない
+
+    /// <summary>
+    /// 回る順番を変える処理
+    /// 現状10キーの0で反対になるが
+    /// この関数が呼ばれる前にboolを反対にすれば10キーは必要ない
+    /// </summary>
     private void ReverseRotation()
     {
         if (bukan == true)
@@ -149,6 +175,60 @@ public class Test : MonoBehaviour
         }
     }
 
+    //武官ルールがオンの時かつ武官を引いた時の処理
+    private void Bukan()
+    {
+        if (drawcard < 41)
+        {
+            Debug.Log("武官" + Count + "のばん");
+            hand.handCount[Count] += 1;//手札に追加
+                                       //↓ここを動作すればOK
+            bukan = !bukan;
+        }
+    }
+
+    private void Tennou()
+    {
+        switch (drawcard)
+        {
+            case 12:
+            case 41:
+            case 42:
+            case 43:
+            case 44:
+            case 45:
+            case 46:
+            case 47:
+                Debug.Log("天皇" + Count + "のばん");
+
+                //1番
+                //hand.handCount[Count] += 2;//手札に追加;
+
+                //2番
+                for (int i = Count; i < 0; i--)
+                {
+                    Debug.Log(Count);
+                    hand.handCount[Count] += hand.handCount[i];
+                }
+                for (int i = Count; i < 4; i++)
+                {
+                    Debug.Log(Count);
+                    hand.handCount[Count] += hand.handCount[i];
+                }
+
+                //捨て札回収
+                hand.handCount[Count] += DiscardCount;
+
+
+
+                break;
+
+            default:
+                //特になし
+                break;
+
+        }
+    }
 
 
     private void ImageChangeTono()
@@ -160,7 +240,6 @@ public class Test : MonoBehaviour
         Player[Count].sprite = Resources.Load<Sprite>("Images/" + drawcard);
         Sutehuda.sprite = null;
     }
-
     private void ImageChangeBouzu()
     {
         Player[Count].sprite = null;
