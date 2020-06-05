@@ -3,11 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Test : MonoBehaviour
+public class DeckManager : MonoBehaviour
 {
-
     [SerializeField]
-    public List<int> cards;//リストの宣言
+    CardDataBase cardDataBase;
+
+    //富岡編集
+    [SerializeField]
+    private Image Yamahuda;
+    [SerializeField]
+    private Image Sutehuda;
+    [SerializeField]
+    private List<Image> Player;
+
+    private int drawcard;//引いたカード
+    public int DiscardCount;//捨て札の枚数
+    //[SerializeField]
+    //List<int> Playerhand = new List<int>();
+    [SerializeField]
+    List<int> cards;//リストの宣言
     public int Count;
 
     public HandCount hand;
@@ -48,5 +62,12 @@ public class Test : MonoBehaviour
     private void Start()
     {
         Shuffle();//実行
+
+        for (int i = 0; i < 100; i++)
+        {
+            Debug.Log(cardDataBase.YamahudaLists()[i].GetFirstJob());
+        }
     }
+
+
 }
