@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/WorkSpaces/Tanaka/Assets/ResultScene.unity
+- path: Assets/WorkSpaces/Tanaka/Scenes/SceneManager.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
