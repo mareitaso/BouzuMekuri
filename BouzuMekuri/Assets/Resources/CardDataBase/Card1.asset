@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Card1
   m_EditorClassIdentifier: 
   firstJob: 0
-  secondJob: 0
+  secondJob: 3
   thirdJob: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2730cf3dbbb00c4795d9bba775ddb52, type: 3}
   m_Name: Card97
   m_EditorClassIdentifier: 
-  firstJob: 0
-  secondJob: 0
+  firstJob: 2
+  secondJob: 3
   thirdJob: 0
