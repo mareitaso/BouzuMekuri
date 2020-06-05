@@ -13,13 +13,4 @@ public class CardDataBase : ScriptableObject
     {
         return cardLists;
     }
-
-    //private void Awake()
-    //{
-    //    Debug.Log(cardLists);
-    //    for (int i = 0; i < YamahudaLists().Count; i++)
-    //    {
-    //        cardLists.Add(Resources.Load<>.card);
-    //    }
-    //}
 }

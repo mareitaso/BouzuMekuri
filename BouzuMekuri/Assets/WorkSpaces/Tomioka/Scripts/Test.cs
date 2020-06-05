@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Draw : MonoBehaviour
+public class Test : MonoBehaviour
 {
+    private int playerSkill;
+    private bool bukan = true;
+
     //富岡編集
     [SerializeField]
     private CardDataBase cardDataBase;
@@ -28,6 +31,7 @@ public class Draw : MonoBehaviour
                 deck.drawcard = deck.cards[0];//0番目を引いたカードとして登録
                 Yamahuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
 
+                //坊主を引く
                 if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
                 //if (deck.drawcard < 12)
                 {
@@ -37,6 +41,7 @@ public class Draw : MonoBehaviour
                     hand.handCount[deck.Count] = 0;//手札を初期化
                     ImageChangeBouzu();
                 }
+                //姫を引く
                 else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Hime)
                 //else if (deck.drawcard < 33)
                 {
@@ -54,18 +59,28 @@ public class Draw : MonoBehaviour
                         ImageChangeHime();
                     }
                 }
-                else
+                //殿を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
                 {
                     Debug.Log("殿" + deck.Count + "のばん");
                     hand.handCount[deck.Count] += 1;//手札に追加
                     ImageChangeTono();
                 }
+                //武官を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bukan)
+                {
+
+                }
                 deck.Count++;
                 deck.cards.RemoveAt(0);//0番目を削除
-                if (deck.Count == 4)
-                {
-                    deck.Count = 0;
-                }
+
+                //下の代わり
+                ReverseRotation();
+                //if (deck.Count == 4)
+                //{
+                //    deck.Count = 0;
+                //}
+
             }
             else
             {
@@ -91,5 +106,65 @@ public class Draw : MonoBehaviour
     {
         Player[deck.Count].sprite = null;
         Sutehuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+    }
+
+    private void BukanDraw()
+    {
+        switch (playerSkill)
+        {
+            case 1:
+                //左隣からカードを5枚
+                break;
+
+            case 2:
+                //全員から1枚もらえる
+                break;
+
+            case 3:
+                //逆回転
+                bukan = !bukan;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void TennouDraw()
+    {
+        switch (playerSkill)
+        {
+            case 1:
+                //
+                break;
+
+            case 2:
+                //
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    //回る順逆転
+    private void ReverseRotation()
+    {
+        if (bukan == true)
+        {
+            deck.Count++;
+            if (deck.Count == 4)
+            {
+                deck.Count = 0;
+            }
+        }
+        else
+        {
+            deck.Count--;
+            if (deck.Count < 0)
+            {
+                deck.Count = 3;
+            }
+        }
     }
 }

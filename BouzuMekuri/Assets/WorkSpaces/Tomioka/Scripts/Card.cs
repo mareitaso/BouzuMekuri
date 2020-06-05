@@ -11,7 +11,9 @@ public class Card : ScriptableObject
     {
         Bouzu,
         Hime,
-        Tono
+        Tono,
+        Tennnou,
+        Bukan,
     }
     public enum SecondJob
     {

@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handCount: 00000000000000000000000000000000
+  deck: {fileID: 0}
 --- !u!4 &260630680
 Transform:
   m_ObjectHideFlags: 0
@@ -1479,21 +1480,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054158026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ab5a315bed95e41ae20f2cdeff85b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 30bedcfb47da0224685d65b021724f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yamahuda: {fileID: 1135479361}
-  Sutehuda: {fileID: 931043495}
-  Player:
-  - {fileID: 800355709}
-  - {fileID: 1411242424}
-  - {fileID: 654633901}
-  - {fileID: 553588832}
-  bukan: 1
+  drawcard: 0
   DiscardCount: 0
   cards: 
   Count: 0
-  hand: {fileID: 260630679}
+  hand: {fileID: 0}
 --- !u!4 &2054158028
 Transform:
   m_ObjectHideFlags: 0
