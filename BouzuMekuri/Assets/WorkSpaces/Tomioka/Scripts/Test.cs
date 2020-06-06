@@ -69,9 +69,9 @@ public class Test : MonoBehaviour
                 //武官を引く
                 else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bukan)
                 {
-
+                    BukanDraw();
                 }
-                deck.Count++;
+                //deck.Count++;
                 deck.cards.RemoveAt(0);//0番目を削除
 
                 //下の代わり
@@ -94,18 +94,18 @@ public class Test : MonoBehaviour
 
     private void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Tono/" + deck.drawcard);
     }
     private void ImageChangeHime()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Hime/" + deck.drawcard);
         Sutehuda.sprite = null;
     }
 
     private void ImageChangeBouzu()
     {
         Player[deck.Count].sprite = null;
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/Bouzu/" + (deck.drawcard));
     }
 
     private void BukanDraw()
@@ -126,6 +126,7 @@ public class Test : MonoBehaviour
                 break;
 
             default:
+                Debug.LogError("武官スキルの値がおかしいよ");
                 break;
         }
     }
@@ -143,6 +144,7 @@ public class Test : MonoBehaviour
                 break;
 
             default:
+                Debug.LogError("天皇スキルの値がおかしいよ");
                 break;
         }
     }

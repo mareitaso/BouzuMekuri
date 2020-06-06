@@ -202,8 +202,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2054158027}
-        m_MethodName: Draw
+      - m_Target: {fileID: 2054158029}
+        m_MethodName: draw
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1463,6 +1463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2054158028}
+  - component: {fileID: 2054158029}
   - component: {fileID: 2054158027}
   m_Layer: 0
   m_Name: DeckController
@@ -1487,7 +1488,7 @@ MonoBehaviour:
   DiscardCount: 0
   cards: 
   Count: 0
-  hand: {fileID: 0}
+  hand: {fileID: 260630679}
 --- !u!4 &2054158028
 Transform:
   m_ObjectHideFlags: 0
@@ -1502,6 +1503,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054158029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054158026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a4f641d7749d04aa16bf7102581ed4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDataBase: {fileID: 11400000, guid: ea706d4cf46d2144aaedc9bfde7c368c, type: 2}
+  Yamahuda: {fileID: 1135479361}
+  Sutehuda: {fileID: 931043495}
+  Player:
+  - {fileID: 800355709}
+  - {fileID: 1411242424}
+  - {fileID: 654633901}
+  - {fileID: 553588832}
+  deck: {fileID: 2054158027}
+  hand: {fileID: 260630679}
 --- !u!1 &2134555774
 GameObject:
   m_ObjectHideFlags: 0
