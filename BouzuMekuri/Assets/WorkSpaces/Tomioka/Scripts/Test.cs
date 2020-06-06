@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
-    private int playerSkill;
+    private int playerSkill = 1;
     private bool bukan = true;
 
     //富岡編集
@@ -18,9 +18,16 @@ public class Test : MonoBehaviour
     [SerializeField]
     private List<Image> Player;
     [SerializeField]
+    private List<Text> PlayerCards;
+    [SerializeField]
     private Deck deck;
     [SerializeField]
     private HandCount hand;
+
+    private void Update()
+    {
+        SkillChange();
+    }
 
     public void draw()
     {
@@ -70,17 +77,19 @@ public class Test : MonoBehaviour
                 else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bukan)
                 {
                     BukanDraw();
+                    hand.handCount[deck.Count] += 1;//手札に追加
                 }
                 //deck.Count++;
+
                 deck.cards.RemoveAt(0);//0番目を削除
 
+                TextChange();
                 //下の代わり
                 ReverseRotation();
                 //if (deck.Count == 4)
                 //{
                 //    deck.Count = 0;
                 //}
-
             }
             else
             {
@@ -94,18 +103,18 @@ public class Test : MonoBehaviour
 
     private void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Tono/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
     }
     private void ImageChangeHime()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Hime/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
         Sutehuda.sprite = null;
     }
 
     private void ImageChangeBouzu()
     {
         Player[deck.Count].sprite = null;
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/Bouzu/" + (deck.drawcard));
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/" + (deck.drawcard));
     }
 
     private void BukanDraw()
@@ -114,21 +123,65 @@ public class Test : MonoBehaviour
         {
             case 1:
                 //左隣からカードを5枚
+                if (deck.Count == 0)
+                {
+                    //5枚以上あるか確認
+                    if (hand.handCount[3] > 5)
+                    {
+                        hand.handCount[deck.Count] += 5;
+                        hand.handCount[3] -= 5;
+                    }
+                    else
+                    {
+                        hand.handCount[deck.Count] += hand.handCount[3];
+                        hand.handCount[3] = 0;
+                    }
+                }
+                else
+                {
+                    //Count-1の人から5枚もらう
+                    if (hand.handCount[deck.Count - 1] > 5)
+                    {
+                        hand.handCount[deck.Count] += 5;
+                        hand.handCount[deck.Count - 1] -= 5;
+                    }
+                    else
+                    {
+                        hand.handCount[deck.Count] += hand.handCount[deck.Count - 1];
+                        hand.handCount[deck.Count - 1] = 0;
+                    }
+                }
+                Debug.Log("武官のスキル1発動");
                 break;
 
             case 2:
                 //全員から1枚もらえる
+                for (int i = 0; i > 3; i++)
+                {
+                    if (i != deck.Count)
+                    {
+                        if (hand.handCount[i] > 1)
+                        {
+                            Debug.Log(i + 1 + "番の人が" + deck.Count + 1 + "番目の人に1枚渡す");
+                            hand.handCount[deck.Count] += 1;
+                            hand.handCount[i] -= 1;
+                        }
+                    }
+                }
+                Debug.Log("武官のスキル2発動");
                 break;
 
             case 3:
                 //逆回転
                 bukan = !bukan;
+                Debug.Log("武官のスキル3発動");
                 break;
 
             default:
                 Debug.LogError("武官スキルの値がおかしいよ");
                 break;
         }
+        ImageChangeTono();
     }
 
     private void TennouDraw()
@@ -168,5 +221,31 @@ public class Test : MonoBehaviour
                 deck.Count = 3;
             }
         }
+    }
+
+
+    private void SkillChange()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            playerSkill = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            playerSkill = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            playerSkill = 3;
+        }
+    }
+
+    private void TextChange()
+    {
+        PlayerCards[0].text = hand.handCount[0].ToString();
+        PlayerCards[1].text = hand.handCount[1].ToString();
+        PlayerCards[2].text = hand.handCount[2].ToString();
+        PlayerCards[3].text = hand.handCount[3].ToString();
+        PlayerCards[4].text = deck.DiscardCount.ToString();
     }
 }
