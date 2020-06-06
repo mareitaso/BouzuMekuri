@@ -202,7 +202,6 @@ public class Test : MonoBehaviour
                     deck.drawcard = deck.cards[0];//いらないかも
                     hand.handCount[deck.Count] += 1;
                     deck.cards.RemoveAt(0);
-                    Debug.Log("二枚引いてる？");
                 }
                 Debug.Log("天皇のスキル1発動");
                 break;
@@ -294,6 +293,7 @@ public class Test : MonoBehaviour
                 deck.Count = 3;
             }
         }
+        ImageNull();
     }
 
 
@@ -320,5 +320,17 @@ public class Test : MonoBehaviour
         PlayerCards[2].text = hand.handCount[2].ToString();
         PlayerCards[3].text = hand.handCount[3].ToString();
         PlayerCards[4].text = deck.DiscardCount.ToString();
+        PlayerCards[5].text = deck.cards.Count.ToString();
+    }
+
+    private void ImageNull()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (hand.handCount[i] == 0)
+            {
+                Player[i].sprite = null;
+            }
+        }
     }
 }
