@@ -162,7 +162,7 @@ public class Test : MonoBehaviour
 
             case 2:
                 //全員から1枚もらえる
-                for (int i = 0; i > 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (i != deck.Count)
                     {
@@ -197,17 +197,19 @@ public class Test : MonoBehaviour
         {
             case 1:
                 //山札から2枚引く
-                for (int i = 0; i > 1; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     deck.drawcard = deck.cards[0];//いらないかも
                     hand.handCount[deck.Count] += 1;
                     deck.cards.RemoveAt(0);
+                    Debug.Log("二枚引いてる？");
                 }
+                Debug.Log("天皇のスキル1発動");
                 break;
 
             case 2:
                 //全員の札と場の札すべてもらう
-                for (int i = 0; i > 3; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     //全員の札をもらう
                     if (i != deck.Count)
@@ -230,11 +232,11 @@ public class Test : MonoBehaviour
                     hand.handCount[deck.Count] += 1;
                     ImageChangeHime();
                 }
-
+                Debug.Log("天皇のスキル2発動");
                 break;
             case 3:
                 //他のプレイヤーすべての手札を自分の手札に加える
-                for (int i = 0; i > 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (i != deck.Count)
                     {
@@ -243,6 +245,7 @@ public class Test : MonoBehaviour
                         hand.handCount[i] = 0;
                     }
                 }
+                Debug.Log("天皇のスキル3発動");
                 break;
 
             default:
