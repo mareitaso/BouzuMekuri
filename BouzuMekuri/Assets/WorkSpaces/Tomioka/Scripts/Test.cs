@@ -66,6 +66,11 @@ public class Test : MonoBehaviour
                         ImageChangeHime();
                     }
                 }
+                //天皇を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tennnou)
+                {
+                    TennouDraw();
+                }
                 //殿を引く
                 else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
                 {
@@ -117,6 +122,7 @@ public class Test : MonoBehaviour
         Sutehuda.sprite = Resources.Load<Sprite>("Images/" + (deck.drawcard));
     }
 
+    //武官のカードを引いた
     private void BukanDraw()
     {
         switch (playerSkill)
@@ -184,21 +190,85 @@ public class Test : MonoBehaviour
         ImageChangeTono();
     }
 
+    //天皇カードを引いた
     private void TennouDraw()
     {
         switch (playerSkill)
         {
             case 1:
-                //
+                //山札から2枚引く
+                for (int i = 0; i > 1; i++)
+                {
+                    deck.drawcard = deck.cards[0];//いらないかも
+                    hand.handCount[deck.Count] += 1;
+                    deck.cards.RemoveAt(0);
+                }
                 break;
 
             case 2:
-                //
+                //全員の札と場の札すべてもらう
+                for (int i = 0; i > 3; i++)
+                {
+                    //全員の札をもらう
+                    if (i != deck.Count)
+                    {
+                        Debug.Log(i + 1 + "番の人が" + deck.Count + 1 + "番目の人に全部渡す");
+                        hand.handCount[deck.Count] += hand.handCount[i];
+                        hand.handCount[i] = 0;
+                    }
+                }
+                //場の札をもらう
+                if (deck.DiscardCount > 0)
+                {
+                    hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
+                    deck.DiscardCount = 0;//捨て札を初期化
+                    hand.handCount[deck.Count] += 1;
+                    ImageChangeHime();
+                }
+                else
+                {
+                    hand.handCount[deck.Count] += 1;
+                    ImageChangeHime();
+                }
+
+                break;
+            case 3:
+                //他のプレイヤーすべての手札を自分の手札に加える
+                for (int i = 0; i > 3; i++)
+                {
+                    if (i != deck.Count)
+                    {
+                        Debug.Log(i + 1 + "番の人が" + deck.Count + 1 + "番目の人に全部渡す");
+                        hand.handCount[deck.Count] += hand.handCount[i];
+                        hand.handCount[i] = 0;
+                    }
+                }
                 break;
 
             default:
                 Debug.LogError("天皇スキルの値がおかしいよ");
                 break;
+        }
+        if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
+        {
+            ImageChangeTono();
+        }
+        //天皇のカードが姫の場合
+        else
+        {
+            if (deck.DiscardCount > 0)
+            {
+                hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
+                deck.DiscardCount = 0;//捨て札を初期化
+                hand.handCount[deck.Count] += 1;
+                ImageChangeHime();
+            }
+            else
+            {
+                hand.handCount[deck.Count] += 1;
+                ImageChangeHime();
+            }
+            ImageChangeHime();
         }
     }
 
