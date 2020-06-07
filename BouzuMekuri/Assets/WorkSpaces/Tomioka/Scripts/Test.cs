@@ -223,23 +223,21 @@ public class Test : MonoBehaviour
                 {
                     hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
                     deck.DiscardCount = 0;//捨て札を初期化
-                    hand.handCount[deck.Count] += 1;
                     ImageChangeHime();
                 }
                 else
                 {
-                    hand.handCount[deck.Count] += 1;
                     ImageChangeHime();
                 }
                 Debug.Log("天皇のスキル2発動");
                 break;
             case 3:
                 //他のプレイヤーすべての手札を自分の手札に加える
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     if (i != deck.Count)
                     {
-                        Debug.Log(i + 1 + "番の人が" + deck.Count + 1 + "番目の人に全部渡す");
+                        Debug.Log((i + 1) + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
                         hand.handCount[deck.Count] += hand.handCount[i];
                         hand.handCount[i] = 0;
                     }
@@ -251,7 +249,7 @@ public class Test : MonoBehaviour
                 Debug.LogError("天皇スキルの値がおかしいよ");
                 break;
         }
-        if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
+        if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tono)
         {
             ImageChangeTono();
         }
@@ -263,12 +261,10 @@ public class Test : MonoBehaviour
                 hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
                 deck.DiscardCount = 0;//捨て札を初期化
                 hand.handCount[deck.Count] += 1;
-                ImageChangeHime();
             }
             else
             {
                 hand.handCount[deck.Count] += 1;
-                ImageChangeHime();
             }
             ImageChangeHime();
         }
