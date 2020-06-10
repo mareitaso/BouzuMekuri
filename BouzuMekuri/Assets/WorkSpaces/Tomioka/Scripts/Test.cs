@@ -70,6 +70,7 @@ public class Test : MonoBehaviour
                 else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tennnou)
                 {
                     TennouDraw();
+                    hand.handCount[deck.Count] += 1;//手札に追加
                 }
                 //殿を引く
                 else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
@@ -162,13 +163,14 @@ public class Test : MonoBehaviour
 
             case 2:
                 //全員から1枚もらえる
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     if (i != deck.Count)
                     {
-                        if (hand.handCount[i] > 1)
+                        //1枚でも持っていたら
+                        if (hand.handCount[i] > 0)
                         {
-                            Debug.Log(i + 1 + "番の人が" + deck.Count + 1 + "番目の人に1枚渡す");
+                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に1枚渡す");
                             hand.handCount[deck.Count] += 1;
                             hand.handCount[i] -= 1;
                         }
@@ -213,7 +215,7 @@ public class Test : MonoBehaviour
                     //全員の札をもらう
                     if (i != deck.Count)
                     {
-                        Debug.Log(i + 1 + "番の人が" + deck.Count + 1 + "番目の人に全部渡す");
+                        Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
                         hand.handCount[deck.Count] += hand.handCount[i];
                         hand.handCount[i] = 0;
                     }
@@ -237,7 +239,7 @@ public class Test : MonoBehaviour
                 {
                     if (i != deck.Count)
                     {
-                        Debug.Log((i + 1) + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
+                        Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
                         hand.handCount[deck.Count] += hand.handCount[i];
                         hand.handCount[i] = 0;
                     }
