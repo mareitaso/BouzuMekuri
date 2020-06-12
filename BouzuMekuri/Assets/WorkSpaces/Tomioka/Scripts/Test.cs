@@ -262,11 +262,6 @@ public class Test : MonoBehaviour
             {
                 hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
                 deck.DiscardCount = 0;//捨て札を初期化
-                hand.handCount[deck.Count] += 1;
-            }
-            else
-            {
-                hand.handCount[deck.Count] += 1;
             }
             ImageChangeHime();
         }
