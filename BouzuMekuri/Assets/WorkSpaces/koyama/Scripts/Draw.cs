@@ -23,9 +23,9 @@ public class Draw : MonoBehaviour
     {
         if (deck.Count <= 3)//4人(仮)
         {
-            if (deck.cards.Count > 0)//山札があるとき
+            if (deck.cards1.Count > 0)//山札があるとき
             {
-                deck.drawcard = deck.cards[0];//0番目を引いたカードとして登録
+                deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
                 Yamahuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
 
                 if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
@@ -61,7 +61,7 @@ public class Draw : MonoBehaviour
                     ImageChangeTono();
                 }
                 deck.Count++;
-                deck.cards.RemoveAt(0);//0番目を削除
+                deck.cards1.RemoveAt(0);//0番目を削除
                 if (deck.Count == 4)
                 {
                     deck.Count = 0;

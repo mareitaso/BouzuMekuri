@@ -17,13 +17,17 @@ public class Deck : MonoBehaviour
     public int drawcard;//引いたカード
     public int DiscardCount;//捨て札の枚数
     [SerializeField]
-    public List<int> cards;//リストの宣言
+    public List<int> cards1,cards2;//リストの宣言
     public int Count;//ターンのカウント
 
     public HandCount hand;
     public IEnumerable<int> GetCards()
     {
-        foreach (int i in cards)//cardsの要素
+        foreach (int i in cards1)//cardsの要素
+        {
+            yield return i;//要素を戻り値に返す
+        }
+        foreach (int i in cards2)//cardsの要素
         {
             yield return i;//要素を戻り値に返す
         }
@@ -31,31 +35,55 @@ public class Deck : MonoBehaviour
 
     public void Shuffle()
     {
-        if (cards == null)
+        if (cards1 == null)
         {
-            cards = new List<int>();//初期化
+            cards1 = new List<int>();//初期化
         }
         else
         {
-            cards.Clear();//cardsを空にする
+            cards1.Clear();//cardsを空にする
         }
 
         for (int i = 0; i < 100; i++)
         {
-            cards.Add(i);
+            cards1.Add(i);
         }
 
-        int n = cards.Count;//nの初期値はカードの枚数
+        int n = cards1.Count;//nの初期値はカードの枚数
         while (n > 1)
         {
             n--;
             int k = Random.Range(0, n + 1);//
-            int temp = cards[k];//k番目のカードをtempに追加
-            cards[k] = cards[n];
-            cards[n] = temp;
+            int temp = cards1[k];//k番目のカードをtempに追加
+            cards1[k] = cards1[n];
+            cards1[n] = temp;
+        }
+
+        if (cards2 == null)
+        {
+            cards2 = new List<int>();//初期化
+        }
+        else
+        {
+            cards2.Clear();//cardsを空にする
+        }
+
+        for (int i = 0; i < 100; i++)
+        {
+            cards2.Add(i);
+        }
+
+        int m = cards2.Count;//mの初期値はカードの枚数
+        while (m > 1)
+        {
+            m--;
+            int j = Random.Range(0, m + 1);//
+            int temp = cards2[j];//j番目のカードをtempに追加
+            cards2[j] = cards2[m];
+            cards2[m] = temp;
         }
     }
-    private void Start()
+    private void Awake()
     {
         Shuffle();//実行
     }
