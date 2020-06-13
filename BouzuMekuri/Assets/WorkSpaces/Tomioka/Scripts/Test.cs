@@ -161,8 +161,8 @@ public class Test : MonoBehaviour
                 Debug.Log("武官のスキル1発動");
                 break;
 
+            //全員から1枚もらえる
             case 2:
-                //全員から1枚もらえる
                 for (int i = 0; i < 4; i++)
                 {
                     if (i != deck.Count)
@@ -179,8 +179,8 @@ public class Test : MonoBehaviour
                 Debug.Log("武官のスキル2発動");
                 break;
 
+            //逆回転
             case 3:
-                //逆回転
                 bukan = !bukan;
                 Debug.Log("武官のスキル3発動");
                 break;
