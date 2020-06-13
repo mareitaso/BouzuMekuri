@@ -9,8 +9,9 @@ public class HandCount : MonoBehaviour
     public int[] handCount; //4人分の手札
     [SerializeField]
     private Deck deck;
+    private int player;
     private const int Max = 100;//所持札の最大数
-    private const int num = 4;//参加最大人数
+    private static int num =4;//参加最大人数
     private int[] score = new int[num];//人数分の点数データ
     private int[] rank = new int[num];//人数分の順位データ
     private int[] count = new int[Max + 1];//A点の人の数
@@ -46,6 +47,12 @@ public class HandCount : MonoBehaviour
             Debug.Log(n + "位 " + "{0}P " + n + "枚\n",  handCount.Length[]-1);
         }*/
         return;
+    }
+
+    public void h()
+    {
+        player = 4;
+        Array.Resize(ref handCount, player);//人数変更
     }
     private void Result()
     {
