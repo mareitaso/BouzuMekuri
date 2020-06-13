@@ -202,6 +202,110 @@ public class Rule : MonoBehaviour
         ImageNull();
     }
 
+    //段付きカードを引いた
+    public void DantukiDraw()
+    {
+        switch (playerSkill)
+        {
+            case 1:
+                //全員から5枚もらえる
+                for (int i = 0; i < 4; i++)
+                {
+                    if (i != deck.Count)
+                    {
+                        //1枚でも持っていたら
+                        if (hand.handCount[i] > 0)
+                        {
+                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に1枚渡す");
+                            hand.handCount[deck.Count] += 5;
+                            hand.handCount[i] -= 5;
+                        }
+                    }
+                }
+                break;
+
+            case 2:
+                //全員の札と場の札をすべてもらう
+                for (int i = 0; i < 4; i++)
+                {
+                    //全員の札をもらう
+                    if (i != deck.Count)
+                    {
+                        Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
+                        hand.handCount[deck.Count] += hand.handCount[i];
+                        hand.handCount[i] = 0;
+                    }
+                }
+                //場の札をもらう
+                if (deck.DiscardCount > 0)
+                {
+                    hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
+                    deck.DiscardCount = 0;//捨て札を初期化
+                    test.ImageChangeHime();
+                }
+                else
+                {
+                    test.ImageChangeHime();
+                }
+                Debug.Log("段付きのスキル3発動");
+                break;
+
+            default:
+                Debug.LogError("段付きスキルの値がおかしいよ");
+                break;
+
+        }
+    }
+
+    //弓持ちカードを引いた
+    public void YumimotiDraw()
+    {
+        switch (playerSkill)
+        {
+            case 1:
+                //左隣のプレイヤーの手札から5枚自分の手札に加える
+                if (deck.Count == 0)
+                {
+                    //5枚以上あるか確認
+                    if (hand.handCount[3] > 5)
+                    {
+                        hand.handCount[deck.Count] += 5;
+                        hand.handCount[3] -= 5;
+                    }
+                    else
+                    {
+                        hand.handCount[deck.Count] += hand.handCount[3];
+                        hand.handCount[3] = 0;
+                    }
+                }
+                else
+                {
+                    //Count-1の人から5枚もらう
+                    if (hand.handCount[deck.Count - 1] > 5)
+                    {
+                        hand.handCount[deck.Count] += 5;
+                        hand.handCount[deck.Count - 1] -= 5;
+                    }
+                    else
+                    {
+                        hand.handCount[deck.Count] += hand.handCount[deck.Count - 1];
+                        hand.handCount[deck.Count - 1] = 0;
+                    }
+                }
+                break;
+
+            case 2:
+                //左隣のプレイヤーの手札が5枚未満の場合はその手札を全て自分の手札に加える
+                break;
+
+            default:
+                Debug.LogError("弓持ちスキルの値がおかしいよ");
+                break;
+
+        }
+    }
+
+
     private void ImageNull()
     {
         for (int i = 0; i < 4; i++)

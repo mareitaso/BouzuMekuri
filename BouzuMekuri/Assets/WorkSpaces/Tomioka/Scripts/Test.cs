@@ -175,6 +175,7 @@ public class Test : MonoBehaviour
     private void DrowHime()
     {
         Debug.Log("姫" + deck.Count + "のばん");
+        //捨て札がある場合
         if (deck.DiscardCount > 0)
         {
             hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
@@ -182,6 +183,7 @@ public class Test : MonoBehaviour
             hand.handCount[deck.Count] += 1;
             ImageChangeHime();
         }
+        //捨て札がないので山から1枚引いて効果発動
         else
         {
             hand.handCount[deck.Count] += 1;

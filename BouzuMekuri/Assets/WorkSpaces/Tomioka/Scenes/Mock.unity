@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 210867096}
   - component: {fileID: 210867095}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DrawYama1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,7 +520,7 @@ GameObject:
   - component: {fileID: 352044544}
   - component: {fileID: 352044543}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Yama2name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 414872751}
   - component: {fileID: 414872750}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Yama1name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 534151803}
   - component: {fileID: 534151802}
   m_Layer: 5
-  m_Name: CardsNun
+  m_Name: SutehudaCards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1095,6 +1095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a4f641d7749d04aa16bf7102581ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drowYama1: 0
   cardDataBase: {fileID: 11400000, guid: ea706d4cf46d2144aaedc9bfde7c368c, type: 2}
   Yamahuda1: {fileID: 1904378717}
   Yamahuda2: {fileID: 83921404}
@@ -1112,7 +1113,7 @@ MonoBehaviour:
   - {fileID: 1961603280}
   - {fileID: 534151802}
   - {fileID: 1776636979}
-  - {fileID: 1776636979}
+  - {fileID: 1165711247}
   deck: {fileID: 972917169}
   hand: {fileID: 1150689385}
   rule: {fileID: 972917172}
@@ -1278,7 +1279,7 @@ GameObject:
   - component: {fileID: 1165711248}
   - component: {fileID: 1165711247}
   m_Layer: 5
-  m_Name: Num
+  m_Name: Yama2Cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1783,7 +1784,7 @@ GameObject:
   - component: {fileID: 1588357252}
   - component: {fileID: 1588357251}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DrawYama2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1860,7 +1861,7 @@ GameObject:
   - component: {fileID: 1645357530}
   - component: {fileID: 1645357529}
   m_Layer: 5
-  m_Name: Name
+  m_Name: HikuhudaName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2091,7 +2092,7 @@ GameObject:
   - component: {fileID: 1776636980}
   - component: {fileID: 1776636979}
   m_Layer: 5
-  m_Name: Num
+  m_Name: Yama1Cards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2322,7 +2323,7 @@ GameObject:
   - component: {fileID: 1880438048}
   - component: {fileID: 1880438047}
   m_Layer: 5
-  m_Name: Name
+  m_Name: SutehudaName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
