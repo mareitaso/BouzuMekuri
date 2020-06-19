@@ -213,12 +213,18 @@ public class Rule : MonoBehaviour
                 {
                     if (i != deck.Count)
                     {
-                        //1枚でも持っていたら
-                        if (hand.handCount[i] > 0)
+                        //5枚以上持っていたら
+                        if (hand.handCount[i] > 5)
                         {
-                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に1枚渡す");
+                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に5枚渡す");
                             hand.handCount[deck.Count] += 5;
                             hand.handCount[i] -= 5;
+                        }
+                        else
+                        {
+                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に持っている枚数渡す");
+                            hand.handCount[deck.Count] += hand.handCount[i];
+                            hand.handCount[i]= 0;
                         }
                     }
                 }
@@ -260,48 +266,34 @@ public class Rule : MonoBehaviour
     //弓持ちカードを引いた
     public void YumimotiDraw()
     {
-        switch (playerSkill)
+        //左隣のプレイヤーの手札から5枚自分の手札に加える
+        if (deck.Count == 0)
         {
-            case 1:
-                //左隣のプレイヤーの手札から5枚自分の手札に加える
-                if (deck.Count == 0)
-                {
-                    //5枚以上あるか確認
-                    if (hand.handCount[3] > 5)
-                    {
-                        hand.handCount[deck.Count] += 5;
-                        hand.handCount[3] -= 5;
-                    }
-                    else
-                    {
-                        hand.handCount[deck.Count] += hand.handCount[3];
-                        hand.handCount[3] = 0;
-                    }
-                }
-                else
-                {
-                    //Count-1の人から5枚もらう
-                    if (hand.handCount[deck.Count - 1] > 5)
-                    {
-                        hand.handCount[deck.Count] += 5;
-                        hand.handCount[deck.Count - 1] -= 5;
-                    }
-                    else
-                    {
-                        hand.handCount[deck.Count] += hand.handCount[deck.Count - 1];
-                        hand.handCount[deck.Count - 1] = 0;
-                    }
-                }
-                break;
-
-            case 2:
-                //左隣のプレイヤーの手札が5枚未満の場合はその手札を全て自分の手札に加える
-                break;
-
-            default:
-                Debug.LogError("弓持ちスキルの値がおかしいよ");
-                break;
-
+            //5枚以上あるか確認
+            if (hand.handCount[3] > 5)
+            {
+                hand.handCount[deck.Count] += 5;
+                hand.handCount[3] -= 5;
+            }
+            else
+            {
+                hand.handCount[deck.Count] += hand.handCount[3];
+                hand.handCount[3] = 0;
+            }
+        }
+        else
+        {
+            //Count-1の人から5枚もらう
+            if (hand.handCount[deck.Count - 1] > 5)
+            {
+                hand.handCount[deck.Count] += 5;
+                hand.handCount[deck.Count - 1] -= 5;
+            }
+            else
+            {
+                hand.handCount[deck.Count] += hand.handCount[deck.Count - 1];
+                hand.handCount[deck.Count - 1] = 0;
+            }
         }
     }
 
