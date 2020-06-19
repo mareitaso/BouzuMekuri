@@ -19,19 +19,15 @@ public class FadeOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.C))
+        if (IsFadeOut)
         {
-            Debug.Log("フェードアウト開始");
-            if (IsFadeOut)
+            FadeDeltaTime += Time.deltaTime;
+            if (FadeDeltaTime >= FadeOutSeconds)
             {
-                FadeDeltaTime += Time.deltaTime;
-                if (FadeDeltaTime >= FadeOutSeconds)
-                {
-                    FadeDeltaTime = FadeOutSeconds;
-                    IsFadeOut = false;
-                }
-                audioSource.volume = (float)(1.0 - FadeDeltaTime / FadeOutSeconds);
+                FadeDeltaTime = FadeOutSeconds;
+                IsFadeOut = false;
             }
+            audioSource.volume = (float)(1.0 - FadeDeltaTime / FadeOutSeconds);
         }
     }
 }
