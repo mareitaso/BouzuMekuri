@@ -17,7 +17,7 @@ public class Deck : MonoBehaviour
     public int drawcard;//引いたカード
     public int DiscardCount;//捨て札の枚数
     [SerializeField]
-    public List<int> cards1,cards2;//リストの宣言
+    public List<int> cards1, cards2;//リストの宣言
     public int Count;//ターンのカウント
 
     public HandCount hand;
@@ -68,19 +68,10 @@ public class Deck : MonoBehaviour
             cards2.Clear();//cardsを空にする
         }
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 50; i++)
         {
-            cards2.Add(i);
-        }
-
-        int m = cards2.Count;//mの初期値はカードの枚数
-        while (m > 1)
-        {
-            m--;
-            int j = Random.Range(0, m + 1);//
-            int temp = cards2[j];//j番目のカードをtempに追加
-            cards2[j] = cards2[m];
-            cards2[m] = temp;
+            cards2.Add(cards1[i]);
+            cards1.RemoveAt(i);
         }
     }
     private void Awake()
