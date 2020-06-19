@@ -17,8 +17,13 @@ public class Draw : MonoBehaviour
     [SerializeField]
     private HandCount hand;
 
+    [SerializeField]
+    private int Count;
+
     public void draw()
     {
+        Count = hand.handCount.Length;
+        Debug.Log(Count+"だよ");
         if (deck.Count <= 3)//4人(仮)
         {
             if (deck.cards.Count > 0)//山札があるとき
@@ -60,6 +65,11 @@ public class Draw : MonoBehaviour
                 if (deck.Count == 4)
                 {
                     deck.Count = 0;
+                }
+                //手札シャッフル
+                if(Count==20||Count==40||Count==60||Count==80)
+                {
+                    FieldFlag.instance.Distribution();
                 }
             }
             else

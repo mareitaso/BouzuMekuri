@@ -151,7 +151,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck: {fileID: 836581088}
   hand: {fileID: 836581087}
-  i: 3
 --- !u!4 &150795494
 Transform:
   m_ObjectHideFlags: 0
@@ -176,6 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 338964510}
   - component: {fileID: 338964509}
+  - component: {fileID: 338964511}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -218,6 +218,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &338964511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338964508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78790aebf2cbe7b4fb8aae995d6fc3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllDrawAdd1: 0
+  HandDistribution: 0
+  CemeteryAdd3: 0
+  deck: {fileID: 836581088}
+  hand: {fileID: 836581087}
 --- !u!1 &368588804
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +462,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handCount: 
   deck: {fileID: 836581088}
-  ruletest: {fileID: 150795493}
 --- !u!114 &836581088
 MonoBehaviour:
   m_ObjectHideFlags: 0
