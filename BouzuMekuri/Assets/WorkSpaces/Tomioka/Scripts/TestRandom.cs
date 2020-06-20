@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,9 +36,32 @@ public class TestRandom : MonoBehaviour
 
     public void DivideButton()
     {
-        int a = Random.Range(0, Num1);
-        int b = Random.Range(0, Num2);
-        int c = Random.Range(0, Num3);
-        int d = Random.Range(0, Num4);
+        int i = Random.Range(0, allNum);
+        int j = Random.Range(0, allNum - i);
+        int k = Random.Range(0, allNum - i - j);
+
+        Num1 = i;
+        Num2 = j;
+        Num3 = k;
+        Num4 = allNum - i - j - k;
+    }
+
+    public void DButton()
+    {
+        int i = allNum / 4;
+        int j = allNum / 4;
+        int k = allNum / 4;
+        int l = allNum - i - j - k;
+
+        int a = Random.Range(i - 5, i);
+        int b = Random.Range(i - 5, j);
+        int c = Random.Range(i - 5, k);
+        int d = Random.Range(i - 5, l);
+
+        Num1 = i - a + b;
+        Num2 = j - b + a;
+        Num3 = k - c + d;
+        Num4 = l - d + c;
     }
 }
+

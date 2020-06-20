@@ -36,7 +36,7 @@ public class Test : MonoBehaviour
         if (deck.cards1.Count > 0)//山札1があるとき
         {
             drowYama1 = true;
-            deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
+            deck.drawcard = deck.cards1[AA - 1];//0番目を引いたカードとして登録
             Hikihuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
 
             //坊主を引く
@@ -52,7 +52,7 @@ public class Test : MonoBehaviour
             //天皇を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tennnou)
             {
-                rule.TennouDraw();
+                TennouDraw();
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
             //殿を引く
@@ -63,14 +63,14 @@ public class Test : MonoBehaviour
             //武官を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bukan)
             {
-                rule.BukanDraw();
+                BukanDraw();
                 ImageChangeTono();
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
 
             deck.cards1.RemoveAt(0);//0番目を削除
             TextChange();
-            rule.ReverseRotation();
+            ReverseRotation();
         }
         //山札2にカードがある場合
         else if (deck.cards2.Count > 0)
@@ -84,7 +84,7 @@ public class Test : MonoBehaviour
     }
     public void Drow2()
     {
-        if (deck.cards2.Count > 0)//山札1があるとき
+        if (deck.cards2.Count >= 0)//山札1があるとき
         {
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
@@ -161,43 +161,6 @@ public class Test : MonoBehaviour
         PlayerCards[6].text = deck.cards2.Count.ToString();
     }
 
-    //坊主を引いた処理
-    private void DrowBouzu()
-    {
-        Debug.Log("坊主" + deck.Count + "のばん");
-        hand.handCount[deck.Count] += 1;
-        deck.DiscardCount += hand.handCount[deck.Count];//手札を捨て札に加算
-        hand.handCount[deck.Count] = 0;//手札を初期化
-        ImageChangeBouzu();
-    }
-
-    //姫を引いた処理
-    private void DrowHime()
-    {
-        Debug.Log("姫" + deck.Count + "のばん");
-        //捨て札がある場合
-        if (deck.DiscardCount > 0)
-        {
-            hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
-            deck.DiscardCount = 0;//捨て札を初期化
-            hand.handCount[deck.Count] += 1;
-            ImageChangeHime();
-        }
-        //捨て札がないので山から1枚引いて効果発動
-        else
-        {
-            hand.handCount[deck.Count] += 1;
-            ImageChangeHime();
-        }
-    }
-
-    //殿を引いた処理
-    private void DrowTono()
-    {
-        Debug.Log("殿" + deck.Count + "のばん");
-        hand.handCount[deck.Count] += 1;//手札に追加
-        ImageChangeTono();
-    }
 
     //どちらの山札もカードがなくなったときの処理
     private void GameEnd()
