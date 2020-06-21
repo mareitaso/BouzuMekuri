@@ -37,7 +37,7 @@ public class Test : MonoBehaviour
         {
             drowYama1 = true;
             deck.drawcard = deck.cards1[AA - 1];//0番目を引いたカードとして登録
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+            Hikihuda.sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
 
             //坊主を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
@@ -88,7 +88,7 @@ public class Test : MonoBehaviour
         {
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+            Hikihuda.sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
 
             //坊主を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
@@ -136,18 +136,18 @@ public class Test : MonoBehaviour
 
     public void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
     }
     public void ImageChangeHime()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
         Sutehuda.sprite = null;
     }
 
     public void ImageChangeBouzu()
     {
         Player[deck.Count].sprite = null;
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/" + (deck.drawcard));
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/Cards" + (deck.drawcard));
     }
 
     private void TextChange()

@@ -86,7 +86,7 @@ public class Deck : MonoBehaviour
             if (cards.Count > 0)//山札があるとき
             {
                 drawcard = cards[0];//0番目を引いたカードとして登録
-                Yamahuda.sprite = Resources.Load<Sprite>("Images/" + drawcard);
+                Yamahuda.sprite = Resources.Load<Sprite>("Images/Cards" + drawcard);
                 if (drawcard < 12)
                 {
                     Debug.Log("坊主" + Count + "のばん");
@@ -136,17 +136,17 @@ public class Deck : MonoBehaviour
 
     private void ImageChangeTono()
     {
-        Player[Count].sprite = Resources.Load<Sprite>("Images/" + drawcard);
+        Player[Count].sprite = Resources.Load<Sprite>("Images/Cards" + drawcard);
     }
     private void ImageChangeHime()
     {
-        Player[Count].sprite = Resources.Load<Sprite>("Images/" + drawcard);
+        Player[Count].sprite = Resources.Load<Sprite>("Images/Cards" + drawcard);
         Sutehuda.sprite = null;
     }
 
     private void ImageChangeBouzu()
     {
         Player[Count].sprite = null;
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/" + drawcard);
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/Cards" + drawcard);
     }*/
 }

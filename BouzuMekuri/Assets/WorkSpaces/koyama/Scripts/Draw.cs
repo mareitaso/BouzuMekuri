@@ -26,7 +26,7 @@ public class Draw : MonoBehaviour
             if (deck.cards1.Count > 0)//山札があるとき
             {
                 deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
-                Yamahuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+                Yamahuda.sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
 
                 if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
                 //if (deck.drawcard < 12)
@@ -79,17 +79,17 @@ public class Draw : MonoBehaviour
 
     private void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
     }
     private void ImageChangeHime()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
         Sutehuda.sprite = null;
     }
 
     private void ImageChangeBouzu()
     {
         Player[deck.Count].sprite = null;
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/" + deck.drawcard);
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
     }
 }
