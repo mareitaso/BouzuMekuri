@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BouzuDraw : MonoBehaviour
+public class BouzuDraw : SingletonBehaviour<BouzuDraw>
 {
     [SerializeField]
     private Deck deck;

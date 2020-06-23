@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YumimotiDrow : MonoBehaviour
+public class YumimotiDrow : SingletonBehaviour<BouzuDrow>
 {
     [SerializeField]
     private Deck deck;

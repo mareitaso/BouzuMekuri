@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HimeDraw : MonoBehaviour
+public class HimeDraw : SingletonBehaviour<HimeDraw>
 {
     [SerializeField]
     private Deck deck;
