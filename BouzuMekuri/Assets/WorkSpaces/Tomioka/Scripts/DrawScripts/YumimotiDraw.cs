@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YumimotiDrow : SingletonBehaviour<BouzuDrow>
+public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
 {
     [SerializeField]
     private Deck deck;
     [SerializeField]
     private HandCount hand;
 
-    public void Yumimoti_Drow() 
+    public void Yumimoti_Draw()
     {
+        //スキル有り無し
+        //if ()
+        //    else { }
+
+
         //左隣からカードを5枚
         if (deck.Count == 0)
         {

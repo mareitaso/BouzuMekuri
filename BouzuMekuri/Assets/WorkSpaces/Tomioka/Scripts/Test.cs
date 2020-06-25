@@ -36,41 +36,41 @@ public class Test : MonoBehaviour
         if (deck.cards1.Count > 0)//山札1があるとき
         {
             drowYama1 = true;
-            deck.drawcard = deck.cards1[AA - 1];//0番目を引いたカードとして登録
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
+            deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
+            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
 
             //坊主を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
             {
-                DrowBouzu();
+                BouzuDraw.instance.Bouzu_Draw();
             }
             //姫を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Hime)
             {
-                DrowHime();
+                HimeDraw.instance.Hime_Draw();
             }
             //天皇を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tennnou)
             {
-                TennouDraw();
+                TennouDraw.instance.Tennou_Draw();
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
             //殿を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
             {
-                DrowTono();
+                TonoDraw.instance.Tono_Draw();
             }
             //武官を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bukan)
             {
-                BukanDraw();
+                BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
 
             deck.cards1.RemoveAt(0);//0番目を削除
             TextChange();
-            ReverseRotation();
+            BukanDraw.instance.ReverseRotation();
         }
         //山札2にカードがある場合
         else if (deck.cards2.Count > 0)
@@ -88,40 +88,40 @@ public class Test : MonoBehaviour
         {
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
+            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
 
             //坊主を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
             {
-                DrowBouzu();
+                BouzuDraw.instance.Bouzu_Draw();
             }
             //姫を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Hime)
             {
-                DrowHime();
+                HimeDraw.instance.Hime_Draw();
             }
             //天皇を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tennnou)
             {
-                rule.TennouDraw();
+                TennouDraw.instance.Tennou_Draw();
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
             //殿を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
             {
-                DrowTono();
+                TonoDraw.instance.Tono_Draw();
             }
             //武官を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bukan)
             {
-                rule.BukanDraw();
+                BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
 
             deck.cards2.RemoveAt(0);//0番目を削除
             TextChange();
-            rule.ReverseRotation();
+            BukanDraw.instance.ReverseRotation();
         }
         //山札2にカードがある場合
         else if (deck.cards1.Count > 0)
@@ -136,18 +136,18 @@ public class Test : MonoBehaviour
 
     public void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
     }
     public void ImageChangeHime()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Cards" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
         Sutehuda.sprite = null;
     }
 
     public void ImageChangeBouzu()
     {
         Player[deck.Count].sprite = null;
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/Cards" + (deck.drawcard));
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
     }
 
     private void TextChange()

@@ -2,21 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BukanDraw : MonoBehaviour
+public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
 {
     [SerializeField]
     private Deck deck;
     [SerializeField]
     private HandCount hand;
+    [SerializeField]
+    private Test test;
 
     //trueの時は時計回り順
     private bool clockWise = true;
+
+
+    private int playerSkill = 0;
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            playerSkill = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            playerSkill = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            playerSkill = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            playerSkill = 3;
+        }
+
+    }
 
     //武官のカードを引いた
     public void Bukan_Draw()
     {
         switch (playerSkill)
         {
+            //スキル無し
+            case 0:
+                Debug.Log("武官のスキルはなし");
+                break;
+
             case 1:
                 //左隣からカードを5枚
                 if (deck.Count == 0)

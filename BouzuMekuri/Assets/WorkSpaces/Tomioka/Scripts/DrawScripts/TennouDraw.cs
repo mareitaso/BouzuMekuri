@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TennouDraw : MonoBehaviour
+public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
 {
     [SerializeField]
     private Deck deck;
@@ -14,11 +14,39 @@ public class TennouDraw : MonoBehaviour
     private CardDataBase cardDataBase;
 
 
+    private int playerSkill = 0;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            playerSkill = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            playerSkill = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            playerSkill = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            playerSkill = 3;
+        }
+
+    }
+
     //天皇カードを引いた
     public void Tennou_Draw()
     {
         switch (playerSkill)
         {
+            //スキル無し
+            case 0:
+                Debug.Log("天皇のスキルは無し");
+                break;
+
             case 1:
                 //山札1から引く場合
                 if (test.drowYama1 == true)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SemimaruDrow : MonoBehaviour
+public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
 {
 
 }

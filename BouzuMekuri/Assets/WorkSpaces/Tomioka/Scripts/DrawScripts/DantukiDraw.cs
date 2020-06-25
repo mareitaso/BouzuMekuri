@@ -2,18 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DantukiDraw : MonoBehaviour
+public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
 {
     [SerializeField]
     private Deck deck;
     [SerializeField]
     private HandCount hand;
+    [SerializeField]
+    private Test test;
+
+
+    private int playerSkill = 0;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            playerSkill = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            playerSkill = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            playerSkill = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            playerSkill = 3;
+        }
+
+    }
 
     //段付きカードを引いた
     public void Dantuki_Draw()
     {
         switch (playerSkill)
         {
+            //スキル無し
+            case 0:
+                Debug.Log("段付きのスキルは無し");
+                break;
+
             case 1:
                 //全員から5枚もらえる
                 for (int i = 0; i < 4; i++)

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HimeDraw : SingletonBehaviour<HimeDraw>
+public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
 {
     [SerializeField]
     private Deck deck;
     [SerializeField]
     private HandCount hand;
+    [SerializeField]
+    private Test test;
 
     //姫を引いた処理
     public void Hime_Draw()
@@ -19,13 +21,13 @@ public class HimeDraw : SingletonBehaviour<HimeDraw>
             hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
             deck.DiscardCount = 0;//捨て札を初期化
             hand.handCount[deck.Count] += 1;
-            ImageChangeHime();
+            test.ImageChangeHime();
         }
         //捨て札がないので山から1枚引いて効果発動
         else
         {
             hand.handCount[deck.Count] += 1;
-            ImageChangeHime();
+            test.ImageChangeHime();
         }
     }
 }
