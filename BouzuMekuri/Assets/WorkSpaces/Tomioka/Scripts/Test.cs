@@ -141,12 +141,12 @@ public class Test : MonoBehaviour
     public void ImageChangeHime()
     {
         Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-        Sutehuda.sprite = null;
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/Null"); ;
     }
 
     public void ImageChangeBouzu()
     {
-        Player[deck.Count].sprite = null;
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
         Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
     }
 
@@ -165,8 +165,8 @@ public class Test : MonoBehaviour
     //どちらの山札もカードがなくなったときの処理
     private void GameEnd()
     {
-        Yamahuda1.sprite = null;
-        Yamahuda2.sprite = null;
+        Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
+        Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
         Debug.LogError("終わり");
         ImageChangeTono();
         hand.Settlement();

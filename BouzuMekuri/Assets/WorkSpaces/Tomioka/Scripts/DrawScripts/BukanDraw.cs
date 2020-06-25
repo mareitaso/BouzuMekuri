@@ -140,7 +140,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
         {
             if (hand.handCount[i] == 0)
             {
-                test.Player[i].sprite = null;
+                test.Player[i].sprite = Resources.Load<Sprite>("Images/Null");
             }
         }
     }
