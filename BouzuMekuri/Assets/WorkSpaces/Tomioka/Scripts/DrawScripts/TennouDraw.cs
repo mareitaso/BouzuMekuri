@@ -115,7 +115,7 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 Debug.LogError("天皇スキルの値がおかしいよ");
                 break;
         }
-        if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tono)
+        if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
         {
             test.ImageChangeTono();
         }

@@ -31,7 +31,7 @@ public class Test : MonoBehaviour
         TextChange();
     }
 
-    public void Drow1()
+    public void Draw1()
     {
         if (deck.cards1.Count > 0)//山札1があるとき
         {
@@ -39,8 +39,34 @@ public class Test : MonoBehaviour
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
             Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
 
+            //武官を引くかつ武官スキルあり
+            if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Bukan)
+            {
+                BukanDraw.instance.Bukan_Draw();
+                ImageChangeTono();
+                hand.handCount[deck.Count] += 1;//手札に追加
+            }
+            //弓持ちを引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Yumimoti)
+            {
+                YumimotiDraw.instance.Yumimoti_Draw();
+                ImageChangeTono();
+                hand.handCount[deck.Count] += 1;//手札に追加
+            }
+            //天皇を引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
+            {
+                TennouDraw.instance.Tennou_Draw();
+                hand.handCount[deck.Count] += 1;//手札に追加
+            }
+            //段付きを引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
+            {
+                DantukiDraw.instance.Dantuki_Draw();
+                hand.handCount[deck.Count] += 1;//手札に追加
+            }
             //坊主を引く
-            if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
             {
                 BouzuDraw.instance.Bouzu_Draw();
             }
@@ -49,23 +75,10 @@ public class Test : MonoBehaviour
             {
                 HimeDraw.instance.Hime_Draw();
             }
-            //天皇を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tennnou)
-            {
-                TennouDraw.instance.Tennou_Draw();
-                hand.handCount[deck.Count] += 1;//手札に追加
-            }
             //殿を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
             {
                 TonoDraw.instance.Tono_Draw();
-            }
-            //武官を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bukan)
-            {
-                BukanDraw.instance.Bukan_Draw();
-                ImageChangeTono();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
 
             deck.cards1.RemoveAt(0);//0番目を削除
@@ -82,7 +95,7 @@ public class Test : MonoBehaviour
             GameEnd();
         }
     }
-    public void Drow2()
+    public void Draw2()
     {
         if (deck.cards2.Count >= 0)//山札1があるとき
         {
@@ -90,8 +103,34 @@ public class Test : MonoBehaviour
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
             Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
 
+            //武官を引くかつ武官スキルあり
+            if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Bukan)
+            {
+                BukanDraw.instance.Bukan_Draw();
+                ImageChangeTono();
+                hand.handCount[deck.Count] += 1;//手札に追加
+            }
+            //弓持ちを引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Yumimoti)
+            {
+                YumimotiDraw.instance.Yumimoti_Draw();
+                ImageChangeTono();
+                hand.handCount[deck.Count] += 1;//手札に追加
+            }
+            //天皇を引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
+            {
+                TennouDraw.instance.Tennou_Draw();
+                hand.handCount[deck.Count] += 1;//手札に追加
+            }
+            //段付きを引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
+            {
+                DantukiDraw.instance.Dantuki_Draw();
+                hand.handCount[deck.Count] += 1;//手札に追加
+            }
             //坊主を引く
-            if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
             {
                 BouzuDraw.instance.Bouzu_Draw();
             }
@@ -100,23 +139,10 @@ public class Test : MonoBehaviour
             {
                 HimeDraw.instance.Hime_Draw();
             }
-            //天皇を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tennnou)
-            {
-                TennouDraw.instance.Tennou_Draw();
-                hand.handCount[deck.Count] += 1;//手札に追加
-            }
             //殿を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
             {
                 TonoDraw.instance.Tono_Draw();
-            }
-            //武官を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bukan)
-            {
-                BukanDraw.instance.Bukan_Draw();
-                ImageChangeTono();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
 
             deck.cards2.RemoveAt(0);//0番目を削除

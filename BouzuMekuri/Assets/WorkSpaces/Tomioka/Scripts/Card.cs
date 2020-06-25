@@ -12,22 +12,19 @@ public class Card : ScriptableObject
         Bouzu,
         Hime,
         Tono,
-        Tennnou,
-        Bukan,
     }
     public enum SecondJob
     {
-        Semimaru,
-        Tono,
-        Hime,
         Bukan,
+        Tennou,
+        Semimaru,
         None
     }
     public enum ThirdJob
     {
+        Yumimoti,
+        Dantuki,
         None,
-        Arrow,
-        GreatPrincess
     }
 
     //　アイテムの種類
