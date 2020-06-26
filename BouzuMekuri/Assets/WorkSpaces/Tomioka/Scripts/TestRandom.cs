@@ -13,7 +13,6 @@ public class TestRandom : MonoBehaviour
 
     private int allNum;
 
-    // Start is called before the first frame update
     void Start()
     {
         Num1 = Random.Range(0, 25);
@@ -24,7 +23,6 @@ public class TestRandom : MonoBehaviour
         allNum = Num1 + Num2 + Num3 + Num4;
     }
 
-    // Update is called once per frame
     void Update()
     {
         text1.text = Num1.ToString();
@@ -46,6 +44,11 @@ public class TestRandom : MonoBehaviour
         Num4 = allNum - i - j - k;
     }
 
+    /// <summary>
+    /// 
+    /// 修正必須
+    /// 
+    /// </summary>
     public void DButton()
     {
         int i = allNum / 4;

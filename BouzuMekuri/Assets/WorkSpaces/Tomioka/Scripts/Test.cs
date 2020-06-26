@@ -23,8 +23,6 @@ public class Test : MonoBehaviour
     private Deck deck;
     [SerializeField]
     private HandCount hand;
-    [SerializeField]
-    private Rule rule;
 
     private void Start()
     {
