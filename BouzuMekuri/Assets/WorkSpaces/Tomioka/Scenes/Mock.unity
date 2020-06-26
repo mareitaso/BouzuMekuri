@@ -1131,7 +1131,6 @@ GameObject:
   - component: {fileID: 972917171}
   - component: {fileID: 972917170}
   - component: {fileID: 972917169}
-  - component: {fileID: 972917172}
   m_Layer: 0
   m_Name: DeckController
   m_TagString: Untagged
@@ -1190,7 +1189,6 @@ MonoBehaviour:
   - {fileID: 1165711247}
   deck: {fileID: 972917169}
   hand: {fileID: 1150689385}
-  rule: {fileID: 972917172}
 --- !u!4 &972917171
 Transform:
   m_ObjectHideFlags: 0
@@ -1205,20 +1203,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &972917172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972917168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce88c61213cfdf4f97a520d8ffde3ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hand: {fileID: 1150689385}
-  test: {fileID: 972917170}
 --- !u!1 &1003503225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handCount: 00000000000000000000000000000000
-  deck: {fileID: 0}
+  deck: {fileID: 972917169}
 --- !u!4 &1150689386
 Transform:
   m_ObjectHideFlags: 0

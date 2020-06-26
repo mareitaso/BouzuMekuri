@@ -38,6 +38,7 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
     //段付きカードを引いた
     public void Dantuki_Draw()
     {
+        Debug.Log(deck.Count + "のばん");
         switch (playerSkill)
         {
             //スキル無し

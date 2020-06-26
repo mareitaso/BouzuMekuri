@@ -28,6 +28,18 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
         {
             hand.handCount[deck.Count] += 1;
             test.ImageChangeHime();
+            //deck.cards1.RemoveAt(0);//0番目を削除
+
+            //if (test.drowYama1 == true)
+            //{
+            //    test.Draw1();
+            //    deck.Count--;
+            //}
+            //else
+            //{
+            //    test.Draw2();
+            //    deck.Count--;
+            //}
         }
     }
 }

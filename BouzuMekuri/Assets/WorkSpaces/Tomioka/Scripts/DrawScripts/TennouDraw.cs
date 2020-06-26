@@ -40,6 +40,7 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
     //天皇カードを引いた
     public void Tennou_Draw()
     {
+        Debug.Log(deck.Count + "のばん");
         switch (playerSkill)
         {
             //スキル無し

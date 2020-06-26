@@ -35,7 +35,11 @@ public class Test : MonoBehaviour
         {
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
+
+            /// <summary>
+            /// ここにスキル判別してifで囲む
+            /// </summary>
 
             //武官を引くかつ武官スキルあり
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Bukan)
@@ -51,6 +55,12 @@ public class Test : MonoBehaviour
                 ImageChangeTono();
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
+
+
+            /// <summary>
+            /// ここにスキル判別してifで囲む
+            /// </summary>
+
             //天皇を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
             {
@@ -58,10 +68,17 @@ public class Test : MonoBehaviour
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
             //段付きを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 DantukiDraw.instance.Dantuki_Draw();
                 hand.handCount[deck.Count] += 1;//手札に追加
+            }
+
+
+            //偉い姫を引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
+            {
+
             }
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
@@ -77,6 +94,10 @@ public class Test : MonoBehaviour
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
             {
                 TonoDraw.instance.Tono_Draw();
+            }
+            else
+            {
+                Debug.LogError("カードの種類がおかしい");
             }
 
             deck.cards1.RemoveAt(0);//0番目を削除
@@ -95,11 +116,11 @@ public class Test : MonoBehaviour
     }
     public void Draw2()
     {
-        if (deck.cards2.Count >= 0)//山札1があるとき
+        if (deck.cards2.Count > 0)//山札1があるとき
         {
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" +( deck.drawcard+1));
 
             //武官を引くかつ武官スキルあり
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Bukan)
@@ -130,7 +151,7 @@ public class Test : MonoBehaviour
             //偉い姫を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
             {
-            
+
             }
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
@@ -146,6 +167,10 @@ public class Test : MonoBehaviour
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
             {
                 TonoDraw.instance.Tono_Draw();
+            }
+            else
+            {
+                Debug.LogError("カードの種類がおかしい");
             }
 
             deck.cards2.RemoveAt(0);//0番目を削除
@@ -165,11 +190,11 @@ public class Test : MonoBehaviour
 
     public void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" +( deck.drawcard+1));
     }
     public void ImageChangeHime()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" +( deck.drawcard+1));
         Sutehuda.sprite = Resources.Load<Sprite>("Images/Null"); ;
     }
 

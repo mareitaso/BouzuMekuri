@@ -42,6 +42,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     //武官のカードを引いた
     public void Bukan_Draw()
     {
+        Debug.Log(deck.Count + "のばん");
         switch (playerSkill)
         {
             //スキル無し
