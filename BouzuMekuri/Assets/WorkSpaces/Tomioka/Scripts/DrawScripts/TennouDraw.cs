@@ -18,19 +18,19 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             playerSkill = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             playerSkill = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             playerSkill = 2;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Keypad3))
         {
             playerSkill = 3;
         }
@@ -116,19 +116,21 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 Debug.LogError("天皇スキルの値がおかしいよ");
                 break;
         }
-        if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
-        {
-            test.ImageChangeTono();
-        }
-        //天皇のカードが姫の場合
-        else
-        {
-            if (deck.DiscardCount > 0)
-            {
-                hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
-                deck.DiscardCount = 0;//捨て札を初期化
-            }
-            test.ImageChangeHime();
-        }
+        //if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
+        //{
+        //    test.ImageChangeTono();
+        //}
+        ////天皇のカードが姫の場合
+        //else
+        //{
+        //    if (deck.DiscardCount > 0)
+        //    {
+        //        hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
+        //        deck.DiscardCount = 0;//捨て札を初期化
+        //    }
+        //    test.ImageChangeHime();
+        //}
+
+        hand.handCount[deck.Count] += 1;//手札に追加
     }
 }

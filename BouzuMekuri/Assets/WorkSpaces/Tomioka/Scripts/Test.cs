@@ -78,7 +78,7 @@ public class Test : MonoBehaviour
             //偉い姫を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
             {
-
+                GreatHimeDraw.instance.GreatHime_Draw();
             }
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
@@ -190,11 +190,11 @@ public class Test : MonoBehaviour
 
     public void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" +( deck.drawcard+1));
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
     }
     public void ImageChangeHime()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" +( deck.drawcard+1));
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
         Sutehuda.sprite = Resources.Load<Sprite>("Images/Null"); ;
     }
 
