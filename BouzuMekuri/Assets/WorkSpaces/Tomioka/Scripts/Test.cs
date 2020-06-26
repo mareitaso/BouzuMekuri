@@ -204,7 +204,7 @@ public class Test : MonoBehaviour
         Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
     }
 
-    private void TextChange()
+    public void TextChange()
     {
         PlayerCards[0].text = hand.handCount[0].ToString();
         PlayerCards[1].text = hand.handCount[1].ToString();
