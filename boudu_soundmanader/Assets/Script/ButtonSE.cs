@@ -17,6 +17,7 @@ public class ButtonSE : MonoBehaviour
     void Update()
     { }
 
+    //ボタンを押したらSEが流れる
     public void OnClick()
     {
         Debug.Log("有効");
