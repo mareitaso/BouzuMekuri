@@ -20,7 +20,7 @@ public class ButtonSE : MonoBehaviour
     //ボタンを押したらSEが流れる
     public void OnClick()
     {
-        Debug.Log("有効");
         audioSource.Play();
+        Debug.Log("有効");
     }
 }
