@@ -16,7 +16,8 @@ public class SoundManader : MonoBehaviour
         SE3,  //カードを加える  
         SE4,  //カードを捨てる  
         SE5,  //スキル発動      
-        SE6   //ゲーム終了      
+        SE6,  //ゲーム終了  
+        SE7   //決定
 
     };
 
