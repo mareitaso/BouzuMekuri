@@ -15,3 +15,4 @@ MonoBehaviour:
   firstJob: 1
   secondJob: 3
   thirdJob: 2
+  otherJob: 0

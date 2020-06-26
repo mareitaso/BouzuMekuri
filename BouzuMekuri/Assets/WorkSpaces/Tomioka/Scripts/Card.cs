@@ -26,11 +26,17 @@ public class Card : ScriptableObject
         Dantuki,
         None,
     }
+    public enum OtherJob
+    {
+        GreatHime,
+        None,
+    }
 
     //　アイテムの種類
     public FirstJob firstJob;
     public SecondJob secondJob;
     public ThirdJob thirdJob;
+    public OtherJob otherJob;
 
     public FirstJob GetFirstJob()
     {
@@ -45,5 +51,10 @@ public class Card : ScriptableObject
     public ThirdJob GetThirdJob()
     {
         return thirdJob;
+    }
+
+    public OtherJob GetOtherJob()
+    {
+        return otherJob;
     }
 }

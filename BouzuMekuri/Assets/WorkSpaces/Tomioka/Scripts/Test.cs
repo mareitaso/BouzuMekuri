@@ -122,10 +122,15 @@ public class Test : MonoBehaviour
                 hand.handCount[deck.Count] += 1;//手札に追加
             }
             //段付きを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 DantukiDraw.instance.Dantuki_Draw();
                 hand.handCount[deck.Count] += 1;//手札に追加
+            }
+            //偉い姫を引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
+            {
+            
             }
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
