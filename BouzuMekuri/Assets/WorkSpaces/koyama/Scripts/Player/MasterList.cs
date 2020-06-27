@@ -25,6 +25,7 @@ public class MasterList : MonoBehaviour
     };
     private void Start()
     {
+        /*
         foreach(var pmodel in playerModels)
         {
             var max = Random.Range(3, 6);
@@ -32,43 +33,45 @@ public class MasterList : MonoBehaviour
             {
                 pmodel.Card.Add(Random.Range(5, 10));
             }
-        }
-    }
-    public void Awake()
-    {/*
-        //プレイヤーリスト
-        foreach (var value in Enum.GetValues(typeof(Player)))
-        {
-            playerlist.Add((Player)value);
-        }
-
-        foreach (var num in playerlist)
-        {
-            UnityEngine.Debug.LogFormat("playerlist [{0}]:{1}",(int)num,num);
-        }
-        /*
-        list.Add(new List<int>());
-        for (int k = 0; k < 4; k++)
-        {
-            list[k].Add(k+1);
-            UnityEngine.Debug.Log(list);
         }*/
-    }
-    //手札の数の枚数をランダムに並び替え
-    public void Shuffle1()
-    {
+        //リストの初期化
         if (list.Count > 0)
         {
             list.ForEach(cardList => cardList.Clear());
             list.Clear();
         }
+        //リストに追加
         foreach (var pmodel in playerModels)
         {
             list.Add(pmodel.Card);
         }
-        var countList = list.Select(cardList => cardList.Count).ToList();//countListにcardListの数を格納
-        List<int> totalList = new List<int>();//要素の格納リストの宣言
-        list.ForEach(cardList => totalList.AddRange(cardList));//リストに要素を全部格納
+
+    }
+    //手札のカード番号と枚数をランダムに並び替え
+    public void Shuffle1()
+    {
+        /*
+        //リストの初期化
+        if (list.Count > 0)
+        {
+            list.ForEach(cardList => cardList.Clear());
+            list.Clear();
+        }
+        
+        foreach (var pmodel in playerModels)
+        {
+            list.Add(pmodel.Card);
+        }
+        */
+        //countListにcardListの数を格納
+        var countList = list.Select(cardList => cardList.Count).ToList();
+        //要素の格納リストの宣言
+        List<int> totalList = new List<int>();
+        //リストに要素を全部格納
+        list.ForEach(cardList => totalList.AddRange(cardList));
+
+
+
         /*
         //1pの1枚目を表示
         UnityEngine.Debug.Log(list[0][0]);

@@ -25,7 +25,8 @@ public class Draw : MonoBehaviour
     
     public void draw()
     {
-        Count = 0;//hand.handCount.Length;
+        //ml.Shuffle1();
+        //Count = 0;//hand.handCount.Length;
         //Debug.Log(Count+"だよ");
         if (deck.Count <= 3)//4人(仮)
         {
@@ -37,6 +38,7 @@ public class Draw : MonoBehaviour
                 if (deck.drawcard < 12)
                 {
                     Debug.Log("坊主" + deck.Count + "のばん");
+                    
                     ml.list[deck.Count].Add(deck.drawcard); 
                     //hand.handCount[deck.Count] += 1;
                     //deck.DiscardCount += hand.handCount[deck.Count];//手札を捨て札に加算
@@ -70,6 +72,12 @@ public class Draw : MonoBehaviour
                     //hand.handCount[deck.Count] += 1;//手札に追加
                     //ImageChangeTono();
                 }
+                Count++;
+                if(Count == 2)
+                {
+                    ml.Shuffle1();
+                    Debug.Log(ml.list);
+                }
                 deck.Count++;
                 deck.cards.RemoveAt(0);//0番目を削除
                 if (deck.Count == 4)
@@ -88,6 +96,7 @@ public class Draw : MonoBehaviour
                 Debug.LogError("終わり");
                 //ImageChangeTono();
                 hand.Settlement();
+                
             }
         }
     }
