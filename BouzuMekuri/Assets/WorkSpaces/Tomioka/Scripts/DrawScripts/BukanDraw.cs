@@ -20,23 +20,32 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad0))
-        {
-            playerSkill = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            playerSkill = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            playerSkill = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            playerSkill = 3;
-        }
+        //if (Input.GetKeyDown(KeyCode.Keypad0))
+        //{
+        //    playerSkill = 0;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad1))
+        //{
+        //    playerSkill = 1;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad2))
+        //{
+        //    playerSkill = 2;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad3))
+        //{
+        //    playerSkill = 3;
+        //}
 
+    }
+
+    public void BukanSkillOn()
+    {
+        playerSkill = 1;
+    }
+    public void BukanSkillOFF()
+    {
+        playerSkill = 0;
     }
 
     //武官のカードを引いた
@@ -50,41 +59,41 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 Debug.Log("武官のスキルはなし");
                 break;
 
-            case 1:
-                //左隣からカードを5枚
-                if (deck.Count == 0)
-                {
-                    //5枚以上あるか確認
-                    if (hand.handCount[3] > 5)
-                    {
-                        hand.handCount[deck.Count] += 5;
-                        hand.handCount[3] -= 5;
-                    }
-                    else
-                    {
-                        hand.handCount[deck.Count] += hand.handCount[3];
-                        hand.handCount[3] = 0;
-                    }
-                }
-                else
-                {
-                    //Count-1の人から5枚もらう
-                    if (hand.handCount[deck.Count - 1] > 5)
-                    {
-                        hand.handCount[deck.Count] += 5;
-                        hand.handCount[deck.Count - 1] -= 5;
-                    }
-                    else
-                    {
-                        hand.handCount[deck.Count] += hand.handCount[deck.Count - 1];
-                        hand.handCount[deck.Count - 1] = 0;
-                    }
-                }
-                Debug.Log("武官のスキル1発動");
-                break;
+            //case 1:
+            //    //左隣からカードを5枚
+            //    if (deck.Count == 0)
+            //    {
+            //        //5枚以上あるか確認
+            //        if (hand.handCount[3] > 5)
+            //        {
+            //            hand.handCount[deck.Count] += 5;
+            //            hand.handCount[3] -= 5;
+            //        }
+            //        else
+            //        {
+            //            hand.handCount[deck.Count] += hand.handCount[3];
+            //            hand.handCount[3] = 0;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        //Count-1の人から5枚もらう
+            //        if (hand.handCount[deck.Count - 1] > 5)
+            //        {
+            //            hand.handCount[deck.Count] += 5;
+            //            hand.handCount[deck.Count - 1] -= 5;
+            //        }
+            //        else
+            //        {
+            //            hand.handCount[deck.Count] += hand.handCount[deck.Count - 1];
+            //            hand.handCount[deck.Count - 1] = 0;
+            //        }
+            //    }
+            //    Debug.Log("武官のスキル1発動");
+            //    break;
 
             //全員から1枚もらえる
-            case 2:
+            case 1:
                 for (int i = 0; i < 4; i++)
                 {
                     if (i != deck.Count)
@@ -102,7 +111,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 break;
 
             //逆回転
-            case 3:
+            case 2:
                 clockWise = !clockWise;
                 Debug.Log("武官のスキル3発動");
                 break;

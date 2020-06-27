@@ -120,7 +120,7 @@ public class Test : MonoBehaviour
         {
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" +( deck.drawcard+1));
+            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
 
             //武官を引くかつ武官スキルあり
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Bukan)
@@ -140,7 +140,7 @@ public class Test : MonoBehaviour
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 TennouDraw.instance.Tennou_Draw();
-                hand.handCount[deck.Count] += 1;//手札に追加
+                //hand.handCount[deck.Count] += 1;//手札に追加
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Dantuki)
