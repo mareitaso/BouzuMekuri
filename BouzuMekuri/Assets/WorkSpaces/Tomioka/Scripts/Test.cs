@@ -82,6 +82,12 @@ public class Test : MonoBehaviour
             {
                 GreatHimeDraw.instance.GreatHime_Draw();
             }
+
+            //蝉丸を引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Semimaru)
+            {
+                SemimaruDraw.instance.Semimaru_Draw();
+            }
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
             {
@@ -152,10 +158,17 @@ public class Test : MonoBehaviour
             {
                 DantukiDraw.instance.Dantuki_Draw();
             }
+
             //偉い姫を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
             {
 
+            }
+
+            //蝉丸を引く
+            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Semimaru)
+            {
+                SemimaruDraw.instance.Semimaru_Draw();
             }
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Bouzu)
@@ -206,6 +219,11 @@ public class Test : MonoBehaviour
     {
         Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
         Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
+    }
+
+    public void ImageChangeSemimaru()
+    {
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount);
     }
 
     public void TextChange()
