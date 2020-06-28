@@ -43,6 +43,7 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
         {
             //スキル無し
             case 0:
+                test.ImageChangeTono();
                 Debug.Log("段付きのスキルは無し");
                 break;
 

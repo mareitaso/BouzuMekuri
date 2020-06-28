@@ -33,6 +33,12 @@ public class Test : MonoBehaviour
     {
         if (deck.cards1.Count > 0)//山札1があるとき
         {
+            //山札1がラストの時
+            if (deck.cards1.Count == 1)
+            {
+                Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
+            }
+
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
             Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
@@ -103,7 +109,6 @@ public class Test : MonoBehaviour
         //山札2にカードがある場合
         else if (deck.cards2.Count > 0)
         {
-            Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
             //まだ片方の山札が残っているからそっちを引こう
         }
         else
@@ -113,8 +118,14 @@ public class Test : MonoBehaviour
     }
     public void Draw2()
     {
-        if (deck.cards2.Count > 0)//山札1があるとき
+        if (deck.cards2.Count > 0)//山札2があるとき
         {
+            //山札2がラストの時
+            if (deck.cards2.Count == 1)
+            {
+                Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
+            }
+
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
             Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
@@ -173,7 +184,6 @@ public class Test : MonoBehaviour
         //山札2にカードがある場合
         else if (deck.cards1.Count > 0)
         {
-            Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
             //まだ片方の山札が残っているからそっちを引こう
         }
         else
@@ -213,10 +223,9 @@ public class Test : MonoBehaviour
     //どちらの山札もカードがなくなったときの処理
     private void GameEnd()
     {
-        Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
-        Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
+        //Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
+        //Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
         Debug.LogError("終わり");
-        ImageChangeTono();
         hand.Settlement();
     }
 
