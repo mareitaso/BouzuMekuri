@@ -102,8 +102,8 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                         if (hand.handCount[i] > 0)
                         {
                             Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に1枚渡す");
-                            hand.handCount[deck.Count] += 1;
-                            hand.handCount[i] -= 1;
+                            hand.handCount[deck.Count] += 5;
+                            hand.handCount[i] -= 5;
                         }
                     }
                 }

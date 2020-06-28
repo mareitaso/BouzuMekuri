@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/WorkSpaces/Tomioka/Scenes/Title.unity
+    guid: 942b62667b56576499e8b7ee12f5d565
+  - enabled: 1
     path: Assets/WorkSpaces/Tomioka/Scenes/Mock.unity
     guid: 4283f85624a205a43af2813d15d48fa4
   - enabled: 1
