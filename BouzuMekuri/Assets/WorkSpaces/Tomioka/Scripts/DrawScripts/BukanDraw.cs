@@ -121,6 +121,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 break;
         }
 
+        hand.handCount[deck.Count] += 1;//手札に追加
     }
     //回る順逆転
     public void ReverseRotation()

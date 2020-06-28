@@ -125,21 +125,8 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 Debug.LogError("天皇スキルの値がおかしいよ");
                 break;
         }
-        //if (cardDataBase.YamahudaLists()[deck.drawcard].GetFirstJob() == Card.FirstJob.Tono)
-        //{
-        //    test.ImageChangeTono();
-        //}
-        ////天皇のカードが姫の場合
-        //else
-        //{
-        //    if (deck.DiscardCount > 0)
-        //    {
-        //        hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
-        //        deck.DiscardCount = 0;//捨て札を初期化
-        //    }
-        //    test.ImageChangeHime();
-        //}
-
+        
         hand.handCount[deck.Count] += 1;//手札に追加
+        test.ImageChangeTono();
     }
 }

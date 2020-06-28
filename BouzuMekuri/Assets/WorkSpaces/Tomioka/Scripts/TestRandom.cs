@@ -27,6 +27,7 @@ public class TestRandom : MonoBehaviour
         hand.handCount[3] = allNum - i - j - k;
 
         test.TextChange();
+        test.MockShuffle();
     }
 }
 

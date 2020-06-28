@@ -46,14 +46,12 @@ public class Test : MonoBehaviour
             {
                 BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
             //弓持ちを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Yumimoti)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 ImageChangeTono();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
 
 
@@ -65,13 +63,11 @@ public class Test : MonoBehaviour
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 TennouDraw.instance.Tennou_Draw();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 DantukiDraw.instance.Dantuki_Draw();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
 
 
@@ -107,6 +103,7 @@ public class Test : MonoBehaviour
         //山札2にカードがある場合
         else if (deck.cards2.Count > 0)
         {
+            Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
             //まだ片方の山札が残っているからそっちを引こう
         }
         else
@@ -127,26 +124,22 @@ public class Test : MonoBehaviour
             {
                 BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
             //弓持ちを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Yumimoti)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 ImageChangeTono();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
             //天皇を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 TennouDraw.instance.Tennou_Draw();
-                //hand.handCount[deck.Count] += 1;//手札に追加
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 DantukiDraw.instance.Dantuki_Draw();
-                hand.handCount[deck.Count] += 1;//手札に追加
             }
             //偉い姫を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
@@ -180,6 +173,7 @@ public class Test : MonoBehaviour
         //山札2にカードがある場合
         else if (deck.cards1.Count > 0)
         {
+            Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
             //まだ片方の山札が残っているからそっちを引こう
         }
         else
@@ -201,7 +195,7 @@ public class Test : MonoBehaviour
     public void ImageChangeBouzu()
     {
         Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
     }
 
     public void TextChange()
@@ -224,5 +218,45 @@ public class Test : MonoBehaviour
         Debug.LogError("終わり");
         ImageChangeTono();
         hand.Settlement();
+    }
+
+
+    public void MockShuffle()
+    {
+        if (hand.handCount[0] == 0)
+        {
+            Player[0].sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        else
+        {
+            Player[0].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[0] + 1));
+        }
+
+        if (hand.handCount[1] == 0)
+        {
+            Player[1].sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        else
+        {
+            Player[1].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[1] + 1));
+        }
+
+        if (hand.handCount[2] == 0)
+        {
+            Player[2].sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        else
+        {
+            Player[2].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[2] + 1));
+        }
+
+        if (hand.handCount[3] == 0)
+        {
+            Player[3].sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        else
+        {
+            Player[3].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[3] + 1));
+        }
     }
 }

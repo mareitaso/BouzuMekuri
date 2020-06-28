@@ -48,5 +48,6 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
         }
         Debug.Log("弓持ちのスキル発動");
 
+        hand.handCount[deck.Count] += 1;//手札に追加
     }
 }

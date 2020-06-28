@@ -100,5 +100,7 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                 break;
 
         }
+
+        hand.handCount[deck.Count] += 1;//手札に追加
     }
 }
