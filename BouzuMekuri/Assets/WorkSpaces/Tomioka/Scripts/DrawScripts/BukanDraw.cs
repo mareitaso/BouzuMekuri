@@ -16,7 +16,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
 
 
     private int playerSkill = 0;
-
+    private bool fieldEffectOnOff = false;
 
     private void Update()
     {
@@ -131,6 +131,8 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             deck.Count++;
             if (deck.Count == 4)
             {
+                //モック用にフィールド効果追加
+                FieldEffect();
                 deck.Count = 0;
             }
         }
@@ -154,6 +156,42 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 test.Player[i].sprite = Resources.Load<Sprite>("Images/Null");
             }
         }
+    }
+
+    private void FieldEffect()
+    {
+        if (fieldEffectOnOff == true)
+        {
+            if (test.drowYama1 == true && deck.cards1.Count > 3)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Debug.Log("山札1にフィールド効果発動");
+                    deck.DiscardCount++;
+                    deck.cards1.RemoveAt(0);//0番目を削除
+                }
+            }
+
+            if (test.drowYama1 == false && deck.cards2.Count > 3)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Debug.Log("山札2にフィールド効果発動");
+                    deck.DiscardCount++;
+                    deck.cards2.RemoveAt(0);//0番目を削除
+                }
+            }
+            test.ImageChangeSemimaru();
+        }
+    }
+
+    public void FieldEffectOn()
+    {
+        fieldEffectOnOff = true;
+    }
+    public void FieldEffectOFF()
+    {
+        fieldEffectOnOff = false;
     }
 
 }

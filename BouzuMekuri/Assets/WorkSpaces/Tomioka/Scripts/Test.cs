@@ -109,8 +109,8 @@ public class Test : MonoBehaviour
             }
 
             deck.cards1.RemoveAt(0);//0番目を削除
-            TextChange();
             BukanDraw.instance.ReverseRotation();
+            TextChange();
         }
         //山札2にカードがある場合
         else if (deck.cards2.Count > 0)
@@ -191,8 +191,8 @@ public class Test : MonoBehaviour
             }
 
             deck.cards2.RemoveAt(0);//0番目を削除
-            TextChange();
             BukanDraw.instance.ReverseRotation();
+            TextChange();
         }
         //山札2にカードがある場合
         else if (deck.cards1.Count > 0)
