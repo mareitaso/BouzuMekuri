@@ -28,6 +28,10 @@ public class MockHelp : MonoBehaviour
         {
             ReloadScene();
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            deck.cards1[0] = 9;
+        }
 
         ArrowPosition();
     }
