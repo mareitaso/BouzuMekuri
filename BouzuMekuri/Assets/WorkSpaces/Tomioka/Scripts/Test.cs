@@ -77,11 +77,11 @@ public class Test : MonoBehaviour
             }
 
 
-            //偉い姫を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
-            {
-                GreatHimeDraw.instance.GreatHime_Draw();
-            }
+            ////偉い姫を引く
+            //else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
+            //{
+            //    GreatHimeDraw.instance.GreatHime_Draw();
+            //}
 
             //蝉丸を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Semimaru)
@@ -159,11 +159,11 @@ public class Test : MonoBehaviour
                 DantukiDraw.instance.Dantuki_Draw();
             }
 
-            //偉い姫を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
-            {
+            ////偉い姫を引く
+            //else if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.GreatHime)
+            //{
 
-            }
+            //}
 
             //蝉丸を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Semimaru)
