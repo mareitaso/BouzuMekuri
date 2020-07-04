@@ -30,6 +30,7 @@ public class Card : ScriptableObject
     {
         GreatHime,
         None,
+        Debug,
     }
 
     //　アイテムの種類

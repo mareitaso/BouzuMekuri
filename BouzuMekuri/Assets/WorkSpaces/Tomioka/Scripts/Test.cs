@@ -47,6 +47,14 @@ public class Test : MonoBehaviour
             /// ここにスキル判別してifで囲む
             /// </summary>
 
+            //デバッグ用
+            if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.Debug)
+            {
+
+            }
+
+
+
             //武官を引くかつ武官スキルあり
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Bukan)
             {
@@ -135,6 +143,13 @@ public class Test : MonoBehaviour
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
             Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
+
+            //デバッグ用
+            if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.Debug)
+            {
+
+            }
+
 
             //武官を引くかつ武官スキルあり
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetSecondJob() == Card.SecondJob.Bukan)
