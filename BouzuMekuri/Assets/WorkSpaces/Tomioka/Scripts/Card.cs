@@ -1,85 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System;
 
-public class Card : MonoBehaviour
+[Serializable]
+[CreateAssetMenu(fileName = "Card", menuName = "CreateCard")]
+public class Card : ScriptableObject
 {
-    //何が出てるかのテキスト
-    [SerializeField]
-    private Text illust;
-
-    [SerializeField]
-    private Image card;
-
-    [SerializeField]
-    private Sprite spr;
-
-    //百人一首のリスト
-    [SerializeField]
-    private List<int> HyakuninIsshu = new List<int>();
-
-    private int nowCard;
-
-    void Awake()
+    public enum FirstJob
     {
-        //配列に追加
-        for (int i = 1; i <= 100; i++)
-        {
-            HyakuninIsshu.Add(i);
-        }
+        Bouzu,
+        Hime,
+        Tono,
+    }
+    public enum SecondJob
+    {
+        Bukan,
+        Tennou,
+        Semimaru,
+        None
+    }
+    public enum ThirdJob
+    {
+        Yumimoti,
+        Dantuki,
+        None,
+    }
+    public enum OtherJob
+    {
+        GreatHime,
+        None,
+        Debug,
     }
 
-    void Start()
+    //　アイテムの種類
+    public FirstJob firstJob;
+    public SecondJob secondJob;
+    public ThirdJob thirdJob;
+    public OtherJob otherJob;
+
+    public FirstJob GetFirstJob()
     {
-        //配列をシャッフル
-        for (int i = HyakuninIsshu.Count - 1; i >= 0; i--)
-        {
-            int j = Random.Range(0, i + 1);
-            var tmp = HyakuninIsshu[i];
-            HyakuninIsshu[i] = HyakuninIsshu[j];
-            HyakuninIsshu[j] = tmp;
-            Debug.Log(HyakuninIsshu[i]);
-        }
+        return firstJob;
     }
 
-    void Update()
+    public SecondJob GetSecondJob()
     {
-        //配列に一枚以上ある場合引ける
-        if (HyakuninIsshu.Count > 0)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                nowCard = HyakuninIsshu[0];
-                TextChange();
-                HyakuninIsshu.RemoveAt(0);
-            }
-        }
-        else
-        {
-            illust.text = "カードがないよ";
-            spr = null;
-            card.sprite = spr;
-        }
+        return secondJob;
     }
 
-    //テキストの変更
-    private void TextChange()
+    public ThirdJob GetThirdJob()
     {
-        if (nowCard <= 12)
-        {
-            illust.text = "坊主だよ";
-        }
-        else if (nowCard <= 33)
-        {
-            illust.text = "姫だよ";
-        }
-        else
-        {
-            illust.text = "殿だよ";
-        }
+        return thirdJob;
+    }
 
-        spr = Resources.Load<Sprite>("Images/" + nowCard);
-        card.sprite = spr;
+    public OtherJob GetOtherJob()
+    {
+        return otherJob;
     }
 }
