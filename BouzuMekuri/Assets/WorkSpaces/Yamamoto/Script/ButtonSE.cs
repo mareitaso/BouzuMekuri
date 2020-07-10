@@ -15,7 +15,17 @@ public class ButtonSE : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { }
+    {
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            audioSource.volume += (float)0.1;
+        }
+        //ボリュームダウン
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            audioSource.volume -= (float)0.1;
+        }
+    }
 
     //ボタンを押したらSEが流れる
     public void OnClick()
@@ -23,4 +33,5 @@ public class ButtonSE : MonoBehaviour
         audioSource.Play();
         Debug.Log("有効");
     }
+
 }
