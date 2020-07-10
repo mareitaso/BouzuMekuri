@@ -60,24 +60,27 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     //n枚みんなからもらう
     public void SomeoneToMe()
     {
+        int j = somePlayer;
+
         //全員からN枚もらえる
-        for (int i = 0; i < somePlayer + 1; i++)
+        for (int i = deck.Count; i < j + deck.Count + 1; i++)
         {
-            if (i != deck.Count)
+            int k = i % 4;
+            if (k != deck.Count)
             {
                 //N枚以上もってたら
-                if (hand.handCount[i] > moveNCards)
+                if (hand.handCount[k] > moveNCards)
                 {
                     hand.handCount[deck.Count] += moveNCards;
-                    hand.handCount[i] -= moveNCards;
-                    Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に" + moveNCards + "枚渡す");
+                    hand.handCount[k] -= moveNCards;
+                    Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に" + moveNCards + "枚渡す");
                 }
                 //N枚以下なら
                 else
                 {
-                    hand.handCount[deck.Count] += hand.handCount[i];
-                    hand.handCount[i] = 0;
-                    Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
+                    hand.handCount[deck.Count] += hand.handCount[k];
+                    hand.handCount[k] = 0;
+                    Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
                 }
             }
         }
@@ -88,23 +91,25 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     //n枚捨札に置く
     public void DisNCard()
     {
+        int j = somePlayer;
         //全員がN枚捨てる
-        for (int i = 0; i < somePlayer; i++)
+        for (int i = deck.Count; i < j + deck.Count + 1; i++)
         {
-            if (i != deck.Count)
+            int k = i % 4;
+            if (k != deck.Count)
             {
                 //1枚でも持っていたら
-                if (hand.handCount[i] > moveNCards)
+                if (hand.handCount[k] > moveNCards)
                 {
                     deck.DiscardCount += moveNCards;//N枚を捨て札に加算
-                    hand.handCount[i] -= moveNCards;//手札からN枚捨てる
-                    Debug.Log(i + 1 + "番の人が" + moveNCards + "枚捨てる");
+                    hand.handCount[k] -= moveNCards;//手札からN枚捨てる
+                    Debug.Log(k + 1 + "番の人が" + moveNCards + "枚捨てる");
                 }
                 else
                 {
                     deck.DiscardCount += hand.handCount[deck.Count];//手札をすべて捨て札に加算
                     hand.handCount[deck.Count] = 0;//手札を初期化
-                    Debug.Log(i + 1 + "番の人が全部捨てる");
+                    Debug.Log(k + 1 + "番の人が全部捨てる");
                 }
             }
         }
