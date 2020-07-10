@@ -15,7 +15,7 @@ public class TonoDraw : SingletonMonoBehaviour<TonoDraw>
     public void Tono_Draw()
     {
         Debug.Log("殿" + deck.Count + "のばん");
-        hand.handCount[deck.Count] += 1;//手札に追加
+        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
         test.ImageChangeTono();
     }
 

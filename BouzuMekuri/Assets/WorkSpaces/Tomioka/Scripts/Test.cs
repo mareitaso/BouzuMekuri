@@ -41,6 +41,7 @@ public class Test : MonoBehaviour
 
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
+            Debug.LogError(deck.drawcard);
             Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
 
             /// <summary>
@@ -142,6 +143,7 @@ public class Test : MonoBehaviour
 
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
+            Debug.LogError(deck.drawcard);
             Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
 
             //デバッグ用
@@ -219,10 +221,16 @@ public class Test : MonoBehaviour
             GameEnd();
         }
     }
+    public void S()
+    {
+        MasterList.Instance.Shuffle2();
+        TextChange();
+        Debug.LogError("");
+    }
 
     public void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard +1));
     }
     public void ImageChangeHime()
     {
@@ -243,11 +251,11 @@ public class Test : MonoBehaviour
 
     public void TextChange()
     {
-        PlayerCards[0].text = hand.handCount[0].ToString();
-        PlayerCards[1].text = hand.handCount[1].ToString();
-        PlayerCards[2].text = hand.handCount[2].ToString();
-        PlayerCards[3].text = hand.handCount[3].ToString();
-        PlayerCards[4].text = deck.DiscardCount.ToString();
+        PlayerCards[0].text = MasterList.Instance.list[0].Count.ToString();
+        PlayerCards[1].text = MasterList.Instance.list[1].Count.ToString();
+        PlayerCards[2].text = MasterList.Instance.list[2].Count.ToString();
+        PlayerCards[3].text = MasterList.Instance.list[3].Count.ToString();
+        PlayerCards[4].text = deck.DiscardCount.Count.ToString();
         PlayerCards[5].text = deck.cards1.Count.ToString();
         PlayerCards[6].text = deck.cards2.Count.ToString();
     }

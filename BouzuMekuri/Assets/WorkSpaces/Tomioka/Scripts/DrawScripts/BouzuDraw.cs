@@ -15,9 +15,18 @@ public class BouzuDraw : SingletonMonoBehaviour<BouzuDraw>
     public void Bouzu_Draw()
     {
         Debug.Log("坊主" + deck.Count + "のばん");
-        hand.handCount[deck.Count] += 1;
-        deck.DiscardCount += hand.handCount[deck.Count];//手札を捨て札に加算
-        hand.handCount[deck.Count] = 0;//手札を初期化
+
+        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+
+        //手札を捨て札に加算
+        for (int t = 0; t < MasterList.Instance.list[deck.Count].Count; t++)
+        {
+            int y = MasterList.Instance.list[deck.Count][0];
+            deck.DiscardCount.Add(y);
+            MasterList.Instance.list[deck.Count].RemoveAt(0);
+        }
+
+        MasterList.Instance.list[deck.Count].Clear();//手札を初期化
         test.ImageChangeBouzu();
     }
 }

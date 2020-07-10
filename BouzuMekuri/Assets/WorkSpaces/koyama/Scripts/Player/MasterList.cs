@@ -6,6 +6,8 @@ using System;
 
 public class MasterList : MonoBehaviour
 {
+    public static MasterList Instance;
+
     public List<List<int>> list = new List<List<int>>();
     //人数の列挙
     public enum Player
@@ -23,6 +25,19 @@ public class MasterList : MonoBehaviour
         new PlayerModel(),
         new PlayerModel()
     };
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         //リストの初期化

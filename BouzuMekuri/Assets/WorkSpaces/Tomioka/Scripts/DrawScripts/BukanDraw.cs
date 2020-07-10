@@ -99,11 +99,17 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                     if (i != deck.Count)
                     {
                         //1枚でも持っていたら
-                        if (hand.handCount[i] > 0)
+                        if (MasterList.Instance.list[i].Count > 1)
                         {
-                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に1枚渡す");
-                            hand.handCount[deck.Count] += 5;
-                            hand.handCount[i] -= 5;
+                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に5枚渡す");
+                            for (int t = 0; t < 1; t++)
+                            {
+                                int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
+                                MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                                MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                            }
+                            //hand.handCount[deck.Count] += 5;
+                            //hand.handCount[i] -= 5;
                         }
                     }
                 }
@@ -121,7 +127,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 break;
         }
 
-        hand.handCount[deck.Count] += 1;//手札に追加
+        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
     }
     //回る順逆転
     public void ReverseRotation()
@@ -151,7 +157,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     {
         for (int i = 0; i < 4; i++)
         {
-            if (hand.handCount[i] == 0)
+            if (MasterList.Instance.list[i].Count == 0)
             {
                 test.Player[i].sprite = Resources.Load<Sprite>("Images/Null");
             }
@@ -167,7 +173,8 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 for (int i = 0; i < 3; i++)
                 {
                     Debug.Log("山札1にフィールド効果発動");
-                    deck.DiscardCount++;
+                    int z = deck.cards1[0];
+                    deck.DiscardCount.Add(z);
                     deck.cards1.RemoveAt(0);//0番目を削除
                 }
             }
@@ -177,7 +184,8 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 for (int i = 0; i < 3; i++)
                 {
                     Debug.Log("山札2にフィールド効果発動");
-                    deck.DiscardCount++;
+                    int x = deck.cards1[0];
+                    deck.DiscardCount.Add(x);
                     deck.cards2.RemoveAt(0);//0番目を削除
                 }
             }

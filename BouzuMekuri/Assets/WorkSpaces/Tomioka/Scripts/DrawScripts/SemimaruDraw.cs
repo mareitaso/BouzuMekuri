@@ -83,12 +83,14 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
 
             for (int i = 0; i < halfYamahuda1; i++)
             {
-                deck.DiscardCount++;
+                int q = deck.cards1[0];
+                deck.DiscardCount.Add(q);
                 deck.cards1.RemoveAt(0);//0番目を削除
             }
             for (int i = 0; i < halfYamahuda2; i++)
             {
-                deck.DiscardCount++;
+                int g = deck.cards2[0];
+                deck.DiscardCount.Add(g);
                 deck.cards2.RemoveAt(0);//0番目を削除
             }
 

@@ -70,17 +70,25 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
             if (k != deck.Count)
             {
                 //N枚以上もってたら
-                if (hand.handCount[k] > moveNCards)
+                if (MasterList.Instance.list[k].Count > moveNCards)
                 {
-                    hand.handCount[deck.Count] += moveNCards;
-                    hand.handCount[k] -= moveNCards;
+                    for (int t = 0; t < moveNCards; t++)
+                    {
+                        int y = MasterList.Instance.list[k][0];//k番目の人の一番上の札を格納
+                        MasterList.Instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
+                        MasterList.Instance.list[k].RemoveAt(0);//k番目の人の札の初期化
+                    }
                     Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に" + moveNCards + "枚渡す");
                 }
                 //N枚以下なら
                 else
                 {
-                    hand.handCount[deck.Count] += hand.handCount[k];
-                    hand.handCount[k] = 0;
+                    for (int t = 0; t < MasterList.Instance.list[k].Count; t++)
+                    {
+                        int y = MasterList.Instance.list[k][0];//k番目の人の一番上の札を格納
+                        MasterList.Instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
+                        MasterList.Instance.list[k].RemoveAt(0);//k番目の人の札の初期化
+                    }
                     Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
                 }
             }
@@ -100,16 +108,28 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
             if (k != deck.Count)
             {
                 //1枚でも持っていたら
-                if (hand.handCount[k] > moveNCards)
+                if (MasterList.Instance.list[k].Count > moveNCards)
                 {
-                    deck.DiscardCount += moveNCards;//N枚を捨て札に加算
-                    hand.handCount[k] -= moveNCards;//手札からN枚捨てる
+                    for(int f = 0; f < moveNCards; f++)
+                    {
+                        int v = MasterList.Instance.list[k][0];
+                        deck.DiscardCount.Add(v);
+                        MasterList.Instance.list[k].RemoveAt(0);
+                    }
+                    //deck.DiscardCount += moveNCards;//N枚を捨て札に加算
+                    //hand.handCount[k] -= moveNCards;//手札からN枚捨てる
                     Debug.Log(k + 1 + "番の人が" + moveNCards + "枚捨てる");
                 }
                 else
                 {
-                    deck.DiscardCount += hand.handCount[deck.Count];//手札をすべて捨て札に加算
-                    hand.handCount[deck.Count] = 0;//手札を初期化
+                    for (int f = 0; f < MasterList.Instance.list[k].Count; f++)
+                    {
+                        int v = MasterList.Instance.list[k][0];
+                        deck.DiscardCount.Add(v);
+                        MasterList.Instance.list[k].RemoveAt(0);
+                    }
+                    //deck.DiscardCount += hand.handCount[deck.Count];//手札をすべて捨て札に加算
+                    //hand.handCount[deck.Count] = 0;//手札を初期化
                     Debug.Log(k + 1 + "番の人が全部捨てる");
                 }
             }

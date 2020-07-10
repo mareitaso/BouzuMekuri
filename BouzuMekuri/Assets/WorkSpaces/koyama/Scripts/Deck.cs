@@ -15,7 +15,7 @@ public class Deck : MonoBehaviour
     */
 
     public int drawcard;//引いたカード
-    public int DiscardCount;//捨て札の枚数
+    public List<int> DiscardCount;//捨て札のリスト
     [SerializeField]
     public List<int> cards1, cards2;//リストの宣言
     public int Count;//ターンのカウント

@@ -16,17 +16,25 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
     {
         Debug.Log("姫" + deck.Count + "のばん");
         //捨て札がある場合
-        if (deck.DiscardCount > 0)
+        if (deck.DiscardCount.Count > 0)
         {
-            hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
-            deck.DiscardCount = 0;//捨て札を初期化
-            hand.handCount[deck.Count] += 1;//手札に追加
+            Debug.Log(deck.DiscardCount.Count);
+            int r = deck.DiscardCount.Count;
+            for (int t = 0; t < r; t++)
+            {
+                Debug.Log(deck.DiscardCount[0]);
+                Debug.Log(deck.DiscardCount[0]);
+                int y = deck.DiscardCount[0];//捨て札を格納
+                MasterList.Instance.list[deck.Count].Add(y);//捨て札を回収
+                deck.DiscardCount.RemoveAt(0);//捨て札を初期化
+            }
+            MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
             test.ImageChangeHime();
         }
         //捨て札がないので山から1枚引いて効果発動
         else
         {
-            hand.handCount[deck.Count] += 1;//手札に追加
+            MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
             test.ImageChangeHime();
             //deck.cards1.RemoveAt(0);//0番目を削除
 

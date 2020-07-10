@@ -65,7 +65,7 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                     for (int i = 0; i < 2; i++)
                     {
                         deck.drawcard = deck.cards1[0];//いらないかも
-                        hand.handCount[deck.Count] += 1;
+                        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
                         deck.cards1.RemoveAt(0);
                     }
                 }
@@ -75,7 +75,7 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                     for (int i = 0; i < 2; i++)
                     {
                         deck.drawcard = deck.cards2[0];//いらないかも
-                        hand.handCount[deck.Count] += 1;
+                        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加;
                         deck.cards2.RemoveAt(0);
                     }
                 }
@@ -83,22 +83,34 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 break;
 
             case 2:
-                //全員の札と場の札すべてもらう
+                //全員の札と場の札をすべてもらう
                 for (int i = 0; i < 4; i++)
                 {
                     //全員の札をもらう
                     if (i != deck.Count)
                     {
                         Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
-                        hand.handCount[deck.Count] += hand.handCount[i];
-                        hand.handCount[i] = 0;
+                        for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                        {
+                            int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
+                            MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                            MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                        }
+                        //hand.handCount[deck.Count] += hand.handCount[i];
+                        //hand.handCount[i] = 0;
                     }
                 }
                 //場の札をもらう
-                if (deck.DiscardCount > 0)
+                if (deck.DiscardCount.Count > 0)
                 {
-                    hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
-                    deck.DiscardCount = 0;//捨て札を初期化
+                    for (int t = 0; t < deck.DiscardCount.Count; t++)
+                    {
+                        int y = deck.DiscardCount[0];//捨て札を格納
+                        MasterList.Instance.list[deck.Count].Add(y);//捨て札を回収
+                        deck.DiscardCount.RemoveAt(0);//捨て札を初期化
+                    }
+                    //hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
+                    //deck.DiscardCount = 0;//捨て札を初期化
                     test.ImageChangeHime();
                 }
                 else
@@ -111,11 +123,18 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 //他のプレイヤーすべての手札を自分の手札に加える
                 for (int i = 0; i < 4; i++)
                 {
+                    //全員の札をもらう
                     if (i != deck.Count)
                     {
                         Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
-                        hand.handCount[deck.Count] += hand.handCount[i];
-                        hand.handCount[i] = 0;
+                        for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                        {
+                            int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
+                            MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                            MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                        }
+                        //hand.handCount[deck.Count] += hand.handCount[i];
+                        //hand.handCount[i] = 0;
                     }
                 }
                 Debug.Log("天皇のスキル3発動");
@@ -125,8 +144,8 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 Debug.LogError("天皇スキルの値がおかしいよ");
                 break;
         }
-        
-        hand.handCount[deck.Count] += 1;//手札に追加
+
+        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
         test.ImageChangeTono();
     }
 }

@@ -54,17 +54,29 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                     if (i != deck.Count)
                     {
                         //5枚以上持っていたら
-                        if (hand.handCount[i] > 5)
+                        if (MasterList.Instance.list[i].Count > 5)
                         {
                             Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に5枚渡す");
-                            hand.handCount[deck.Count] += 5;
-                            hand.handCount[i] -= 5;
+                            for (int t = 0; t < 5; t++)
+                            {
+                                int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
+                                MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                                MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                            }
+                            //hand.handCount[deck.Count] += 5;
+                            //hand.handCount[i] -= 5;
                         }
                         else
                         {
                             Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に持っている枚数渡す");
-                            hand.handCount[deck.Count] += hand.handCount[i];
-                            hand.handCount[i] = 0;
+                            for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                            {
+                                int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
+                                MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                                MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                            }
+                            //hand.handCount[deck.Count] += hand.handCount[i];
+                            //hand.handCount[i] = 0;
                         }
                     }
                 }
@@ -78,15 +90,27 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                     if (i != deck.Count)
                     {
                         Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
-                        hand.handCount[deck.Count] += hand.handCount[i];
-                        hand.handCount[i] = 0;
+                        for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                        {
+                            int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
+                            MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                            MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                        }
+                        //hand.handCount[deck.Count] += hand.handCount[i];
+                        //hand.handCount[i] = 0;
                     }
                 }
                 //場の札をもらう
-                if (deck.DiscardCount > 0)
+                if (deck.DiscardCount.Count > 0)
                 {
-                    hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
-                    deck.DiscardCount = 0;//捨て札を初期化
+                    for (int t = 0; t < deck.DiscardCount.Count; t++)
+                    {
+                        int y = deck.DiscardCount[0];//捨て札を格納
+                        MasterList.Instance.list[deck.Count].Add(y);//捨て札を回収
+                        deck.DiscardCount.RemoveAt(0);//捨て札を初期化
+                    }
+                    //hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
+                    //deck.DiscardCount = 0;//捨て札を初期化
                     test.ImageChangeHime();
                 }
                 else
@@ -102,6 +126,6 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
 
         }
 
-        hand.handCount[deck.Count] += 1;//手札に追加
+        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
     }
 }
