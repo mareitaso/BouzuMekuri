@@ -9,6 +9,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     [SerializeField]
     private HandCount hand;
 
+
     //自分のルールのカードの枚数
     private int moveNCards = 1;
 
@@ -120,4 +121,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     {
 
     }
+
+
+
 }

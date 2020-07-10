@@ -2047,7 +2047,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1538063936}
-        m_MethodName: DivideButton
+        m_MethodName: PlayerSkill2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3244,6 +3244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 1150689385}
   test: {fileID: 972917170}
+  deck: {fileID: 972917169}
 --- !u!4 &1538063937
 Transform:
   m_ObjectHideFlags: 0
