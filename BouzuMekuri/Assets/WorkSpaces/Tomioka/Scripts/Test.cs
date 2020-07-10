@@ -50,7 +50,7 @@ public class Test : MonoBehaviour
             //デバッグ用
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.Debug)
             {
-
+                MyRule.instance.DisNCard();
             }
 
 
@@ -147,7 +147,7 @@ public class Test : MonoBehaviour
             //デバッグ用
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.Debug)
             {
-
+                MyRule.instance.SomeoneToMe();
             }
 
 
