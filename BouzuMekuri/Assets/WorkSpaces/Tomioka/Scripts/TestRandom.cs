@@ -13,6 +13,7 @@ public class TestRandom : MonoBehaviour
     [SerializeField]
     private Test test;
 
+
     public void DivideButton()
     {
         allNum = hand.handCount[0] + hand.handCount[1] + hand.handCount[2] + hand.handCount[3];
