@@ -6,41 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class SoundManader : MonoBehaviour
 {
+    public enum sounds
+    {
+        BGM0,//タイトル
+        BGM1,//編集
+        BGM2,//ゲーム画面
+        BGM3,//リザルト
 
-    public enum Sounds
-     {
-         BGM1, //タイトル画面    
-         BGM2, //編集画面        
-         BGM3, //ゲーム画面      
-         BGM4, //リザルト画面   
+        SE0,//試合開始
+        SE1,//シャッフル
+        SE2,//手札に加える
+        SE3,//手札を捨てる
+        SE4,//スキル発動
+        SE5,//試合終了
+        SE6//決定
+    }
 
-         SE1,  //ゲーム開始      
-         SE2,  //シャッフルする  
-         SE3,  //カードを加える  
-         SE4,  //カードを捨てる  
-         SE5,  //スキル発動      
-         SE6,  //ゲーム終了  
-         SE7   //決定
+    [SerializeField]
+    private List<AudioClip> BGM;
 
-     };
-
-    private List<Sounds> soundList = new List<Sounds>();
-
-    public AudioSource audioSource;
+    [SerializeField]
+    private List<AudioClip> SE;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = gameObject.GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
     void Update()
-    { }
+    { 
 
-    public void Taitle()
-    {
-        
     }
-
 }
