@@ -14,12 +14,13 @@ public class SoundManader : MonoBehaviour
         BGM3,//リザルト
 
         SE0,//試合開始
-        SE1,//シャッフル
+        SE1,//シャッフル 
         SE2,//手札に加える
-        SE3,//手札を捨てる
+        SE3,//手札を捨てる 
         SE4,//スキル発動
         SE5,//試合終了
-        SE6//決定
+        SE6,//タイトルのはじめボタン
+        SE7//決定 タイトル以外
     }
 
     [SerializeField]

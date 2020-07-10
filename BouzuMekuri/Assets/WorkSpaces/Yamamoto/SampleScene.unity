@@ -618,18 +618,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGM:
-  - {fileID: 8300000, guid: 0838c089a24eaf645a91b1ecac8018ad, type: 3}
+  - {fileID: 8300000, guid: f1c9f0ce0e61c9b4c9715760ffb57b73, type: 3}
   - {fileID: 8300000, guid: dccd19de654883e479c8bbe123ea42b9, type: 3}
   - {fileID: 8300000, guid: 95cf989a3907ee24a8227a8e00bbc5f7, type: 3}
   - {fileID: 8300000, guid: 791d73245eba9e9448027c2ecb3ddfc6, type: 3}
   SE:
-  - {fileID: 8300000, guid: 483cd2b00b98a6440b83df7457950b37, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: b9535a1c728f0fd49b9a6f9cef8d38e7, type: 3}
+  - {fileID: 8300000, guid: 929d75cbcbb393a42a13d16b7d77939b, type: 3}
   - {fileID: 8300000, guid: b0072dcc1294d4d41b23d2e303119d73, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5a2da6485854e4f49a325b886567cd90, type: 3}
   - {fileID: 8300000, guid: 6eecc7547dc301d41ae742ce74152d55, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: dee5cb577947a2e4e9e53e64417160d8, type: 3}
+  - {fileID: 8300000, guid: 84ab00fee10d28e4585443685b12c63f, type: 3}
+  - {fileID: 8300000, guid: 6a4002884f4357842ad1f16ae3ee91a9, type: 3}
 --- !u!4 &1109037503
 Transform:
   m_ObjectHideFlags: 0
