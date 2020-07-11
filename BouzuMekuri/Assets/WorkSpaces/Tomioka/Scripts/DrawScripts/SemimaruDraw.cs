@@ -22,7 +22,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
 
     public void Semimaru_Draw()
     {
-        hand.handCount[deck.Count] += 1;//手札に追加
+        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
 
         //山札の半分を場に置く
         allYamahuda = deck.cards1.Count + deck.cards2.Count - 1;

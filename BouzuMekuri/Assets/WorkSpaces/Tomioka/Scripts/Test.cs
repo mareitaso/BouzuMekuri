@@ -273,6 +273,8 @@ public class Test : MonoBehaviour
 
     public void MockShuffle()
     {
+        MasterList.Instance.Shuffle2();
+        /*
         if (hand.handCount[0] == 0)
         {
             Player[0].sprite = Resources.Load<Sprite>("Images/Null");
@@ -307,6 +309,6 @@ public class Test : MonoBehaviour
         else
         {
             Player[3].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[3] + 1));
-        }
+        }*/
     }
 }
