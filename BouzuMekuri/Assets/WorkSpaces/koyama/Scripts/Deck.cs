@@ -44,8 +44,8 @@ public class Deck : MonoBehaviour
             cards1.Clear();//cardsを空にする
         }
 
-        //モック版のため計75枚に変更
-        for (int i = 0; i < 75; i++)
+        //α版のため計100枚に変更
+        for (int i = 1; i < 101; i++)
         {
             cards1.Add(i);
         }
@@ -69,8 +69,8 @@ public class Deck : MonoBehaviour
             cards2.Clear();//cardsを空にする
         }
 
-        //モック版のため38枚に変更
-        for (int i = 0; i < 38; i++)
+        //α版のため50枚に変更
+        for (int i = 0; i < 50; i++)
         {
             cards2.Add(cards1[i]);
             cards1.RemoveAt(i);

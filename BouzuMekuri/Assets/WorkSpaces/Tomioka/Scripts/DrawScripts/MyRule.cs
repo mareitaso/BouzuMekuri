@@ -131,6 +131,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                     //deck.DiscardCount += hand.handCount[deck.Count];//手札をすべて捨て札に加算
                     //hand.handCount[deck.Count] = 0;//手札を初期化
                     Debug.Log(k + 1 + "番の人が全部捨てる");
+
                 }
             }
         }

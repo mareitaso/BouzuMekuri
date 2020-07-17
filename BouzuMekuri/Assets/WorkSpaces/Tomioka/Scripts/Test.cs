@@ -12,7 +12,7 @@ public class Test : MonoBehaviour
     [SerializeField]
     private CardDataBase cardDataBase;
     [SerializeField]
-    private Image Yamahuda1, Yamahuda2, Sutehuda, Hikihuda;
+    private Image Yamahuda1, Yamahuda2, Sutehuda;//, Hikihuda;
 
     public List<Image> Player;
 
@@ -42,7 +42,7 @@ public class Test : MonoBehaviour
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
             Debug.LogError(deck.drawcard);
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
+            //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
 
             /// <summary>
             /// ここにスキル判別してifで囲む
@@ -144,7 +144,7 @@ public class Test : MonoBehaviour
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
             Debug.LogError(deck.drawcard);
-            Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
+            //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
 
             //デバッグ用
             if (cardDataBase.YamahudaLists()[deck.drawcard].GetOtherJob() == Card.OtherJob.Debug)
@@ -228,25 +228,42 @@ public class Test : MonoBehaviour
         Debug.LogError("");
     }
 
+    public void Image()
+    {
+        Debug.Log(MasterList.Instance.list[deck.Count].Count);
+        if (MasterList.Instance.list[deck.Count].Count != 0)
+        {
+            Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + 
+                MasterList.Instance.list[MasterList.Instance.list[deck.Count].Count]);
+        }
+        else
+        {
+
+            Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        //int x = MasterList.Instance.list[deck.Count]
+        //Debug.Log(MasterList.Instance.list[deck.Count][MasterList.Instance.list[deck.Count].Count-1]);
+    }
+
     public void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard +1));
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard ));
     }
     public void ImageChangeHime()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/Null"); ;
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/Null");
     }
 
     public void ImageChangeBouzu()
     {
         Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
     }
 
     public void ImageChangeSemimaru()
     {
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount);
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
     }
 
     public void TextChange()
@@ -269,7 +286,6 @@ public class Test : MonoBehaviour
         Debug.LogError("終わり");
         hand.Settlement();
     }
-
 
     public void MockShuffle()
     {

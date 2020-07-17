@@ -18,8 +18,9 @@ public class BouzuDraw : SingletonMonoBehaviour<BouzuDraw>
 
         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
 
+        int e = MasterList.Instance.list[deck.Count].Count;
         //手札を捨て札に加算
-        for (int t = 0; t < MasterList.Instance.list[deck.Count].Count; t++)
+        for (int t = 0; t < e; t++)
         {
             int y = MasterList.Instance.list[deck.Count][0];
             deck.DiscardCount.Add(y);
