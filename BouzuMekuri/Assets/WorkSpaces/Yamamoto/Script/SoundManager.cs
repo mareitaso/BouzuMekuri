@@ -51,6 +51,11 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     //bool IsFadeOut = true;
     //double FadeDeltaTime = 0;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +67,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         {
             seDictionary.Add((Se)i, sesounds[i]);
         }
+
     }
 
     public void BgmApply(Bgm key)
