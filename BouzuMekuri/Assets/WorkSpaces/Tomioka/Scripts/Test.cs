@@ -46,7 +46,7 @@ public class Test : MonoBehaviour
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
             
-            cardAnimation.AnimeYamaToPlayer();
+            //cardAnimation.AnimeYamaToPlayer();
             
             Debug.LogError(deck.drawcard);
             //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
