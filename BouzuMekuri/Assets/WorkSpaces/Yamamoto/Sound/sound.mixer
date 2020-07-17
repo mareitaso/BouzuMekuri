@@ -38,6 +38,25 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &-3149414854651574124
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SE3 sonota
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: ca96c948f34ae0e44a96e5262e1b0a88
+  m_Children: []
+  m_Volume: 723f3214cd2c65d45abb2552acfd7c36
+  m_Pitch: 50584b522e8309941a6c5fbc8734436b
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 2418574333024153097}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-2640070894746903055
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -102,6 +121,7 @@ AudioMixerController:
     - d19500ca57e77ab43b3587df933ef926
     - 96909da5b56aa0b45bdab1706443bda1
     - c1a4de4253f9b1f48990cf9fb8056f17
+    - ca96c948f34ae0e44a96e5262e1b0a88
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -118,6 +138,7 @@ AudioMixerGroupController:
   - {fileID: -3956251328251897450}
   - {fileID: -5825984278957060476}
   - {fileID: 1864866903345256701}
+  - {fileID: -3149414854651574124}
   m_Volume: 0c2a566f6f4b87e4fbaaeaf6eae5fe74
   m_Pitch: 89c1d3d58ffe21a4eb037d86e5eda264
   m_Send: 00000000000000000000000000000000
@@ -175,3 +196,17 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &2418574333024153097
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: bd4b4298074c4034fb3c71ddd4424590
+  m_EffectName: Attenuation
+  m_MixLevel: 24335cdb383cd384a9ba5913481fa7d2
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
