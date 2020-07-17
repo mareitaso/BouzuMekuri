@@ -15,8 +15,13 @@ public class Aaa : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SoundManader.instance.BgmApply(Bgm.BGM0);
+            SoundManader.instance.BgmApply(Bgm.B);
         }
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            SoundManader.instance.BgmApply(Bgm.BGM1);
+        }
+
         if (Input.GetKeyDown(KeyCode.S))
         {
             SoundManader.instance.SeApply(Se.SE0);

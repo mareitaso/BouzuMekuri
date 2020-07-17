@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 1350878629}
   - component: {fileID: 1350878628}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SoundCountroller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,7 +1043,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3956251328251897450, guid: 430c8cc547b45d3428f1c4bfc094da66,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 95cf989a3907ee24a8227a8e00bbc5f7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b1e7dc2a76921d947b1fa4a98912ca28, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176efa99e245cca49b3d59418ff6ae07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGM: {fileID: 8300000, guid: 95cf989a3907ee24a8227a8e00bbc5f7, type: 3}
+  BGM: {fileID: 8300000, guid: b1e7dc2a76921d947b1fa4a98912ca28, type: 3}
   audioSource: {fileID: 1732427212}
 --- !u!114 &1732427214
 MonoBehaviour:
@@ -1156,8 +1156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1732427212}
-  IsFade: 1
-  FadeOutSeconds: 5
 --- !u!1 &1919523838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1481,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmsounds:
-  - audioClip: {fileID: 8300000, guid: f1c9f0ce0e61c9b4c9715760ffb57b73, type: 3}
+  - audioClip: {fileID: 8300000, guid: b1e7dc2a76921d947b1fa4a98912ca28, type: 3}
+    audioSize: 4
+  - audioClip: {fileID: 8300000, guid: 3121f27ea64fb6448a67b466e7da94e1, type: 3}
+    audioSize: 4
+  - audioClip: {fileID: 8300000, guid: 320323147ca3906408743256ee1088c7, type: 3}
     audioSize: 4
   sesounds:
   - audioClip: {fileID: 8300000, guid: 929d75cbcbb393a42a13d16b7d77939b, type: 3}

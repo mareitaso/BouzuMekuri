@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 
 public enum Bgm
 {
-    BGM0,//タイトル
+    B,//タイトル
     BGM1,//編集
-    BGM2,//ゲーム画面
-    BGM3,//リザルト
-
+    BGM2//ゲーム画面
 }
 
 public enum Se
@@ -49,10 +47,10 @@ public class SoundManader : SingletonMonoBehaviour<SoundManader>
     [SerializeField]
     private AudioSource seAudioSource;
 
-    public bool IsFade;
-    public double FadeOutSeconds = 1.0;//フェードアウトにかかる時間（Unity内で変更可）
-    bool IsFadeOut = true;
-    double FadeDeltaTime = 0;
+    //public bool IsFade;
+    //public double FadeOutSeconds = 1.0;//フェードアウトにかかる時間（Unity内で変更可）
+    //bool IsFadeOut = true;
+    //double FadeDeltaTime = 0;
 
     // Start is called before the first frame update
     void Start()
