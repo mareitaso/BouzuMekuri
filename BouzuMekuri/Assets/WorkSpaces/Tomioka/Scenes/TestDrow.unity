@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawcard: 0
-  DiscardCount: 0
+  DiscardCount: 
   cards1: 
   cards2: 
   Count: 0
@@ -2012,7 +2012,6 @@ MonoBehaviour:
   - {fileID: 774449030}
   deck: {fileID: 2054158027}
   hand: {fileID: 260630679}
-  rule: {fileID: 0}
 --- !u!1 &2070798396
 GameObject:
   m_ObjectHideFlags: 0

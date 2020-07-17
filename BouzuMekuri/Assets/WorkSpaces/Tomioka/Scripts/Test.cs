@@ -24,6 +24,9 @@ public class Test : MonoBehaviour
     [SerializeField]
     private HandCount hand;
 
+    [SerializeField]
+    CardAnimation cardAnimation;
+
     private void Start()
     {
         TextChange();
@@ -33,6 +36,7 @@ public class Test : MonoBehaviour
     {
         if (deck.cards1.Count > 0)//山札1があるとき
         {
+            
             //山札1がラストの時
             if (deck.cards1.Count == 1)
             {
@@ -41,6 +45,9 @@ public class Test : MonoBehaviour
 
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
+            
+            cardAnimation.AnimeYamaToPlayer();
+            
             Debug.LogError(deck.drawcard);
             Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
 
