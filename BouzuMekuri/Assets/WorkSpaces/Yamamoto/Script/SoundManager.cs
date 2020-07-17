@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public enum Bgm
 {
@@ -33,7 +32,7 @@ public class Sound
 }
 
 [DefaultExecutionOrder(-1)]
-public class SoundManader : SingletonMonoBehaviour<SoundManader>
+public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
     public Sound[] bgmsounds;
     public Sound[] sesounds;
