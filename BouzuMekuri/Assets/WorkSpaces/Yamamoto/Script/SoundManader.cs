@@ -4,40 +4,97 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SoundManader : MonoBehaviour
+public enum Bgm
 {
-    public enum sounds
-    {
-        BGM0,//タイトル
-        BGM1,//編集
-        BGM2,//ゲーム画面
-        BGM3,//リザルト
+    BGM0,//タイトル
+    BGM1,//編集
+    BGM2,//ゲーム画面
+    BGM3,//リザルト
 
-        SE0,//試合開始
-        SE1,//シャッフル 
-        SE2,//手札に加える
-        SE3,//手札を捨てる 
-        SE4,//スキル発動
-        SE5,//試合終了
-        SE6,//タイトルのはじめボタン
-        SE7//決定 タイトル以外
-    }
+}
+
+public enum Se
+{
+    SE0,//試合開始
+    SE1,//シャッフル 
+    SE2,//手札に加える
+    SE3,//手札を捨てる 
+    SE4,//スキル発動
+    SE5,//試合終了
+    SE6,//タイトルのはじめボタン
+    SE7//決定 タイトル以外
+}
+
+[System.Serializable]
+public class Sound
+{
+    public AudioClip audioClip;
+
+    [Range(0, 10f)]
+    public float audioSize;
+}
+
+[DefaultExecutionOrder(-1)]
+public class SoundManader : SingletonMonoBehaviour<SoundManader>
+{
+    public Sound[] bgmsounds;
+    public Sound[] sesounds;
+
+    public Dictionary<Bgm, Sound> bgmDIctionary = new Dictionary<Bgm, Sound>();
+    public Dictionary<Se, Sound> seDictionary = new Dictionary<Se, Sound>();
 
     [SerializeField]
-    private List<AudioClip> BGM;
+    private AudioSource bgmAudioSource;
 
     [SerializeField]
-    private List<AudioClip> SE;
+    private AudioSource seAudioSource;
+
+    public bool IsFade;
+    public double FadeOutSeconds = 1.0;//フェードアウトにかかる時間（Unity内で変更可）
+    bool IsFadeOut = true;
+    double FadeDeltaTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        for (int i = 0; i < bgmsounds.Length; i++)
+        {
+            bgmDIctionary.Add((Bgm)i, bgmsounds[i]);
+        }
+        for (int i = 0; i < sesounds.Length; i++)
+        {
+            seDictionary.Add((Se)i, sesounds[i]);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    { 
-
+    public void BgmApply(Bgm key)
+    {
+        Sound sound = bgmDIctionary[key];
+        AudioClip audio = sound.audioClip;
+        float audioSize = sound.audioSize;
+        bgmAudioSource.clip = audio;
+        bgmAudioSource.Play();
     }
+
+    public void SeApply(Se key)
+    {
+        Sound sound = seDictionary[key];
+        AudioClip audio = sound.audioClip;
+        float audioSize = sound.audioSize;
+        seAudioSource.clip = audio;
+        seAudioSource.Play();
+    }
+
+    //public void FadeOut()
+    //{
+
+    //    FadeDeltaTime += Time.deltaTime;
+    //    if (FadeDeltaTime >= FadeOutSeconds)
+    //    {
+    //        FadeDeltaTime = FadeOutSeconds;
+    //        IsFadeOut = false;
+    //    }
+    //    bgmAudioSource.volume = (float)(1.0 - FadeDeltaTime / FadeOutSeconds);
+
+    //}
 }
