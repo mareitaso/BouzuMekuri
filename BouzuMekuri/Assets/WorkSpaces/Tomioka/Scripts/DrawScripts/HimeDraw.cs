@@ -34,6 +34,7 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
         //捨て札がないので山から1枚引いて効果発動
         else
         {
+            test.drawAgain = true;
             MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
             test.ImageChangeHime();
             //deck.cards1.RemoveAt(0);//0番目を削除
