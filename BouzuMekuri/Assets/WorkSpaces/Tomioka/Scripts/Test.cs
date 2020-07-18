@@ -27,6 +27,9 @@ public class Test : MonoBehaviour
     [SerializeField]
     CardAnimation cardAnimation;
 
+    [HideInInspector]
+    public bool drawAgain = false;
+
     private void Start()
     {
         TextChange();

@@ -132,22 +132,38 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     //回る順逆転
     public void ReverseRotation()
     {
-        if (clockWise == true)
+        if (test.drawAgain == true)
         {
-            deck.Count++;
-            if (deck.Count == 4)
+            if (test.drowYama1 == true)
             {
-                //モック用にフィールド効果追加
-                FieldEffect();
-                deck.Count = 0;
+                test.drawAgain = false;
+                test.Draw1();
+            }
+            else
+            {
+                test.drawAgain = false;
+                test.Draw2();
             }
         }
         else
         {
-            deck.Count--;
-            if (deck.Count < 0)
+            if (clockWise == true)
             {
-                deck.Count = 3;
+                deck.Count++;
+                if (deck.Count == 4)
+                {
+                    //モック用にフィールド効果追加
+                    FieldEffect();
+                    deck.Count = 0;
+                }
+            }
+            else
+            {
+                deck.Count--;
+                if (deck.Count < 0)
+                {
+                    deck.Count = 3;
+                }
             }
         }
         ImageNull();
