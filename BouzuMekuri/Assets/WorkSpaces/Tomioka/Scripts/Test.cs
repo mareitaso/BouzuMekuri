@@ -237,11 +237,19 @@ public class Test : MonoBehaviour
 
     public void Image()
     {
-        Debug.Log(MasterList.Instance.list[deck.Count].Count);
+        //ListAの長さの所にListBの長さを入れるのはやめよう!!
         if (MasterList.Instance.list[deck.Count].Count != 0)
         {
-            Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + 
-                MasterList.Instance.list[MasterList.Instance.list[deck.Count].Count]);
+            try
+            {
+                Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                MasterList.Instance.list[deck.Count][MasterList.Instance.list[deck.Count].Count-1]);
+            }
+            catch
+            {
+                Debug.Log("例外発生　" + deck.Count + "  " + MasterList.Instance.list[deck.Count].Count + " " + MasterList.Instance.list.Count);
+            }
+            
         }
         else
         {
