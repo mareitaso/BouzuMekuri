@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public MasterList Master;
+    [SerializeField]
+    private RuleData ruleData;
 
-    public void Test()
+    private void Update()
     {
-        //
+        //Debug.Log(ruleData.RulesList()[0].GetFirst());
+        if(ruleData.RulesList()[1].GetFirst() == First.None)
+        {
+
+        }
     }
 }
