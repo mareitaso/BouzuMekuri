@@ -49,7 +49,6 @@ public class Test : MonoBehaviour
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
             
-            //cardAnimation.AnimeYamaToPlayer();
             
             Debug.LogError(deck.drawcard);
             //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
@@ -59,7 +58,7 @@ public class Test : MonoBehaviour
             /// </summary>
 
             //デバッグ用
-            if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetOtherJob() == Card.OtherJob.Debug)
+            if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.Debug)
             {
                 MyRule.instance.DisNCard();
             }
@@ -67,13 +66,13 @@ public class Test : MonoBehaviour
 
 
             //武官を引くかつ武官スキルあり
-            if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetSecondJob() == Card.SecondJob.Bukan)
+            if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
             {
                 BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();
             }
             //弓持ちを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 ImageChangeTono();
@@ -85,40 +84,40 @@ public class Test : MonoBehaviour
             /// </summary>
 
             //天皇を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetSecondJob() == Card.SecondJob.Tennou)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 TennouDraw.instance.Tennou_Draw();
             }
             //段付きを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetThirdJob() == Card.ThirdJob.Dantuki)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 DantukiDraw.instance.Dantuki_Draw();
             }
 
 
             ////偉い姫を引く
-            //else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetOtherJob() == Card.OtherJob.GreatHime)
+            //else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
             //{
             //    GreatHimeDraw.instance.GreatHime_Draw();
             //}
 
             //蝉丸を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetSecondJob() == Card.SecondJob.Semimaru)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
             }
             //坊主を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetFirstJob() == Card.FirstJob.Bouzu)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
             {
                 BouzuDraw.instance.Bouzu_Draw();
             }
             //姫を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetFirstJob() == Card.FirstJob.Hime)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
             {
                 HimeDraw.instance.Hime_Draw();
             }
             //殿を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetFirstJob() == Card.FirstJob.Tono)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Tono)
             {
                 TonoDraw.instance.Tono_Draw();
             }
@@ -156,59 +155,61 @@ public class Test : MonoBehaviour
             Debug.LogError(deck.drawcard);
             //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
 
+            //cardAnimation.AnimeYamaToPlayer();
+
             //デバッグ用
-            if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetOtherJob() == Card.OtherJob.Debug)
+            if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.Debug)
             {
                 MyRule.instance.SomeoneToMe();
             }
 
 
             //武官を引くかつ武官スキルあり
-            if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetSecondJob() == Card.SecondJob.Bukan)
+            if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
             {
                 BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();
             }
             //弓持ちを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 ImageChangeTono();
             }
             //天皇を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetSecondJob() == Card.SecondJob.Tennou)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 TennouDraw.instance.Tennou_Draw();
             }
             //段付きを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetThirdJob() == Card.ThirdJob.Dantuki)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 DantukiDraw.instance.Dantuki_Draw();
             }
 
             ////偉い姫を引く
-            //else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetOtherJob() == Card.OtherJob.GreatHime)
+            //else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
             //{
 
             //}
 
             //蝉丸を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetSecondJob() == Card.SecondJob.Semimaru)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
             }
             //坊主を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetFirstJob() == Card.FirstJob.Bouzu)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
             {
                 BouzuDraw.instance.Bouzu_Draw();
             }
             //姫を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetFirstJob() == Card.FirstJob.Hime)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
             {
                 HimeDraw.instance.Hime_Draw();
             }
             //殿を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard + 1].GetFirstJob() == Card.FirstJob.Tono)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Tono)
             {
                 TonoDraw.instance.Tono_Draw();
             }
@@ -256,7 +257,6 @@ public class Test : MonoBehaviour
         }
         else
         {
-
             Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
         }
         //int x = MasterList.Instance.list[deck.Count]
