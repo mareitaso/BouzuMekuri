@@ -30,16 +30,20 @@ public class Test : MonoBehaviour
     [HideInInspector]
     public bool drawAgain = false;
 
+    [SerializeField]
+    Text drawType;
+
     private void Start()
     {
         TextChange();
+        drawType.text = "";
     }
 
     public void Draw1()
     {
         if (deck.cards1.Count > 0)//山札1があるとき
         {
-            
+
             //山札1がラストの時
             if (deck.cards1.Count == 1)
             {
@@ -48,8 +52,8 @@ public class Test : MonoBehaviour
 
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
-            
-            
+
+
             Debug.LogError(deck.drawcard);
             //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard + 1));
 
@@ -61,6 +65,7 @@ public class Test : MonoBehaviour
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.Debug)
             {
                 MyRule.instance.DisNCard();
+                drawType.text = "デバッグ";
             }
 
 
@@ -70,12 +75,14 @@ public class Test : MonoBehaviour
             {
                 BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();
+                drawType.text = "武官";
             }
             //弓持ちを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 ImageChangeTono();
+                drawType.text = "弓持ち";
             }
 
 
@@ -87,11 +94,13 @@ public class Test : MonoBehaviour
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 TennouDraw.instance.Tennou_Draw();
+                drawType.text = "天皇";
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 DantukiDraw.instance.Dantuki_Draw();
+                drawType.text = "段付き";
             }
 
 
@@ -105,21 +114,25 @@ public class Test : MonoBehaviour
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
+                drawType.text = "蝉丸";
             }
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
             {
                 BouzuDraw.instance.Bouzu_Draw();
+                drawType.text = "坊主";
             }
             //姫を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
             {
                 HimeDraw.instance.Hime_Draw();
+                drawType.text = "姫";
             }
             //殿を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Tono)
             {
                 TonoDraw.instance.Tono_Draw();
+                drawType.text = "殿";
             }
             else
             {
@@ -161,6 +174,7 @@ public class Test : MonoBehaviour
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.Debug)
             {
                 MyRule.instance.SomeoneToMe();
+                drawType.text = "デバッグ";
             }
 
 
@@ -169,22 +183,26 @@ public class Test : MonoBehaviour
             {
                 BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();
+                drawType.text = "武官";
             }
             //弓持ちを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 ImageChangeTono();
+                drawType.text = "弓持ち";
             }
             //天皇を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 TennouDraw.instance.Tennou_Draw();
+                drawType.text = "天皇";
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 DantukiDraw.instance.Dantuki_Draw();
+                drawType.text = "段付き";
             }
 
             ////偉い姫を引く
@@ -197,21 +215,25 @@ public class Test : MonoBehaviour
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
+                drawType.text = "蝉丸";
             }
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
             {
                 BouzuDraw.instance.Bouzu_Draw();
+                drawType.text = "坊主";
             }
             //姫を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
             {
                 HimeDraw.instance.Hime_Draw();
+                drawType.text = "姫";
             }
             //殿を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Tono)
             {
                 TonoDraw.instance.Tono_Draw();
+                drawType.text = "殿";
             }
             else
             {
@@ -247,13 +269,13 @@ public class Test : MonoBehaviour
             try
             {
                 Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                MasterList.Instance.list[deck.Count][MasterList.Instance.list[deck.Count].Count-1]);
+                MasterList.Instance.list[deck.Count][MasterList.Instance.list[deck.Count].Count - 1]);
             }
             catch
             {
                 Debug.Log("例外発生　" + deck.Count + "  " + MasterList.Instance.list[deck.Count].Count + " " + MasterList.Instance.list.Count);
             }
-            
+
         }
         else
         {
@@ -265,7 +287,7 @@ public class Test : MonoBehaviour
 
     public void ImageChangeTono()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard ));
+        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
     }
     public void ImageChangeHime()
     {
@@ -345,4 +367,5 @@ public class Test : MonoBehaviour
             Player[3].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[3] + 1));
         }*/
     }
+
 }
