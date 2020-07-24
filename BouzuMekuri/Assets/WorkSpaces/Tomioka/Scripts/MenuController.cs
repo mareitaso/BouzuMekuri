@@ -25,7 +25,9 @@ public class MenuController : MonoBehaviour
     
     public void LoadTitle()
     {
-        SceneManager.LoadScene("Title");
+        MasterList.Instance.Start();
+        SceneController.Instance.LoadScene(SceneController.SceneName.Title, true, 2f);
+        //SceneManager.LoadScene("Title");
     }
 
 }

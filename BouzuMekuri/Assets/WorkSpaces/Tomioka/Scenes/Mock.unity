@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 56183615}
   - component: {fileID: 56183614}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: RuleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,9 +282,18 @@ MonoBehaviour:
     - RuleEfect: 04000000
     - RuleEfect: 01000000
     - RuleEfect: 01000000
-  - RuleList: []
-  - RuleList: []
-  - RuleList: []
+  - RuleList:
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+  - RuleList:
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+  - RuleList:
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
 --- !u!4 &56183615
 Transform:
   m_ObjectHideFlags: 0
@@ -2104,6 +2113,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924545001}
   m_CullTransparentMesh: 0
+--- !u!1 &941337787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941337789}
+  - component: {fileID: 941337788}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &941337788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941337787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda2584aa0049e842aaed66a34f5b57c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &941337789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941337787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.96451414, y: 0.07010528, z: -12.871094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &972917168
 GameObject:
   m_ObjectHideFlags: 0
@@ -4075,7 +4127,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1756682133}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 597968654}
+        m_MethodName: LoadTitle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1756682133
 MonoBehaviour:
   m_ObjectHideFlags: 0
