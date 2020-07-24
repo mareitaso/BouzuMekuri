@@ -16,6 +16,8 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
     //段付きカードを引いた
     public void Dantuki_Draw()
     {
+        playerSkill = RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0];
+
         Debug.Log(deck.Count + "のばん");
         switch (playerSkill)
         {
@@ -25,7 +27,7 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                 Debug.Log("段付きのスキルは無し");
                 break;
 
-            case 1:
+            case 3:
                 //全員から5枚もらえる
                 for (int i = 0; i < 4; i++)
                 {
@@ -60,7 +62,7 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                 }
                 break;
 
-            case 2:
+            case 4:
                 //他のプレイヤーすべての手札を自分の手札に加える
                 for (int i = 0; i < 4; i++)
                 {
@@ -78,7 +80,7 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                         //hand.handCount[i] = 0;
                     }
                 }
-                Debug.Log("天皇のスキル3発動");
+                Debug.Log("段付きのスキル3発動");
                 break;
 
             default:

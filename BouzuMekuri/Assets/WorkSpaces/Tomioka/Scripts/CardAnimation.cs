@@ -229,7 +229,49 @@ public class CardAnimation : MonoBehaviour
     //蝉丸の山札半分捨てる処理
     public void AnimeYamaHalf()
     {
-    
+
+    }
+
+    public void AnimeYamaHalfReady()
+    {
+        if (deck.cards1.Count > 1)
+        {
+            movePlace = deck.Count;
+
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            {
+                Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.cards1[0]);
+                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                {
+                    //DoToweenで移動
+                    Yamahuda1Fake.transform.DOMove(Sutehuda.transform.position, 1f).OnComplete(() =>
+                    {
+                        Sutehuda.sprite = Yamahuda1Fake.sprite;
+                        Yama1Null();
+                        Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
+                    });
+                });
+            });
+        }
+        if (deck.cards2.Count > 1)
+        {
+            movePlace = deck.Count;
+
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            {
+                Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.cards2[0]);
+                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                {
+                    //DoToweenで移動
+                    Yamahuda2Fake.transform.DOMove(Sutehuda.transform.position, 1f).OnComplete(() =>
+                    {
+                        Sutehuda.sprite = Yamahuda2Fake.sprite;
+                        Yama2Null();
+                        Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
+                    });
+                });
+            });
+        }
     }
 
     //偽山札を作り移動アニメーションを見せる用関数

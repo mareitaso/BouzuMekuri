@@ -18,18 +18,11 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     private int playerSkill = 0;
     private bool fieldEffectOnOff = false;
 
-    public void BukanSkillOn()
-    {
-        playerSkill = 1;
-    }
-    public void BukanSkillOFF()
-    {
-        playerSkill = 0;
-    }
-
     //武官のカードを引いた
     public void Bukan_Draw()
     {
+        playerSkill = RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0];
+
         Debug.Log(deck.Count + "のばん");
         switch (playerSkill)
         {
@@ -73,7 +66,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
 
             //全員から4枚もらえる
             case 1:
-                for (int i = deck.Count; i < j + deck.Count + 1; i++)
+                for (int i = deck.Count; i < 4 + deck.Count + 1; i++)
                 {
                     int k = i % 4;
                     if (k != deck.Count)
@@ -134,7 +127,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 test.Draw2();
             }
         }
-        else
+        else 
         {
             if (clockWise == true)
             {

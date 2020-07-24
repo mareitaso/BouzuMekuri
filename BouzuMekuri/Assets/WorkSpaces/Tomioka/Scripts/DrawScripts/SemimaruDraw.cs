@@ -10,6 +10,8 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     private HandCount hand;
     [SerializeField]
     private Test test;
+    [SerializeField]
+    private CardAnimation cardAnime;
 
     //現状のカードの総数
     private int allYamahuda;
@@ -96,11 +98,13 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
 
         }
 
-        test.ImageChangeTono();
-        test.ImageChangeSemimaru();
-        //deck.DiscardCount
+        cardAnime.AnimeYamaHalf();
 
-    }
+            //test.ImageChangeTono();
+            //test.ImageChangeSemimaru();
+            //deck.DiscardCount
+
+        }
 
     //坊主として扱う
     private void SemimaruSkill1()

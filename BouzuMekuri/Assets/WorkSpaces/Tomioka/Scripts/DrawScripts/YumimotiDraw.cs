@@ -11,6 +11,7 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
 
     public void Yumimoti_Draw()
     {
+
         Debug.Log(deck.Count + "のばん");
         //スキル有り無し
         //if ()

@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
     [SerializeField]
     private GameObject MenuPanel;
-
-
-
 
 
     //メニューをオンにする
@@ -24,4 +22,10 @@ public class MenuController : MonoBehaviour
     {
         MenuPanel.SetActive(false);
     }
+    
+    public void LoadTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
 }

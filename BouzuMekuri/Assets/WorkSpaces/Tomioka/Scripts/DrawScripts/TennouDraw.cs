@@ -16,18 +16,12 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
 
     private int playerSkill = 0;
 
-    public void TennouSkillOn()
-    {
-        playerSkill = 2;
-    }
-    public void TennouSkillOFF()
-    {
-        playerSkill = 0;
-    }
 
     //天皇カードを引いた
     public void Tennou_Draw()
     {
+        playerSkill = RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0];
+
         Debug.Log(deck.Count + "のばん");
         switch (playerSkill)
         {
