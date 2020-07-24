@@ -44,18 +44,18 @@ public class Rule
 
 public enum First
 {
+    None = 0,
     Tennou,
-    Dantuki,
-    None
+    Dantuki
 }
 public enum Second
 {
+    None = 0,
     Bukan,
-    Yumimoti,
-    None
+    Yumimoti
 }
 public enum Third
 {
-    Semimaru,
-    None
+    None = 0,
+    Semimaru
 }
