@@ -166,7 +166,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 }
             }
         }
-        ImageNull();
+        //ImageNull();
     }
 
     private void ImageNull()

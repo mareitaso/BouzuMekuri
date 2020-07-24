@@ -100,22 +100,21 @@ public class CardAnimation : MonoBehaviour
                         Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
                         //アニメーション後元の場所に戻す
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
+                        //移動後移動してきたカードの画像に変更
+                        Sutehuda.sprite = SutehudaFake.sprite;
                     });
 
+                    Debug.Log(player[movePlace].sprite);
                     playerFake[movePlace].sprite = player[movePlace].sprite;
                     //枚数によってはNullか持ってる1番上のカードにする
                     player[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
 
-                    playerFake[movePlace].transform.DOMove(SutehudaFake.transform.position, 1).OnComplete(() =>
+                    playerFake[movePlace].transform.DOMove(Sutehuda.transform.position, 0.8f).OnComplete(() =>
                     {
-                        //移動後移動してきたカードの画像に変更
-                        Sutehuda.sprite = playerFake[movePlace].sprite;
-
                         playerFake[movePlace].transform.position = Place[movePlace].transform.position;
                         playerFake[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
 
                     });
-
                 });
             });
         }
