@@ -458,7 +458,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de34885f0bf15c1499d62d74860e8837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck: {fileID: 836581088}
+  score_object1: {fileID: 0}
+  score_object2: {fileID: 0}
+  score_object3: {fileID: 0}
+  score_object4: {fileID: 0}
 --- !u!114 &836581088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1287786569}
   - component: {fileID: 1287786568}
+  - component: {fileID: 1287786570}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -535,6 +539,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287786570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287786567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35b6d4dfedd0844b9f0f7d1662b0d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerList:
+  - RuleList:
+    - RuleEfect: 00000000
+    - RuleEfect: 
+    - RuleEfect: 
+    - RuleEfect: 
+  - RuleList: []
+  - RuleList: []
+  - RuleList: []
 --- !u!1 &1626351668
 GameObject:
   m_ObjectHideFlags: 0
