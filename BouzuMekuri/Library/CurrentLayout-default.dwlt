@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 438, y: 272}
   m_MaxSize: {x: 14008, y: 10022}
   vertical: 0
-  controlID: 99
+  controlID: 97
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 487
     width: 638
     height: 244
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 104, y: 122}
+  m_MaxSize: {x: 4004, y: 4022}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 438, y: 394}
   m_MaxSize: {x: 14008, y: 14044}
   vertical: 1
-  controlID: 98
+  controlID: 96
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 444}
   m_MaxSize: {x: 22012, y: 14044}
   vertical: 0
-  controlID: 184
+  controlID: 53
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -289,8 +289,8 @@ MonoBehaviour:
     y: 0
     width: 433
     height: 731
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 72}
+  m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -341,8 +341,8 @@ MonoBehaviour:
     y: 375
     width: 465
     height: 356
-  m_MinSize: {x: 202, y: 222}
-  m_MaxSize: {x: 4002, y: 4022}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -521,9 +521,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c8320000
+      m_SelectedIDs: aedcffff
       m_LastClickedID: 0
-      m_ExpandedIDs: 0468ffff3868ffff9eb5ffff12b6ffff86c5ffffd6c6ffff52c7ffffc4c7ffffd4c8ffff46c9ffffd8c9ffff2acbfffff6cbffff24ccffff72fbffff1e3600003a4800007c4e00000a5000008e5200001e540000a256000030580000725e00006c61000056640000
+      m_ExpandedIDs: 4adcffff88dfffffa2dffffffae2ffffb4f3ffffe2f3ffff10f4ffff0cf5ffff22f6ffff32f8ffffc8f8ffff02f9ffff2ef9ffff5af9ffff72fbffff9a350000784200007e450000684800004a55000030580000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -584,7 +584,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 126
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -624,19 +624,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/WorkSpaces/Yamamoto
+    - Assets/WorkSpaces/Yamamoto/Script
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/WorkSpaces/Yamamoto
+  - Assets/WorkSpaces/Yamamoto/Script
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\\u4F73\u6B66\u6597\\Documents\\GitHub\\BouzuMekuri"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7c330000
-    m_LastClickedID: 13180
+    m_SelectedIDs: a02f0000
+    m_LastClickedID: 12192
     m_ExpandedIDs: 000000009e2d0000562e00007c33000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -838,9 +838,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.12860912, y: 0.61413574, z: -12.552343}
+    m_Target: {x: 0.36428344, y: 0.583791, z: -1754.1895}
     speed: 2
-    m_Value: {x: 0.12860912, y: 0.61413574, z: -12.552343}
+    m_Value: {x: 0.36428344, y: 0.583791, z: -1754.1895}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -873,9 +873,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 11.938052
+    m_Target: 15.271233
     speed: 2
-    m_Value: 11.938052
+    m_Value: 15.271233
   m_Ortho:
     m_Target: 1
     speed: 2
