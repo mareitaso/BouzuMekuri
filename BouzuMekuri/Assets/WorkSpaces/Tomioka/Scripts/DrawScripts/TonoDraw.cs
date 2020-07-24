@@ -19,7 +19,7 @@ public class TonoDraw : SingletonMonoBehaviour<TonoDraw>
         Debug.Log("殿" + deck.Count + "のばん");
         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
         //test.ImageChangeTono();
-        cardAnime.AnimeYamaToPlayer();
+        cardAnime.AnimeTono();
     }
 
 }

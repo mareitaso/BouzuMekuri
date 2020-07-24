@@ -71,7 +71,7 @@ public class Test : MonoBehaviour
 
 
             //武官を引くかつ武官スキルあり
-            if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
+            if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan )
             {
                 BukanDraw.instance.Bukan_Draw();
                 ImageChangeTono();

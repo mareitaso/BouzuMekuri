@@ -28,7 +28,7 @@ public class CardAnimation : MonoBehaviour
 
 
     //山札からプレイヤーの手札に移動するアニメーション
-    public void AnimeYamaToPlayer()
+    public void AnimeTono()
     {
         movePlace = deck.Count;
 
@@ -78,7 +78,7 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
-    //プレイヤーのカードを捨て札に移動するアニメーション
+    //捨て札に全部移動するアニメーション
     public void AnimeBouzu()
     {
         movePlace = deck.Count;
@@ -156,6 +156,7 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
+    //捨て札を全部回収するアニメーション
     public void AnimeHime()
     {
         movePlace = deck.Count;
@@ -225,6 +226,13 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
+    //蝉丸の山札半分捨てる処理
+    public void AnimeYamaHalf()
+    {
+    
+    }
+
+    //偽山札を作り移動アニメーションを見せる用関数
     private void Yama1Null()
     {
         if (deck.cards1.Count == 0)
@@ -236,7 +244,9 @@ public class CardAnimation : MonoBehaviour
             Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
         }
     }
-    
+
+
+    //偽山札を作り移動アニメーションを見せる用関数
     private void Yama2Null()
     {
         if (deck.cards2.Count == 0)

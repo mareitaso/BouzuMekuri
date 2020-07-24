@@ -41,7 +41,7 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
             test.drawAgain = true;
             MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
             //test.ImageChangeHime();
-            cardAnime.AnimeYamaToPlayer();
+            cardAnime.AnimeTono();
             
             //deck.cards1.RemoveAt(0);//0番目を削除
 

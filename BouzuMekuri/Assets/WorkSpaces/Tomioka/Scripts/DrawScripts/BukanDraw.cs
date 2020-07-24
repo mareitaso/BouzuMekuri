@@ -18,27 +18,6 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     private int playerSkill = 0;
     private bool fieldEffectOnOff = false;
 
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Keypad0))
-        //{
-        //    playerSkill = 0;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Keypad1))
-        //{
-        //    playerSkill = 1;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Keypad2))
-        //{
-        //    playerSkill = 2;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Keypad3))
-        //{
-        //    playerSkill = 3;
-        //}
-
-    }
-
     public void BukanSkillOn()
     {
         playerSkill = 1;
@@ -92,24 +71,34 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             //    Debug.Log("武官のスキル1発動");
             //    break;
 
-            //全員から1枚もらえる
+            //全員から4枚もらえる
             case 1:
-                for (int i = 0; i < 4; i++)
+                for (int i = deck.Count; i < j + deck.Count + 1; i++)
                 {
-                    if (i != deck.Count)
+                    int k = i % 4;
+                    if (k != deck.Count)
                     {
-                        //1枚でも持っていたら
-                        if (MasterList.Instance.list[i].Count > 1)
+                        //N枚以上もってたら
+                        if (MasterList.Instance.list[k].Count > 4)
                         {
-                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に5枚渡す");
-                            for (int t = 0; t < 1; t++)
+                            for (int t = 0; t < 4; t++)
                             {
-                                int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
-                                MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
-                                MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                                int y = MasterList.Instance.list[k][0];//k番目の人の一番上の札を格納
+                                MasterList.Instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
+                                MasterList.Instance.list[k].RemoveAt(0);//k番目の人の札の初期化
                             }
-                            //hand.handCount[deck.Count] += 5;
-                            //hand.handCount[i] -= 5;
+                            Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に" + 4 + "枚渡す");
+                        }
+                        //N枚以下なら
+                        else
+                        {
+                            for (int t = 0; t < MasterList.Instance.list[k].Count; t++)
+                            {
+                                int y = MasterList.Instance.list[k][0];//k番目の人の一番上の札を格納
+                                MasterList.Instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
+                                MasterList.Instance.list[k].RemoveAt(0);//k番目の人の札の初期化
+                            }
+                            Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
                         }
                     }
                 }
