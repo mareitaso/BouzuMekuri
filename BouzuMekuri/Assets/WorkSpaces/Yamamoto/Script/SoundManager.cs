@@ -27,7 +27,7 @@ public class Sound
 {
     public AudioClip audioClip;
 
-    [Range(0, 10f)]
+    [Range(0f, 1f)]
     public float audioSize;
 }
 
@@ -51,14 +51,11 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     //bool IsFadeOut = true;
     //double FadeDeltaTime = 0;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this);
+
         for (int i = 0; i < bgmsounds.Length; i++)
         {
             bgmDIctionary.Add((Bgm)i, bgmsounds[i]);
@@ -74,7 +71,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     {
         Sound sound = bgmDIctionary[key];
         AudioClip audio = sound.audioClip;
-        float audioSize = sound.audioSize;
+        bgmAudioSource.volume = sound.audioSize;
         bgmAudioSource.clip = audio;
         bgmAudioSource.Play();
     }
@@ -83,7 +80,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     {
         Sound sound = seDictionary[key];
         AudioClip audio = sound.audioClip;
-        float audioSize = sound.audioSize;
+        seAudioSource.volume = sound.audioSize;
         seAudioSource.clip = audio;
         seAudioSource.Play();
     }
