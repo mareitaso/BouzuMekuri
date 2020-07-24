@@ -47,7 +47,7 @@ public class CardAnimation : MonoBehaviour
                          //コールバックで移動後の処理
                          test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                          //偽山札を作り移動アニメーションを見せる
-                         Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+                         Yama1Null();
                          //アニメーション後元の場所に戻す
                          Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
                      });
@@ -69,7 +69,7 @@ public class CardAnimation : MonoBehaviour
                         //コールバックで移動後の処理
                         test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
-                        Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+                        Yama2Null();
                         //アニメーション後元の場所に戻す
                         Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
                     });
@@ -97,7 +97,7 @@ public class CardAnimation : MonoBehaviour
                         //コールバックで移動後の処理
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
-                        Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+                        Yama1Null();
                         //アニメーション後元の場所に戻す
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
                         //移動後移動してきたカードの画像に変更
@@ -132,7 +132,7 @@ public class CardAnimation : MonoBehaviour
                         //コールバックで移動後の処理
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
-                        Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+                        Yama2Null();
                         //アニメーション後元の場所に戻す
                         Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
                         //移動後移動してきたカードの画像に変更
@@ -174,7 +174,7 @@ public class CardAnimation : MonoBehaviour
                         //コールバックで移動後の処理
                         test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
-                        Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+                        Yama1Null();
                         //アニメーション後元の場所に戻す
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
                     });
@@ -206,7 +206,7 @@ public class CardAnimation : MonoBehaviour
                         //コールバックで移動後の処理
                         test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
-                        Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+                        Yama2Null();
                         //アニメーション後元の場所に戻す
                         Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
                     });
@@ -225,6 +225,29 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
+    private void Yama1Null()
+    {
+        if (deck.cards1.Count == 0)
+        {
+            Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        else
+        {
+            Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+        }
+    }
+    
+    private void Yama2Null()
+    {
+        if (deck.cards2.Count == 0)
+        {
+            Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        else
+        {
+            Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+        }
+    }
 
     /*雛形
     public void Anime()
