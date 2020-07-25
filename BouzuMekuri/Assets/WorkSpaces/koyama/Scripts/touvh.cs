@@ -8,6 +8,9 @@ public class touvh : MonoBehaviour
     private Test test;
     [SerializeField]
     private Deck deck;
+    [SerializeField]
+    CardAnimation CardAnime;
+
     public void draw1()
     {
         test.Draw1();
@@ -26,13 +29,14 @@ public class touvh : MonoBehaviour
         if(Player1 == false)
         {
             MasterList.Instance.Shuffle2();
+            CardAnime.PlayerAllShuffle();
             int z = deck.Count;
             deck.Count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                test.Image();
-                deck.Count++;
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    test.Image();
+            //    deck.Count++;
+            //}
             test.TextChange();
             deck.Count = z;
             Player1 = true;

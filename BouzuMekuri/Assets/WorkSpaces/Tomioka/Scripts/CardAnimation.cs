@@ -280,6 +280,7 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
+    //蝉丸の山札半分捨てる処理
     private void AnimeYamaHalfReady()
     {
         if (deck.cards1.Count > 1)
@@ -347,6 +348,53 @@ public class CardAnimation : MonoBehaviour
         {
             Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
         }
+    }
+
+    //プレイヤーの手札シャッフルする処理
+    public void PlayerAllShuffle()
+    {
+        playerFake[0].sprite = player[0].sprite;
+        playerFake[1].sprite = player[1].sprite;
+        playerFake[2].sprite = player[2].sprite;
+        playerFake[3].sprite = player[3].sprite;
+        player[0].sprite = Resources.Load<Sprite>("Images/Null");
+        player[1].sprite = Resources.Load<Sprite>("Images/Null");
+        player[2].sprite = Resources.Load<Sprite>("Images/Null");
+        player[3].sprite = Resources.Load<Sprite>("Images/Null");
+
+        playerFake[0].transform.DOMove(new Vector2(0, 0), 1f);
+        playerFake[1].transform.DOMove(new Vector2(0, 0), 1f);
+        playerFake[2].transform.DOMove(new Vector2(0, 0), 1f);
+        playerFake[3].transform.DOMove(new Vector2(0, 0), 1f).OnComplete(() =>
+        {
+            playerFake[0].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[0][MasterList.Instance.list[0].Count - 1]);
+            playerFake[1].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[1][MasterList.Instance.list[1].Count - 1]);
+            playerFake[2].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[2][MasterList.Instance.list[2].Count - 1]);
+            playerFake[3].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[3][MasterList.Instance.list[3].Count - 1]);
+            playerFake[0].transform.DOMove(Place[0].transform.position, 1f);
+            playerFake[1].transform.DOMove(Place[1].transform.position, 1f);
+            playerFake[2].transform.DOMove(Place[2].transform.position, 1f);
+            playerFake[3].transform.DOMove(Place[3].transform.position, 1f).OnComplete(() =>
+            {
+                player[0].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[0][MasterList.Instance.list[0].Count - 1]);
+                player[1].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[1][MasterList.Instance.list[1].Count - 1]);
+                player[2].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[2][MasterList.Instance.list[2].Count - 1]);
+                player[3].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[3][MasterList.Instance.list[3].Count - 1]);
+
+                playerFake[0].sprite = Resources.Load<Sprite>("Images/Null");
+                playerFake[1].sprite = Resources.Load<Sprite>("Images/Null");
+                playerFake[2].sprite = Resources.Load<Sprite>("Images/Null");
+                playerFake[3].sprite = Resources.Load<Sprite>("Images/Null");
+            });
+        });
     }
 
     /*雛形
