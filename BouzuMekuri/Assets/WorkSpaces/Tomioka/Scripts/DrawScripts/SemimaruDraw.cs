@@ -98,7 +98,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
 
         }
 
-        cardAnime.AnimeYamaHalfReady();
+        cardAnime.AnimeYamaHalf();
 
             //test.ImageChangeTono();
             //test.ImageChangeSemimaru();

@@ -230,9 +230,57 @@ public class CardAnimation : MonoBehaviour
     public void AnimeYamaHalf()
     {
 
+        movePlace = deck.Count;
+
+        //山札1から各プレイヤーに移動
+        if (test.drowYama1 == true)
+        {
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            {
+                //引いたカードのspriteにする
+                Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                {
+                    //DoToweenで移動
+                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    {
+                        //コールバックで移動後の処理
+                        test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        //偽山札を作り移動アニメーションを見せる
+                        Yama1Null();
+                        //アニメーション後元の場所に戻す
+                        Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
+                        AnimeYamaHalfReady();
+                    });
+                });
+            });
+        }
+        //山札2から各プレイヤーに移動
+        else
+        {
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            {
+                //引いたカードのspriteにする
+                Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                {
+                    //DoToweenで移動
+                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    {
+                        //コールバックで移動後の処理
+                        test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        //偽山札を作り移動アニメーションを見せる
+                        Yama2Null();
+                        //アニメーション後元の場所に戻す
+                        Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
+                        AnimeYamaHalfReady();
+                    });
+                });
+            });
+        }
     }
 
-    public void AnimeYamaHalfReady()
+    private void AnimeYamaHalfReady()
     {
         if (deck.cards1.Count > 1)
         {
