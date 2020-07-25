@@ -5179,6 +5179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   test: {fileID: 972917170}
   deck: {fileID: 972917169}
+  CardAnime: {fileID: 1818914147}
 --- !u!1 &2139189049
 GameObject:
   m_ObjectHideFlags: 0
