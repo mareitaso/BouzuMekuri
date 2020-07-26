@@ -280,19 +280,19 @@ MonoBehaviour:
   PlayerList:
   - RuleList:
     - RuleEfect: 02000000
-    - RuleEfect: 01000000
+    - RuleEfect: 03000000
     - RuleEfect: 01000000
   - RuleList:
     - RuleEfect: 02000000
-    - RuleEfect: 01000000
+    - RuleEfect: 03000000
     - RuleEfect: 00000000
   - RuleList:
     - RuleEfect: 02000000
-    - RuleEfect: 01000000
+    - RuleEfect: 03000000
     - RuleEfect: 00000000
   - RuleList:
     - RuleEfect: 02000000
-    - RuleEfect: 01000000
+    - RuleEfect: 03000000
     - RuleEfect: 00000000
 --- !u!4 &56183615
 Transform:

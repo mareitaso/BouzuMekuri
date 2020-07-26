@@ -614,7 +614,9 @@ MonoBehaviour:
   bgmsounds:
   - audioClip: {fileID: 8300000, guid: b1e7dc2a76921d947b1fa4a98912ca28, type: 3}
     audioSize: 0.2
-  sesounds: []
+  sesounds:
+  - audioClip: {fileID: 8300000, guid: 78efc3ad659940a4e97ed43816a37217, type: 3}
+    audioSize: 0.7
   bgmAudioSource: {fileID: 1167918026}
   seAudioSource: {fileID: 1167918025}
 --- !u!4 &1167918028

@@ -41,6 +41,7 @@ public class Test : MonoBehaviour
 
     public void Draw1()
     {
+        SoundManager.instance.SeApply(Se.cardOpen);
         if (deck.cards1.Count > 0)//山札1があるとき
         {
 
@@ -165,6 +166,7 @@ public class Test : MonoBehaviour
     }
     public void Draw2()
     {
+        SoundManager.instance.SeApply(Se.cardOpen);
         if (deck.cards2.Count > 0)//山札2があるとき
         {
             //山札2がラストの時
