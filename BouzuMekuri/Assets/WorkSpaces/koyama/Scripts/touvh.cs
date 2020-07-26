@@ -54,13 +54,14 @@ public class touvh : MonoBehaviour
         if (Player2 == false)
         {
             MasterList.Instance.Shuffle2();
+            CardAnime.PlayerAllShuffle();
             int z = deck.Count;
             deck.Count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                test.Image();
-                deck.Count++;
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    test.Image();
+            //    deck.Count++;
+            //}
             test.TextChange();
             deck.Count = z;
             Player2 = true;
@@ -77,13 +78,14 @@ public class touvh : MonoBehaviour
         if (Player3 == false)
         {
             MasterList.Instance.Shuffle2();
+            CardAnime.PlayerAllShuffle();
             int z = deck.Count;
             deck.Count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                test.Image();
-                deck.Count++;
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    test.Image();
+            //    deck.Count++;
+            //}
             test.TextChange();
             deck.Count = z;
             Player3 = true;
@@ -100,13 +102,14 @@ public class touvh : MonoBehaviour
         if (Player4 == false)
         {
             MasterList.Instance.Shuffle2();
+            CardAnime.PlayerAllShuffle();
             int z = deck.Count;
             deck.Count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                test.Image();
-                deck.Count++;
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    test.Image();
+            //    deck.Count++;
+            //}
             test.TextChange();
             deck.Count = z;
             Player4 = true;
