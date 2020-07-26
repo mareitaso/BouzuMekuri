@@ -82,7 +82,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         AudioClip audio = sound.audioClip;
         seAudioSource.volume = sound.audioSize;
         seAudioSource.clip = audio;
-        seAudioSource.Play();
+        seAudioSource.PlayOneShot(audio);
     }
 
     //public void FadeOut()
@@ -97,4 +97,44 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     //    bgmAudioSource.volume = (float)(1.0 - FadeDeltaTime / FadeOutSeconds);
 
     //}
+
+    public void FadeOutBgm(float fadeTime)
+    {
+        StartCoroutine(FadeOut(fadeTime));
+    }
+
+    public void FadeOutSE(float fadeTime)
+    {
+        StartCoroutine(SEFadeOut(fadeTime));
+    }
+
+    private IEnumerator FadeOut(float time)
+    {
+        float _time = time;
+        float vol = bgmAudioSource.volume;
+        while (_time > 0f)
+        {
+            _time -= Time.deltaTime;
+            bgmAudioSource.volume = vol * _time / time;
+            yield return null;
+        }
+        bgmAudioSource.Stop();
+        bgmAudioSource.clip = null;
+        yield break;
+    }
+
+    private IEnumerator SEFadeOut(float time)
+    {
+        float _time = time;
+        float vol = seAudioSource.volume;
+        while (_time > 0f)
+        {
+            _time -= Time.deltaTime;
+            seAudioSource.volume = vol * _time / time;
+            yield return null;
+        }
+        seAudioSource.Stop();
+        seAudioSource.clip = null;
+        yield break;
+    }
 }

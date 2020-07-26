@@ -611,7 +611,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d1dc1d913114349ae5d921aec6dbad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmsounds: []
+  bgmsounds:
+  - audioClip: {fileID: 8300000, guid: b1e7dc2a76921d947b1fa4a98912ca28, type: 3}
+    audioSize: 0.2
   sesounds: []
   bgmAudioSource: {fileID: 1167918026}
   seAudioSource: {fileID: 1167918025}
