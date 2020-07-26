@@ -11,7 +11,7 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
     [SerializeField]
     private Test test;
     [SerializeField]
-    private CardDataBase cardDataBase;
+    private CardAnimation cardAnime;
 
 
     private int playerSkill = 0;
@@ -41,6 +41,7 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
                         deck.cards1.RemoveAt(0);
                     }
+                    cardAnime.AnimeTono();
                 }
                 else
                 {
@@ -51,6 +52,7 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加;
                         deck.cards2.RemoveAt(0);
                     }
+                    cardAnime.AnimeTono();
                 }
                 Debug.Log("天皇のスキル1発動");
                 break;
@@ -63,8 +65,11 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                     if (i != deck.Count)
                     {
                         Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
-                        for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                        Debug.Log(i + 1 + "番目の人は" + MasterList.Instance.list[i].Count + "枚");
+                        int q = MasterList.Instance.list[i].Count;
+                        for (int t = 0; t < q; t++)
                         {
+                            Debug.Log(i + 1 + "番目の人は" + t + "回目");
                             int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
                             MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
                             MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
@@ -76,7 +81,14 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 //場の札をもらう
                 if (deck.DiscardCount.Count > 0)
                 {
-                    for (int t = 0; t < deck.DiscardCount.Count; t++)
+                    //for (int t = 0; t < deck.DiscardCount.Count; t++)
+                    //{
+                    //    int y = deck.DiscardCount[0];//捨て札を格納
+                    //    MasterList.Instance.list[deck.Count].Add(y);//捨て札を回収
+                    //    deck.DiscardCount.RemoveAt(0);//捨て札を初期化
+                    //}
+                    int r = deck.DiscardCount.Count;
+                    for (int t = 0; t < r; t++)
                     {
                         int y = deck.DiscardCount[0];//捨て札を格納
                         MasterList.Instance.list[deck.Count].Add(y);//捨て札を回収
@@ -84,12 +96,13 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                     }
                     //hand.handCount[deck.Count] += deck.DiscardCount;//捨て札を回収
                     //deck.DiscardCount = 0;//捨て札を初期化
-                    test.ImageChangeHime();
+                    //test.ImageChangeHime();
                 }
                 else
                 {
-                    test.ImageChangeHime();
+                    //test.ImageChangeHime();
                 }
+                cardAnime.AnimeAllGet();
                 Debug.Log("天皇のスキル2発動");
                 break;
             default:
@@ -98,6 +111,6 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
         }
 
         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-        test.ImageChangeTono();
+        //test.ImageChangeTono();
     }
 }

@@ -26,6 +26,9 @@ public class CardAnimation : MonoBehaviour
 
     private int movePlace;
 
+    private float animeTime = 0.6f;
+    private float rotateTime = 0.3f;
+
 
     //山札からプレイヤーの手札に移動するアニメーション
     public void AnimeTono()
@@ -35,17 +38,17 @@ public class CardAnimation : MonoBehaviour
         //山札1から各プレイヤーに移動
         if (test.drowYama1 == true)
         {
-            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 //引いたカードのspriteにする
                 Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                      {
                          //コールバックで移動後の処理
-                         test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                         player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                          //偽山札を作り移動アニメーションを見せる
                          Yama1Null();
                          //アニメーション後元の場所に戻す
@@ -57,17 +60,17 @@ public class CardAnimation : MonoBehaviour
         //山札2から各プレイヤーに移動
         else
         {
-            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 //引いたカードのspriteにする
                 Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
                         //コールバックで移動後の処理
-                        test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
                         Yama2Null();
                         //アニメーション後元の場所に戻す
@@ -85,19 +88,21 @@ public class CardAnimation : MonoBehaviour
 
         if (test.drowYama1 == true)
         {
-            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 //引いたカードのspriteにする
                 Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで捨て札に移動
-                    Yamahuda1Fake.transform.DOMove(SutehudaFake.transform.position, 1).OnComplete(() =>
+                    Yamahuda1Fake.transform.DOMove(SutehudaFake.transform.position, animeTime).OnComplete(() =>
                     {
                         //コールバックで移動後の処理
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
                         Yama1Null();
+
+
                         //アニメーション後元の場所に戻す
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
                         //移動後移動してきたカードの画像に変更
@@ -106,9 +111,10 @@ public class CardAnimation : MonoBehaviour
 
                     playerFake[movePlace].sprite = player[movePlace].sprite;
                     //枚数によってはNullか持ってる1番上のカードにする
+
                     player[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
 
-                    playerFake[movePlace].transform.DOMove(Sutehuda.transform.position, 0.8f).OnComplete(() =>
+                    playerFake[movePlace].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
                     {
                         playerFake[movePlace].transform.position = Place[movePlace].transform.position;
                         playerFake[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
@@ -120,14 +126,14 @@ public class CardAnimation : MonoBehaviour
         //山札2から各プレイヤーに移動
         else
         {
-            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 //引いたカードのspriteにする
                 Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで捨て札に移動
-                    Yamahuda2Fake.transform.DOMove(SutehudaFake.transform.position, 1).OnComplete(() =>
+                    Yamahuda2Fake.transform.DOMove(SutehudaFake.transform.position, animeTime).OnComplete(() =>
                     {
                         //コールバックで移動後の処理
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
@@ -144,11 +150,10 @@ public class CardAnimation : MonoBehaviour
                     //枚数によってはNullか持ってる1番上のカードにする
                     player[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
 
-                    playerFake[movePlace].transform.DOMove(SutehudaFake.transform.position, 1).OnComplete(() =>
+                    playerFake[movePlace].transform.DOMove(SutehudaFake.transform.position, animeTime).OnComplete(() =>
                     {
                         playerFake[movePlace].transform.position = Place[movePlace].transform.position;
                         playerFake[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
-
                     });
 
                 });
@@ -163,17 +168,17 @@ public class CardAnimation : MonoBehaviour
 
         if (test.drowYama1 == true)
         {
-            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 //引いたカードのspriteにする
                 Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
                         //コールバックで移動後の処理
-                        test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
                         Yama1Null();
                         //アニメーション後元の場所に戻す
@@ -184,7 +189,7 @@ public class CardAnimation : MonoBehaviour
                     SutehudaFake.sprite = Sutehuda.sprite;
                     Sutehuda.sprite = Resources.Load<Sprite>("Images/Null");
 
-                    SutehudaFake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    SutehudaFake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
                         SutehudaFake.transform.position = Sutehuda.transform.position;
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/Null");
@@ -195,17 +200,17 @@ public class CardAnimation : MonoBehaviour
         }
         else
         {
-            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 //引いたカードのspriteにする
                 Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
                         //コールバックで移動後の処理
-                        test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
                         Yama2Null();
                         //アニメーション後元の場所に戻す
@@ -216,7 +221,7 @@ public class CardAnimation : MonoBehaviour
                     SutehudaFake.sprite = Sutehuda.sprite;
                     Sutehuda.sprite = Resources.Load<Sprite>("Images/Null");
 
-                    SutehudaFake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    SutehudaFake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
                         SutehudaFake.transform.position = Sutehuda.transform.position;
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/Null");
@@ -522,17 +527,17 @@ public class CardAnimation : MonoBehaviour
         //山札1から各プレイヤーに移動
         if (test.drowYama1 == true)
         {
-            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 //引いたカードのspriteにする
                 Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
                         //コールバックで移動後の処理
-                        test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
                         Yama1Null();
                         //アニメーション後元の場所に戻す
@@ -545,17 +550,17 @@ public class CardAnimation : MonoBehaviour
         //山札2から各プレイヤーに移動
         else
         {
-            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 //引いたカードのspriteにする
                 Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, 1f).OnComplete(() =>
+                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
                         //コールバックで移動後の処理
-                        test.Player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
                         Yama2Null();
                         //アニメーション後元の場所に戻す
@@ -574,13 +579,13 @@ public class CardAnimation : MonoBehaviour
         {
             movePlace = deck.Count;
 
-            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.cards1[0]);
-                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    Yamahuda1Fake.transform.DOMove(Sutehuda.transform.position, 1f).OnComplete(() =>
+                    Yamahuda1Fake.transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
                     {
                         Sutehuda.sprite = Yamahuda1Fake.sprite;
                         Yama1Null();
@@ -593,13 +598,13 @@ public class CardAnimation : MonoBehaviour
         {
             movePlace = deck.Count;
 
-            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.cards2[0]);
-                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), 0.5f).OnComplete(() =>
+                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    Yamahuda2Fake.transform.DOMove(Sutehuda.transform.position, 1f).OnComplete(() =>
+                    Yamahuda2Fake.transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
                     {
                         Sutehuda.sprite = Yamahuda2Fake.sprite;
                         Yama2Null();
@@ -623,7 +628,6 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
-
     //偽山札を作り移動アニメーションを見せる用関数
     private void Yama2Null()
     {
@@ -637,52 +641,47 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
-    //プレイヤーの手札シャッフルする処理
+    //プレイヤーの手札の中身をシャッフルする処理
     public void PlayerAllShuffle()
     {
-        playerFake[0].sprite = player[0].sprite;
-        playerFake[1].sprite = player[1].sprite;
-        playerFake[2].sprite = player[2].sprite;
-        playerFake[3].sprite = player[3].sprite;
-        player[0].sprite = Resources.Load<Sprite>("Images/Null");
-        player[1].sprite = Resources.Load<Sprite>("Images/Null");
-        player[2].sprite = Resources.Load<Sprite>("Images/Null");
-        player[3].sprite = Resources.Load<Sprite>("Images/Null");
-
-        playerFake[0].transform.DOMove(new Vector2(0, 0), 1f);
-        playerFake[1].transform.DOMove(new Vector2(0, 0), 1f);
-        playerFake[2].transform.DOMove(new Vector2(0, 0), 1f);
-        playerFake[3].transform.DOMove(new Vector2(0, 0), 1f).OnComplete(() =>
+        for (int i = 0; i < 4; i++)
         {
-            playerFake[0].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[0][MasterList.Instance.list[0].Count - 1]);
-            playerFake[1].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[1][MasterList.Instance.list[1].Count - 1]);
-            playerFake[2].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[2][MasterList.Instance.list[2].Count - 1]);
-            playerFake[3].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[3][MasterList.Instance.list[3].Count - 1]);
-            playerFake[0].transform.DOMove(Place[0].transform.position, 1f);
-            playerFake[1].transform.DOMove(Place[1].transform.position, 1f);
-            playerFake[2].transform.DOMove(Place[2].transform.position, 1f);
-            playerFake[3].transform.DOMove(Place[3].transform.position, 1f).OnComplete(() =>
+            playerFake[i].sprite = player[i].sprite;
+            player[i].sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        playerFake[0].transform.DOMove(new Vector2(0, 0), animeTime);
+        playerFake[1].transform.DOMove(new Vector2(0, 0), animeTime);
+        playerFake[2].transform.DOMove(new Vector2(0, 0), animeTime);
+        playerFake[3].transform.DOMove(new Vector2(0, 0), animeTime).OnComplete(() =>
+        {
+            for (int i = 0; i < 4; i++)
             {
-                player[0].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[0][MasterList.Instance.list[0].Count - 1]);
-                player[1].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[1][MasterList.Instance.list[1].Count - 1]);
-                player[2].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[2][MasterList.Instance.list[2].Count - 1]);
-                player[3].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[3][MasterList.Instance.list[3].Count - 1]);
-
-                playerFake[0].sprite = Resources.Load<Sprite>("Images/Null");
-                playerFake[1].sprite = Resources.Load<Sprite>("Images/Null");
-                playerFake[2].sprite = Resources.Load<Sprite>("Images/Null");
-                playerFake[3].sprite = Resources.Load<Sprite>("Images/Null");
+                if (MasterList.Instance.list[i].Count != 0)
+                {
+                    playerFake[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                                    MasterList.Instance.list[i][MasterList.Instance.list[i].Count - 1]);
+                }
+                else
+                {
+                    playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
+                }
+            }
+            playerFake[0].transform.DOMove(Place[0].transform.position, animeTime);
+            playerFake[1].transform.DOMove(Place[1].transform.position, animeTime);
+            playerFake[2].transform.DOMove(Place[2].transform.position, animeTime);
+            playerFake[3].transform.DOMove(Place[3].transform.position, animeTime).OnComplete(() =>
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    player[i].sprite = playerFake[i].sprite;
+                    playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
+                }
             });
         });
     }
+
+
+
 
     /*雛形
     public void Anime()
@@ -691,14 +690,14 @@ public class CardAnimation : MonoBehaviour
 
         if (test.drowYama1 == true)
         {
-            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
 
             });
         }
         else
         {
-            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), 0.5f).OnComplete(() =>
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
 
             });
