@@ -124,6 +124,7 @@ public class CardAnimation : MonoBehaviour
                     {
                         playerFake[movePlace].transform.position = Place[movePlace].transform.position;
                         playerFake[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
+                        player[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
                         animeEnd = true;
                     });
                 });
