@@ -13,11 +13,17 @@ public class touvh : MonoBehaviour
 
     public void draw1()
     {
-        test.Draw1();
+        if (CardAnime.animeEnd == true)
+        {
+            test.Draw1();
+        }
     }
     public void draw2()
     {
-        test.Draw2();
+        if (CardAnime.animeEnd == true)
+        {
+            test.Draw2();
+        }
     }
 
     private bool Player1 = false;
