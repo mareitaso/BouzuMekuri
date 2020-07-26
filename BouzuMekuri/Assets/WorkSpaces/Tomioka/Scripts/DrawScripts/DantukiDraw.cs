@@ -10,6 +10,8 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
     private HandCount hand;
     [SerializeField]
     private Test test;
+    [SerializeField]
+    private CardAnimation cardAnime;
 
     private int playerSkill = 0;
 
@@ -49,7 +51,8 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                         else
                         {
                             Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に持っている枚数渡す");
-                            for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                            int p = MasterList.Instance.list[i].Count;
+                            for (int t = 0; t < p; t++)
                             {
                                 int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
                                 MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
@@ -60,6 +63,7 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                         }
                     }
                 }
+                cardAnime.AnimeCardNMove();
                 break;
 
             case 4:
@@ -70,7 +74,8 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                     if (i != deck.Count)
                     {
                         Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
-                        for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                        int l = MasterList.Instance.list[i].Count;
+                        for (int t = 0; t < l; t++)
                         {
                             int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
                             MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
@@ -80,7 +85,8 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                         //hand.handCount[i] = 0;
                     }
                 }
-                Debug.Log("段付きのスキル3発動");
+                cardAnime.AnimeHandCardGet();
+                Debug.Log("段付きのスキル2発動");
                 break;
 
             default:

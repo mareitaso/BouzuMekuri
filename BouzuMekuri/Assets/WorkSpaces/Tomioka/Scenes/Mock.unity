@@ -279,20 +279,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerList:
   - RuleList:
-    - RuleEfect: 04000000
+    - RuleEfect: 02000000
     - RuleEfect: 01000000
     - RuleEfect: 01000000
   - RuleList:
-    - RuleEfect: 00000000
-    - RuleEfect: 00000000
-    - RuleEfect: 00000000
-  - RuleList:
-    - RuleEfect: 00000000
-    - RuleEfect: 00000000
+    - RuleEfect: 02000000
+    - RuleEfect: 01000000
     - RuleEfect: 00000000
   - RuleList:
+    - RuleEfect: 02000000
+    - RuleEfect: 01000000
     - RuleEfect: 00000000
-    - RuleEfect: 00000000
+  - RuleList:
+    - RuleEfect: 02000000
+    - RuleEfect: 01000000
     - RuleEfect: 00000000
 --- !u!4 &56183615
 Transform:
@@ -2388,6 +2388,7 @@ MonoBehaviour:
   deck: {fileID: 972917169}
   hand: {fileID: 1150689385}
   test: {fileID: 972917170}
+  cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2403,7 +2404,7 @@ MonoBehaviour:
   deck: {fileID: 972917169}
   hand: {fileID: 1150689385}
   test: {fileID: 972917170}
-  cardDataBase: {fileID: 11400000, guid: ea706d4cf46d2144aaedc9bfde7c368c, type: 2}
+  cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2433,6 +2434,7 @@ MonoBehaviour:
   deck: {fileID: 972917169}
   hand: {fileID: 1150689385}
   test: {fileID: 972917170}
+  cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503232
 MonoBehaviour:
   m_ObjectHideFlags: 0
