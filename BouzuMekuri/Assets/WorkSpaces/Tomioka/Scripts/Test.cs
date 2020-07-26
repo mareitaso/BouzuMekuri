@@ -35,6 +35,7 @@ public class Test : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.instance.BgmApply(Bgm.B);
         TextChange();
         drawType.text = "";
     }
