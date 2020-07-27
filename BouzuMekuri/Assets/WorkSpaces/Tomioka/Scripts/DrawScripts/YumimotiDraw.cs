@@ -17,7 +17,7 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
     public void Yumimoti_Draw()
     {
 
-        Debug.Log(deck.Count + "のばん");
+        Debug.Log("弓持ち" + deck.Count + "のばん");
         //スキル有り無し
         //if ()
         //    else { }
@@ -44,10 +44,10 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
         //int u = (deck.Count+1 )% 4;//余り
         for (int w = 0; w < 4; w++)
         {
-            Debug.Log((deck.Count + w) % 4);
-            if (MasterList.Instance.list[(deck.Count + w) % 4].Count != 0)
+            Debug.Log((w + 1) % 4);
+            if (MasterList.Instance.list[(w + 1) % 4].Count != 0)
             {
-                int u = (deck.Count + w) % 4;//余り
+                int u = (w + 1) % 4;//余り
                 if (MasterList.Instance.list[u].Count > 5)
                 {
                     for (int t = 0; t < 5; t++)
@@ -87,7 +87,7 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
         //}
 
         cardAnime.AnimeLeftToRight();
-        Debug.Log("最終的にカードを渡す人は" + YumimotiNum);
+        Debug.Log("最終的にカードを渡す人は" + (YumimotiNum + 1) + "→" + (deck.Count + 1));
         Debug.Log("弓持ちのスキル発動");
 
         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加

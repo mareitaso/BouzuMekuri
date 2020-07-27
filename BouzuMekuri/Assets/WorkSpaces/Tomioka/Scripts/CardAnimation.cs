@@ -539,6 +539,8 @@ public class CardAnimation : MonoBehaviour
         animeEnd = false;
         movePlace = deck.Count;
         int YumiNum = YumimotiDraw.instance.YumimotiNum;
+        Debug.Log(YumiNum);
+        Debug.Log("カードは" + (YumiNum + 1) + "P" + "→" + (deck.Count + 1) + "Pへ");
 
         //山札1から各プレイヤーに移動
         if (test.drowYama1 == true)
