@@ -100,7 +100,6 @@ public class Test : MonoBehaviour
                 RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
             {
                 BukanDraw.instance.Bukan_Draw();
-                ImageChangeTono();
                 drawType.text = "武官";
             }
 
@@ -109,7 +108,6 @@ public class Test : MonoBehaviour
                 RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
-                ImageChangeTono();
                 drawType.text = "弓持ち";
             }
 
@@ -216,7 +214,6 @@ public class Test : MonoBehaviour
                 RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
             {
                 BukanDraw.instance.Bukan_Draw();
-                ImageChangeTono();
                 drawType.text = "武官";
             }
 
@@ -225,7 +222,6 @@ public class Test : MonoBehaviour
                 RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
-                ImageChangeTono();
                 drawType.text = "弓持ち";
             }
 

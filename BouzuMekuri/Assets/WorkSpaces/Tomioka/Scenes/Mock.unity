@@ -2419,6 +2419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
   hand: {fileID: 1150689385}
+  cardAnime: {fileID: 1818914147}
+  YumimotiNum: 0
 --- !u!114 &1003503231
 MonoBehaviour:
   m_ObjectHideFlags: 0
