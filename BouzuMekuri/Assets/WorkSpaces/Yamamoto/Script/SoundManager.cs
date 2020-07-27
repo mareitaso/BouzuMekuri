@@ -5,8 +5,8 @@ using UnityEngine;
 
 public enum Bgm
 {
-    B,//タイトル
-    BGM1,//編集
+    Title,//タイトル
+    Main,//編集
     BGM2//ゲーム画面
 }
 

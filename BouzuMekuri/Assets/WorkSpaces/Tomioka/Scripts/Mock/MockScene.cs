@@ -7,11 +7,11 @@ public class MockScene : MonoBehaviour
 {
     private void Start()
     {
-        //SoundManager.instance.BgmApply(Bgm.B);
+        SoundManager.instance.BgmApply(Bgm.Title);
     }
     public void SceneLoad()
     {
         SceneManager.LoadScene("Mock");
-        //SoundManager.instance.FadeOutBgm(1f);
+        //SoundManager.instance.FadeOutBgm(0.5f);
     }
 }

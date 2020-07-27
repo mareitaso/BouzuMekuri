@@ -614,6 +614,8 @@ MonoBehaviour:
   bgmsounds:
   - audioClip: {fileID: 8300000, guid: b1e7dc2a76921d947b1fa4a98912ca28, type: 3}
     audioSize: 0.2
+  - audioClip: {fileID: 8300000, guid: 320323147ca3906408743256ee1088c7, type: 3}
+    audioSize: 0.02
   sesounds:
   - audioClip: {fileID: 8300000, guid: 78efc3ad659940a4e97ed43816a37217, type: 3}
     audioSize: 0.7
