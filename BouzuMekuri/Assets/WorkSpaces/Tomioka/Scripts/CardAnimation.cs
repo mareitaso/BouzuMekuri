@@ -24,12 +24,26 @@ public class CardAnimation : MonoBehaviour
     [SerializeField]
     private Test test;
 
+    [SerializeField]
+    private Image skillCutIn;
+
+    [SerializeField]
+    private GameObject CutInBefore, CutInAfter;
+
     public bool animeEnd = true;
 
     private int movePlace;
 
     private float animeTime = 0.6f;
     private float rotateTime = 0.3f;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            AnimeSkillCutIn();
+        }
+    }
 
 
     //山札からプレイヤーの手札に移動するアニメーション
@@ -443,6 +457,7 @@ public class CardAnimation : MonoBehaviour
     {
         animeEnd = false;
         movePlace = deck.Count;
+        AnimeSkillCutIn();
 
         //山札1から各プレイヤーに移動
         if (test.drowYama1 == true)
@@ -804,7 +819,45 @@ public class CardAnimation : MonoBehaviour
         });
     }
 
+    public void AnimeSkillCutIn()
+    {
+        Debug.Log("関数内も呼ばれた");
 
+        skillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
+        {
+            skillCutIn.transform.DOMove(new Vector3(0, 0, 0), 0.7f).OnComplete(() =>
+            {
+                skillCutIn.transform.DOMove(CutInAfter.transform.position, animeTime / 2).OnComplete(() =>
+                {
+                    skillCutIn.transform.position = CutInBefore.transform.position;
+                });
+            });
+        });
+    }
+
+    private IEnumerator EndCutIn()
+    {
+        AnimeSkillCutIn();
+
+        while (animeEnd)
+        {
+            // childのisComplete変数がtrueになるまで待機
+            yield return new WaitForEndOfFrame();
+        }
+
+        // childのアニメーションが終了したとき
+        // (child.isCompleteがtrueになったとき)
+        // ここより下にかかれた処理が実行される
+    }
+
+    private void AnimeSwitch()
+    {
+        switch ()
+        {
+            case 1:
+                break;
+        }
+    }
     /*雛形
     public void Anime()
         animeEnd = false;
