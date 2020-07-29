@@ -8,10 +8,10 @@ using DG.Tweening;
 public class MockScene : MonoBehaviour
 {
     [SerializeField]
-    private Image cloud1, cloud2;
+    private Image cloudLU, cloudLD, cloudRU, cloudRD;
 
     [SerializeField]
-    private GameObject cloudPlace1, cloudPlace2;
+    private GameObject cloudPlaceLU, cloudPlaceLD, cloudPlaceRU, cloudPlaceRD;
 
     private void Start()
     {
@@ -21,10 +21,11 @@ public class MockScene : MonoBehaviour
     {
         SoundManager.instance.FadeOutBgm(1f);
 
-        cloud1.transform.DOMove(cloudPlace1.transform.position, 1.5f);
-        cloud1.transform.DOMove(cloudPlace1.transform.position, 1.5f).OnComplete(() =>
+        cloudLU.transform.DOMove(cloudPlaceLU.transform.position, 1.5f);
+        cloudLD.transform.DOMove(cloudPlaceLD.transform.position, 1.5f);
+        cloudRU.transform.DOMove(cloudPlaceRU.transform.position, 1.5f);
+        cloudRD.transform.DOMove(cloudPlaceRD.transform.position, 1.5f).OnComplete(() =>
         {
-
             SceneManager.LoadScene("ru-ruhebbsyuu");
         });
     }
