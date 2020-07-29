@@ -40,7 +40,7 @@ public class touvh : MonoBehaviour
         if (Player1 == false)
         {
             MasterList.Instance.Shuffle2();
-            CardAnime.PlayerSkill1();
+            CardAnime.AnimePlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
             //for (int i = 0; i < 4; i++)
@@ -66,7 +66,7 @@ public class touvh : MonoBehaviour
         if (Player2 == false)
         {
             MasterList.Instance.Shuffle2();
-            CardAnime.PlayerSkill1();
+            CardAnime.AnimePlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
             //for (int i = 0; i < 4; i++)
@@ -91,7 +91,7 @@ public class touvh : MonoBehaviour
         if (Player3 == false)
         {
             MasterList.Instance.Shuffle2();
-            CardAnime.PlayerSkill1();
+            CardAnime.AnimePlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
             //for (int i = 0; i < 4; i++)
@@ -116,7 +116,7 @@ public class touvh : MonoBehaviour
         if (Player4 == false)
         {
             MasterList.Instance.Shuffle2();
-            CardAnime.PlayerSkill1();
+            CardAnime.AnimePlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
             //for (int i = 0; i < 4; i++)

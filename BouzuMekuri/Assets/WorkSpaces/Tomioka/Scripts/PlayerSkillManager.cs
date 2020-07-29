@@ -10,6 +10,8 @@ public class PlayerSkillManager : MonoBehaviour
     private Test test;
     [SerializeField]
     private touvh touch;
+    [SerializeField]
+    private CardAnimation cardAnime;
 
     void Update()
     {
@@ -31,7 +33,7 @@ public class PlayerSkillManager : MonoBehaviour
     {
 
         int x = 0;//枚数比較用
-        int b = 0;//Player番号記録用
+        int b = 0;//半分捨てる人
         //誰が一番多く持っているか
         for (int i = 0; i < 4; i++)
         {
@@ -41,6 +43,8 @@ public class PlayerSkillManager : MonoBehaviour
                 b = i;
             }
         }
+
+        cardAnime.skillPlayer = b;
 
         int a = MasterList.Instance.list[touch.touchPlayer].Count;
         //スキルを使った人の手札を捨て札に加算
@@ -63,9 +67,10 @@ public class PlayerSkillManager : MonoBehaviour
         }
 
         Debug.Log((touch.touchPlayer + 1) + "がスキルを使い全部捨てた");
-        Debug.Log("Player" + (b + 1) + "がスキル対象で半分捨てた");
+        Debug.Log("Player" + (cardAnime.skillPlayer + 1) + "がスキル対象で半分捨てた");
 
         test.TextChange();
+        cardAnime.AnimePlayerSkill2();
     }
 
 
@@ -76,5 +81,8 @@ public class PlayerSkillManager : MonoBehaviour
     private void PlayerSkill3()
     {
 
+
+        test.TextChange();
+        cardAnime.AnimePlayerSkill3();
     }
 }

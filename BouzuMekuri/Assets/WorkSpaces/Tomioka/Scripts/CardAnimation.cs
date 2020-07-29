@@ -23,6 +23,8 @@ public class CardAnimation : MonoBehaviour
     private Deck deck;
     [SerializeField]
     private Test test;
+    [SerializeField]
+    private touvh touch;
 
     [SerializeField]
     private Image skillCutIn;
@@ -35,8 +37,10 @@ public class CardAnimation : MonoBehaviour
 
     [HideInInspector]
     public bool animeEnd = true;
-    private bool cutInEnd = false;
 
+    [HideInInspector]
+    public int skillPlayer;
+    [HideInInspector]
     public int animeFunctionNum;
     private int movePlace;
 
@@ -118,7 +122,6 @@ public class CardAnimation : MonoBehaviour
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                         //偽山札を作り移動アニメーションを見せる
                         Yama1Null();
-
 
                         //アニメーション後元の場所に戻す
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
@@ -771,7 +774,7 @@ public class CardAnimation : MonoBehaviour
     }
 
     //プレイヤーの手札の中身をシャッフルする処理
-    public void PlayerSkill1()
+    public void AnimePlayerSkill1()
     {
         animeEnd = false;
 
@@ -812,16 +815,46 @@ public class CardAnimation : MonoBehaviour
         });
     }
 
+
     //自分の手札を全部捨て場に置き、１位のプレイヤーの手札の半分を捨て場に置く
-    public void PlayerSkill2()
+    public void AnimePlayerSkill2()
     {
-    
+        animeEnd = false;
+
+        playerFake[touch.touchPlayer].sprite = player[touch.touchPlayer].sprite;
+        //枚数によってはNullか持ってる1番上のカードにする
+
+        player[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
+
+        playerFake[touch.touchPlayer].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
+        {
+            playerFake[touch.touchPlayer].transform.position = Place[touch.touchPlayer].transform.position;
+            Sutehuda.sprite = playerFake[touch.touchPlayer].sprite;
+            playerFake[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
+            player[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
+            animeEnd = true;
+        });
+
+
+        playerFake[skillPlayer].sprite = player[skillPlayer].sprite;
+        //枚数によってはNullか持ってる1番上のカードにする
+
+        player[skillPlayer].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                            MasterList.Instance.list[skillPlayer][MasterList.Instance.list[skillPlayer].Count - 1]);
+
+        playerFake[skillPlayer].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
+        {
+            playerFake[skillPlayer].transform.position = Place[skillPlayer].transform.position;
+            playerFake[skillPlayer].sprite = Resources.Load<Sprite>("Images/Null");
+            animeEnd = true;
+        });
+
     }
 
     //全てのプレイヤーは最下位と同じ枚数になるように、捨て場にカードを置く
-    public void PlayerSkill3()
+    public void AnimePlayerSkill3()
     {
-    
+
     }
 
     public void AnimeSkillCutIn()
@@ -844,21 +877,6 @@ public class CardAnimation : MonoBehaviour
         });
     }
 
-    //public IEnumerator EndCutIn()
-    //{
-    //    AnimeSkillCutIn();
-
-    //    while (!cutInEnd)
-    //    {
-    //        //cutInEndがtrueになるまで待機
-    //        yield return new WaitForEndOfFrame();
-    //    }
-    //    //アニメーションが終了したとき
-    //    //animeEndがtrueになったとき)
-    //    //ここより下にかかれた処理が実行される
-    //    cutInEnd = false;
-    //    AnimeSwitch();
-    //}
 
     private void AnimeSwitch()
     {
