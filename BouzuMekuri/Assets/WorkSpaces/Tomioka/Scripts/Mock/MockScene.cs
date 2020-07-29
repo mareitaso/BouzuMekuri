@@ -7,6 +7,6 @@ public class MockScene : MonoBehaviour
 {
     public void SceneLoad()
     {
-        SceneManager.LoadScene("Mock");
+        SceneManager.LoadScene("ru-ruhebbsyuu");
     }
 }

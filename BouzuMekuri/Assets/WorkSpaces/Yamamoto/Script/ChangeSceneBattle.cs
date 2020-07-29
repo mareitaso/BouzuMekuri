@@ -7,6 +7,6 @@ public class ChangeSceneBattle : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.LoadScene("");//←試合画面を入れて
+        SceneManager.LoadScene("Mock");//←試合画面を入れて
     }
 }
