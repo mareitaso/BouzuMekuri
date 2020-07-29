@@ -11,7 +11,7 @@ public class MockScene : MonoBehaviour
     }
     public void SceneLoad()
     {
-        SceneManager.LoadScene("Mock");
+        SceneManager.LoadScene("ru-ruhebbsyuu");
         //SoundManager.instance.FadeOutBgm(0.5f);
     }
 }

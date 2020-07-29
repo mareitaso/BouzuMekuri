@@ -6,14 +6,14 @@ using UnityEngine;
 public enum Bgm
 {
     Title,//タイトル
+    RuleEditor,//ゲーム画面
     Main,//編集
-    BGM2//ゲーム画面
 }
 
 public enum Se
 {
-    cardOpen
-    //SE0,//試合開始
+    cardOpen,
+    Choice,
     //SE1,//シャッフル 
     //SE2,//手札に加える
     //SE3,//手札を捨てる 

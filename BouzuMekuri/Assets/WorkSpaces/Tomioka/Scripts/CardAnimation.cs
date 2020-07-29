@@ -850,14 +850,16 @@ public class CardAnimation : MonoBehaviour
         // ここより下にかかれた処理が実行される
     }
 
-    private void AnimeSwitch()
-    {
-        switch ()
-        {
-            case 1:
-                break;
-        }
-    }
+    //private void AnimeSwitch()
+    //{
+    //    switch ()
+    //    {
+    //        case 1:
+    //            break;
+    //    }
+    //}
+
+
     /*雛形
     public void Anime()
         animeEnd = false;
