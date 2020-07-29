@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/WorkSpaces/Yamamoto/ru-ruhebbsyuu.unity
+- path: Assets/WorkSpaces/Yamamoto/Scene/ru-ruhebbsyuu.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
