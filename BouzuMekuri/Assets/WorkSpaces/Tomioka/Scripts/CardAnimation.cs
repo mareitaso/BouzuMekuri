@@ -771,7 +771,7 @@ public class CardAnimation : MonoBehaviour
     }
 
     //プレイヤーの手札の中身をシャッフルする処理
-    public void PlayerAllShuffle()
+    public void PlayerSkill1()
     {
         animeEnd = false;
 
@@ -810,6 +810,18 @@ public class CardAnimation : MonoBehaviour
                 animeEnd = true;
             });
         });
+    }
+
+    //自分の手札を全部捨て場に置き、１位のプレイヤーの手札の半分を捨て場に置く
+    public void PlayerSkill2()
+    {
+    
+    }
+
+    //全てのプレイヤーは最下位と同じ枚数になるように、捨て場にカードを置く
+    public void PlayerSkill3()
+    {
+    
     }
 
     public void AnimeSkillCutIn()

@@ -11,6 +11,10 @@ public class touvh : MonoBehaviour
     [SerializeField]
     CardAnimation CardAnime;
 
+    [HideInInspector]
+    public int touchPlayer;
+
+
     public void draw1()
     {
         if (CardAnime.animeEnd == true)
@@ -32,10 +36,11 @@ public class touvh : MonoBehaviour
     private bool Player4 = false;
     public void P1()
     {
-        if(Player1 == false)
+        touchPlayer = 0;
+        if (Player1 == false)
         {
             MasterList.Instance.Shuffle2();
-            CardAnime.PlayerAllShuffle();
+            CardAnime.PlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
             //for (int i = 0; i < 4; i++)
@@ -57,10 +62,11 @@ public class touvh : MonoBehaviour
     }
     public void P2()
     {
+        touchPlayer = 1;
         if (Player2 == false)
         {
             MasterList.Instance.Shuffle2();
-            CardAnime.PlayerAllShuffle();
+            CardAnime.PlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
             //for (int i = 0; i < 4; i++)
@@ -81,10 +87,11 @@ public class touvh : MonoBehaviour
     }
     public void P3()
     {
+        touchPlayer = 2;
         if (Player3 == false)
         {
             MasterList.Instance.Shuffle2();
-            CardAnime.PlayerAllShuffle();
+            CardAnime.PlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
             //for (int i = 0; i < 4; i++)
@@ -105,10 +112,11 @@ public class touvh : MonoBehaviour
     }
     public void P4()
     {
+        touchPlayer = 3;
         if (Player4 == false)
         {
             MasterList.Instance.Shuffle2();
-            CardAnime.PlayerAllShuffle();
+            CardAnime.PlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
             //for (int i = 0; i < 4; i++)
