@@ -82,7 +82,39 @@ public class PlayerSkillManager : MonoBehaviour
     {
 
 
+        int v = 100;//枚数比較用
+        int s = 0;//一番少ない人
+        for (int i = 0; i < 4; i++)
+        {
+            if (v > MasterList.Instance.list[i].Count)
+            {
+                v = MasterList.Instance.list[i].Count;
+                s = i;
+            }
+        }
+
+        Debug.Log("最小枚数は"+ v);
+
+        for (int i = s + 1; i < s + 4; i++)
+        {
+            i %= 4;
+            Debug.Log(i + "回目");
+            int d = MasterList.Instance.list[i].Count;
+            //スキルを使った人以外の手札を捨て札に加算
+            for (int t = 0; t < d - v; t++)
+            {
+                int y = MasterList.Instance.list[i][0];
+                deck.DiscardCount.Add(y);
+                MasterList.Instance.list[i].RemoveAt(0);
+            }
+            MasterList.Instance.list[i].Clear();//手札を初期化
+            Debug.Log("Player" + (i + 1) + "がスキル対象で半分捨てた");
+
+        }
+
+        //Debug.Log("Player" + (s + 1) + "がスキルを使った");
+
         test.TextChange();
-        cardAnime.AnimePlayerSkill3();
+        //cardAnime.AnimePlayerSkill3();
     }
 }
