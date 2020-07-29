@@ -26,25 +26,22 @@ public class CardAnimation : MonoBehaviour
 
     [SerializeField]
     private Image skillCutIn;
+    [SerializeField]
+    private Image skillCutInCard;
+
 
     [SerializeField]
     private GameObject CutInBefore, CutInAfter;
 
+    [HideInInspector]
     public bool animeEnd = true;
+    private bool cutInEnd = false;
 
+    public int animeFunctionNum;
     private int movePlace;
 
     private float animeTime = 0.6f;
     private float rotateTime = 0.3f;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AnimeSkillCutIn();
-        }
-    }
-
 
     //山札からプレイヤーの手札に移動するアニメーション
     public void AnimeTono()
@@ -455,10 +452,6 @@ public class CardAnimation : MonoBehaviour
     //全プレイヤーの手札と捨て札を回収するアニメーション
     public void AnimeAllGet()
     {
-        animeEnd = false;
-        movePlace = deck.Count;
-        AnimeSkillCutIn();
-
         //山札1から各プレイヤーに移動
         if (test.drowYama1 == true)
         {
@@ -821,8 +814,11 @@ public class CardAnimation : MonoBehaviour
 
     public void AnimeSkillCutIn()
     {
-        Debug.Log("関数内も呼ばれた");
+        animeEnd = false;
+        movePlace = deck.Count;
 
+        Debug.Log("関数内も呼ばれた");
+        skillCutInCard.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
         skillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
         {
             skillCutIn.transform.DOMove(new Vector3(0, 0, 0), 0.7f).OnComplete(() =>
@@ -830,34 +826,75 @@ public class CardAnimation : MonoBehaviour
                 skillCutIn.transform.DOMove(CutInAfter.transform.position, animeTime / 2).OnComplete(() =>
                 {
                     skillCutIn.transform.position = CutInBefore.transform.position;
+                    AnimeSwitch();
                 });
             });
         });
     }
 
-    private IEnumerator EndCutIn()
-    {
-        AnimeSkillCutIn();
-
-        while (animeEnd)
-        {
-            // childのisComplete変数がtrueになるまで待機
-            yield return new WaitForEndOfFrame();
-        }
-
-        // childのアニメーションが終了したとき
-        // (child.isCompleteがtrueになったとき)
-        // ここより下にかかれた処理が実行される
-    }
-
-    //private void AnimeSwitch()
+    //public IEnumerator EndCutIn()
     //{
-    //    switch ()
+    //    AnimeSkillCutIn();
+
+    //    while (!cutInEnd)
     //    {
-    //        case 1:
-    //            break;
+    //        //cutInEndがtrueになるまで待機
+    //        yield return new WaitForEndOfFrame();
     //    }
+    //    //アニメーションが終了したとき
+    //    //animeEndがtrueになったとき)
+    //    //ここより下にかかれた処理が実行される
+    //    cutInEnd = false;
+    //    AnimeSwitch();
     //}
+
+    private void AnimeSwitch()
+    {
+        switch (animeFunctionNum)
+        {
+            case 1:
+                AnimeAllGet();
+                break;
+
+            case 2:
+                break;
+
+            case 3:
+                break;
+
+            case 4:
+                break;
+
+            case 5:
+                break;
+
+            case 6:
+                break;
+
+            case 7:
+                break;
+
+            case 8:
+                break;
+
+            case 9:
+                break;
+
+            case 10:
+                break;
+
+            case 11:
+                break;
+
+            case 12:
+                break;
+
+            default:
+                Debug.Log(animeFunctionNum + "がおかしい");
+                break;
+
+        }
+    }
 
 
     /*雛形

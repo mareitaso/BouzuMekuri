@@ -102,7 +102,10 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 {
                     //test.ImageChangeHime();
                 }
-                cardAnime.AnimeAllGet();
+                //cardAnime.AnimeAllGet();
+                cardAnime.animeFunctionNum = 1;
+                cardAnime.AnimeSkillCutIn();
+
                 Debug.Log("天皇のスキル2発動");
                 break;
             default:

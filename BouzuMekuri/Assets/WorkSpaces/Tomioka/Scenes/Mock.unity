@@ -4941,9 +4941,11 @@ MonoBehaviour:
   deck: {fileID: 972917169}
   test: {fileID: 972917170}
   skillCutIn: {fileID: 539964077}
+  skillCutInCard: {fileID: 607275748}
   CutInBefore: {fileID: 1194736028}
   CutInAfter: {fileID: 1734734709}
   animeEnd: 1
+  animeFunctionNum: 0
 --- !u!4 &1818914148
 Transform:
   m_ObjectHideFlags: 0
