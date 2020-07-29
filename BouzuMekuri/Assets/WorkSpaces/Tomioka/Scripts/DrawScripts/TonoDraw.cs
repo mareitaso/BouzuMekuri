@@ -10,13 +10,16 @@ public class TonoDraw : SingletonMonoBehaviour<TonoDraw>
     private HandCount hand;
     [SerializeField]
     private Test test;
+    [SerializeField]
+    CardAnimation cardAnime;
 
     //殿を引いた処理
     public void Tono_Draw()
     {
         Debug.Log("殿" + deck.Count + "のばん");
         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-        test.ImageChangeTono();
+        //test.ImageChangeTono();
+        cardAnime.AnimeTono();
     }
 
 }

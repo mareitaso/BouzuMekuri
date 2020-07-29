@@ -10,6 +10,8 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     private HandCount hand;
     [SerializeField]
     private Test test;
+    [SerializeField]
+    private CardAnimation cardAnime;
 
     //現状のカードの総数
     private int allYamahuda;
@@ -96,9 +98,82 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
 
         }
 
-        test.ImageChangeTono();
-        test.ImageChangeSemimaru();
-        //deck.DiscardCount
+        cardAnime.AnimeYamaHalf();
+
+            //test.ImageChangeTono();
+            //test.ImageChangeSemimaru();
+            //deck.DiscardCount
+
+        }
+
+    //坊主として扱う
+    private void SemimaruSkill1()
+    {
+        BouzuDraw.instance.Bouzu_Draw();
+    }
+
+    //1回休み
+    private void SemimaruSkill2()
+    {
+
+    }
+
+    //自分の手札に関係なく最下位になる
+    private void SemimaruSkill3()
+    {
+
+    }
+
+    //他のプレイヤーの全ての手札を自分の手札に加える
+    private void SemimaruSkill4()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            //全員の札をもらう
+            if (i != deck.Count)
+            {
+                Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
+                for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                {
+                    int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
+                    MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                    MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                }
+                //hand.handCount[deck.Count] += hand.handCount[i];
+                //hand.handCount[i] = 0;
+            }
+        }
+    }
+
+    //他のプレイヤーは全ての手札を捨て札に置く
+    private void SemimaruSkill5()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            //全員の札をもらう
+            if (i != deck.Count)
+            {
+                int e = MasterList.Instance.list[deck.Count].Count;
+                //手札を捨て札に加算
+                for (int t = 0; t < e; t++)
+                {
+                    int y = MasterList.Instance.list[deck.Count][0];
+                    deck.DiscardCount.Add(y);
+                    MasterList.Instance.list[deck.Count].RemoveAt(0);
+                }
+            }
+        }
+    }
+
+    //山札の数を半分にする(半分になるときに山札のCountを-1)
+    private void SemimaruSkill6()
+    {
+        //上に書いてあるやつ
+    }
+
+    //次に発動するスキルを無効化する
+    private void SemimaruSkill7()
+    {
 
     }
 }

@@ -5,21 +5,22 @@ using UnityEngine;
 
 public enum Bgm
 {
-    B,//タイトル
-    BGM1,//編集
-    BGM2//ゲーム画面
+    Title,//タイトル
+    RuleEditor,//ゲーム画面
+    Main,//編集
 }
 
 public enum Se
 {
-    SE0,//試合開始
-    SE1,//シャッフル 
-    SE2,//手札に加える
-    SE3,//手札を捨てる 
-    SE4,//スキル発動
-    SE5,//試合終了
-    SE6,//タイトルのはじめボタン
-    SE7//決定 タイトル以外
+    cardOpen,
+    Choice,
+    //SE1,//シャッフル 
+    //SE2,//手札に加える
+    //SE3,//手札を捨てる 
+    //SE4,//スキル発動
+    //SE5,//試合終了
+    //SE6,//タイトルのはじめボタン
+    //SE7//決定 タイトル以外
 }
 
 [System.Serializable]
@@ -27,7 +28,7 @@ public class Sound
 {
     public AudioClip audioClip;
 
-    [Range(0, 10f)]
+    [Range(0f, 1f)]
     public float audioSize;
 }
 
@@ -51,14 +52,11 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     //bool IsFadeOut = true;
     //double FadeDeltaTime = 0;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this);
+
         for (int i = 0; i < bgmsounds.Length; i++)
         {
             bgmDIctionary.Add((Bgm)i, bgmsounds[i]);
@@ -74,7 +72,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     {
         Sound sound = bgmDIctionary[key];
         AudioClip audio = sound.audioClip;
-        float audioSize = sound.audioSize;
+        bgmAudioSource.volume = sound.audioSize;
         bgmAudioSource.clip = audio;
         bgmAudioSource.Play();
     }
@@ -83,9 +81,9 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     {
         Sound sound = seDictionary[key];
         AudioClip audio = sound.audioClip;
-        float audioSize = sound.audioSize;
+        seAudioSource.volume = sound.audioSize;
         seAudioSource.clip = audio;
-        seAudioSource.Play();
+        seAudioSource.PlayOneShot(audio);
     }
 
     //public void FadeOut()
@@ -100,4 +98,44 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     //    bgmAudioSource.volume = (float)(1.0 - FadeDeltaTime / FadeOutSeconds);
 
     //}
+
+    public void FadeOutBgm(float fadeTime)
+    {
+        StartCoroutine(FadeOut(fadeTime));
+    }
+
+    public void FadeOutSE(float fadeTime)
+    {
+        StartCoroutine(SEFadeOut(fadeTime));
+    }
+
+    private IEnumerator FadeOut(float time)
+    {
+        float _time = time;
+        float vol = bgmAudioSource.volume;
+        while (_time > 0f)
+        {
+            _time -= Time.deltaTime;
+            bgmAudioSource.volume = vol * _time / time;
+            yield return null;
+        }
+        bgmAudioSource.Stop();
+        bgmAudioSource.clip = null;
+        yield break;
+    }
+
+    private IEnumerator SEFadeOut(float time)
+    {
+        float _time = time;
+        float vol = seAudioSource.volume;
+        while (_time > 0f)
+        {
+            _time -= Time.deltaTime;
+            seAudioSource.volume = vol * _time / time;
+            yield return null;
+        }
+        seAudioSource.Stop();
+        seAudioSource.clip = null;
+        yield break;
+    }
 }

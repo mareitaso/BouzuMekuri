@@ -8,13 +8,22 @@ public class touvh : MonoBehaviour
     private Test test;
     [SerializeField]
     private Deck deck;
+    [SerializeField]
+    CardAnimation CardAnime;
+
     public void draw1()
     {
-        test.Draw1();
+        if (CardAnime.animeEnd == true)
+        {
+            test.Draw1();
+        }
     }
     public void draw2()
     {
-        test.Draw2();
+        if (CardAnime.animeEnd == true)
+        {
+            test.Draw2();
+        }
     }
 
     private bool Player1 = false;
@@ -26,13 +35,14 @@ public class touvh : MonoBehaviour
         if(Player1 == false)
         {
             MasterList.Instance.Shuffle2();
+            CardAnime.PlayerAllShuffle();
             int z = deck.Count;
             deck.Count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                test.Image();
-                deck.Count++;
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    test.Image();
+            //    deck.Count++;
+            //}
             test.TextChange();
             deck.Count = z;
             Player1 = true;
@@ -50,13 +60,14 @@ public class touvh : MonoBehaviour
         if (Player2 == false)
         {
             MasterList.Instance.Shuffle2();
+            CardAnime.PlayerAllShuffle();
             int z = deck.Count;
             deck.Count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                test.Image();
-                deck.Count++;
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    test.Image();
+            //    deck.Count++;
+            //}
             test.TextChange();
             deck.Count = z;
             Player2 = true;
@@ -73,13 +84,14 @@ public class touvh : MonoBehaviour
         if (Player3 == false)
         {
             MasterList.Instance.Shuffle2();
+            CardAnime.PlayerAllShuffle();
             int z = deck.Count;
             deck.Count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                test.Image();
-                deck.Count++;
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    test.Image();
+            //    deck.Count++;
+            //}
             test.TextChange();
             deck.Count = z;
             Player3 = true;
@@ -96,13 +108,14 @@ public class touvh : MonoBehaviour
         if (Player4 == false)
         {
             MasterList.Instance.Shuffle2();
+            CardAnime.PlayerAllShuffle();
             int z = deck.Count;
             deck.Count = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                test.Image();
-                deck.Count++;
-            }
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    test.Image();
+            //    deck.Count++;
+            //}
             test.TextChange();
             deck.Count = z;
             Player4 = true;

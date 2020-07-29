@@ -38,7 +38,7 @@ public class MasterList : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
+    public void Start()
     {
         //リストの初期化
         if (list.Count > 0)
