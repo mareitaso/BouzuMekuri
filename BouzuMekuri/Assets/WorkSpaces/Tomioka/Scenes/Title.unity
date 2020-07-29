@@ -156,8 +156,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -317}
-  m_SizeDelta: {x: 300, y: 200}
+  m_AnchoredPosition: {x: 0, y: -234}
+  m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523225861
 MonoBehaviour:
@@ -350,7 +350,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 106}
-  m_SizeDelta: {x: 1128, y: 710}
+  m_SizeDelta: {x: 739.1, y: 465.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &866797410
 MonoBehaviour:
@@ -757,7 +757,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1387.2, y: 780.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1321128750
 MonoBehaviour:
@@ -1002,6 +1002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cc7115f8462fa458099398ef16eb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloud1: {fileID: 0}
+  cloud2: {fileID: 0}
+  cloudPlace1: {fileID: 0}
+  cloudPlace2: {fileID: 0}
 --- !u!4 &1961526163
 Transform:
   m_ObjectHideFlags: 0
