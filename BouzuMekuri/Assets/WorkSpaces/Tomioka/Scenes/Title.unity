@@ -1260,5 +1260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundMager
       objectReference: {fileID: 0}
+    - target: {fileID: 3431448994878473231, guid: d428c69a81b5c734b816e919772bc921,
+        type: 3}
+      propertyPath: bgmsounds.Array.data[1].audioSize
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d428c69a81b5c734b816e919772bc921, type: 3}
