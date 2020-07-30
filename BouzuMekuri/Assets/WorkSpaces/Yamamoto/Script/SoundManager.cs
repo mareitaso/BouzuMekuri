@@ -14,8 +14,8 @@ public enum Se
 {
     cardOpen,
     Choice,
-    //SE1,//シャッフル 
-    //SE2,//手札に加える
+    cardShuffle,
+    cardSkill,
     //SE3,//手札を捨てる 
     //SE4,//スキル発動
     //SE5,//試合終了

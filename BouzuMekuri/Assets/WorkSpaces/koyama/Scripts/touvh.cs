@@ -40,6 +40,7 @@ public class touvh : MonoBehaviour
         if (Player1 == false)
         {
             MasterList.Instance.Shuffle2();
+            SoundManager.instance.SeApply(Se.cardShuffle);
             CardAnime.AnimePlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
@@ -66,6 +67,7 @@ public class touvh : MonoBehaviour
         if (Player2 == false)
         {
             MasterList.Instance.Shuffle2();
+            SoundManager.instance.SeApply(Se.cardShuffle);
             CardAnime.AnimePlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
@@ -91,6 +93,7 @@ public class touvh : MonoBehaviour
         if (Player3 == false)
         {
             MasterList.Instance.Shuffle2();
+            SoundManager.instance.SeApply(Se.cardShuffle);
             CardAnime.AnimePlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;
@@ -116,6 +119,7 @@ public class touvh : MonoBehaviour
         if (Player4 == false)
         {
             MasterList.Instance.Shuffle2();
+            SoundManager.instance.SeApply(Se.cardShuffle);
             CardAnime.AnimePlayerSkill1();
             int z = deck.Count;
             deck.Count = 0;

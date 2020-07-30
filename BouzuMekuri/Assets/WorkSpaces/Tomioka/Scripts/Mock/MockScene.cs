@@ -26,7 +26,8 @@ public class MockScene : MonoBehaviour
         cloudRU.transform.DOMove(cloudPlaceRU.transform.position, 1.5f);
         cloudRD.transform.DOMove(cloudPlaceRD.transform.position, 1.5f).OnComplete(() =>
         {
-            SceneManager.LoadScene("ru-ruhebbsyuu");
+            //SceneManager.LoadScene("ru-ruhebbsyuu");
+            SceneManager.LoadScene("Mock");
         });
     }
 }

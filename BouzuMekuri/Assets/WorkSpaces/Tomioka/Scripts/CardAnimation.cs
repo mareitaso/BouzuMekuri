@@ -854,13 +854,112 @@ public class CardAnimation : MonoBehaviour
     //全てのプレイヤーは最下位と同じ枚数になるように、捨て場にカードを置く
     public void AnimePlayerSkill3()
     {
+        animeEnd = false;
 
+        int i = skillPlayer + 1;
+        if (MasterList.Instance.list[skillPlayer].Count != 0)
+        {
+            playerFake[i % 4].sprite = player[i % 4].sprite;
+            //枚数によってはNullか持ってる1番上のカードにする
+
+            player[i % 4].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                                MasterList.Instance.list[i % 4][MasterList.Instance.list[i % 4].Count - 1]);
+
+            playerFake[i % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
+            {
+                playerFake[i % 4].transform.position = Place[i % 4].transform.position;
+                Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count - 1]);
+                playerFake[i % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                animeEnd = true;
+            });
+        }
+        else
+        {
+            playerFake[i % 4].sprite = player[i % 4].sprite;
+            //枚数によってはNullか持ってる1番上のカードにする
+
+            player[i % 4].sprite = Resources.Load<Sprite>("Images/Null");
+
+            playerFake[i % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
+              {
+                  playerFake[i % 4].transform.position = Place[i % 4].transform.position;
+                  playerFake[i % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                  player[i % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                  animeEnd = true;
+              });
+        }
+        int j = i + 1;
+        if (MasterList.Instance.list[skillPlayer].Count != 0)
+        {
+            playerFake[j % 4].sprite = player[j % 4].sprite;
+            //枚数によってはNullか持ってる1番上のカードにする
+
+            player[j % 4].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                                MasterList.Instance.list[j % 4][MasterList.Instance.list[j % 4].Count - 1]);
+
+            playerFake[j % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
+            {
+                playerFake[j % 4].transform.position = Place[j % 4].transform.position;
+                Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count - 1]);
+                playerFake[j % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                animeEnd = true;
+            });
+        }
+        else
+        {
+            playerFake[j % 4].sprite = player[j % 4].sprite;
+            //枚数によってはNullか持ってる1番上のカードにする
+
+            player[j % 4].sprite = Resources.Load<Sprite>("Images/Null");
+
+            playerFake[j % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
+            {
+                playerFake[j % 4].transform.position = Place[j % 4].transform.position;
+                playerFake[j % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                player[j % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                animeEnd = true;
+            });
+        }
+
+        int k = j + 1;
+        if (MasterList.Instance.list[skillPlayer].Count != 0)
+        {
+            playerFake[k % 4].sprite = player[k % 4].sprite;
+            //枚数によってはNullか持ってる1番上のカードにする
+
+            player[k % 4].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                                MasterList.Instance.list[k % 4][MasterList.Instance.list[k % 4].Count - 1]);
+
+            playerFake[k % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
+            {
+                playerFake[k % 4].transform.position = Place[k % 4].transform.position;
+                Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count - 1]);
+                playerFake[k % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                animeEnd = true;
+            });
+        }
+        else
+        {
+            playerFake[k % 4].sprite = player[k % 4].sprite;
+            //枚数によってはNullか持ってる1番上のカードにする
+
+            player[k % 4].sprite = Resources.Load<Sprite>("Images/Null");
+
+            playerFake[k % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
+            {
+                playerFake[k % 4].transform.position = Place[k % 4].transform.position;
+                playerFake[k % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                player[k % 4].sprite = Resources.Load<Sprite>("Images/Null");
+                animeEnd = true;
+            });
+        }
     }
 
     public void AnimeSkillCutIn()
     {
         animeEnd = false;
         movePlace = deck.Count;
+        SoundManager.instance.SeApply(Se.cardSkill);
 
         Debug.Log("関数内も呼ばれた");
         skillCutInCard.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
