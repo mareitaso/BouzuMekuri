@@ -93,22 +93,22 @@ public class PlayerSkillManager : MonoBehaviour
             }
         }
 
-        Debug.Log("最小枚数は"+ v);
+        Debug.Log("最小枚数は" + v);
 
         for (int i = s + 1; i < s + 4; i++)
         {
             i %= 4;
             Debug.Log(i + "回目");
             int d = MasterList.Instance.list[i].Count;
+
             //スキルを使った人以外の手札を捨て札に加算
-            for (int t = 0; t < d - v; t++)
+            for (int t = 0; t < (d - v); t++)
             {
                 int y = MasterList.Instance.list[i][0];
                 deck.DiscardCount.Add(y);
                 MasterList.Instance.list[i].RemoveAt(0);
             }
-            MasterList.Instance.list[i].Clear();//手札を初期化
-            Debug.Log("Player" + (i + 1) + "がスキル対象で半分捨てた");
+            Debug.Log("Player" + (i + 1) + "がスキル対象で" + v + "枚捨てた");
 
         }
 
