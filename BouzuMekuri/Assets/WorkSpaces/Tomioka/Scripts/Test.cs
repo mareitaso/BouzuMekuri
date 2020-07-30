@@ -21,8 +21,8 @@ public class Test : MonoBehaviour
     private List<Text> PlayerCards;
     [SerializeField]
     private Deck deck;
-    [SerializeField]
-    private HandCount hand;
+    //[SerializeField]
+    //private HandCount hand;
 
     [SerializeField]
     CardAnimation cardAnimation;
@@ -347,7 +347,8 @@ public class Test : MonoBehaviour
         //Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
         //Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
         Debug.LogError("終わり");
-        hand.Settlement();
+        SceneController.Instance.LoadScene(SceneController.SceneName.Result);
+        //hand.Settlement();
     }
 
     public void MockShuffle()

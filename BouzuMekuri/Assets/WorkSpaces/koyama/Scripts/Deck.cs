@@ -20,7 +20,7 @@ public class Deck : MonoBehaviour
     public List<int> cards1, cards2;//リストの宣言
     public int Count;//ターンのカウント
 
-    public HandCount hand;
+    //public HandCount hand;
     public IEnumerable<int> GetCards()
     {
         foreach (int i in cards1)//cardsの要素
