@@ -36,13 +36,13 @@ public class RulePullDown : MonoBehaviour
         else if (dropdown1.value == 1)
         {
             //隠しドロップダウン表示
-            Tennou();
+            //Tennou();
         }
         //Dropdown1のValueが2のとき
         else if (dropdown1.value == 2)
         {
             //隠しドロップダウン表示
-            Dantuki();
+            //Dantuki();
         }
         PlayerNumber++;
     }
@@ -59,13 +59,13 @@ public class RulePullDown : MonoBehaviour
         else if (dropdown2.value == 1)
         {
             //隠しドロップダウン表示
-            Bukan();
+            //Bukan();
         }
         //Dropdown2のValueが2のとき
         else if (dropdown2.value == 2)
         {
             //隠しドロップダウン表示
-            Yumimoti();
+            //Yumimoti();
         }
         PlayerNumber++;
     }
@@ -82,7 +82,7 @@ public class RulePullDown : MonoBehaviour
         else if (dropdown3.value == 1)
         {
             //隠しドロップダウン表示
-            Semimaru();
+            //Semimaru();
         }
         PlayerNumber++;
     }
