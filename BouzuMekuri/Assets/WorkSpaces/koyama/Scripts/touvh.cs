@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class touvh : MonoBehaviour
 {
@@ -14,6 +16,14 @@ public class touvh : MonoBehaviour
     [HideInInspector]
     public int touchPlayer;
 
+    [SerializeField]
+    private PlayerSkillManager playerSkill;
+
+    [SerializeField]
+    private GameObject panel;
+
+    [SerializeField]
+    private Dropdown dropdown;
 
     public void draw1()
     {
@@ -39,19 +49,9 @@ public class touvh : MonoBehaviour
         touchPlayer = 0;
         if (Player1 == false)
         {
-            MasterList.Instance.Shuffle2();
-            SoundManager.instance.SeApply(Se.cardShuffle);
-            CardAnime.AnimePlayerSkill1();
-            int z = deck.Count;
-            deck.Count = 0;
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    test.Image();
-            //    deck.Count++;
-            //}
-            test.TextChange();
-            deck.Count = z;
-            Player1 = true;
+            //shuf();
+            //Player1 = true;
+            panel.SetActive(true);
             Debug.Log("1P押せたよ");
         }
         else
@@ -59,26 +59,16 @@ public class touvh : MonoBehaviour
             Debug.Log("1P使い終わったよ");
             return;
         }
-        
+
     }
     public void P2()
     {
         touchPlayer = 1;
         if (Player2 == false)
         {
-            MasterList.Instance.Shuffle2();
-            SoundManager.instance.SeApply(Se.cardShuffle);
-            CardAnime.AnimePlayerSkill1();
-            int z = deck.Count;
-            deck.Count = 0;
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    test.Image();
-            //    deck.Count++;
-            //}
-            test.TextChange();
-            deck.Count = z;
-            Player2 = true;
+            //shuf();
+            //Player2 = true;
+            panel.SetActive(true);
             Debug.Log("2P押せたよ");
         }
         else
@@ -92,19 +82,9 @@ public class touvh : MonoBehaviour
         touchPlayer = 2;
         if (Player3 == false)
         {
-            MasterList.Instance.Shuffle2();
-            SoundManager.instance.SeApply(Se.cardShuffle);
-            CardAnime.AnimePlayerSkill1();
-            int z = deck.Count;
-            deck.Count = 0;
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    test.Image();
-            //    deck.Count++;
-            //}
-            test.TextChange();
-            deck.Count = z;
-            Player3 = true;
+            //shuf();
+            //Player3 = true;
+            panel.SetActive(true);
             Debug.Log("3押せたよ");
         }
         else
@@ -118,19 +98,9 @@ public class touvh : MonoBehaviour
         touchPlayer = 3;
         if (Player4 == false)
         {
-            MasterList.Instance.Shuffle2();
-            SoundManager.instance.SeApply(Se.cardShuffle);
-            CardAnime.AnimePlayerSkill1();
-            int z = deck.Count;
-            deck.Count = 0;
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    test.Image();
-            //    deck.Count++;
-            //}
-            test.TextChange();
-            deck.Count = z;
-            Player4 = true;
+            //shuf();
+            //Player4 = true;
+            panel.SetActive(true);
             Debug.Log("4P押せたよ");
         }
         else
@@ -138,5 +108,98 @@ public class touvh : MonoBehaviour
             Debug.Log("4P使い終わったよ");
             return;
         }
+    }
+
+    public void drop()
+    {
+        if (dropdown.value == 0)
+        {
+            panel.SetActive(false);
+            setValue(0);
+        }
+        else if (dropdown.value == 1)
+        {
+            Debug.Log("aa");
+            shuf();
+            Judge();
+            setValue(0);
+        }
+        else if (dropdown.value == 2)
+        {
+            Debug.Log("aaa");
+            playerSkill.PlayerSkill2();
+            Judge();
+            setValue(0);
+        }
+        else if(dropdown.value ==3)
+        {
+            Debug.Log("aaaa");
+            playerSkill.PlayerSkill3();
+            Judge();
+            setValue(0);
+        }
+        else
+        {
+            panel.SetActive(false);
+            setValue(0);
+        }
+        panel.SetActive(false);
+    }
+
+    private void shuf()
+    {
+        MasterList.Instance.Shuffle2();
+        SoundManager.instance.SeApply(Se.cardShuffle);
+        CardAnime.AnimePlayerSkill1();
+        int z = deck.Count;
+        deck.Count = 0;
+        //for (int i = 0; i < 4; i++)
+        //{
+        //    test.Image();
+        //    deck.Count++;
+        //}
+        test.TextChange();
+        deck.Count = z;
+    }
+    public void setValue(int value)
+    {
+        dropdown.value = value;
+    }
+
+    private void Judge()
+    {
+        if(touchPlayer == 0)
+        {
+            Player1 = true;
+        }
+        if (touchPlayer == 1)
+        {
+            Player2 = true;
+        }
+        if (touchPlayer == 2)
+        {
+            Player3 = true;
+        }
+        if (touchPlayer == 3)
+        {
+            Player4 = true;
+        }
+
+        /*
+        switch (touchPlayer)
+        {
+            case 1:
+                Player1 = true;
+                break;
+            case 2:
+                Player2 = true;
+                break;
+            case 3:
+                Player3 = true;
+                break;
+            case 4:
+                Player4 = true;
+                break;
+        }*/
     }
 }

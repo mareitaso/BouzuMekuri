@@ -29,7 +29,7 @@ public class PlayerSkillManager : MonoBehaviour
     /// 自分の手札を全部捨て場に置き
     /// １位のプレイヤーは手札の半分を捨て場に置く
     /// </summary>
-    private void PlayerSkill2()
+    public void PlayerSkill2()
     {
 
         int x = 0;//枚数比較用
@@ -78,7 +78,7 @@ public class PlayerSkillManager : MonoBehaviour
     /// 全てのプレイヤーは最下位と同じ枚数になるように
     /// 捨て場にカードを置く(山札計10枚以上)
     /// </summary>
-    private void PlayerSkill3()
+    public void PlayerSkill3()
     {
         int v = 100;//枚数比較用
         int s = 0;//一番少ない人
