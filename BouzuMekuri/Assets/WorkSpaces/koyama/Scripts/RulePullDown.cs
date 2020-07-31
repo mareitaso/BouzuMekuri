@@ -251,7 +251,7 @@ public class RulePullDown : MonoBehaviour
     public void Down()
     {
         PlayerNumber++;
-        if (PlayerNumber < 3)
+        if (PlayerNumber > 3)
         {
             PlayerNumber = 0;
         }

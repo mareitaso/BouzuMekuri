@@ -93,6 +93,7 @@ public class HandCount : MonoBehaviour
     }
     private void Update(){
         if(Input.GetMouseButtonDown(0)){
+            MasterList.Instance.Start();
             SceneController.Instance.LoadScene(SceneController.SceneName.Title);
         }
     }
