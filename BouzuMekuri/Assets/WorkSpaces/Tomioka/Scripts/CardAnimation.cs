@@ -429,18 +429,20 @@ public class CardAnimation : MonoBehaviour
                     //DoToweenで移動
                     for (int i = 0; i < 4; i++)
                     {
-                        playerFake[i].sprite = player[i].sprite;
-                        if (MasterList.Instance.list[i].Count == 0)
+                        if (i != movePlace)
                         {
-                            player[i].sprite = Resources.Load<Sprite>("Images/Null");
+                            playerFake[i].sprite = player[i].sprite;
+                            if (MasterList.Instance.list[i].Count == 0)
+                            {
+                                player[i].sprite = Resources.Load<Sprite>("Images/Null");
+                            }
+                            else
+                            {
+                                player[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                                MasterList.Instance.list[i][MasterList.Instance.list[i].Count - 1]);
+                            }
+                            playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
                         }
-                        else
-                        {
-                            player[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[i][MasterList.Instance.list[i].Count - 1]);
-                        }
-                        playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
-
                     }
                     Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
