@@ -125,12 +125,12 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             if (test.drowYama1 == true)
             {
                 test.drawAgain = false;
-                test.Draw1();
+                //test.Draw1();
             }
             else
             {
                 test.drawAgain = false;
-                test.Draw2();
+                //test.Draw2();
             }
         }
         else
