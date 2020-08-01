@@ -31,28 +31,31 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                 break;
 
             case 1:
+                test.drawAgain = true;
                 //山札1から引く場合
                 if (test.drowYama1 == true)
                 {
                     //山札から2枚引く
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 1; i++)
                     {
                         deck.drawcard = deck.cards1[0];//いらないかも
                         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
                         deck.cards1.RemoveAt(0);
                     }
-                    cardAnime.AnimeTono();
+                    cardAnime.AnimeOneDraw();
+                    //cardAnime.AnimeTono();
                 }
                 else
                 {
                     //山札から2枚引く
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 1; i++)
                     {
                         deck.drawcard = deck.cards2[0];//いらないかも
                         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加;
                         deck.cards2.RemoveAt(0);
                     }
-                    cardAnime.AnimeTono();
+                    cardAnime.AnimeOneDraw();
+                    //cardAnime.AnimeTono();
                 }
                 Debug.Log("天皇のスキル1発動");
                 break;

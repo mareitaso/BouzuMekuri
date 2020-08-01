@@ -257,7 +257,7 @@ public class CardAnimation : MonoBehaviour
     }
 
     //もう一枚引くアニメーション
-    public void AnimeHimeOneDraw()
+    public void AnimeOneDraw()
     {
         animeEnd = false;
         movePlace = deck.Count;
