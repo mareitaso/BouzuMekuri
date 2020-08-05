@@ -7,6 +7,9 @@ using DG.Tweening;
 public class CardAnimation : MonoBehaviour
 {
     [SerializeField]
+    private CardDataBase cardDataBase;
+
+    [SerializeField]
     private Image Yamahuda1, Yamahuda2, Sutehuda;
     [SerializeField]
     private Image Yamahuda1Fake, Yamahuda2Fake, SutehudaFake;
@@ -31,6 +34,10 @@ public class CardAnimation : MonoBehaviour
     [SerializeField]
     private Image skillCutInCard;
 
+    [SerializeField]
+    private Text drawCardType;
+    [SerializeField]
+    private Text skillType;
 
     [SerializeField]
     private GameObject CutInBefore, CutInAfter;
@@ -44,8 +51,8 @@ public class CardAnimation : MonoBehaviour
     public int animeFunctionNum;
     private int movePlace;
 
-    private float animeTime = 0.6f;
-    private float rotateTime = 0.3f;
+    private readonly float animeTime = 0.6f;
+    private readonly float rotateTime = 0.3f;
 
     //山札からプレイヤーの手札に移動するアニメーション
     public void AnimeTono()
@@ -316,7 +323,7 @@ public class CardAnimation : MonoBehaviour
     public void AnimeHandCardGet()
     {
         animeEnd = false;
-        movePlace = deck.Count;
+        //movePlace = deck.Count;
 
         //山札1から各プレイヤーに移動
         if (test.drowYama1 == true)
@@ -415,7 +422,7 @@ public class CardAnimation : MonoBehaviour
     public void AnimeCardNMove()
     {
         animeEnd = false;
-        movePlace = deck.Count;
+        //movePlace = deck.Count;
 
         //山札1から各プレイヤーに移動
         if (test.drowYama1 == true)
@@ -606,7 +613,7 @@ public class CardAnimation : MonoBehaviour
     public void AnimeLeftToRight()
     {
         animeEnd = false;
-        movePlace = deck.Count;
+        //movePlace = deck.Count:
         int YumiNum = YumimotiDraw.instance.YumimotiNum;
         Debug.Log(YumiNum);
         Debug.Log("カードは" + (YumiNum + 1) + "P" + "→" + (deck.Count + 1) + "Pへ");
@@ -710,7 +717,7 @@ public class CardAnimation : MonoBehaviour
     public void AnimeYamaHalf()
     {
         animeEnd = false;
-        movePlace = deck.Count;
+        //movePlace = deck.Count:
 
         //山札1から各プレイヤーに移動
         if (test.drowYama1 == true)
@@ -765,7 +772,7 @@ public class CardAnimation : MonoBehaviour
     {
         if (deck.cards1.Count > 1)
         {
-            movePlace = deck.Count;
+            //movePlace = deck.Count:
 
             Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
@@ -785,7 +792,7 @@ public class CardAnimation : MonoBehaviour
         }
         if (deck.cards2.Count > 1)
         {
-            movePlace = deck.Count;
+            //movePlace = deck.Count:
 
             Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
@@ -1020,10 +1027,11 @@ public class CardAnimation : MonoBehaviour
         SoundManager.instance.SeApply(Se.cardSkill);
 
         Debug.Log("関数内も呼ばれた");
+        CutInText();
         skillCutInCard.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
         skillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
         {
-            skillCutIn.transform.DOMove(new Vector3(0, 0, 0), 0.7f).OnComplete(() =>
+            skillCutIn.transform.DOMove(new Vector3(0, 0, 0),2f).OnComplete(() =>
             {
                 skillCutIn.transform.DOMove(CutInAfter.transform.position, animeTime / 2).OnComplete(() =>
                 {
@@ -1037,28 +1045,42 @@ public class CardAnimation : MonoBehaviour
 
     private void AnimeSwitch()
     {
+        Debug.Log(animeFunctionNum);
         switch (animeFunctionNum)
         {
             case 1:
-                AnimeAllGet();
+                //天皇のスキル1
+                AnimeOneDraw();
                 break;
 
             case 2:
+                //天皇のスキル2
+                AnimeAllGet();
                 break;
 
             case 3:
+                //段付きスキル1
+                AnimeCardNMove();
                 break;
 
             case 4:
+                //段付きスキル2
+                AnimeHandCardGet();
                 break;
 
             case 5:
+                //武官スキル1
+                AnimeCardNMove();
                 break;
 
             case 6:
+                //弓持ちスキル
+                AnimeLeftToRight();
                 break;
 
             case 7:
+                //蝉丸スキル
+                AnimeYamaHalf();
                 break;
 
             case 8:
@@ -1079,8 +1101,79 @@ public class CardAnimation : MonoBehaviour
             default:
                 Debug.Log(animeFunctionNum + "がおかしい");
                 break;
-
         }
+    }
+
+    private void CutInText()
+    {
+        //天皇スキル1
+        if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1)
+        {
+            drawCardType.text = "天皇ルール";
+            skillType.text = "山札から2枚引く";
+        }
+
+        //天皇スキル2
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2)
+        {
+            drawCardType.text = "天皇ルール";
+            skillType.text = "全員の札と捨て札をすべてもらう";
+        }
+        
+        //段付きスキル1
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3)
+        {
+            drawCardType.text = "段付きルール";
+            skillType.text = "全員から5枚もらう";
+        }
+
+        //段付きスキル2
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4)
+        {
+            drawCardType.text = "段付きルール";
+            skillType.text = "全員の札をすべてもらう";
+        }
+
+        //武官スキル1
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1)
+        {
+            drawCardType.text = "武官ルール";
+            skillType.text = "全員から4枚もらう";
+        }
+
+        //武官スキル2
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2)
+        {
+            drawCardType.text = "武官ルール";
+            skillType.text = "山札を引く順番が逆周りに";
+        }
+
+        //弓持ちスキル1
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+        {
+            drawCardType.text = "弓持ちルール";
+            skillType.text = "左隣のプレイヤーの手札から5枚もらう";
+        }
+
+        //蝉丸を引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru /*&&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1*/)
+        {
+            drawCardType.text = "蝉丸ルール";
+            skillType.text = "山札の数を半分に";
+        }
+        else
+        {
+            Debug.LogError("ここのメッセージはでないはずだよ");
+        }
+
     }
 
 

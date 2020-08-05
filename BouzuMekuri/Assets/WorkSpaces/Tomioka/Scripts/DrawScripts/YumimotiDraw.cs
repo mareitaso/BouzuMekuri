@@ -51,21 +51,9 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
             g %= 4;
         }
 
-
-        //Count-1の人から5枚もらう
-        //if (hand.handCount[deck.Count - 1] > 5)
-        //{
-        //    hand.handCount[deck.Count] += 5;
-        //    hand.handCount[deck.Count - 1] -= 5;
-        //}
-        //else
-        //{
-        //    hand.handCount[deck.Count] += hand.handCount[deck.Count - 1];
-        //    hand.handCount[deck.Count - 1] = 0;
-        //}
-        //}
-
-        cardAnime.AnimeLeftToRight();
+        cardAnime.animeFunctionNum = 6;
+        cardAnime.AnimeSkillCutIn();
+        //cardAnime.AnimeLeftToRight();
         Debug.Log("最終的にカードを渡す人は" + (YumimotiNum + 1) + "→" + (deck.Count + 1));
         Debug.Log("弓持ちのスキル発動");
 

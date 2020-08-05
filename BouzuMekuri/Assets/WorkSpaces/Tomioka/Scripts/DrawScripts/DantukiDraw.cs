@@ -63,7 +63,9 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                         }
                     }
                 }
-                cardAnime.AnimeCardNMove();
+                cardAnime.animeFunctionNum = 3;
+                cardAnime.AnimeSkillCutIn();
+                //cardAnime.AnimeCardNMove();
                 break;
 
             case 4:
@@ -85,7 +87,9 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
                         //hand.handCount[i] = 0;
                     }
                 }
-                cardAnime.AnimeHandCardGet();
+                cardAnime.animeFunctionNum = 4;
+                cardAnime.AnimeSkillCutIn();
+                //cardAnime.AnimeHandCardGet();
                 Debug.Log("段付きのスキル2発動");
                 break;
 
