@@ -23,7 +23,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     //武官のカードを引いた
     public void Bukan_Draw()
     {
-        playerSkill = RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0];
+        playerSkill = Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0];
 
         Debug.Log(deck.Count + "のばん");
         switch (playerSkill)

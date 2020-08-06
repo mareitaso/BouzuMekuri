@@ -77,16 +77,16 @@ public class Test : MonoBehaviour
 
             //天皇を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
+                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
             {
                 TennouDraw.instance.Tennou_Draw();
                 drawType.text = "天皇";
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
+                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
             {
                 DantukiDraw.instance.Dantuki_Draw();
                 drawType.text = "段付き";
@@ -96,8 +96,8 @@ public class Test : MonoBehaviour
 
             //武官を引くかつ武官スキルあり
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
+                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
             {
                 BukanDraw.instance.Bukan_Draw();
                 drawType.text = "武官";
@@ -105,7 +105,7 @@ public class Test : MonoBehaviour
 
             //弓持ちを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 drawType.text = "弓持ち";
@@ -191,16 +191,16 @@ public class Test : MonoBehaviour
 
             //天皇を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
+                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
             {
                 TennouDraw.instance.Tennou_Draw();
                 drawType.text = "天皇";
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
+                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
             {
                 DantukiDraw.instance.Dantuki_Draw();
                 drawType.text = "段付き";
@@ -210,8 +210,8 @@ public class Test : MonoBehaviour
 
             //武官を引くかつ武官スキルあり
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
+                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
             {
                 BukanDraw.instance.Bukan_Draw();
                 drawType.text = "武官";
@@ -219,7 +219,7 @@ public class Test : MonoBehaviour
 
             //弓持ちを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 drawType.text = "弓持ち";
@@ -234,7 +234,7 @@ public class Test : MonoBehaviour
 
             //蝉丸を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
+                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
                 drawType.text = "蝉丸";

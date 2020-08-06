@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using System;
 
-public class RuleManager : MonoBehaviour
+public class RuleManager : Singleton<RuleManager>
 {
-    public static RuleManager instance;
-
     //Inspectorに複数データを表示するためのクラス
     [System.SerializableAttribute]
     public class ValueList
@@ -36,17 +33,4 @@ public class RuleManager : MonoBehaviour
     public List<ValueList2> PlayerList = new List<ValueList2>();
     //public List<List<int>> lists = new List<List<int>>();
     //ルールの列挙
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 }

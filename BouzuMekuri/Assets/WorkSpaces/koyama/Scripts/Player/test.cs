@@ -10,7 +10,7 @@ public class test : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(RuleManager.instance.PlayerList[0].RuleList[0].RuleEfect.Count);
+        Debug.Log(Singleton<RuleManager>.Instance.PlayerList[0].RuleList[0].RuleEfect.Count);
     }
     /*
     private void Start()

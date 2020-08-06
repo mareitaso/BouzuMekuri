@@ -18,7 +18,7 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
     //段付きカードを引いた
     public void Dantuki_Draw()
     {
-        playerSkill = RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0];
+        playerSkill = Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0];
 
         Debug.Log(deck.Count + "のばん");
         switch (playerSkill)
