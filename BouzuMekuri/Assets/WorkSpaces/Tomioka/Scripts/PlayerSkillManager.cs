@@ -7,7 +7,7 @@ public class PlayerSkillManager : MonoBehaviour
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private Test test;
+    private Draw draw;
     [SerializeField]
     private Touch touch;
     [SerializeField]
@@ -69,7 +69,7 @@ public class PlayerSkillManager : MonoBehaviour
         Debug.Log((touch.touchPlayer + 1) + "がスキルを使い全部捨てた");
         Debug.Log("Player" + (cardAnime.skillPlayer + 1) + "がスキル対象で半分捨てた");
 
-        test.TextChange();
+        draw.TextChange();
         cardAnime.AnimePlayerSkill2();
     }
 
@@ -110,7 +110,7 @@ public class PlayerSkillManager : MonoBehaviour
             Debug.Log("Player" + (h + 1) + "がスキル対象で" + (d - v) + "枚捨てた");
         }
         cardAnime.skillPlayer = s;
-        test.TextChange();
+        draw.TextChange();
         cardAnime.AnimePlayerSkill3();
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Touch : MonoBehaviour
 {
     [SerializeField]
-    private Test test;
+    private Draw draw;
     [SerializeField]
     private Deck deck;
     [SerializeField]
@@ -29,14 +29,14 @@ public class Touch : MonoBehaviour
     {
         if (CardAnime.animeEnd == true)
         {
-            test.Draw1();
+            draw.Draw1();
         }
     }
     public void draw2()
     {
         if (CardAnime.animeEnd == true)
         {
-            test.Draw2();
+            draw.Draw2();
         }
     }
 
@@ -143,7 +143,7 @@ public class Touch : MonoBehaviour
         MasterList.instance.Shuffle2();
         SoundManager.instance.SeApply(Se.cardShuffle);
         CardAnime.AnimePlayerSkill1();
-        test.TextChange();
+        draw.TextChange();
     }
     public void setValue(int value)
     {

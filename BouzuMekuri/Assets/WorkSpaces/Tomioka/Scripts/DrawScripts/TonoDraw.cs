@@ -7,7 +7,7 @@ public class TonoDraw : SingletonMonoBehaviour<TonoDraw>
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private Test test;
+    private Draw draw;
     [SerializeField]
     CardAnimation cardAnime;
 

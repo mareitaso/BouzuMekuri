@@ -337,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &56183614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3032,7 +3032,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  hand: {fileID: 0}
   test: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503228
@@ -3048,7 +3047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  hand: {fileID: 0}
   test: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503229
@@ -3080,7 +3078,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  hand: {fileID: 0}
   cardAnime: {fileID: 1818914147}
   YumimotiNum: 0
 --- !u!114 &1003503231
@@ -3096,7 +3093,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  hand: {fileID: 0}
   test: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503232
@@ -3112,7 +3108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  hand: {fileID: 0}
   test: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503233
@@ -3128,7 +3123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  hand: {fileID: 0}
   test: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503234
@@ -3144,7 +3138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  hand: {fileID: 0}
   test: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503235

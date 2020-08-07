@@ -7,7 +7,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private Test test;
+    private Draw draw;
     [SerializeField]
     private CardAnimation cardAnime;
 
