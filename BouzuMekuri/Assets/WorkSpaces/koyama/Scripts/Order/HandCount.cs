@@ -82,9 +82,8 @@ public class HandCount : MonoBehaviour
     }
     private void Result()
     {
-        for (int i = 0; i < num; i++)
+        for (int i = 0; i < num-1; i++)
             score[i] = MasterList.instance.list[i].Count;
-            //score[i] += i + 10; 
     }
     private void Update(){
         if(Input.GetMouseButtonDown(0)){
