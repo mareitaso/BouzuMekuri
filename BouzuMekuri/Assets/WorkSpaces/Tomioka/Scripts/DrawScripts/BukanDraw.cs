@@ -7,8 +7,6 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private HandCount hand;
-    [SerializeField]
     private Test test;
     [SerializeField]
     CardAnimation cardAnime;
@@ -23,7 +21,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     //武官のカードを引いた
     public void Bukan_Draw()
     {
-        playerSkill = Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0];
+        playerSkill = RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0];
 
         Debug.Log(deck.Count + "のばん");
         switch (playerSkill)
@@ -74,14 +72,14 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                     if (k != deck.Count)
                     {
                         //N枚以上もってたら
-                        if (MasterList.Instance.list[k].Count > 4)
+                        if (MasterList.instance.list[k].Count > 4)
                         {
-                            Debug.Log(i + "は" + MasterList.Instance.list[k].Count);
+                            Debug.Log(i + "は" + MasterList.instance.list[k].Count);
                             for (int t = 0; t < 4; t++)
                             {
-                                int y = MasterList.Instance.list[k][0];//k番目の人の一番上の札を格納
-                                MasterList.Instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
-                                MasterList.Instance.list[k].RemoveAt(0);//k番目の人の札の初期化
+                                int y = MasterList.instance.list[k][0];//k番目の人の一番上の札を格納
+                                MasterList.instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
+                                MasterList.instance.list[k].RemoveAt(0);//k番目の人の札の初期化
                                 Debug.Log(i % 4 + "は" + t + "回");
                             }
                             Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に4枚渡す");
@@ -89,12 +87,12 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                         //N枚以下なら
                         else
                         {
-                            int w = MasterList.Instance.list[k].Count;
+                            int w = MasterList.instance.list[k].Count;
                             for (int t = 0; t < w; t++)
                             {
-                                int y = MasterList.Instance.list[k][0];//k番目の人の一番上の札を格納
-                                MasterList.Instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
-                                MasterList.Instance.list[k].RemoveAt(0);//k番目の人の札の初期化
+                                int y = MasterList.instance.list[k][0];//k番目の人の一番上の札を格納
+                                MasterList.instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
+                                MasterList.instance.list[k].RemoveAt(0);//k番目の人の札の初期化
                             }
                             Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に4枚渡せないから全部渡す");
                         }
@@ -115,7 +113,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 break;
         }
 
-        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
     }
     //回る順逆転
     public void ReverseRotation()
@@ -161,7 +159,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     {
         for (int i = 0; i < 4; i++)
         {
-            if (MasterList.Instance.list[i].Count == 0)
+            if (MasterList.instance.list[i].Count == 0)
             {
                 test.Player[i].sprite = Resources.Load<Sprite>("Images/Null");
             }

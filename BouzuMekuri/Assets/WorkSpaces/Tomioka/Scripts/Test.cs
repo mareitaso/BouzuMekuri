@@ -77,16 +77,16 @@ public class Test : MonoBehaviour
 
             //天皇を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
-                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
+                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
+                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
             {
                 TennouDraw.instance.Tennou_Draw();
                 drawType.text = "天皇";
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
-                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
+                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
+                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
             {
                 DantukiDraw.instance.Dantuki_Draw();
                 drawType.text = "段付き";
@@ -96,8 +96,8 @@ public class Test : MonoBehaviour
 
             //武官を引くかつ武官スキルあり
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
-                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
+                (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
+                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
             {
                 BukanDraw.instance.Bukan_Draw();
                 drawType.text = "武官";
@@ -105,7 +105,7 @@ public class Test : MonoBehaviour
 
             //弓持ちを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 drawType.text = "弓持ち";
@@ -191,16 +191,16 @@ public class Test : MonoBehaviour
 
             //天皇を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
-                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
+                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
+                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
             {
                 TennouDraw.instance.Tennou_Draw();
                 drawType.text = "天皇";
             }
             //段付きを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
-                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
+                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
+                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
             {
                 DantukiDraw.instance.Dantuki_Draw();
                 drawType.text = "段付き";
@@ -210,8 +210,8 @@ public class Test : MonoBehaviour
 
             //武官を引くかつ武官スキルあり
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
-                (Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
+                (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
+                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
             {
                 BukanDraw.instance.Bukan_Draw();
                 drawType.text = "武官";
@@ -219,7 +219,7 @@ public class Test : MonoBehaviour
 
             //弓持ちを引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
             {
                 YumimotiDraw.instance.Yumimoti_Draw();
                 drawType.text = "弓持ち";
@@ -234,7 +234,7 @@ public class Test : MonoBehaviour
 
             //蝉丸を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                Singleton<RuleManager>.Instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
                 drawType.text = "蝉丸";
@@ -279,7 +279,7 @@ public class Test : MonoBehaviour
     }
     public void S()
     {
-        MasterList.Instance.Shuffle2();
+        MasterList.instance.Shuffle2();
         TextChange();
         Debug.LogError("");
     }
@@ -287,16 +287,16 @@ public class Test : MonoBehaviour
     public void Image()
     {
         //ListAの長さの所にListBの長さを入れるのはやめよう!!
-        if (MasterList.Instance.list[deck.Count].Count != 0)
+        if (MasterList.instance.list[deck.Count].Count != 0)
         {
             try
             {
                 Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                MasterList.Instance.list[deck.Count][MasterList.Instance.list[deck.Count].Count - 1]);
+                MasterList.instance.list[deck.Count][MasterList.instance.list[deck.Count].Count - 1]);
             }
             catch
             {
-                Debug.Log("例外発生　" + deck.Count + "  " + MasterList.Instance.list[deck.Count].Count + " " + MasterList.Instance.list.Count);
+                Debug.Log("例外発生　" + deck.Count + "  " + MasterList.instance.list[deck.Count].Count + " " + MasterList.instance.list.Count);
             }
 
         }
@@ -304,8 +304,8 @@ public class Test : MonoBehaviour
         {
             Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
         }
-        //int x = MasterList.Instance.list[deck.Count]
-        //Debug.Log(MasterList.Instance.list[deck.Count][MasterList.Instance.list[deck.Count].Count-1]);
+        //int x = MasterList.instance.list[deck.Count]
+        //Debug.Log(MasterList.instance.list[deck.Count][MasterList.instance.list[deck.Count].Count-1]);
     }
 
     public void ImageChangeTono()
@@ -331,10 +331,10 @@ public class Test : MonoBehaviour
 
     public void TextChange()
     {
-        PlayerCards[0].text = MasterList.Instance.list[0].Count.ToString();
-        PlayerCards[1].text = MasterList.Instance.list[1].Count.ToString();
-        PlayerCards[2].text = MasterList.Instance.list[2].Count.ToString();
-        PlayerCards[3].text = MasterList.Instance.list[3].Count.ToString();
+        PlayerCards[0].text = MasterList.instance.list[0].Count.ToString();
+        PlayerCards[1].text = MasterList.instance.list[1].Count.ToString();
+        PlayerCards[2].text = MasterList.instance.list[2].Count.ToString();
+        PlayerCards[3].text = MasterList.instance.list[3].Count.ToString();
         PlayerCards[4].text = deck.DiscardCount.Count.ToString();
         PlayerCards[5].text = deck.cards1.Count.ToString();
         PlayerCards[6].text = deck.cards2.Count.ToString();
@@ -347,13 +347,13 @@ public class Test : MonoBehaviour
         //Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
         //Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
         Debug.LogError("終わり");
-        SceneController.Instance.LoadScene(SceneController.SceneName.Result);
+        SceneController.instance.LoadScene(SceneController.SceneName.Result);
         //hand.Settlement();
     }
 
     public void MockShuffle()
     {
-        MasterList.Instance.Shuffle2();
+        MasterList.instance.Shuffle2();
         /*
         if (hand.handCount[0] == 0)
         {

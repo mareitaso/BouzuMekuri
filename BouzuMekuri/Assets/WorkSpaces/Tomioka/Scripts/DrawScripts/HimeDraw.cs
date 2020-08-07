@@ -7,8 +7,6 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private HandCount hand;
-    [SerializeField]
     private Test test;
     [SerializeField]
     private CardAnimation cardAnime;
@@ -27,11 +25,10 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
                 Debug.Log(deck.DiscardCount[0]);
                 Debug.Log(deck.DiscardCount[0]);
                 int y = deck.DiscardCount[0];//捨て札を格納
-                MasterList.Instance.list[deck.Count].Add(y);//捨て札を回収
+                MasterList.instance.list[deck.Count].Add(y);//捨て札を回収
                 deck.DiscardCount.RemoveAt(0);//捨て札を初期化
             }
-            MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-            //test.ImageChangeHime();
+            MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
             cardAnime.AnimeHime();
 
         }
@@ -39,8 +36,7 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
         else
         {
             test.drawAgain = true;
-            MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-            //test.ImageChangeHime();
+            MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
             cardAnime.AnimeTono();
             
             //deck.cards1.RemoveAt(0);//0番目を削除

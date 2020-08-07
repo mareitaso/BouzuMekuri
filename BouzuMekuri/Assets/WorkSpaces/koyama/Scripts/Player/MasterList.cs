@@ -4,10 +4,8 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-public class MasterList : MonoBehaviour
+public class MasterList : SingletonMonoBehaviour<MasterList>
 {
-    public static MasterList Instance;
-
     public List<List<int>> list = new List<List<int>>();
     //人数の列挙
     public enum Player
@@ -26,18 +24,6 @@ public class MasterList : MonoBehaviour
         new PlayerModel()
     };
 
-    private void Awake()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
     public void Start()
     {
         //リストの初期化
@@ -92,28 +78,10 @@ public class MasterList : MonoBehaviour
             list[i].Clear();
             list[i].AddRange(totalList.GetRange(0, index));
             totalList.RemoveRange(0, index);
-            ////範囲内の値を移動させるまでループ
-            //while (index>0) 
-            //{
-            //    //index番目の値をコピーする
-            //    int r = totalList[0];
-            //    //index番目を中身に入れる
-            //    list[i].Add(r);
-            //    //index番目を除外する
-            //    totalList.RemoveAt(0);
-            //    index--;
-            //}
         }
         //余りを全部4Pへ
         list[3].Clear();
         list[3].AddRange(totalList);
         totalList.Clear();
-        //for (int z = 0; z < totalList.Count; z++)
-        //{
-        //    int r = totalList[0];
-        //    list[3].Add(r);
-        //    totalList.RemoveAt(0);
-        //}
-
     }
 }

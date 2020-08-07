@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class touvh : MonoBehaviour
+public class Touch : MonoBehaviour
 {
     [SerializeField]
     private Test test;
@@ -49,8 +49,6 @@ public class touvh : MonoBehaviour
         touchPlayer = 0;
         if (Player1 == false)
         {
-            //shuf();
-            //Player1 = true;
             panel.SetActive(true);
             Debug.Log("1P押せたよ");
         }
@@ -66,8 +64,6 @@ public class touvh : MonoBehaviour
         touchPlayer = 1;
         if (Player2 == false)
         {
-            //shuf();
-            //Player2 = true;
             panel.SetActive(true);
             Debug.Log("2P押せたよ");
         }
@@ -82,8 +78,6 @@ public class touvh : MonoBehaviour
         touchPlayer = 2;
         if (Player3 == false)
         {
-            //shuf();
-            //Player3 = true;
             panel.SetActive(true);
             Debug.Log("3押せたよ");
         }
@@ -98,8 +92,6 @@ public class touvh : MonoBehaviour
         touchPlayer = 3;
         if (Player4 == false)
         {
-            //shuf();
-            //Player4 = true;
             panel.SetActive(true);
             Debug.Log("4P押せたよ");
         }
@@ -148,18 +140,10 @@ public class touvh : MonoBehaviour
 
     private void shuf()
     {
-        MasterList.Instance.Shuffle2();
+        MasterList.instance.Shuffle2();
         SoundManager.instance.SeApply(Se.cardShuffle);
         CardAnime.AnimePlayerSkill1();
-        int z = deck.Count;
-        deck.Count = 0;
-        //for (int i = 0; i < 4; i++)
-        //{
-        //    test.Image();
-        //    deck.Count++;
-        //}
         test.TextChange();
-        deck.Count = z;
     }
     public void setValue(int value)
     {
@@ -184,22 +168,5 @@ public class touvh : MonoBehaviour
         {
             Player4 = true;
         }
-
-        /*
-        switch (touchPlayer)
-        {
-            case 1:
-                Player1 = true;
-                break;
-            case 2:
-                Player2 = true;
-                break;
-            case 3:
-                Player3 = true;
-                break;
-            case 4:
-                Player4 = true;
-                break;
-        }*/
     }
 }

@@ -7,8 +7,6 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private HandCount hand;
-    [SerializeField]
     private Test test;
     [SerializeField]
     private CardAnimation cardAnime;
@@ -24,7 +22,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
 
     public void Semimaru_Draw()
     {
-        MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
 
         //山札の半分を場に置く
         allYamahuda = deck.cards1.Count + deck.cards2.Count - 1;
@@ -97,13 +95,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
             }
 
         }
-
         cardAnime.AnimeYamaHalf();
-
-            //test.ImageChangeTono();
-            //test.ImageChangeSemimaru();
-            //deck.DiscardCount
-
         }
 
     //坊主として扱う
@@ -133,14 +125,12 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
             if (i != deck.Count)
             {
                 Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
-                for (int t = 0; t < MasterList.Instance.list[i].Count; t++)
+                for (int t = 0; t < MasterList.instance.list[i].Count; t++)
                 {
-                    int y = MasterList.Instance.list[i][0];//i番目の人の一番上の札を格納
-                    MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
-                    MasterList.Instance.list[i].RemoveAt(0);//i番目の人の札の初期化
+                    int y = MasterList.instance.list[i][0];//i番目の人の一番上の札を格納
+                    MasterList.instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                    MasterList.instance.list[i].RemoveAt(0);//i番目の人の札の初期化
                 }
-                //hand.handCount[deck.Count] += hand.handCount[i];
-                //hand.handCount[i] = 0;
             }
         }
     }
@@ -153,13 +143,13 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
             //全員の札をもらう
             if (i != deck.Count)
             {
-                int e = MasterList.Instance.list[deck.Count].Count;
+                int e = MasterList.instance.list[deck.Count].Count;
                 //手札を捨て札に加算
                 for (int t = 0; t < e; t++)
                 {
-                    int y = MasterList.Instance.list[deck.Count][0];
+                    int y = MasterList.instance.list[deck.Count][0];
                     deck.DiscardCount.Add(y);
-                    MasterList.Instance.list[deck.Count].RemoveAt(0);
+                    MasterList.instance.list[deck.Count].RemoveAt(0);
                 }
             }
         }

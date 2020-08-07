@@ -7,16 +7,11 @@ using System.Linq;
 
 public class HandCount : MonoBehaviour
 {
-    //[SerializeField]
-    //public int[] handCount; //4人分の手札
-    //[SerializeField]
-    //private Deck deck;
     public GameObject score_object1 = null;//テキスト
     public GameObject score_object2 = null;//テキスト
     public GameObject score_object3 = null;//テキスト
     public GameObject score_object4 = null;//テキスト
 
-    //private int player;
     private const int Max = 100;//所持札の最大数
     private static int num =4;//参加最大人数
     private int[] score = new int[num];//人数分の点数データ
@@ -88,14 +83,12 @@ public class HandCount : MonoBehaviour
     private void Result()
     {
         for (int i = 0; i < num; i++)
-            score[i] = MasterList.Instance.list[i].Count;
+            score[i] = MasterList.instance.list[i].Count;
             //score[i] += i + 10; 
     }
     private void Update(){
         if(Input.GetMouseButtonDown(0)){
-            Singleton<ReSetCommand>.Instance.ReSet();
-            //MasterList.Instance.Start();
-            //SceneController.Instance.LoadScene(SceneController.SceneName.Title);
+            ReSetCommand.instance.ReSet();
         }
     }
 }

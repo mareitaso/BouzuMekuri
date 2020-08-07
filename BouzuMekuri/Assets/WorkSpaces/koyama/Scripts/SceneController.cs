@@ -2,33 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class SceneController : MonoBehaviour
+public class SceneController : SingletonMonoBehaviour<SceneController>
 {
-    public static SceneController Instance;
     //遷移テクスチャ
     private Texture2D blackTexture;
     private float fadeAlpha = 0;
     private bool isFading = false;
     public bool IsFading { get { return isFading; } }
 
-    private void Awake()
+    private void Start()
     {
-        if (Instance == null)
+        if (blackTexture == null)
         {
-            Instance = this;
-            if (blackTexture == null)
-            {
-                //黒テクスチャを生成
-                blackTexture = new Texture2D(32, 32, TextureFormat.RGB24, false);
-                blackTexture.ReadPixels(new Rect(0, 0, 32, 32), 0, 0, false);
-                blackTexture.SetPixel(0, 0, Color.white);
-                blackTexture.Apply();
-            }
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
+            //黒テクスチャを生成
+            blackTexture = new Texture2D(32, 32, TextureFormat.RGB24, false);
+            blackTexture.ReadPixels(new Rect(0, 0, 32, 32), 0, 0, false);
+            blackTexture.SetPixel(0, 0, Color.white);
+            blackTexture.Apply();
         }
     }
     private void OnGUI()
@@ -89,35 +79,6 @@ public class SceneController : MonoBehaviour
 #elif UNITY_STANDALONE
         UnityEngine.Application.Quit();
 #endif
-    }
-    private void Update()
-    {
-        //if (PS4ControllerInput.pS4ControllerInput.contorollerState.Circle||
-        //    Input.GetMouseButtonDown(1))
-        //{
-        //    //if(SceneManager.GetActiveScene().name == "Main")
-        //    //{
-        //    //    LoadScene(SceneController.SceneName.Result,true);
-        //    //}
-        //    if (SceneManager.GetActiveScene().name == "Title")
-        //    {
-        //        LoadScene(SceneController.SceneName.Main, true);
-        //    }
-        //    //if(SceneManager.GetActiveScene().name == "Result")
-        //    //{
-        //    //    LoadScene(SceneController.SceneName.Title, true);
-        //    //}
-        //    return;
-        //}
-        if (Input.GetKey(KeyCode.Escape)) SceneController.Instance.Quit();
-        //if (Input.GetKey(KeyCode.Space))
-        //{
-        //    if (SceneManager.GetActiveScene().name == "Title")
-        //    {
-        //        LoadScene(SceneController.SceneName.Main, true);
-        //    }
-        //    return;
-        //}
     }
     /// <summary>
     /// <para>シーン遷移</para>

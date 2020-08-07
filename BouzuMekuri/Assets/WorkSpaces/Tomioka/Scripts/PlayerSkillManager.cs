@@ -9,7 +9,7 @@ public class PlayerSkillManager : MonoBehaviour
     [SerializeField]
     private Test test;
     [SerializeField]
-    private touvh touch;
+    private Touch touch;
     [SerializeField]
     private CardAnimation cardAnime;
 
@@ -37,33 +37,33 @@ public class PlayerSkillManager : MonoBehaviour
         //誰が一番多く持っているか
         for (int i = 0; i < 4; i++)
         {
-            if (x < MasterList.Instance.list[i].Count)
+            if (x < MasterList.instance.list[i].Count)
             {
-                x = MasterList.Instance.list[i].Count;
+                x = MasterList.instance.list[i].Count;
                 b = i;
             }
         }
 
         cardAnime.skillPlayer = b;
 
-        int a = MasterList.Instance.list[touch.touchPlayer].Count;
+        int a = MasterList.instance.list[touch.touchPlayer].Count;
         //スキルを使った人の手札を捨て札に加算
         for (int t = 0; t < a; t++)
         {
-            int y = MasterList.Instance.list[touch.touchPlayer][0];
+            int y = MasterList.instance.list[touch.touchPlayer][0];
             deck.DiscardCount.Add(y);
-            MasterList.Instance.list[touch.touchPlayer].RemoveAt(0);
+            MasterList.instance.list[touch.touchPlayer].RemoveAt(0);
         }
-        MasterList.Instance.list[touch.touchPlayer].Clear();//手札を初期化
+        MasterList.instance.list[touch.touchPlayer].Clear();//手札を初期化
 
 
-        int g = MasterList.Instance.list[b].Count;
+        int g = MasterList.instance.list[b].Count;
         //一番っ持っている人の手札を捨て札に加算
         for (int m = 0; m < g / 2; m++)
         {
-            int z = MasterList.Instance.list[b][0];
+            int z = MasterList.instance.list[b][0];
             deck.DiscardCount.Add(z);
-            MasterList.Instance.list[b].RemoveAt(0);
+            MasterList.instance.list[b].RemoveAt(0);
         }
 
         Debug.Log((touch.touchPlayer + 1) + "がスキルを使い全部捨てた");
@@ -84,9 +84,9 @@ public class PlayerSkillManager : MonoBehaviour
         int s = 0;//一番少ない人
         for (int i = 0; i < 4; i++)
         {
-            if (v >= MasterList.Instance.list[i].Count)
+            if (v >= MasterList.instance.list[i].Count)
             {
-                v = MasterList.Instance.list[i].Count;
+                v = MasterList.instance.list[i].Count;
                 s = i;
             }
         }
@@ -98,14 +98,14 @@ public class PlayerSkillManager : MonoBehaviour
         {
             h = i % 4;
             Debug.Log(h + "player");
-            int d = MasterList.Instance.list[h].Count;
+            int d = MasterList.instance.list[h].Count;
 
             //スキルを使った人以外の手札を捨て札に加算
             for (int t = 0; t < (d - v); t++)
             {
-                int y = MasterList.Instance.list[h][0];
+                int y = MasterList.instance.list[h][0];
                 deck.DiscardCount.Add(y);
-                MasterList.Instance.list[h].RemoveAt(0);
+                MasterList.instance.list[h].RemoveAt(0);
             }
             Debug.Log("Player" + (h + 1) + "がスキル対象で" + (d - v) + "枚捨てた");
         }

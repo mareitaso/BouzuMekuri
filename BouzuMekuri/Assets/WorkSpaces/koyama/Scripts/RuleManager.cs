@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class RuleManager : Singleton<RuleManager>
+public class RuleManager : SingletonMonoBehaviour<RuleManager>
 {
     //Inspectorに複数データを表示するためのクラス
     [System.SerializableAttribute]

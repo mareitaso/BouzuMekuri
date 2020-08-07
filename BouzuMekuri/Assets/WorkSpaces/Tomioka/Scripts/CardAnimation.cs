@@ -24,7 +24,7 @@ public class CardAnimation : MonoBehaviour
     [SerializeField]
     private Test test;
     [SerializeField]
-    private touvh touch;
+    private Touch touch;
 
     [SerializeField]
     private Image skillCutIn;
@@ -374,14 +374,14 @@ public class CardAnimation : MonoBehaviour
                     for (int i = 0; i < 4; i++)
                     {
                         playerFake[i].sprite = player[i].sprite;
-                        if (MasterList.Instance.list[i].Count == 0)
+                        if (MasterList.instance.list[i].Count == 0)
                         {
                             player[i].sprite = Resources.Load<Sprite>("Images/Null");
                         }
                         else
                         {
                             player[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[i][MasterList.Instance.list[i].Count - 1]);
+                            MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
                         }
                         playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
 
@@ -419,14 +419,14 @@ public class CardAnimation : MonoBehaviour
                     for (int i = 0; i < 4; i++)
                     {
                         playerFake[i].sprite = player[i].sprite;
-                        if (MasterList.Instance.list[i].Count == 0)
+                        if (MasterList.instance.list[i].Count == 0)
                         {
                             player[i].sprite = Resources.Load<Sprite>("Images/Null");
                         }
                         else
                         {
                             playerFake[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[i][MasterList.Instance.list[i].Count - 1]);
+                            MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
                         }
                         playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
 
@@ -565,14 +565,14 @@ public class CardAnimation : MonoBehaviour
                     if (YumiNum != movePlace)
                     {
                         playerFake[YumiNum].sprite = player[YumiNum].sprite;
-                        if (MasterList.Instance.list[YumiNum].Count == 0)
+                        if (MasterList.instance.list[YumiNum].Count == 0)
                         {
                             player[YumiNum].sprite = Resources.Load<Sprite>("Images/Null");
                         }
                         else
                         {
                             playerFake[YumiNum].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[YumiNum][MasterList.Instance.list[YumiNum].Count - 1]);
+                            MasterList.instance.list[YumiNum][MasterList.instance.list[YumiNum].Count - 1]);
                         }
                         //DoToweenで移動
                         playerFake[YumiNum].transform.DOMove(Place[movePlace].transform.position, animeTime);
@@ -612,14 +612,14 @@ public class CardAnimation : MonoBehaviour
                     if (YumiNum != movePlace)
                     {
                         playerFake[YumiNum].sprite = player[YumiNum].sprite;
-                        if (MasterList.Instance.list[YumiNum].Count == 0)
+                        if (MasterList.instance.list[YumiNum].Count == 0)
                         {
                             player[YumiNum].sprite = Resources.Load<Sprite>("Images/Null");
                         }
                         else
                         {
                             playerFake[YumiNum].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[YumiNum][MasterList.Instance.list[YumiNum].Count - 1]);
+                            MasterList.instance.list[YumiNum][MasterList.instance.list[YumiNum].Count - 1]);
                         }
                         //DoToweenで移動
                         playerFake[YumiNum].transform.DOMove(Place[movePlace].transform.position, animeTime);
@@ -790,10 +790,10 @@ public class CardAnimation : MonoBehaviour
         {
             for (int i = 0; i < 4; i++)
             {
-                if (MasterList.Instance.list[i].Count != 0)
+                if (MasterList.instance.list[i].Count != 0)
                 {
                     playerFake[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                                    MasterList.Instance.list[i][MasterList.Instance.list[i].Count - 1]);
+                                    MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
                 }
                 else
                 {
@@ -840,7 +840,7 @@ public class CardAnimation : MonoBehaviour
         //枚数によってはNullか持ってる1番上のカードにする
 
         player[skillPlayer].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.Instance.list[skillPlayer][MasterList.Instance.list[skillPlayer].Count - 1]);
+                            MasterList.instance.list[skillPlayer][MasterList.instance.list[skillPlayer].Count - 1]);
 
         playerFake[skillPlayer].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
         {
@@ -857,13 +857,13 @@ public class CardAnimation : MonoBehaviour
         animeEnd = false;
 
         int i = skillPlayer + 1;
-        if (MasterList.Instance.list[skillPlayer].Count != 0)
+        if (MasterList.instance.list[skillPlayer].Count != 0)
         {
             playerFake[i % 4].sprite = player[i % 4].sprite;
             //枚数によってはNullか持ってる1番上のカードにする
 
             player[i % 4].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                                MasterList.Instance.list[i % 4][MasterList.Instance.list[i % 4].Count - 1]);
+                                MasterList.instance.list[i % 4][MasterList.instance.list[i % 4].Count - 1]);
 
             playerFake[i % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
             {
@@ -889,13 +889,13 @@ public class CardAnimation : MonoBehaviour
               });
         }
         int j = i + 1;
-        if (MasterList.Instance.list[skillPlayer].Count != 0)
+        if (MasterList.instance.list[skillPlayer].Count != 0)
         {
             playerFake[j % 4].sprite = player[j % 4].sprite;
             //枚数によってはNullか持ってる1番上のカードにする
 
             player[j % 4].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                                MasterList.Instance.list[j % 4][MasterList.Instance.list[j % 4].Count - 1]);
+                                MasterList.instance.list[j % 4][MasterList.instance.list[j % 4].Count - 1]);
 
             playerFake[j % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
             {
@@ -922,13 +922,13 @@ public class CardAnimation : MonoBehaviour
         }
 
         int k = j + 1;
-        if (MasterList.Instance.list[skillPlayer].Count != 0)
+        if (MasterList.instance.list[skillPlayer].Count != 0)
         {
             playerFake[k % 4].sprite = player[k % 4].sprite;
             //枚数によってはNullか持ってる1番上のカードにする
 
             player[k % 4].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                                MasterList.Instance.list[k % 4][MasterList.Instance.list[k % 4].Count - 1]);
+                                MasterList.instance.list[k % 4][MasterList.instance.list[k % 4].Count - 1]);
 
             playerFake[k % 4].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
             {

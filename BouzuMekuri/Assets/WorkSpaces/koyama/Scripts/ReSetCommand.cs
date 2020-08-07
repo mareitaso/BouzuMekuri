@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReSetCommand : Singleton<ReSetCommand>
+public class ReSetCommand : SingletonMonoBehaviour<ReSetCommand>
 { 
     public void ReSet()
     {
-        MasterList.Instance.Start();
-        SceneController.Instance.LoadScene(SceneController.SceneName.Title);
+        MasterList.instance.Start();
+        SceneController.instance.LoadScene(SceneController.SceneName.Title,true,2.0f);
     }
 }
