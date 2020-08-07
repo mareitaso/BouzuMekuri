@@ -54,6 +54,7 @@ public class Draw : MonoBehaviour
 
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
+            deck.cards1.RemoveAt(0);//0番目を削除
 
 
             Debug.LogError(deck.drawcard);
@@ -148,8 +149,6 @@ public class Draw : MonoBehaviour
             {
                 Debug.LogError("カードの種類がおかしい");
             }
-
-            deck.cards1.RemoveAt(0);//0番目を削除
             BukanDraw.instance.ReverseRotation();
             TextChange();
         }
@@ -176,6 +175,7 @@ public class Draw : MonoBehaviour
 
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
+            deck.cards2.RemoveAt(0);//0番目を削除
             Debug.LogError(deck.drawcard);
             //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
 
@@ -262,8 +262,6 @@ public class Draw : MonoBehaviour
             {
                 Debug.LogError("カードの種類がおかしい");
             }
-
-            deck.cards2.RemoveAt(0);//0番目を削除
             BukanDraw.instance.ReverseRotation();
             TextChange();
         }

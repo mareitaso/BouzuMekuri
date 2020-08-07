@@ -770,10 +770,12 @@ public class CardAnimation : MonoBehaviour
     //蝉丸の山札半分捨てる処理
     private void AnimeYamaHalfReady()
     {
-        if (deck.cards1.Count > 1)
+        if (SemimaruDraw.instance.halfYamahuda1 == 0)
         {
-            //movePlace = deck.Count:
-
+            Debug.Log("山札1は何もしない");
+        }
+        else if (SemimaruDraw.instance.halfYamahuda1 >= 1)
+        {
             Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.cards1[0]);
@@ -790,10 +792,20 @@ public class CardAnimation : MonoBehaviour
                 });
             });
         }
-        if (deck.cards2.Count > 1)
+        else
         {
-            //movePlace = deck.Count:
+            Debug.LogError("山札1の捨てるアニメーションおかしい");
+            Debug.Log(SemimaruDraw.instance.halfYamahuda1);
+        }
 
+
+
+        if (SemimaruDraw.instance.halfYamahuda2 == 0)
+        {
+            Debug.Log("山札2は何もしない");
+        }
+        else if (SemimaruDraw.instance.halfYamahuda2 >= 1)
+        {
             Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
             {
                 Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.cards2[0]);
@@ -809,6 +821,11 @@ public class CardAnimation : MonoBehaviour
                     });
                 });
             });
+        }
+        else
+        {
+            Debug.LogError("山札2の捨てるアニメーションおかしい");
+            Debug.Log(SemimaruDraw.instance.halfYamahuda2);
         }
     }
 
@@ -1031,14 +1048,14 @@ public class CardAnimation : MonoBehaviour
         skillCutInCard.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
         skillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
         {
-            skillCutIn.transform.DOMove(new Vector3(0, 0, 0),2f).OnComplete(() =>
-            {
-                skillCutIn.transform.DOMove(CutInAfter.transform.position, animeTime / 2).OnComplete(() =>
-                {
-                    skillCutIn.transform.position = CutInBefore.transform.position;
-                    AnimeSwitch();
-                });
-            });
+            skillCutIn.transform.DOMove(new Vector3(0, 0, 0), 2f).OnComplete(() =>
+             {
+                 skillCutIn.transform.DOMove(CutInAfter.transform.position, animeTime / 2).OnComplete(() =>
+                 {
+                     skillCutIn.transform.position = CutInBefore.transform.position;
+                     AnimeSwitch();
+                 });
+             });
         });
     }
 
@@ -1121,7 +1138,7 @@ public class CardAnimation : MonoBehaviour
             drawCardType.text = "天皇ルール";
             skillType.text = "全員の札と捨て札をすべてもらう";
         }
-        
+
         //段付きスキル1
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
             RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3)

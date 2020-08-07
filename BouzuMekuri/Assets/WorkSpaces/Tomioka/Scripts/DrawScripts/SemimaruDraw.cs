@@ -12,30 +12,20 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     private CardAnimation cardAnime;
 
     //現状のカードの総数
-    private int allYamahuda;
+    //private int allYamahuda;
     //捨てる札の総数
     private int allSutehuda;
 
     //それぞれ山札から捨てる枚数
-    private int halfYamahuda1;
-    private int halfYamahuda2 = 1;
+    public int halfYamahuda1;
+    public int halfYamahuda2;
 
     public void Semimaru_Draw()
     {
         MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
 
-        //山札の半分を場に置く
-        allYamahuda = deck.cards1.Count + deck.cards2.Count - 1;
-
-        //繰り下げになってるはず
-        allSutehuda = allYamahuda / 2;
-
-        halfYamahuda1 = allSutehuda / 2;
-        halfYamahuda2 = allSutehuda / 2;
-
-
-
-        Debug.Log("残りの山札は" + allYamahuda + "枚です");
+        halfYamahuda1 = deck.cards1.Count / 2;
+        halfYamahuda2 = deck.cards2.Count / 2;
 
         Debug.Log("捨てるカードの合計は" + allSutehuda + "枚です");
 
@@ -54,13 +44,13 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
             {
                 if (deck.cards1.Count == 1)
                 {
-                    halfYamahuda2 += halfYamahuda1 - deck.cards1.Count + 1;
+                    halfYamahuda2 += halfYamahuda1 - deck.cards1.Count;
                     halfYamahuda1 = 0;
                 }
                 else
                 {
-                    halfYamahuda2 += halfYamahuda1 - deck.cards1.Count;
-                    halfYamahuda1 = deck.cards1.Count;
+                    halfYamahuda2 += halfYamahuda1 - deck.cards1.Count + 1;
+                    halfYamahuda1 = deck.cards1.Count - 1;
                 }
             }
             if (deck.cards2.Count < halfYamahuda2)
@@ -72,8 +62,8 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
                 }
                 else
                 {
-                    halfYamahuda1 += halfYamahuda2 - deck.cards2.Count;
-                    halfYamahuda2 = deck.cards2.Count;
+                    halfYamahuda1 += halfYamahuda2 - deck.cards2.Count + 1;
+                    halfYamahuda2 = deck.cards2.Count - 1;
                 }
             }
 
@@ -97,7 +87,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
         }
         cardAnime.animeFunctionNum = 7;
         cardAnime.AnimeSkillCutIn();
-        }
+    }
 
     //坊主として扱う
     private void SemimaruSkill1()
