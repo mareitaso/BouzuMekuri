@@ -233,8 +233,8 @@ public class Draw : MonoBehaviour
             //}
 
             //蝉丸を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru/* &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1*/)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
                 drawType.text = "蝉丸";
