@@ -10,6 +10,8 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
     private HandCount hand;
     [SerializeField]
     private Test test;
+    [SerializeField]
+    private CardAnimation cardAnime;
 
     //姫を引いた処理
     public void Hime_Draw()
@@ -29,13 +31,18 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
                 deck.DiscardCount.RemoveAt(0);//捨て札を初期化
             }
             MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-            test.ImageChangeHime();
+            //test.ImageChangeHime();
+            cardAnime.AnimeHime();
+
         }
         //捨て札がないので山から1枚引いて効果発動
         else
         {
+            test.drawAgain = true;
             MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-            test.ImageChangeHime();
+            //test.ImageChangeHime();
+            cardAnime.AnimeTono();
+            
             //deck.cards1.RemoveAt(0);//0番目を削除
 
             //if (test.drowYama1 == true)

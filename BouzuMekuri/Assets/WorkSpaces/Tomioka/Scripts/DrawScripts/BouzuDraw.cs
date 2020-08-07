@@ -10,6 +10,8 @@ public class BouzuDraw : SingletonMonoBehaviour<BouzuDraw>
     private HandCount hand;
     [SerializeField]
     private Test test;
+    [SerializeField]
+    private CardAnimation cardAnime;
 
     //坊主を引いた処理
     public void Bouzu_Draw()
@@ -28,6 +30,7 @@ public class BouzuDraw : SingletonMonoBehaviour<BouzuDraw>
         }
 
         MasterList.Instance.list[deck.Count].Clear();//手札を初期化
-        test.ImageChangeBouzu();
+        //test.ImageChangeBouzu();
+        cardAnime.AnimeBouzu();
     }
 }
