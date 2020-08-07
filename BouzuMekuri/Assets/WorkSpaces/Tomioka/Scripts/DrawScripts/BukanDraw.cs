@@ -7,7 +7,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private Test test;
+    private Draw draw;
     [SerializeField]
     CardAnimation cardAnime;
 
@@ -120,17 +120,17 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     //回る順逆転
     public void ReverseRotation()
     {
-        if (test.drawAgain == true)
+        if (draw.drawAgain == true)
         {
-            if (test.drowYama1 == true)
+            if (draw.drowYama1 == true)
             {
-                test.drawAgain = false;
-                //test.Draw1();
+                draw.drawAgain = false;
+                //draw.Draw1();
             }
             else
             {
-                test.drawAgain = false;
-                //test.Draw2();
+                draw.drawAgain = false;
+                //draw.Draw2();
             }
         }
         else
@@ -163,7 +163,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
         {
             if (MasterList.instance.list[i].Count == 0)
             {
-                test.Player[i].sprite = Resources.Load<Sprite>("Images/Null");
+                draw.Player[i].sprite = Resources.Load<Sprite>("Images/Null");
             }
         }
     }
@@ -172,7 +172,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     {
         if (fieldEffectOnOff == true)
         {
-            if (test.drowYama1 == true && deck.cards1.Count > 3)
+            if (draw.drowYama1 == true && deck.cards1.Count > 3)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -183,7 +183,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 }
             }
 
-            if (test.drowYama1 == false && deck.cards2.Count > 3)
+            if (draw.drowYama1 == false && deck.cards2.Count > 3)
             {
                 for (int i = 0; i < 3; i++)
                 {
@@ -193,7 +193,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                     deck.cards2.RemoveAt(0);//0番目を削除
                 }
             }
-            test.ImageChangeSemimaru();
+            draw.ImageChangeSemimaru();
         }
     }
 

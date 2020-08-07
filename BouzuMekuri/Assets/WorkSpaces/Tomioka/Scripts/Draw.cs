@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Test : MonoBehaviour
+public class Draw : MonoBehaviour
 {
     [HideInInspector]
     public bool drowYama1;
@@ -277,12 +277,6 @@ public class Test : MonoBehaviour
             GameEnd();
         }
     }
-    public void S()
-    {
-        MasterList.instance.Shuffle2();
-        TextChange();
-        Debug.LogError("");
-    }
 
     public void Image()
     {
@@ -308,21 +302,21 @@ public class Test : MonoBehaviour
         //Debug.Log(MasterList.instance.list[deck.Count][MasterList.instance.list[deck.Count].Count-1]);
     }
 
-    public void ImageChangeTono()
-    {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
-    }
-    public void ImageChangeHime()
-    {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/Null");
-    }
+    //public void ImageChangeTono()
+    //{
+    //    Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
+    //}
+    //public void ImageChangeHime()
+    //{
+    //    Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
+    //    Sutehuda.sprite = Resources.Load<Sprite>("Images/Null");
+    //}
 
-    public void ImageChangeBouzu()
-    {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
-    }
+    //public void ImageChangeBouzu()
+    //{
+    //    Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
+    //    Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
+    //}
 
     public void ImageChangeSemimaru()
     {
@@ -350,46 +344,4 @@ public class Test : MonoBehaviour
         SceneController.instance.LoadScene(SceneController.SceneName.Result);
         //hand.Settlement();
     }
-
-    public void MockShuffle()
-    {
-        MasterList.instance.Shuffle2();
-        /*
-        if (hand.handCount[0] == 0)
-        {
-            Player[0].sprite = Resources.Load<Sprite>("Images/Null");
-        }
-        else
-        {
-            Player[0].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[0] + 1));
-        }
-
-        if (hand.handCount[1] == 0)
-        {
-            Player[1].sprite = Resources.Load<Sprite>("Images/Null");
-        }
-        else
-        {
-            Player[1].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[1] + 1));
-        }
-
-        if (hand.handCount[2] == 0)
-        {
-            Player[2].sprite = Resources.Load<Sprite>("Images/Null");
-        }
-        else
-        {
-            Player[2].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[2] + 1));
-        }
-
-        if (hand.handCount[3] == 0)
-        {
-            Player[3].sprite = Resources.Load<Sprite>("Images/Null");
-        }
-        else
-        {
-            Player[3].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[3] + 1));
-        }*/
-    }
-
 }

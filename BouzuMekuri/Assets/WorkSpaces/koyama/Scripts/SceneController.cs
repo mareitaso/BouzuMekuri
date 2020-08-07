@@ -99,6 +99,8 @@ public class SceneController : SingletonMonoBehaviour<SceneController>
     public enum SceneName
     {
         Title = 0,
+        Rule,
+        Jisaku,
         Main,
         Result
     }
