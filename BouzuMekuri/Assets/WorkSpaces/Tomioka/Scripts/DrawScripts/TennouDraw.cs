@@ -7,8 +7,6 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private HandCount hand;
-    [SerializeField]
     private Draw draw;
     [SerializeField]
     private CardAnimation cardAnime;
