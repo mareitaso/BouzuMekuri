@@ -95,7 +95,8 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
             }
 
         }
-        cardAnime.AnimeYamaHalf();
+        cardAnime.animeFunctionNum = 7;
+        cardAnime.AnimeSkillCutIn();
         }
 
     //坊主として扱う
