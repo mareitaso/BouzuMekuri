@@ -32,7 +32,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
         Debug.Log("山札は1は" + halfYamahuda1 + "枚捨てる");
         Debug.Log("山札は2は" + halfYamahuda2 + "枚捨てる");
 
-        if (deck.cards1.Count <= 1 && deck.cards2.Count <= 1)
+        if (halfYamahuda1 ==0 && halfYamahuda2 ==0)
         {
             //ないもない
             Debug.Log("何もおきなかった");
