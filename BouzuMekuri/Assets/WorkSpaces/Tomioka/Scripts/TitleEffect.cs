@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-public class MockScene : MonoBehaviour
+public class TitleEffect : MonoBehaviour
 {
     [SerializeField]
     private Image cloudLU, cloudLD, cloudRU, cloudRD;
@@ -26,8 +25,7 @@ public class MockScene : MonoBehaviour
         cloudRU.transform.DOMove(cloudPlaceRU.transform.position, 1.5f);
         cloudRD.transform.DOMove(cloudPlaceRD.transform.position, 1.5f).OnComplete(() =>
         {
-            SceneManager.LoadScene("ru-ruhebbsyuu");
-            //SceneManager.LoadScene("Mock");
+            SceneController.instance.LoadScene(SceneController.SceneName.Rule);
         });
     }
 }
