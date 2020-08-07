@@ -241,6 +241,20 @@ public class RulePullDown : MonoBehaviour
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[2].RuleEfect[0] = 0;
         }
     }
+
+    public void Update()
+    {
+        if (Skilldown1.value == 0 && Skilldown2.value == 0)
+        {
+            //確認ボタンが押せない
+            //s.gameObject.SetActive(false);
+            s.interactable = false;
+        }
+        else
+        {
+            s.interactable = true;
+        }
+    }
     public void Down()
     {
         PlayerNumber++;

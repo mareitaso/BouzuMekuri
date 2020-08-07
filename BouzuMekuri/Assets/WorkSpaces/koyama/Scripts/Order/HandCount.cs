@@ -25,20 +25,25 @@ public class HandCount : MonoBehaviour
         Array.Clear(count, 0, Max);//得点別の配列をクリア
         for(int i = 0; i < num; i++)//全員に対して得点事の配列をカウント
             count[score[i]]++;
-        //Array.Sort(score);
-        //Array.Reverse(score);
+        Array.Sort(score);
+        Array.Reverse(score);
         int j = 0;//最高得点の人の順位
         for(int i = Max; i >= 0; i--)//最高得点から順位付け
         {
             Rank[i] = j;
             j += count[i];
         }
-        /*
-        for(int i = 0; i < num; i++){
-            ;
+        for (int i = 0; i < num; i++)
+        {
+            player[i] = score[i];
+        }
+
+        for(int i = 0; i < num; i++)
+        {
         Array.Sort(score);
         Array.Reverse(score);
-        }*/
+        }
+
         for (int i = 0; i < num; i++)
             rank[i] = Rank[score[i]];//得点別順位の振り分け
 
@@ -46,21 +51,29 @@ public class HandCount : MonoBehaviour
         Text text2 = score_object2.GetComponent<Text>();
         Text text3= score_object3.GetComponent<Text>();
         Text text4 = score_object4.GetComponent<Text>();
+
+        /*
+        text1.text = string.Format("{0}P: {1}枚 ... {2}位", , score[0], rank[0] + 1);
+        text2.text = string.Format("{0}P: {1}枚 ... {2}位", , score[1], rank[1] + 1);
+        text3.text = string.Format("{0}P: {1}枚 ... {2}位", , score[2], rank[2] + 1);
+        text4.text = string.Format("{0}P: {1}枚 ... {2}位", , score[3], rank[3] + 1);
+        */
+        
         for (int i = 0; i < num; i++)
         {
 
             if(i == 0)
             {
-                text1.text = string.Format("{0}P: {1}枚 ... {2}位",i+1 , score[i], rank[i] + 1);
+                text1.text = string.Format("{0}P: {1}枚 ... {2}位", player[i] + 1, score[i], rank[i] + 1);
             }else if(i == 1)
             {
-                text2.text = string.Format("{0}P: {1}枚 ... {2}位",i+1 , score[i], rank[i] + 1);
+                text2.text = string.Format("{0}P: {1}枚 ... {2}位", player[i] + 1, score[i], rank[i] + 1);
             }else if(i == 2)
             {
-                text3.text = string.Format("{0}P: {1}枚 ... {2}位",i+1 , score[i], rank[i] + 1);
+                text3.text = string.Format("{0}P: {1}枚 ... {2}位", player[i] + 1, score[i], rank[i] + 1);
             }else if(i == 3)
             {
-                text4.text = string.Format("{0}P: {1}枚 ... {2}位",i+1 , score[i], rank[i] + 1);
+                text4.text = string.Format("{0}P: {1}枚 ... {2}位", player[i]+1, score[i], rank[i] + 1);
             }
 
             /*
@@ -70,7 +83,7 @@ public class HandCount : MonoBehaviour
             text4.text = string.Format("{0}P: {1}枚 ... {2}位", i + 1, score[i], rank[i] + 1);
             */
         }
-            //text1.text = string.Format("#{0}P: {1}枚 ... {2}位", i + 1, score[i], rank[i] + 1);
+        //text1.text = string.Format("#{0}P: {1}枚 ... {2}位", i + 1, score[i], rank[i] + 1);
 
         //Debug.LogFormat("#{0}P: {1}枚 ... {2}位", i+1, score[i], rank[i]+1);
         //text.text = string.Format("#{0}P: {1}枚 ... {2}位", i + 1, score[i], rank[i] + 1);
@@ -82,7 +95,7 @@ public class HandCount : MonoBehaviour
     }
     private void Result()
     {
-        for (int i = 0; i < num-1; i++)
+        for (int i = 0; i < 4; i++)
             score[i] = MasterList.instance.list[i].Count;
     }
     private void Update(){
