@@ -12,6 +12,7 @@ public class SceneController : SingletonMonoBehaviour<SceneController>
 
     private void Start()
     {
+        DontDestroyOnLoad(this);
         if (blackTexture == null)
         {
             //黒テクスチャを生成

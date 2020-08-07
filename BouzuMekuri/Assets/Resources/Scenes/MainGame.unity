@@ -2833,7 +2833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   touch: {fileID: 2118291389}
   cardAnime: {fileID: 1818914147}
 --- !u!4 &999937999
@@ -2902,7 +2902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503228
 MonoBehaviour:
@@ -2917,7 +2917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503229
 MonoBehaviour:
@@ -2932,7 +2932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503230
 MonoBehaviour:
@@ -2962,7 +2962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503232
 MonoBehaviour:
@@ -2977,7 +2977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503233
 MonoBehaviour:
@@ -2992,7 +2992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503234
 MonoBehaviour:
@@ -3007,7 +3007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
 --- !u!114 &1003503235
 MonoBehaviour:
@@ -3022,7 +3022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
 --- !u!1 &1007456600
 GameObject:
   m_ObjectHideFlags: 0
@@ -5704,7 +5704,7 @@ MonoBehaviour:
   - {fileID: 1220071665}
   - {fileID: 1367345563}
   deck: {fileID: 972917169}
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   touch: {fileID: 2118291389}
   skillCutIn: {fileID: 539964077}
   skillCutInCard: {fileID: 607275748}
@@ -6747,7 +6747,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2118291388}
-  - component: {fileID: 2118291387}
   - component: {fileID: 2118291389}
   m_Layer: 0
   m_Name: Touch
@@ -6756,18 +6755,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2118291387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2118291386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf8c68a9c6111194a9163790e49d1b30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2118291388
 Transform:
   m_ObjectHideFlags: 0
@@ -6794,7 +6781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9936c62a6b85e0d489a5a1bf97dc0e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draw: {fileID: 0}
+  draw: {fileID: 972917170}
   deck: {fileID: 972917169}
   CardAnime: {fileID: 1818914147}
   touchPlayer: 0
