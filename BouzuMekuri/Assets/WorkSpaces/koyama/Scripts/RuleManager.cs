@@ -5,6 +5,13 @@ using System.Linq;
 
 public class RuleManager : SingletonMonoBehaviour<RuleManager>
 {
+    private void Start()
+    {
+        if(instance != null)
+        {
+            DontDestroyOnLoad(this);
+        }
+    }
     //Inspectorに複数データを表示するためのクラス
     [System.SerializableAttribute]
     public class ValueList
