@@ -773,6 +773,7 @@ public class CardAnimation : MonoBehaviour
         if (SemimaruDraw.instance.halfYamahuda1 == 0)
         {
             Debug.Log("山札1は何もしない");
+            animeEnd = true;
         }
         else if (SemimaruDraw.instance.halfYamahuda1 >= 1)
         {
@@ -796,6 +797,7 @@ public class CardAnimation : MonoBehaviour
         {
             Debug.LogError("山札1の捨てるアニメーションおかしい");
             Debug.Log(SemimaruDraw.instance.halfYamahuda1);
+            animeEnd = true;
         }
 
 
@@ -803,6 +805,7 @@ public class CardAnimation : MonoBehaviour
         if (SemimaruDraw.instance.halfYamahuda2 == 0)
         {
             Debug.Log("山札2は何もしない");
+            animeEnd = true;
         }
         else if (SemimaruDraw.instance.halfYamahuda2 >= 1)
         {
@@ -821,11 +824,13 @@ public class CardAnimation : MonoBehaviour
                     });
                 });
             });
+            animeEnd = true;
         }
         else
         {
             Debug.LogError("山札2の捨てるアニメーションおかしい");
             Debug.Log(SemimaruDraw.instance.halfYamahuda2);
+            animeEnd = true;
         }
     }
 
