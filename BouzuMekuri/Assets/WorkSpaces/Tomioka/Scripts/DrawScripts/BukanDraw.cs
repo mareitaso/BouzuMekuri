@@ -98,7 +98,9 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                         }
                     }
                 }
-                cardAnime.AnimeCardNMove();
+                cardAnime.animeFunctionNum = 5;
+                cardAnime.AnimeSkillCutIn();
+                //cardAnime.AnimeCardNMove();
                 Debug.Log("武官のスキル1発動");
                 break;
 
@@ -123,12 +125,12 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             if (test.drowYama1 == true)
             {
                 test.drawAgain = false;
-                test.Draw1();
+                //test.Draw1();
             }
             else
             {
                 test.drawAgain = false;
-                test.Draw2();
+                //test.Draw2();
             }
         }
         else

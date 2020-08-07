@@ -8,6 +8,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     private Deck deck;
     [SerializeField]
     private HandCount hand;
+    [SerializeField]
+    private Test test;
 
 
     //自分のルールのカードの枚数
@@ -140,7 +142,28 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     //n枚山札から引く
     public void DrawnNCards()
     {
+        int j = moveNCards;
 
+        if (test.drowYama1 == true)
+        {
+            //山札からj枚引く
+            for (int i = 0; i < j; i++)
+            {
+                deck.drawcard = deck.cards1[0];//いらないかも
+                MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+                deck.cards1.RemoveAt(0);
+            }
+        }
+        else
+        {
+            //山札から2枚引く
+            for (int i = 0; i < j; i++)
+            {
+                deck.drawcard = deck.cards2[0];//いらないかも
+                MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加;
+                deck.cards2.RemoveAt(0);
+            }
+        }
     }
 
 

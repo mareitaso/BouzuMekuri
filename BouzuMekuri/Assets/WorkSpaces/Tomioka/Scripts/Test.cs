@@ -66,7 +66,7 @@ public class Test : MonoBehaviour
             //デバッグ用
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.Debug)
             {
-                MyRule.instance.DisNCard();
+                MyRule.instance.DrawnNCards();
                 drawType.text = "デバッグ";
             }
 

@@ -903,6 +903,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210867093}
   m_CullTransparentMesh: 0
+--- !u!1 &216981139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 216981140}
+  - component: {fileID: 216981142}
+  - component: {fileID: 216981141}
+  m_Layer: 5
+  m_Name: Skill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &216981140
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216981139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 539964076}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -336, y: -37}
+  m_SizeDelta: {x: 300, y: 161}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &216981141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216981139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 61
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u30B9\u30AD\u30EB\u767A\u52D5"
+--- !u!222 &216981142
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216981139}
+  m_CullTransparentMesh: 0
 --- !u!1 &278570933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,6 +1609,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1539607733}
+  - {fileID: 216981140}
   - {fileID: 607275747}
   - {fileID: 1683228019}
   m_Father: {fileID: 1729521315}
@@ -1921,7 +1999,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 539964076}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2267,7 +2345,7 @@ GameObject:
   - component: {fileID: 832179460}
   - component: {fileID: 832179459}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SkillTypeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3083,6 +3161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
   hand: {fileID: 0}
+  test: {fileID: 972917170}
 --- !u!1 &1007456600
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,7 +4504,7 @@ GameObject:
   - component: {fileID: 1539607735}
   - component: {fileID: 1539607734}
   m_Layer: 5
-  m_Name: Skill
+  m_Name: drawType
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4447,8 +4526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -335, y: -4}
-  m_SizeDelta: {x: 300, y: 322.2}
+  m_AnchoredPosition: {x: -336, y: 34}
+  m_SizeDelta: {x: 300, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1539607734
 MonoBehaviour:
@@ -4470,10 +4549,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 52
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 5
     m_MaxSize: 61
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -4481,7 +4560,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5929\u7687\u30EB\u30FC\u30EB\n\u30B9\u30AD\u30EB\u767A\u52D5"
+  m_Text: "\u5929\u7687\u30EB\u30FC\u30EB"
 --- !u!222 &1539607735
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5025,7 +5104,7 @@ RectTransform:
   m_Children:
   - {fileID: 832179458}
   m_Father: {fileID: 539964076}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5818,6 +5897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862129e1a071cb947a85d4c5036b78b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardDataBase: {fileID: 11400000, guid: ea706d4cf46d2144aaedc9bfde7c368c, type: 2}
   Yamahuda1: {fileID: 1904378717}
   Yamahuda2: {fileID: 83921404}
   Sutehuda: {fileID: 2100363399}
@@ -5844,6 +5924,8 @@ MonoBehaviour:
   touch: {fileID: 2118291389}
   skillCutIn: {fileID: 539964077}
   skillCutInCard: {fileID: 607275748}
+  drawCardType: {fileID: 1539607734}
+  skillType: {fileID: 832179459}
   CutInBefore: {fileID: 1194736028}
   CutInAfter: {fileID: 1734734709}
   animeEnd: 1
