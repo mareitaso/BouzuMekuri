@@ -902,7 +902,6 @@ public class CardAnimation : MonoBehaviour
         });
     }
 
-
     //自分の手札を全部捨て場に置き、１位のプレイヤーの手札の半分を捨て場に置く
     public void AnimePlayerSkill2()
     {
@@ -1064,7 +1063,6 @@ public class CardAnimation : MonoBehaviour
         });
     }
 
-
     private void AnimeSwitch()
     {
         Debug.Log(animeFunctionNum);
@@ -1197,7 +1195,6 @@ public class CardAnimation : MonoBehaviour
         }
 
     }
-
 
     /*雛形
     public void Anime()
