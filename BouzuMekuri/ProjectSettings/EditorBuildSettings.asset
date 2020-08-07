@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/Title.unity
     guid: 942b62667b56576499e8b7ee12f5d565
   - enabled: 1
-    path: Assets/Resources/Scenes/MainGame.unity
-    guid: 5c9b3c7af2edd464cbb1e53b373b7474
-  - enabled: 1
-    path: Assets/Resources/Scenes/Result.unity
-    guid: 17124786bc1e8994e8a6025f219fd858
-  - enabled: 1
     path: Assets/WorkSpaces/Yamamoto/Scene/ru-ruhebbsyuu.unity
     guid: e91a7c34e23c5bd41a74b6ecb2e5560a
   - enabled: 1
     path: Assets/WorkSpaces/Yamamoto/Scene/Jisakuru-ru.unity
     guid: 3bf324fb9efa98848bab95f734ae82ca
+  - enabled: 1
+    path: Assets/Resources/Scenes/MainGame.unity
+    guid: 5c9b3c7af2edd464cbb1e53b373b7474
+  - enabled: 1
+    path: Assets/Resources/Scenes/Result.unity
+    guid: 17124786bc1e8994e8a6025f219fd858
   m_configObjects: {}
