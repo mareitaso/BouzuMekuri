@@ -21,8 +21,6 @@ public class Draw : MonoBehaviour
     private List<Text> PlayerCards;
     [SerializeField]
     private Deck deck;
-    //[SerializeField]
-    //private HandCount hand;
 
     [SerializeField]
     CardAnimation cardAnimation;
@@ -33,11 +31,14 @@ public class Draw : MonoBehaviour
     [SerializeField]
     Text drawType;
 
+    public int drawNum = 0;
+
     private void Start()
     {
         SoundManager.instance.BgmApply(Bgm.Main);
         TextChange();
         drawType.text = "";
+        drawNum = 0;
     }
 
     public void Draw1()
@@ -47,7 +48,7 @@ public class Draw : MonoBehaviour
         {
 
             //山札1がラストの時
-            if (deck.cards1.Count == 1)
+            if (deck.cards1.Count < 1)
             {
                 Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
             }
@@ -168,7 +169,7 @@ public class Draw : MonoBehaviour
         if (deck.cards2.Count > 0)//山札2があるとき
         {
             //山札2がラストの時
-            if (deck.cards2.Count == 1)
+            if (deck.cards2.Count < 1)
             {
                 Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
             }
@@ -275,6 +276,62 @@ public class Draw : MonoBehaviour
             GameEnd();
         }
     }
+
+    //フィールド効果20枚ごとに手札入れ替え
+    private void FieldEffect1()
+    {
+
+    }
+
+    //フィールド効果4枚ごとに山札から３枚捨てる
+    public void FieldEffect2()
+    {
+        if (drowYama1 == true)
+        {
+            if (deck.cards1.Count < 3)
+            {
+                int f = deck.cards1.Count;
+                for (int i = 0; i < f; i++)
+                {
+                    int q = deck.cards1[0];
+                    deck.DiscardCount.Add(q);
+                    deck.cards1.RemoveAt(0);//0番目を削除
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    int q = deck.cards1[0];
+                    deck.DiscardCount.Add(q);
+                    deck.cards1.RemoveAt(0);//0番目を削除
+                }
+            }
+        }
+        else
+        {
+            if (deck.cards2.Count < 3)
+            {
+                int f = deck.cards2.Count;
+                for (int i = 0; i < f; i++)
+                {
+                    int q = deck.cards2[0];
+                    deck.DiscardCount.Add(q);
+                    deck.cards2.RemoveAt(0);//0番目を削除
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    int q = deck.cards2[0];
+                    deck.DiscardCount.Add(q);
+                    deck.cards2.RemoveAt(0);//0番目を削除
+                }
+            }
+        }
+    }
+
 
     public void Image()
     {

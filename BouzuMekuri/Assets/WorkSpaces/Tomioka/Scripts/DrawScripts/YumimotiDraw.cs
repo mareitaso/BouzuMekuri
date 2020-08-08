@@ -49,7 +49,7 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
             g %= 4;
         }
 
-        cardAnime.animeFunctionNum = 6;
+        cardAnime.animeFunctionNum = 7;
         cardAnime.AnimeSkillCutIn();
         //cardAnime.AnimeLeftToRight();
         Debug.Log("最終的にカードを渡す人は" + (YumimotiNum + 1) + "→" + (deck.Count + 1));

@@ -915,7 +915,8 @@ public class CardAnimation : MonoBehaviour
         playerFake[touch.touchPlayer].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
         {
             playerFake[touch.touchPlayer].transform.position = Place[touch.touchPlayer].transform.position;
-            Sutehuda.sprite = playerFake[touch.touchPlayer].sprite;
+            //Sutehuda.sprite = playerFake[touch.touchPlayer].sprite;
+            Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
             playerFake[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
             player[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
             animeEnd = true;
@@ -1094,16 +1095,18 @@ public class CardAnimation : MonoBehaviour
                 break;
 
             case 6:
+                //武官スキル2
+                AnimeTono();
+                break;
+
+            case 7:
                 //弓持ちスキル
                 AnimeLeftToRight();
                 break;
 
-            case 7:
+            case 8:
                 //蝉丸スキル
                 AnimeYamaHalf();
-                break;
-
-            case 8:
                 break;
 
             case 9:

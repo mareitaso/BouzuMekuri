@@ -85,7 +85,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
             }
 
         }
-        cardAnime.animeFunctionNum = 7;
+        cardAnime.animeFunctionNum = 8;
         cardAnime.AnimeSkillCutIn();
     }
 

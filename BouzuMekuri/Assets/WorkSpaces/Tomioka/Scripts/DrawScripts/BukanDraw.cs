@@ -107,6 +107,8 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             //逆回転
             case 2:
                 clockWise = !clockWise;
+                cardAnime.animeFunctionNum =6;
+                cardAnime.AnimeSkillCutIn();
                 Debug.Log("武官のスキル2発動");
                 break;
 
@@ -138,6 +140,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             if (clockWise == true)
             {
                 deck.Count++;
+                draw.drawNum++;
                 if (deck.Count == 4)
                 {
                     //モック用にフィールド効果追加
@@ -148,13 +151,19 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             else
             {
                 deck.Count--;
+                draw.drawNum++;
                 if (deck.Count < 0)
                 {
                     deck.Count = 3;
                 }
             }
         }
-        //ImageNull();
+        
+        if (draw.drawNum == 4)
+        {
+            draw.drawNum = 0;
+            draw.FieldEffect2();
+        }
     }
 
     private void ImageNull()

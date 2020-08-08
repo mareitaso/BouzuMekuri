@@ -93,7 +93,7 @@ public class PlayerSkillManager : MonoBehaviour
 
         Debug.Log("最小枚数は" + v);
 
-        int h = 0;
+        int h;
         for (int i = s + 1; i < s + 4; i++)
         {
             h = i % 4;
