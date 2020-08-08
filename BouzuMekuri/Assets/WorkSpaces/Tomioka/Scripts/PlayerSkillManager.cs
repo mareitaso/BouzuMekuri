@@ -107,6 +107,10 @@ public class PlayerSkillManager : MonoBehaviour
                 deck.DiscardCount.Add(y);
                 MasterList.instance.list[h].RemoveAt(0);
             }
+            if (MasterList.instance.list[h].Count > v)
+            {
+                cardAnime.skillDamagePlayer = h;
+            }
             Debug.Log("Player" + (h + 1) + "がスキル対象で" + (d - v) + "枚捨てた");
         }
         cardAnime.skillPlayer = s;

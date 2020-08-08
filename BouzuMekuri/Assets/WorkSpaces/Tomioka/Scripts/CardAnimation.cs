@@ -48,6 +48,8 @@ public class CardAnimation : MonoBehaviour
     [HideInInspector]
     public int skillPlayer;
     [HideInInspector]
+    public int skillDamagePlayer;
+    [HideInInspector]
     public int animeFunctionNum;
     private int movePlace;
 
@@ -915,8 +917,6 @@ public class CardAnimation : MonoBehaviour
         playerFake[touch.touchPlayer].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
         {
             playerFake[touch.touchPlayer].transform.position = Place[touch.touchPlayer].transform.position;
-            //Sutehuda.sprite = playerFake[touch.touchPlayer].sprite;
-            Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
             playerFake[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
             player[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
             animeEnd = true;
@@ -932,6 +932,7 @@ public class CardAnimation : MonoBehaviour
         playerFake[skillPlayer].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
         {
             playerFake[skillPlayer].transform.position = Place[skillPlayer].transform.position;
+            Sutehuda.sprite = playerFake[skillDamagePlayer].sprite;
             playerFake[skillPlayer].sprite = Resources.Load<Sprite>("Images/Null");
             animeEnd = true;
         });
