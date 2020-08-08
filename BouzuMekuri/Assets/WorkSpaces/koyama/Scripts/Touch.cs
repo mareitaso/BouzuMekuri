@@ -47,7 +47,7 @@ public class Touch : MonoBehaviour
     public void P1()
     {
         touchPlayer = 0;
-        if (Player1 == false)
+        if (Player1 == false && deck.Count == 0)
         {
             panel.SetActive(true);
             Debug.Log("1P押せたよ");
@@ -62,7 +62,7 @@ public class Touch : MonoBehaviour
     public void P2()
     {
         touchPlayer = 1;
-        if (Player2 == false)
+        if (Player2 == false && deck.Count == 1)
         {
             panel.SetActive(true);
             Debug.Log("2P押せたよ");
@@ -76,7 +76,7 @@ public class Touch : MonoBehaviour
     public void P3()
     {
         touchPlayer = 2;
-        if (Player3 == false)
+        if (Player3 == false && deck.Count == 2)
         {
             panel.SetActive(true);
             Debug.Log("3押せたよ");
@@ -90,7 +90,7 @@ public class Touch : MonoBehaviour
     public void P4()
     {
         touchPlayer = 3;
-        if (Player4 == false)
+        if (Player4 == false && deck.Count == 3)
         {
             panel.SetActive(true);
             Debug.Log("4P押せたよ");
@@ -100,6 +100,33 @@ public class Touch : MonoBehaviour
             Debug.Log("4P使い終わったよ");
             return;
         }
+    }
+
+
+    public void Skill1()
+    {
+        shuf();
+        Judge();
+        panel.SetActive(false);
+    }
+
+    public void Skill2()
+    {
+        playerSkill.PlayerSkill2();
+        Judge();
+        panel.SetActive(false);
+    }
+
+    public void Skill3()
+    {
+        playerSkill.PlayerSkill3();
+        Judge();
+        panel.SetActive(false);
+    }
+
+    public void Move()
+    {
+        panel.SetActive(false);
     }
 
     public void drop()
