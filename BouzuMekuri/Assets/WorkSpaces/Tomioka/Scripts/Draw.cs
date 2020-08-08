@@ -23,7 +23,7 @@ public class Draw : MonoBehaviour
     private Deck deck;
 
     [SerializeField]
-    CardAnimation cardAnimation;
+    CardAnimation cardAnime;
 
     [HideInInspector]
     public bool drawAgain = false;
@@ -180,7 +180,7 @@ public class Draw : MonoBehaviour
             Debug.LogError(deck.drawcard);
             //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
 
-            //cardAnimation.AnimeYamaToPlayer();
+            //cardAnime.AnimeYamaToPlayer();
 
             //デバッグ用
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.Debug)
@@ -288,7 +288,11 @@ public class Draw : MonoBehaviour
     {
         if (drowYama1 == true)
         {
-            if (deck.cards1.Count < 3)
+            if (deck.cards1.Count == 0)
+            {
+                Debug.Log("山札1にカードがないから何もしない");
+            }
+            else if (deck.cards1.Count < 3)
             {
                 int f = deck.cards1.Count;
                 for (int i = 0; i < f; i++)
@@ -297,6 +301,7 @@ public class Draw : MonoBehaviour
                     deck.DiscardCount.Add(q);
                     deck.cards1.RemoveAt(0);//0番目を削除
                 }
+                cardAnime.AnimeFieldEffect3();
             }
             else
             {
@@ -306,11 +311,16 @@ public class Draw : MonoBehaviour
                     deck.DiscardCount.Add(q);
                     deck.cards1.RemoveAt(0);//0番目を削除
                 }
+                cardAnime.AnimeFieldEffect3();
             }
         }
         else
         {
-            if (deck.cards2.Count < 3)
+            if (deck.cards1.Count == 0)
+            {
+                Debug.Log("山札2にカードがないから何もしない");
+            }
+            else if (deck.cards2.Count < 3)
             {
                 int f = deck.cards2.Count;
                 for (int i = 0; i < f; i++)
@@ -319,6 +329,7 @@ public class Draw : MonoBehaviour
                     deck.DiscardCount.Add(q);
                     deck.cards2.RemoveAt(0);//0番目を削除
                 }
+                cardAnime.AnimeFieldEffect3();
             }
             else
             {
@@ -328,6 +339,7 @@ public class Draw : MonoBehaviour
                     deck.DiscardCount.Add(q);
                     deck.cards2.RemoveAt(0);//0番目を削除
                 }
+                cardAnime.AnimeFieldEffect3();
             }
         }
     }
