@@ -46,31 +46,39 @@ public class PlayerSkillManager : MonoBehaviour
 
         cardAnime.skillPlayer = b;
 
-        int a = MasterList.instance.list[touch.touchPlayer].Count;
-        //スキルを使った人の手札を捨て札に加算
-        for (int t = 0; t < a; t++)
+        if (MasterList.instance.list[cardAnime.skillPlayer].Count < 1)
         {
-            int y = MasterList.instance.list[touch.touchPlayer][0];
-            deck.DiscardCount.Add(y);
-            MasterList.instance.list[touch.touchPlayer].RemoveAt(0);
+            Debug.Log("1位の人が１枚のため何も起こらない");
         }
-        MasterList.instance.list[touch.touchPlayer].Clear();//手札を初期化
-
-
-        int g = MasterList.instance.list[b].Count;
-        //一番っ持っている人の手札を捨て札に加算
-        for (int m = 0; m < g / 2; m++)
+        else
         {
-            int z = MasterList.instance.list[b][0];
-            deck.DiscardCount.Add(z);
-            MasterList.instance.list[b].RemoveAt(0);
+
+            int a = MasterList.instance.list[touch.touchPlayer].Count;
+            //スキルを使った人の手札を捨て札に加算
+            for (int t = 0; t < a; t++)
+            {
+                int y = MasterList.instance.list[touch.touchPlayer][0];
+                deck.DiscardCount.Add(y);
+                MasterList.instance.list[touch.touchPlayer].RemoveAt(0);
+            }
+            MasterList.instance.list[touch.touchPlayer].Clear();//手札を初期化
+
+
+            int g = MasterList.instance.list[b].Count;
+            //一番っ持っている人の手札を捨て札に加算
+            for (int m = 0; m < g / 2; m++)
+            {
+                int z = MasterList.instance.list[b][0];
+                deck.DiscardCount.Add(z);
+                MasterList.instance.list[b].RemoveAt(0);
+            }
+
+            Debug.Log((touch.touchPlayer + 1) + "がスキルを使い全部捨てた");
+            Debug.Log("Player" + (cardAnime.skillPlayer + 1) + "がスキル対象で半分捨てた");
+
+            draw.TextChange();
+            cardAnime.AnimePlayerSkill2();
         }
-
-        Debug.Log((touch.touchPlayer + 1) + "がスキルを使い全部捨てた");
-        Debug.Log("Player" + (cardAnime.skillPlayer + 1) + "がスキル対象で半分捨てた");
-
-        draw.TextChange();
-        cardAnime.AnimePlayerSkill2();
     }
 
 
