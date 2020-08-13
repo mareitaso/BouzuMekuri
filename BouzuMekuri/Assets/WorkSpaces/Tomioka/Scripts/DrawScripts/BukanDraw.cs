@@ -162,7 +162,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
         if (draw.drawNum == 4)
         {
             draw.drawNum = 0;
-            draw.FieldEffect2();
+            //draw.FieldEffect2();
         }
     }
 

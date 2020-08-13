@@ -14,6 +14,9 @@ public class Draw : MonoBehaviour
     [SerializeField]
     private Image Yamahuda1, Yamahuda2, Sutehuda;//, Hikihuda;
 
+    [SerializeField]
+    private GameObject Yama1, Yama2;
+
     public List<Image> Player;
 
     [Header("ここにはプレイヤーと捨て札と山札の枚数を入れる")]
@@ -43,6 +46,7 @@ public class Draw : MonoBehaviour
 
     public void Draw1()
     {
+        Yama1.transform.SetAsLastSibling();
         SoundManager.instance.SeApply(Se.cardOpen);
         if (deck.cards1.Count > 0)//山札1があるとき
         {
@@ -165,6 +169,7 @@ public class Draw : MonoBehaviour
     }
     public void Draw2()
     {
+        Yama2.transform.SetAsLastSibling();
         SoundManager.instance.SeApply(Se.cardOpen);
         if (deck.cards2.Count > 0)//山札2があるとき
         {
