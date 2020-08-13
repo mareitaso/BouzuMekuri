@@ -497,7 +497,6 @@ GameObject:
   - component: {fileID: 85913911}
   - component: {fileID: 85913912}
   - component: {fileID: 85913913}
-  - component: {fileID: 85913914}
   m_Layer: 5
   m_Name: Player4Fake
   m_TagString: Untagged
@@ -560,27 +559,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!223 &85913914
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85913910}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &164408727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3411,7 +3389,6 @@ GameObject:
   - component: {fileID: 1217571739}
   - component: {fileID: 1217571740}
   - component: {fileID: 1217571741}
-  - component: {fileID: 1217571742}
   m_Layer: 5
   m_Name: Player3Fake
   m_TagString: Untagged
@@ -3474,27 +3451,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!223 &1217571742
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1217571738}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &1220071665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,7 +4593,6 @@ GameObject:
   - component: {fileID: 1593244802}
   - component: {fileID: 1593244803}
   - component: {fileID: 1593244804}
-  - component: {fileID: 1593244805}
   m_Layer: 5
   m_Name: Player1Fake
   m_TagString: Untagged
@@ -4700,27 +4655,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!223 &1593244805
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593244801}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &1636570174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4732,7 +4666,6 @@ GameObject:
   - component: {fileID: 1636570175}
   - component: {fileID: 1636570177}
   - component: {fileID: 1636570176}
-  - component: {fileID: 1636570178}
   m_Layer: 5
   m_Name: SutehudaFake
   m_TagString: Untagged
@@ -4795,27 +4728,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636570174}
   m_CullTransparentMesh: 0
---- !u!223 &1636570178
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636570174}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &1674692675
 GameObject:
   m_ObjectHideFlags: 0
@@ -6441,7 +6353,6 @@ GameObject:
   - component: {fileID: 1971750337}
   - component: {fileID: 1971750338}
   - component: {fileID: 1971750339}
-  - component: {fileID: 1971750340}
   m_Layer: 5
   m_Name: Player2Fake
   m_TagString: Untagged
@@ -6504,27 +6415,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!223 &1971750340
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971750336}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 1
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 2
-  m_TargetDisplay: 0
 --- !u!1 &2069065797
 GameObject:
   m_ObjectHideFlags: 0
