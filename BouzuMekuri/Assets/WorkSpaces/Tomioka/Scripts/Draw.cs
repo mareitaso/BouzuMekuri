@@ -36,12 +36,18 @@ public class Draw : MonoBehaviour
 
     public int drawNum = 0;
 
+    public List<bool> playerBreak;
+
     private void Start()
     {
         SoundManager.instance.BgmApply(Bgm.Main);
         TextChange();
         drawType.text = "";
         drawNum = 0;
+        for (int i = 0; i > 4; i++)
+        {
+            playerBreak[i] = false;
+        }
     }
 
     public void Draw1()

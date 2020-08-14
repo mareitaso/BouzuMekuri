@@ -14,7 +14,6 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     //trueの時は時計回り順
     private bool clockWise = true;
 
-
     private int playerSkill = 0;
     private bool fieldEffectOnOff = false;
 
@@ -107,7 +106,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             //逆回転
             case 2:
                 clockWise = !clockWise;
-                cardAnime.animeFunctionNum =6;
+                cardAnime.animeFunctionNum = 6;
                 cardAnime.AnimeSkillCutIn();
                 Debug.Log("武官のスキル2発動");
                 break;
@@ -147,6 +146,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                     FieldEffect();
                     deck.Count = 0;
                 }
+                PlayerBreak();
             }
             else
             {
@@ -156,13 +156,55 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 {
                     deck.Count = 3;
                 }
+                PlayerBreak();
             }
         }
-        
+
         if (draw.drawNum == 4)
         {
             draw.drawNum = 0;
             //draw.FieldEffect2();
+        }
+    }
+
+
+    //プレイヤー1回休みの処理
+    private void PlayerBreak()
+    {
+        if (clockWise == true)
+        {
+            for (int i = deck.Count; i < 4 + deck.Count; i++)
+            {
+                if (draw.playerBreak[i] == false)
+                {
+                    break;
+                }
+                else
+                {
+                    draw.playerBreak[i] = false;
+                    deck.Count++;
+                    deck.Count %= 4;
+                }
+            }
+        }
+        else
+        {
+            for (int i = deck.Count; i < 4 + deck.Count; i++)
+            {
+                if (draw.playerBreak[i] == false)
+                {
+                    break;
+                }
+                else
+                {
+                    draw.playerBreak[i] = false;
+                    deck.Count--;
+                    if (deck.Count < 0)
+                    {
+                        deck.Count = 0;
+                    }
+                }
+            }
         }
     }
 

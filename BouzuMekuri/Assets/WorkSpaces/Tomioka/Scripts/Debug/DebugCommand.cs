@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DebugCommand : MonoBehaviour
 {
@@ -9,8 +10,13 @@ public class DebugCommand : MonoBehaviour
     [SerializeField]
     private Draw draw;
 
+    [SerializeField]
+    private Text count;
+
     void Update()
     {
+        count.text = (deck.Count + 1).ToString();
+
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             int x = deck.cards1.Count - 2;
