@@ -17,9 +17,9 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     private int allSutehuda;
 
     //それぞれ山札から捨てる枚数
-    public int halfYamahuda1;
-    public int halfYamahuda2;
-
+    [HideInInspector]
+    public int halfYamahuda1, halfYamahuda2;
+    
     public void Semimaru_Draw()
     {
         MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
@@ -90,25 +90,19 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     }
 
     //坊主として扱う
-    private void SemimaruSkill1()
+    public void SemimaruSkill1()
     {
         BouzuDraw.instance.Bouzu_Draw();
     }
 
     //1回休み
-    private void SemimaruSkill2()
+    public void SemimaruSkill2()
     {
-
-    }
-
-    //自分の手札に関係なく最下位になる
-    private void SemimaruSkill3()
-    {
-
+        draw.playerBreak[deck.Count] = true;
     }
 
     //他のプレイヤーの全ての手札を自分の手札に加える
-    private void SemimaruSkill4()
+    public void SemimaruSkill3()
     {
         for (int i = 0; i < 4; i++)
         {
@@ -127,7 +121,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     }
 
     //他のプレイヤーは全ての手札を捨て札に置く
-    private void SemimaruSkill5()
+    public void SemimaruSkill4()
     {
         for (int i = 0; i < 4; i++)
         {
@@ -147,13 +141,77 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     }
 
     //山札の数を半分にする(半分になるときに山札のCountを-1)
-    private void SemimaruSkill6()
+    public void SemimaruSkill5()
     {
-        //上に書いてあるやつ
+        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+
+        halfYamahuda1 = deck.cards1.Count / 2;
+        halfYamahuda2 = deck.cards2.Count / 2;
+
+        Debug.Log("捨てるカードの合計は" + allSutehuda + "枚です");
+
+        Debug.Log("山札は1は" + halfYamahuda1 + "枚捨てる");
+        Debug.Log("山札は2は" + halfYamahuda2 + "枚捨てる");
+
+        if (halfYamahuda1 == 0 && halfYamahuda2 == 0)
+        {
+            //ないもない
+            Debug.Log("何もおきなかった");
+        }
+        else
+        {
+            //捨てるカードのほうが大きいなら
+            if (deck.cards1.Count < halfYamahuda1)
+            {
+                if (deck.cards1.Count == 1)
+                {
+                    halfYamahuda2 += halfYamahuda1 - deck.cards1.Count;
+                    halfYamahuda1 = 0;
+                }
+                else
+                {
+                    halfYamahuda2 += halfYamahuda1 - deck.cards1.Count + 1;
+                    halfYamahuda1 = deck.cards1.Count - 1;
+                }
+            }
+            if (deck.cards2.Count < halfYamahuda2)
+            {
+                if (deck.cards2.Count == 1)
+                {
+                    halfYamahuda1 += halfYamahuda2 - deck.cards2.Count;
+                    halfYamahuda2 = 0;
+                }
+                else
+                {
+                    halfYamahuda1 += halfYamahuda2 - deck.cards2.Count + 1;
+                    halfYamahuda2 = deck.cards2.Count - 1;
+                }
+            }
+
+            Debug.Log("山札は1は" + halfYamahuda1 + "枚捨てる");
+            Debug.Log("山札は2は" + halfYamahuda2 + "枚捨てる");
+
+
+            for (int i = 0; i < halfYamahuda1; i++)
+            {
+                int q = deck.cards1[0];
+                deck.DiscardCount.Add(q);
+                deck.cards1.RemoveAt(0);//0番目を削除
+            }
+            for (int i = 0; i < halfYamahuda2; i++)
+            {
+                int g = deck.cards2[0];
+                deck.DiscardCount.Add(g);
+                deck.cards2.RemoveAt(0);//0番目を削除
+            }
+
+        }
+        cardAnime.animeFunctionNum = 8;
+        cardAnime.AnimeSkillCutIn();
     }
 
     //次に発動するスキルを無効化する
-    private void SemimaruSkill7()
+    public void SemimaruSkill6()
     {
 
     }
