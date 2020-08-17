@@ -1068,8 +1068,6 @@ MonoBehaviour:
     m_Options:
     - m_Text: "\u5DE6\u96A3\u306E\u30D7\u30EC\u30A4\u30E4\u30FC\u304B\u30895\u679A\u624B\u672D\u306B\u52A0\u3048\u308B(\u5F13)"
       m_Image: {fileID: 0}
-    - m_Text: "\u5DE6\u96A3\u306E\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u624B\u672D\u304C5\u679A\u672A\u6E80\u306A\u3089\u3059\u3079\u3066\u52A0\u3048\u308B(\u5F13)"
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1145,6 +1143,7 @@ MonoBehaviour:
   Panel4: {fileID: 183481933}
   dropdown1: {fileID: 1962058888}
   dropdown2: {fileID: 1969189319}
+  dropdown3: {fileID: 1959425896}
   text1: {fileID: 1196610407}
   text2: {fileID: 545278396}
 --- !u!4 &183586430
@@ -5491,9 +5490,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: "\u5168\u54E1\u304B\u30895\u679A\u3082\u3089\u3046(\u6BB5)"
+    - m_Text: "\u5168\u54E1\u304B\u30895\u679A\u3082\u3089\u3046"
       m_Image: {fileID: 0}
-    - m_Text: "\u5168\u3066\u306E\u5834\u306E\u672D\u3068\u624B\u672D\u3092\u3082\u3089\u3046(\u6BB5)"
+    - m_Text: "\u5168\u54E1\u306E\u624B\u672D\u3092\u3082\u3089\u3046"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6193,9 +6192,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: "\u5168\u54E1\u304B\u30891\u679A\u3082\u3089\u3046(\u6B66)"
+    - m_Text: "\u5168\u54E1\u304B\u3089\uFF14\u679A\u3082\u3089\u3046"
       m_Image: {fileID: 0}
-    - m_Text: "\u5C71\u672D\u3092\u5F15\u304F\u9806\u756A\u3092\u9006\u306B\u3059\u308B(\u6B66)"
+    - m_Text: "\u5C71\u672D\u3092\u5F15\u304F\u9806\u304C\u9006\u5468\u308A\u306B\u306A\u308B"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10428,11 +10427,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: "2\u679A\u5F15\u304F(\u5929)"
+    - m_Text: "2\u679A\u5F15\u304F"
       m_Image: {fileID: 0}
-    - m_Text: "\u5168\u54E1\u306E\u624B\u672D\u3092\u3082\u3089\u3046(\u5929)"
-      m_Image: {fileID: 0}
-    - m_Text: "\u5168\u3066\u306E\u5834\u306E\u672D\u3068\u624B\u672D\u3092\u3082\u3089\u3046(\u5929)"
+    - m_Text: "\u5168\u54E1\u306E\u672D\u3068\u6368\u3066\u672D\u3092\u3082\u3089\u3046"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

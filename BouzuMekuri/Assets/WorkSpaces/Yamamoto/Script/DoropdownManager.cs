@@ -18,6 +18,8 @@ public class DoropdownManager : MonoBehaviour
     [SerializeField]
     private Dropdown dropdown2;
     [SerializeField]
+    private Dropdown dropdown3;
+    [SerializeField]
     private GameObject text1;
     [SerializeField]
     private GameObject text2;
@@ -36,6 +38,7 @@ public class DoropdownManager : MonoBehaviour
         else if (dropdown1.value == 1)
         {
             Panel1.SetActive(true);
+            Panel2.SetActive(false);
             text1.SetActive(true);
             Debug.Log("天皇");
             SetValue(1);
@@ -43,6 +46,7 @@ public class DoropdownManager : MonoBehaviour
         else if (dropdown1.value == 2)
         {
             Panel2.SetActive(true);
+            Panel1.SetActive(false);
             text1.SetActive(true);
             Debug.Log("段付き");
             SetValue(2);
@@ -73,6 +77,7 @@ public class DoropdownManager : MonoBehaviour
         else if (dropdown2.value == 1)
         {
             Panel3.SetActive(true);
+            Panel4.SetActive(false);
             text2.SetActive(true);
             Debug.Log("武官");
             SetValue2(1);
@@ -80,6 +85,7 @@ public class DoropdownManager : MonoBehaviour
         else if (dropdown2.value == 2)
         {
             Panel4.SetActive(true);
+            Panel3.SetActive(false);
             text2.SetActive(true);
             Debug.Log("弓持ち");
             SetValue2(2);
@@ -101,6 +107,7 @@ public class DoropdownManager : MonoBehaviour
     {
         dropdown1.value = 0;
         dropdown2.value = 0;
+        dropdown3.value = 0;
     }
 }
 //ボタンを押したら～に変える
