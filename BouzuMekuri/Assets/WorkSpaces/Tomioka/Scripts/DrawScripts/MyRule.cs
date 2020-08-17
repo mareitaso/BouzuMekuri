@@ -19,43 +19,43 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            somePlayer = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            somePlayer = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            somePlayer = 3;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            moveNCards = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            moveNCards = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            moveNCards = 3;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            moveNCards = 4;
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            moveNCards = 5;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            deck.cards1[0] = 100;
-            deck.cards2[0] = 100;
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    somePlayer = 1;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    somePlayer = 2;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha3))
+        //{
+        //    somePlayer = 3;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad1))
+        //{
+        //    moveNCards = 1;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad2))
+        //{
+        //    moveNCards = 2;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad3))
+        //{
+        //    moveNCards = 3;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad4))
+        //{
+        //    moveNCards = 4;
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad5))
+        //{
+        //    moveNCards = 5;
+        //}
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    deck.cards1[0] = 100;
+        //    deck.cards2[0] = 100;
+        //}
     }
 
     //n枚みんなからもらう

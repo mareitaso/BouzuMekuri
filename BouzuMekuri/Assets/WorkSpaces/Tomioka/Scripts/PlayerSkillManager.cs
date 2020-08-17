@@ -15,14 +15,14 @@ public class PlayerSkillManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            PlayerSkill2();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            PlayerSkill3();
-        }
+        //if (Input.GetKeyDown(KeyCode.Keypad2))
+        //{
+        //    PlayerSkill2();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Keypad3))
+        //{
+        //    PlayerSkill3();
+        //}
     }
 
     /// <summary>
