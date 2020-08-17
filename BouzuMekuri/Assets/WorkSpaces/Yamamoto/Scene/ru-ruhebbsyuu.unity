@@ -1015,8 +1015,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: 150}
-  m_SizeDelta: {x: 462, y: 125}
+  m_AnchoredPosition: {x: 699.95, y: 150}
+  m_SizeDelta: {x: 462.1, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &183481935
 MonoBehaviour:
@@ -1067,6 +1067,8 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: "\u5DE6\u96A3\u306E\u30D7\u30EC\u30A4\u30E4\u30FC\u304B\u30895\u679A\u624B\u672D\u306B\u52A0\u3048\u308B(\u5F13)"
+      m_Image: {fileID: 0}
+    - m_Text: "\u5DE6\u96A3\u306E\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u624B\u672D\u304C5\u679A\u672A\u6E80\u306A\u3089\u3059\u3079\u3066\u52A0\u3048\u308B(\u5F13)"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6594,7 +6596,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
