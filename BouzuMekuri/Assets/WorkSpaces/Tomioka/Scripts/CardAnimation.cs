@@ -839,9 +839,10 @@ public class CardAnimation : MonoBehaviour
     //偽山札を作り移動アニメーションを見せる用関数
     private void Yama1Null()
     {
-        if (deck.cards1.Count == 0)
+        if (deck.cards1.Count <= 0)
         {
             Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/Null");
+            Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
         }
         else
         {
@@ -852,9 +853,10 @@ public class CardAnimation : MonoBehaviour
     //偽山札を作り移動アニメーションを見せる用関数
     private void Yama2Null()
     {
-        if (deck.cards2.Count == 0)
+        if (deck.cards2.Count <= 0)
         {
             Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/Null");
+            Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
         }
         else
         {
@@ -1252,6 +1254,9 @@ public class CardAnimation : MonoBehaviour
         else
         {
             Debug.LogError("ここのメッセージはでないはずだよ");
+            drawCardType.text = "エラー";
+            skillType.text = "ここのメッセージはでないはずだよ";
+            Debug.LogError("");
         }
 
     }
