@@ -1139,6 +1139,7 @@ public class CardAnimation : MonoBehaviour
             case 6:
                 //武官スキル2
                 AnimeTono();
+                Reverses();
                 break;
 
             case 7:
@@ -1242,6 +1243,25 @@ public class CardAnimation : MonoBehaviour
             Debug.LogError("");
         }
 
+    }
+
+    //武官の逆回転引いたとき用
+    private void Reverses()
+    {
+        if (BukanDraw.instance.clockWise)
+        {
+            deck.Count++;
+            deck.Count %= 4;
+
+        }
+        else
+        {
+            deck.Count--;
+            if (deck.Count < 0)
+            {
+                deck.Count = 3;
+            }
+        }
     }
 
     /*雛形

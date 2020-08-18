@@ -12,7 +12,8 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
     CardAnimation cardAnime;
 
     //trueの時は時計回り順
-    private bool clockWise = true;
+    private bool beforeClockWise = true;
+    public bool clockWise = true;
 
     private int playerSkill = 0;
     private bool fieldEffectOnOff = false;
@@ -29,39 +30,6 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             case 0:
                 Debug.Log("武官のスキルはなし");
                 break;
-
-            //case 1:
-            //    //左隣からカードを5枚
-            //    if (deck.Count == 0)
-            //    {
-            //        //5枚以上あるか確認
-            //        if (hand.handCount[3] > 5)
-            //        {
-            //            hand.handCount[deck.Count] += 5;
-            //            hand.handCount[3] -= 5;
-            //        }
-            //        else
-            //        {
-            //            hand.handCount[deck.Count] += hand.handCount[3];
-            //            hand.handCount[3] = 0;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        //Count-1の人から5枚もらう
-            //        if (hand.handCount[deck.Count - 1] > 5)
-            //        {
-            //            hand.handCount[deck.Count] += 5;
-            //            hand.handCount[deck.Count - 1] -= 5;
-            //        }
-            //        else
-            //        {
-            //            hand.handCount[deck.Count] += hand.handCount[deck.Count - 1];
-            //            hand.handCount[deck.Count - 1] = 0;
-            //        }
-            //    }
-            //    Debug.Log("武官のスキル1発動");
-            //    break;
 
             //全員から4枚もらえる
             case 1:
@@ -136,27 +104,44 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
         }
         else
         {
-            if (clockWise == true)
+            if (beforeClockWise == clockWise)
             {
-                deck.Count++;
-                draw.drawNum++;
-                if (deck.Count == 4)
+                if (clockWise == true)
                 {
-                    //モック用にフィールド効果追加
-                    FieldEffect();
-                    deck.Count = 0;
+                    deck.Count++;
+                    draw.drawNum++;
+                    if (deck.Count == 4)
+                    {
+                        //モック用にフィールド効果追加
+                        FieldEffect();
+                        deck.Count = 0;
+                    }
+                    PlayerBreak();
                 }
-                PlayerBreak();
+                else
+                {
+                    deck.Count--;
+                    draw.drawNum++;
+                    if (deck.Count < 0)
+                    {
+                        deck.Count = 3;
+                    }
+                    PlayerBreak();
+                }
             }
             else
             {
-                deck.Count--;
-                draw.drawNum++;
-                if (deck.Count < 0)
+                beforeClockWise = clockWise;
+                if (clockWise == true)
                 {
-                    deck.Count = 3;
+                    draw.drawNum++;
+                    PlayerBreak();
                 }
-                PlayerBreak();
+                else
+                {
+                    draw.drawNum++;
+                    PlayerBreak();
+                }
             }
         }
 
