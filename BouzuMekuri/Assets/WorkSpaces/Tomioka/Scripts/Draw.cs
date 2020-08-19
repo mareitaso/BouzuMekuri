@@ -31,6 +31,11 @@ public class Draw : MonoBehaviour
     [HideInInspector]
     public bool drawAgain = false;
 
+    //[HideInInspector]
+    public bool fieldEffect = false;
+
+    public int fieldEffectNum;
+
     [SerializeField]
     Text drawType;
 
@@ -172,6 +177,7 @@ public class Draw : MonoBehaviour
         {
             GameEnd();
         }
+        FieldEffectSwitch();
     }
     public void Draw2()
     {
@@ -286,75 +292,106 @@ public class Draw : MonoBehaviour
         {
             GameEnd();
         }
+        FieldEffectSwitch();
     }
 
-    //フィールド効果20枚ごとに手札入れ替え
+    public void FieldEffectSwitch()
+    {
+        switch (fieldEffectNum)
+        {
+            //case 1:
+            //    FieldEffect1();
+            //    break;
+
+            case 2:
+                FieldEffect2();
+                break;
+
+            case 3:
+                FieldEffect3();
+                break;
+
+            default:
+                Debug.LogError("フィールド効果の値がおかしいよ");
+                break;
+        }
+    }
+
+    //カード引く枚数が+１される
     private void FieldEffect1()
     {
 
     }
 
-    //フィールド効果4枚ごとに山札から３枚捨てる
-    public void FieldEffect2()
+    //山札が２０枚減るごとに手札を入れ替える
+    private void FieldEffect2()
     {
-        if (drowYama1 == true)
-        {
-            if (deck.cards1.Count == 0)
-            {
-                Debug.Log("山札1にカードがないから何もしない");
-            }
-            else if (deck.cards1.Count < 3)
-            {
-                int f = deck.cards1.Count;
-                for (int i = 0; i < f; i++)
-                {
-                    int q = deck.cards1[0];
-                    deck.DiscardCount.Add(q);
-                    deck.cards1.RemoveAt(0);//0番目を削除
-                }
-                cardAnime.AnimeFieldEffect3();
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    int q = deck.cards1[0];
-                    deck.DiscardCount.Add(q);
-                    deck.cards1.RemoveAt(0);//0番目を削除
-                }
-                cardAnime.AnimeFieldEffect3();
-            }
-        }
-        else
-        {
-            if (deck.cards1.Count == 0)
-            {
-                Debug.Log("山札2にカードがないから何もしない");
-            }
-            else if (deck.cards2.Count < 3)
-            {
-                int f = deck.cards2.Count;
-                for (int i = 0; i < f; i++)
-                {
-                    int q = deck.cards2[0];
-                    deck.DiscardCount.Add(q);
-                    deck.cards2.RemoveAt(0);//0番目を削除
-                }
-                cardAnime.AnimeFieldEffect3();
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    int q = deck.cards2[0];
-                    deck.DiscardCount.Add(q);
-                    deck.cards2.RemoveAt(0);//0番目を削除
-                }
-                cardAnime.AnimeFieldEffect3();
-            }
-        }
     }
 
+    //プレイヤーが4回ひいたら山札から捨て場に３枚置く
+    private void FieldEffect3()
+    {
+        if (fieldEffect == true)
+        {
+            if (drowYama1 == true)
+            {
+                if (deck.cards1.Count == 0)
+                {
+                    Debug.Log("山札1にカードがないから何もしない");
+                }
+                else if (deck.cards1.Count < 3)
+                {
+                    int f = deck.cards1.Count;
+                    for (int i = 0; i < f; i++)
+                    {
+                        int q = deck.cards1[0];
+                        deck.DiscardCount.Add(q);
+                        deck.cards1.RemoveAt(0);//0番目を削除
+                    }
+                    cardAnime.AnimeFieldEffect3();
+                }
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        int q = deck.cards1[0];
+                        deck.DiscardCount.Add(q);
+                        deck.cards1.RemoveAt(0);//0番目を削除
+                    }
+                    cardAnime.AnimeFieldEffect3();
+                }
+            }
+            else
+            {
+                if (deck.cards1.Count == 0)
+                {
+                    Debug.Log("山札2にカードがないから何もしない");
+                }
+                else if (deck.cards2.Count < 3)
+                {
+                    int f = deck.cards2.Count;
+                    for (int i = 0; i < f; i++)
+                    {
+                        int q = deck.cards2[0];
+                        deck.DiscardCount.Add(q);
+                        deck.cards2.RemoveAt(0);//0番目を削除
+                    }
+                    cardAnime.AnimeFieldEffect3();
+                }
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        int q = deck.cards2[0];
+                        deck.DiscardCount.Add(q);
+                        deck.cards2.RemoveAt(0);//0番目を削除
+                    }
+                    cardAnime.AnimeFieldEffect3();
+                }
+            }
+            fieldEffect = false;
+        }
+    }
 
     public void Image()
     {
