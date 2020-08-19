@@ -458,14 +458,17 @@ public class Draw : MonoBehaviour
 
     private void DrawTotalNum()
     {
-        drawTotalNum = 100 - (deck.cards1.Count + deck.cards2.Count);
-        Effect2Num++;
-        //左20枚超えたか    右は4回しか通らない
-        if (Effect2Num >= 20 && drawTotalNum / 20 <= 4)
+        if (fieldEffectNum == 2)
         {
-            Effect2Num = 0;
-            //fieldEffect = true;
-            FieldEffect2();
+            drawTotalNum = 100 - (deck.cards1.Count + deck.cards2.Count);
+            Effect2Num++;
+            //左20枚超えたか    右は4回しか通らない
+            if (Effect2Num >= 20 && drawTotalNum / 20 <= 4)
+            {
+                Effect2Num = 0;
+                //fieldEffect = true;
+                FieldEffect2();
+            }
         }
     }
 
