@@ -19,7 +19,7 @@ public class RulePullDown : MonoBehaviour
     [SerializeField] private Dropdown Skilldown4;
 
     [SerializeField] private UnityEngine.UI.Button s;
-    [SerializeField] private UnityEngine.UI.Button k;
+    //[SerializeField] private UnityEngine.UI.Button k;
 
     [SerializeField] private Text text;
 
@@ -280,21 +280,24 @@ public class RulePullDown : MonoBehaviour
     public void Down()
     {
         PlayerNumber++;
-        if (PlayerNumber > 3)
-        {
-            PlayerNumber = 0;
-        }
-        if(PlayerNumber == 1)
+        //if (PlayerNumber > 3)
+        //{
+        //    PlayerNumber = 0;
+        //}
+        if (PlayerNumber == 1)
         {
             text.text = "P3へ";
         }
-        else if(PlayerNumber == 2)
+        else if (PlayerNumber == 2)
         {
             text.text = "P4へ";
         }
-        else if(PlayerNumber == 3)
+        else if (PlayerNumber == 3)
         {
             text.text = "試合へ";
+        }
+        else if (PlayerNumber == 4)
+        {
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
         }
         s.interactable = false;
