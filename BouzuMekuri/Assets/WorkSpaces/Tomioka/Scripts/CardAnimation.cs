@@ -42,7 +42,7 @@ public class CardAnimation : MonoBehaviour
     [SerializeField]
     private GameObject CutInBefore, CutInAfter;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool animeEnd = true;
 
     [HideInInspector]
@@ -80,7 +80,7 @@ public class CardAnimation : MonoBehaviour
                          Yama1Null();
                          //アニメーション後元の場所に戻す
                          Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
-                         animeEnd = true;
+                         animeEnd = true;draw.FieldEffectSwitch();
                      });
                 });
             });
@@ -103,7 +103,7 @@ public class CardAnimation : MonoBehaviour
                         Yama2Null();
                         //アニメーション後元の場所に戻す
                         Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -147,7 +147,7 @@ public class CardAnimation : MonoBehaviour
                         playerFake[movePlace].transform.position = Place[movePlace].transform.position;
                         playerFake[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
                         player[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -184,7 +184,7 @@ public class CardAnimation : MonoBehaviour
                         playerFake[movePlace].transform.position = Place[movePlace].transform.position;
                         playerFake[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
                         player[movePlace].sprite = Resources.Load<Sprite>("Images/Null");
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -224,7 +224,7 @@ public class CardAnimation : MonoBehaviour
                     {
                         SutehudaFake.transform.position = Sutehuda.transform.position;
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/Null");
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -257,7 +257,7 @@ public class CardAnimation : MonoBehaviour
                     {
                         SutehudaFake.transform.position = Sutehuda.transform.position;
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/Null");
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -359,7 +359,7 @@ public class CardAnimation : MonoBehaviour
                             playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
                             playerFake[i].transform.position = player[i].transform.position;
                         }
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -397,7 +397,7 @@ public class CardAnimation : MonoBehaviour
                             playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
                             playerFake[i].transform.position = player[i].transform.position;
                         }
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -451,7 +451,7 @@ public class CardAnimation : MonoBehaviour
                             playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
                             playerFake[i].transform.position = player[i].transform.position;
                         }
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -497,7 +497,7 @@ public class CardAnimation : MonoBehaviour
                             playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
                             playerFake[i].transform.position = player[i].transform.position;
                         }
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -545,7 +545,7 @@ public class CardAnimation : MonoBehaviour
                         }
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/Null");
                         SutehudaFake.transform.position = Sutehuda.transform.position;
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -588,7 +588,7 @@ public class CardAnimation : MonoBehaviour
                         }
                         SutehudaFake.sprite = Resources.Load<Sprite>("Images/Null");
                         SutehudaFake.transform.position = Sutehuda.transform.position;
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -634,7 +634,7 @@ public class CardAnimation : MonoBehaviour
                             Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
                             playerFake[YumiNum].sprite = Resources.Load<Sprite>("Images/Null");
                             playerFake[YumiNum].transform.DOMove(Place[YumiNum].transform.position, animeTime);
-                            animeEnd = true;
+                            animeEnd = true;draw.FieldEffectSwitch();
                         });
                     }
                     else
@@ -644,7 +644,7 @@ public class CardAnimation : MonoBehaviour
                             player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                             Yama1Null();
                             Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
-                            animeEnd = true;
+                            animeEnd = true;draw.FieldEffectSwitch();
                         });
                     }
                 });
@@ -680,7 +680,7 @@ public class CardAnimation : MonoBehaviour
                             Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
                             playerFake[YumiNum].sprite = Resources.Load<Sprite>("Images/Null");
                             playerFake[YumiNum].transform.DOMove(Place[YumiNum].transform.position, animeTime);
-                            animeEnd = true;
+                            animeEnd = true;draw.FieldEffectSwitch();
                         });
                     }
                     else
@@ -690,7 +690,7 @@ public class CardAnimation : MonoBehaviour
                             player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                             Yama2Null();
                             Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
-                            animeEnd = true;
+                            animeEnd = true;draw.FieldEffectSwitch();
                         });
                     }
                 });
@@ -758,7 +758,7 @@ public class CardAnimation : MonoBehaviour
         if (SemimaruDraw.instance.halfYamahuda1 == 0)
         {
             Debug.Log("山札1は何もしない");
-            animeEnd = true;
+            animeEnd = true;draw.FieldEffectSwitch();
         }
         else if (SemimaruDraw.instance.halfYamahuda1 >= 1)
         {
@@ -773,7 +773,7 @@ public class CardAnimation : MonoBehaviour
                         Sutehuda.sprite = Yamahuda1Fake.sprite;
                         Yama1Null();
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
@@ -782,7 +782,7 @@ public class CardAnimation : MonoBehaviour
         {
             Debug.LogError("山札1の捨てるアニメーションおかしい");
             Debug.Log(SemimaruDraw.instance.halfYamahuda1);
-            animeEnd = true;
+            animeEnd = true;draw.FieldEffectSwitch();
         }
 
 
@@ -790,7 +790,7 @@ public class CardAnimation : MonoBehaviour
         if (SemimaruDraw.instance.halfYamahuda2 == 0)
         {
             Debug.Log("山札2は何もしない");
-            animeEnd = true;
+            animeEnd = true;draw.FieldEffectSwitch();
         }
         else if (SemimaruDraw.instance.halfYamahuda2 >= 1)
         {
@@ -805,17 +805,17 @@ public class CardAnimation : MonoBehaviour
                         Sutehuda.sprite = Yamahuda2Fake.sprite;
                         Yama2Null();
                         Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
-                        animeEnd = true;
+                        animeEnd = true;draw.FieldEffectSwitch();
                     });
                 });
             });
-            animeEnd = true;
+            animeEnd = true;draw.FieldEffectSwitch();
         }
         else
         {
             Debug.LogError("山札2の捨てるアニメーションおかしい");
             Debug.Log(SemimaruDraw.instance.halfYamahuda2);
-            animeEnd = true;
+            animeEnd = true;draw.FieldEffectSwitch();
         }
     }
 
@@ -884,7 +884,7 @@ public class CardAnimation : MonoBehaviour
                     player[i].sprite = playerFake[i].sprite;
                     playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
                 }
-                animeEnd = true;
+                animeEnd = true;draw.FieldEffectSwitch();
             });
         });
     }
@@ -904,7 +904,7 @@ public class CardAnimation : MonoBehaviour
             playerFake[touch.touchPlayer].transform.position = Place[touch.touchPlayer].transform.position;
             playerFake[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
             player[touch.touchPlayer].sprite = Resources.Load<Sprite>("Images/Null");
-            animeEnd = true;
+            animeEnd = true;draw.FieldEffectSwitch();
         });
 
 
@@ -919,7 +919,7 @@ public class CardAnimation : MonoBehaviour
             playerFake[skillPlayer].transform.position = Place[skillPlayer].transform.position;
             Sutehuda.sprite = playerFake[skillDamagePlayer].sprite;
             playerFake[skillPlayer].sprite = Resources.Load<Sprite>("Images/Null");
-            animeEnd = true;
+            animeEnd = true;draw.FieldEffectSwitch();
         });
 
     }
@@ -943,7 +943,7 @@ public class CardAnimation : MonoBehaviour
                 playerFake[i % 4].transform.position = Place[i % 4].transform.position;
                 Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count - 1]);
                 playerFake[i % 4].sprite = Resources.Load<Sprite>("Images/Null");
-                animeEnd = true;
+                animeEnd = true;draw.FieldEffectSwitch();
             });
         }
         else
@@ -958,7 +958,7 @@ public class CardAnimation : MonoBehaviour
                   playerFake[i % 4].transform.position = Place[i % 4].transform.position;
                   playerFake[i % 4].sprite = Resources.Load<Sprite>("Images/Null");
                   player[i % 4].sprite = Resources.Load<Sprite>("Images/Null");
-                  animeEnd = true;
+                  animeEnd = true;draw.FieldEffectSwitch();
               });
         }
         int j = i + 1;
@@ -975,7 +975,7 @@ public class CardAnimation : MonoBehaviour
                 playerFake[j % 4].transform.position = Place[j % 4].transform.position;
                 Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count - 1]);
                 playerFake[j % 4].sprite = Resources.Load<Sprite>("Images/Null");
-                animeEnd = true;
+                animeEnd = true;draw.FieldEffectSwitch();
             });
         }
         else
@@ -990,7 +990,7 @@ public class CardAnimation : MonoBehaviour
                 playerFake[j % 4].transform.position = Place[j % 4].transform.position;
                 playerFake[j % 4].sprite = Resources.Load<Sprite>("Images/Null");
                 player[j % 4].sprite = Resources.Load<Sprite>("Images/Null");
-                animeEnd = true;
+                animeEnd = true;draw.FieldEffectSwitch();
             });
         }
 
@@ -1008,7 +1008,7 @@ public class CardAnimation : MonoBehaviour
                 playerFake[k % 4].transform.position = Place[k % 4].transform.position;
                 Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count - 1]);
                 playerFake[k % 4].sprite = Resources.Load<Sprite>("Images/Null");
-                animeEnd = true;
+                animeEnd = true;draw.FieldEffectSwitch();
             });
         }
         else
@@ -1023,7 +1023,7 @@ public class CardAnimation : MonoBehaviour
                 playerFake[k % 4].transform.position = Place[k % 4].transform.position;
                 playerFake[k % 4].sprite = Resources.Load<Sprite>("Images/Null");
                 player[k % 4].sprite = Resources.Load<Sprite>("Images/Null");
-                animeEnd = true;
+                animeEnd = true;draw.FieldEffectSwitch();
             });
         }
     }
@@ -1054,6 +1054,7 @@ public class CardAnimation : MonoBehaviour
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
                         //移動後移動してきたカードの画像に変更
                         Sutehuda.sprite = SutehudaFake.sprite;
+                        animeEnd = true;
                     });
                 });
             });
@@ -1078,6 +1079,7 @@ public class CardAnimation : MonoBehaviour
                         Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
                         //移動後移動してきたカードの画像に変更
                         Sutehuda.sprite = SutehudaFake.sprite;
+                        animeEnd = true;
                     });
                 });
             });

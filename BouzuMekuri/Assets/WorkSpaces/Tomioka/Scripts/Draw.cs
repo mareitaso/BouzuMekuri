@@ -177,7 +177,7 @@ public class Draw : MonoBehaviour
         {
             GameEnd();
         }
-        FieldEffectSwitch();
+        //FieldEffectSwitch();
     }
     public void Draw2()
     {
@@ -292,7 +292,7 @@ public class Draw : MonoBehaviour
         {
             GameEnd();
         }
-        FieldEffectSwitch();
+        //FieldEffectSwitch();
     }
 
     public void FieldEffectSwitch()
@@ -335,6 +335,7 @@ public class Draw : MonoBehaviour
         {
             if (drowYama1 == true)
             {
+                deck.drawcard = deck.cards1[0];
                 if (deck.cards1.Count == 0)
                 {
                     Debug.Log("山札1にカードがないから何もしない");
@@ -363,6 +364,7 @@ public class Draw : MonoBehaviour
             }
             else
             {
+                deck.drawcard = deck.cards2[0];
                 if (deck.cards1.Count == 0)
                 {
                     Debug.Log("山札2にカードがないから何もしない");
@@ -390,6 +392,7 @@ public class Draw : MonoBehaviour
                 }
             }
             fieldEffect = false;
+            TextChange();
         }
     }
 
