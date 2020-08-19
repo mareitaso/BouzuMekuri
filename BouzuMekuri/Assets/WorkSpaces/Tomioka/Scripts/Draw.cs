@@ -36,6 +36,7 @@ public class Draw : MonoBehaviour
 
     public int fieldEffectNum;
     private int drawTotalNum = 0;
+    private int Effect2Num = 0;
 
     [SerializeField]
     Text drawType;
@@ -53,6 +54,14 @@ public class Draw : MonoBehaviour
         for (int i = 0; i > 4; i++)
         {
             playerBreak[i] = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            FieldEffect2();
         }
     }
 
@@ -305,7 +314,7 @@ public class Draw : MonoBehaviour
             //    break;
 
             case 2:
-                FieldEffect2();
+                //FieldEffect2();
                 break;
 
             case 3:
@@ -327,6 +336,32 @@ public class Draw : MonoBehaviour
     //山札が２０枚減るごとに手札を入れ替える
     private void FieldEffect2()
     {
+        //List<int> numbers = new List<int>();
+        //List<int> list = new List<int>();
+
+        //List<int> player1 = MasterList.instance.list[0];
+        //List<int> player2 = MasterList.instance.list[1];
+        //List<int> player3 = MasterList.instance.list[2];
+        //List<int> player4 = MasterList.instance.list[3];
+
+        //for (int i = 0; i < 4; i++)
+        //{
+        //    numbers.Add(i);
+        //    MasterList.instance.list[i].Clear();
+        //}
+
+        //while (numbers.Count > 0)
+        //{
+        //    int index = Random.Range(0, numbers.Count);
+        //    int ransu = numbers[index];
+        //    list[0] = ransu;
+        //    numbers.RemoveAt(index);
+        //}
+        //MasterList.instance.list[list[0]] = player1;
+        //MasterList.instance.list[list[1]] = player2;
+        //MasterList.instance.list[list[2]] = player3;
+        //MasterList.instance.list[list[3]] = player4;
+        cardAnime.AnimePlayerSkill1();
     }
 
     //プレイヤーが4回ひいたら山札から捨て場に３枚置く
@@ -423,15 +458,14 @@ public class Draw : MonoBehaviour
 
     private void DrawTotalNum()
     {
-        drawTotalNum++;
-        int i = drawTotalNum;
-        int j = i / 20;
-        Debug.Log(j);
-        //左                 右は4回しか通らない
-        if (drawTotalNum - (j * 20) > 20 && i / 20 <= 4)
+        drawTotalNum = 100 - (deck.cards1.Count + deck.cards2.Count);
+        Effect2Num++;
+        //左20枚超えたか    右は4回しか通らない
+        if (Effect2Num >= 20 && drawTotalNum / 20 <= 4)
         {
+            Effect2Num = 0;
             //fieldEffect = true;
-            Debug.Log("drawTotalNumは" + drawTotalNum);
+            FieldEffect2();
         }
     }
 

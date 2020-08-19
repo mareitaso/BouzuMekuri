@@ -11,9 +11,7 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
     [SerializeField]
     private CardAnimation cardAnime;
 
-
     private int playerSkill = 0;
-
 
     //天皇カードを引いた
     public void Tennou_Draw()

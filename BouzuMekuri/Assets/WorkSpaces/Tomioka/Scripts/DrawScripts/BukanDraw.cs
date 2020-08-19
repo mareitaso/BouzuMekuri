@@ -145,7 +145,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
             }
         }
 
-        if (draw.drawNum == 4)
+        if (draw.drawNum == 4 && draw.fieldEffectNum == 3)
         {
             draw.drawNum = 0;
             draw.fieldEffect = true;

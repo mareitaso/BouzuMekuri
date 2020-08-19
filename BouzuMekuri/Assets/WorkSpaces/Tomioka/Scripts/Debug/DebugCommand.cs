@@ -93,6 +93,13 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 3;
             RuleManager.instance.PlayerList[3].RuleList[1].RuleEfect[0] = 3;
         }
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Keypad3))
+        {
+            RuleManager.instance.PlayerList[0].RuleList[2].RuleEfect[0] = 3;
+            RuleManager.instance.PlayerList[1].RuleList[2].RuleEfect[0] = 3;
+            RuleManager.instance.PlayerList[2].RuleList[2].RuleEfect[0] = 3;
+            RuleManager.instance.PlayerList[3].RuleList[2].RuleEfect[0] = 3;
+        }
     }
 
     private void TonoOnly()
