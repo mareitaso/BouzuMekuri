@@ -37,6 +37,10 @@ public class MasterList : SingletonMonoBehaviour<MasterList>
         {
             list.Add(pmodel.Card);
         }
+        if(instance != null)
+        {
+            DontDestroyOnLoad(this);
+        }
 
     }
     //手札のカード番号と枚数をランダムに並び替え
