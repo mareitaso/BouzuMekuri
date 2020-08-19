@@ -99,6 +99,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
         }
         else
         {
+            Debug.LogError(deck.drawcard);
+            Debug.LogError(cardType[count]);
             Debug.LogError("この人の自作ルールがおかしい");
         }
     }
