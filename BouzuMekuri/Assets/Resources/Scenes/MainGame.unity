@@ -2945,6 +2945,7 @@ MonoBehaviour:
   drawType: {fileID: 1522327116}
   drawNum: 0
   playerBreak: 00000000
+  myRule: 
 --- !u!4 &972917171
 Transform:
   m_ObjectHideFlags: 0
@@ -3334,8 +3335,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf0c0c86acccc24d94cf04eba027476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardDataBase: {fileID: 11400000, guid: ea706d4cf46d2144aaedc9bfde7c368c, type: 2}
   deck: {fileID: 972917169}
   draw: {fileID: 972917170}
+  cardType: 00000000000000000000000000000000
+  cardEffect: 00000000000000000000000000000000
+  cardNum: 00000000000000000000000000000000
+  playerNum: 00000000000000000000000000000000
 --- !u!1 &1007456600
 GameObject:
   m_ObjectHideFlags: 0

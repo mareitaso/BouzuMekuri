@@ -44,6 +44,7 @@ public class Draw : MonoBehaviour
     public int drawNum = 0;
 
     public List<bool> playerBreak;
+    public List<bool> myRule;
 
     private void Start()
     {
@@ -102,6 +103,8 @@ public class Draw : MonoBehaviour
             /// ここにスキル判別してifで囲む
             /// </summary>
 
+
+
             //天皇を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
                 (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
@@ -146,11 +149,18 @@ public class Draw : MonoBehaviour
             //}
 
             //蝉丸を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru /*&&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1*/)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
                 drawType.text = "蝉丸";
+            }
+
+            //自作ルール
+            else if (myRule[deck.Count] == true)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
             }
 
             //坊主を引く
@@ -261,11 +271,18 @@ public class Draw : MonoBehaviour
             //}
 
             //蝉丸を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru/* &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1*/)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
                 drawType.text = "蝉丸";
+            }
+
+            //自作ルール
+            else if (myRule[deck.Count] == true)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
             }
 
             //坊主を引く

@@ -5,10 +5,16 @@ using UnityEngine;
 public class MyRule : SingletonMonoBehaviour<MyRule>
 {
     [SerializeField]
+    CardDataBase cardDataBase;
+    [SerializeField]
     private Deck deck;
     [SerializeField]
     private Draw draw;
 
+    public List<int> cardType;
+    public List<int> cardEffect;
+    public List<int> cardNum;
+    public List<int> playerNum;
 
     //自分のルールのカードの枚数
     private int moveNCards = 1;
@@ -16,6 +22,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     //自分のルールの対象人数
     private int somePlayer = 1;
 
+    private int count;
 
     private void Update()
     {
@@ -58,16 +65,105 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
         //}
     }
 
+    public void CardTypeCheck()
+    {
+        count = deck.Count;
+
+        //天皇を引く
+        if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou && cardType[count] == 1)
+        {
+            CardEffectCheck();
+        }
+        //段付きを引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki && cardType[count] == 2)
+        {
+            CardEffectCheck();
+        }
+
+        //武官を引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan && cardType[count] == 3)
+        {
+            CardEffectCheck();
+        }
+
+        //弓持ちを引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti && cardType[count] == 4)
+        {
+            CardEffectCheck();
+        }
+
+        //偉い姫を引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime && cardType[count] == 5)
+        {
+            CardEffectCheck();
+        }
+        else
+        {
+            Debug.LogError("この人の自作ルールがおかしい");
+        }
+    }
+
+    private void CardEffectCheck()
+    {
+        switch (cardEffect[count])
+        {
+            case 1:
+                //カードをもらう
+                moveNCards = cardNum[count];
+                somePlayer = playerNum[count];
+                SomeoneToMe();
+                break;
+
+            case 2:
+                //カードを引く
+                moveNCards = cardNum[count];
+                somePlayer = playerNum[count];
+                DrawnNCards();
+                break;
+
+            case 3:
+                //場に置く
+                moveNCards = cardNum[count];
+                somePlayer = playerNum[count];
+                DisNCard();
+                break;
+
+            case 4:
+                //一回休み
+                if (playerNum[count] == 1)
+                {
+                    int i = count + 1;
+                    i %= 4;
+                    draw.playerBreak[i] = true;
+                }
+                else
+                {
+                    int i = count + 1;
+                    i %= 4;
+                    draw.playerBreak[i] = true;
+                    i++;
+                    i %= 4;
+                    draw.playerBreak[i] = true;
+                }
+                break;
+
+            case 5:
+                //逆回り
+                BukanDraw.instance.clockWise = !BukanDraw.instance.clockWise;
+                break;
+        }
+    }
+
     //n枚みんなからもらう
     public void SomeoneToMe()
     {
         int j = somePlayer;
 
         //全員からN枚もらえる
-        for (int i = deck.Count; i < j + deck.Count + 1; i++)
+        for (int i = count; i < j + count + 1; i++)
         {
             int k = i % 4;
-            if (k != deck.Count)
+            if (k != count)
             {
                 //N枚以上もってたら
                 if (MasterList.instance.list[k].Count > moveNCards)
@@ -75,10 +171,10 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                     for (int t = 0; t < moveNCards; t++)
                     {
                         int y = MasterList.instance.list[k][0];//k番目の人の一番上の札を格納
-                        MasterList.instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
+                        MasterList.instance.list[count].Add(y);//count番目の人がk番目の一番上のカードをもらう
                         MasterList.instance.list[k].RemoveAt(0);//k番目の人の札の初期化
                     }
-                    Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に" + moveNCards + "枚渡す");
+                    Debug.Log(k + 1 + "番の人が" + (count + 1) + "番目の人に" + moveNCards + "枚渡す");
                 }
                 //N枚以下なら
                 else
@@ -86,10 +182,10 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                     for (int t = 0; t < MasterList.instance.list[k].Count; t++)
                     {
                         int y = MasterList.instance.list[k][0];//k番目の人の一番上の札を格納
-                        MasterList.instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
+                        MasterList.instance.list[count].Add(y);//count番目の人がk番目の一番上のカードをもらう
                         MasterList.instance.list[k].RemoveAt(0);//k番目の人の札の初期化
                     }
-                    Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に全部渡す");
+                    Debug.Log(k + 1 + "番の人が" + (count + 1) + "番目の人に全部渡す");
                 }
             }
         }
@@ -102,15 +198,15 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     {
         int j = somePlayer;
         //全員がN枚捨てる
-        for (int i = deck.Count; i < j + deck.Count + 1; i++)
+        for (int i = count; i < j + count + 1; i++)
         {
             int k = i % 4;
-            if (k != deck.Count)
+            if (k != count)
             {
                 //1枚でも持っていたら
                 if (MasterList.instance.list[k].Count > moveNCards)
                 {
-                    for(int f = 0; f < moveNCards; f++)
+                    for (int f = 0; f < moveNCards; f++)
                     {
                         int v = MasterList.instance.list[k][0];
                         deck.DiscardCount.Add(v);
@@ -128,10 +224,9 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                         deck.DiscardCount.Add(v);
                         MasterList.instance.list[k].RemoveAt(0);
                     }
-                    //deck.DiscardCount += hand.handCount[deck.Count];//手札をすべて捨て札に加算
-                    //hand.handCount[deck.Count] = 0;//手札を初期化
+                    //deck.DiscardCount += hand.handCount[count];//手札をすべて捨て札に加算
+                    //hand.handCount[count] = 0;//手札を初期化
                     Debug.Log(k + 1 + "番の人が全部捨てる");
-
                 }
             }
         }
@@ -148,7 +243,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
             for (int i = 0; i < j; i++)
             {
                 deck.drawcard = deck.cards1[0];//いらないかも
-                MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+                MasterList.instance.list[count].Add(deck.drawcard);//手札に追加
                 deck.cards1.RemoveAt(0);
             }
         }
@@ -158,7 +253,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
             for (int i = 0; i < j; i++)
             {
                 deck.drawcard = deck.cards2[0];//いらないかも
-                MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加;
+                MasterList.instance.list[count].Add(deck.drawcard);//手札に追加;
                 deck.cards2.RemoveAt(0);
             }
         }
