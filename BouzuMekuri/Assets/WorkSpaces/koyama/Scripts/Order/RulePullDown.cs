@@ -15,13 +15,19 @@ public class RulePullDown : MonoBehaviour
     [SerializeField] private Dropdown Skilldown1;
     [SerializeField] private Dropdown Skilldown2;
 
+    [SerializeField] private Dropdown Skilldown3;
+    [SerializeField] private Dropdown Skilldown4;
+
     [SerializeField] private UnityEngine.UI.Button s;
+    [SerializeField] private UnityEngine.UI.Button k;
+
+    [SerializeField] private Text text;
 
     [SerializeField] private Dropdown SemimaruDrop;
 
 
     public int PlayerNumber = 0;
-
+    /*
     // 天皇　段付き判定
     public void ChangeRule1()
     {
@@ -141,89 +147,104 @@ public class RulePullDown : MonoBehaviour
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[1].RuleEfect[0] = 3;
         }
     }
-    /*
-    private void Tennou()
+    */
+    public void Tennou()
     {
+        if(Skilldown1.value == 0)
+        {
+            RuleManager.instance.PlayerList[PlayerNumber].RuleList[0].RuleEfect[0] = 0;
+        }
         //TennouDropのValueが0のとき
-        if (TennouDrop.value == 0)
+        else if (Skilldown1.value == 1)
         {
             //山札から2枚引く
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[0].RuleEfect[0] = 1;
         }
         //TennouDropのValueが1のとき
-        else if (TennouDrop.value == 1)
+        else if (Skilldown1.value == 2)
         {
             //全員の手札と捨て札を回収
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[0].RuleEfect[0] = 2;
         }
     }
 
-    private void Dantuki()
+    public void Dantuki()
     {
+        if(Skilldown2.value == 0)
+        {
+            RuleManager.instance.PlayerList[PlayerNumber].RuleList[0].RuleEfect[0] = 0;
+        }
         //DantukiDropのValueが0のとき
-        if (DantukiDrop.value == 0)
+        if (Skilldown2.value == 1)
         {
             //全員から5枚もらえる
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[0].RuleEfect[0] = 3;
         }
         //DantukiDropのValueが1のとき
-        else if (DantukiDrop.value == 1)
+        else if (Skilldown2.value == 2)
         {
             //全員の手札と捨て札を回収
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[0].RuleEfect[0] = 4;
         }
     }
 
-    private void Bukan()
+    public void Bukan()
     {
+        if(Skilldown3.value == 0)
+        {
+            RuleManager.instance.PlayerList[PlayerNumber].RuleList[1].RuleEfect[0] = 0;
+        }
         //BukanDropのValueが0のとき
-        if (BukanDrop.value == 0)
+        else if (Skilldown3.value == 1)
         {
             //全員から1枚もらえる
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[1].RuleEfect[0] = 1;
         }
         //BukanDropのValueが1のとき
-        else if (BukanDrop.value == 1)
+        else if (Skilldown3.value == 2)
         {
             //山札を引く順番が逆になる
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[1].RuleEfect[0] = 2;
         }
     }
 
-    private void Yumimoti()
+    public void Yumimoti()
     {
+        if(Skilldown4.value == 0)
+        {
+            RuleManager.instance.PlayerList[PlayerNumber].RuleList[1].RuleEfect[0] = 0;
+        }
         //YumimotiDropのValueが0のとき
-        if (YumimotiDrop.value == 0)
+        else if (Skilldown4.value == 1)
         {
             //左隣のプレイヤーから5枚手札に加える
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[1].RuleEfect[0] = 3;
         }
     }
-    private void Semimaru()
+    public void Semimaru()
     {
+        if(SemimaruDrop.value == 0)
+        {
+            //坊主として扱う
+            RuleManager.instance.PlayerList[PlayerNumber].RuleList[2].RuleEfect[0] = 4;
+        }
         //SemimaruDropのValueが0のとき
-        if (SemimaruDrop.value == 0)
+        else if (SemimaruDrop.value == 1)
         {
             //1回休み
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[2].RuleEfect[0] = 1;
         }
         //SemimaruDropのValueが1のとき
-        else if (SemimaruDrop.value == 1)
+        else if (SemimaruDrop.value == 2)
         {
             //他のプレイヤーの手札を回収
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[2].RuleEfect[0] = 2;
         }
         //SemimaruDropのValueが2のとき
-        else if (SemimaruDrop.value == 2)
+        else if (SemimaruDrop.value == 3)
         {
             //他のプレイヤーの手札を捨て札に
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[2].RuleEfect[0] = 3;
-        }
-        //SemimaruDropのValueが3のとき
-        else if (SemimaruDrop.value == 3)
-        {
-            //坊主として扱う
-            RuleManager.instance.PlayerList[PlayerNumber].RuleList[2].RuleEfect[0] = 4;
         }
         //SemimaruDropのValueが4のとき
         else if (SemimaruDrop.value == 4)
@@ -232,7 +253,7 @@ public class RulePullDown : MonoBehaviour
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[2].RuleEfect[0] = 5;
         }
     }
-    */
+    /*
     public void Semimaru()
     {
         if (SemimaruDrop.value == 0)
@@ -241,10 +262,11 @@ public class RulePullDown : MonoBehaviour
             RuleManager.instance.PlayerList[PlayerNumber].RuleList[2].RuleEfect[0] = 0;
         }
     }
-
+    */
     public void Update()
     {
-        if (Skilldown1.value == 0 && Skilldown2.value == 0)
+        if ((Skilldown1.value == 0&&Skilldown2.value ==0) &&
+            (Skilldown3.value == 0&&Skilldown4.value ==0))
         {
             //確認ボタンが押せない
             //s.gameObject.SetActive(false);
@@ -262,5 +284,23 @@ public class RulePullDown : MonoBehaviour
         {
             PlayerNumber = 0;
         }
+        if(PlayerNumber == 1)
+        {
+            text.text = "P3へ";
+        }
+        else if(PlayerNumber == 2)
+        {
+            text.text = "P4へ";
+        }
+        else if(PlayerNumber == 3)
+        {
+            text.text = "試合へ";
+            SceneController.instance.LoadScene(SceneController.SceneName.Main);
+        }
+        s.interactable = false;
+        Skilldown1.value = 0;
+        Skilldown2.value = 0;
+        Skilldown3.value = 0;
+        Skilldown4.value = 0;
     }
 }
