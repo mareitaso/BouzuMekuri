@@ -35,6 +35,7 @@ public class Draw : MonoBehaviour
     public bool fieldEffect = false;
 
     public int fieldEffectNum;
+    private int drawTotalNum = 0;
 
     [SerializeField]
     Text drawType;
@@ -177,7 +178,7 @@ public class Draw : MonoBehaviour
         {
             GameEnd();
         }
-        //FieldEffectSwitch();
+        DrawTotalNum();
     }
     public void Draw2()
     {
@@ -292,7 +293,7 @@ public class Draw : MonoBehaviour
         {
             GameEnd();
         }
-        //FieldEffectSwitch();
+        DrawTotalNum();
     }
 
     public void FieldEffectSwitch()
@@ -420,21 +421,19 @@ public class Draw : MonoBehaviour
         //Debug.Log(MasterList.instance.list[deck.Count][MasterList.instance.list[deck.Count].Count-1]);
     }
 
-    //public void ImageChangeTono()
-    //{
-    //    Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
-    //}
-    //public void ImageChangeHime()
-    //{
-    //    Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
-    //    Sutehuda.sprite = Resources.Load<Sprite>("Images/Null");
-    //}
-
-    //public void ImageChangeBouzu()
-    //{
-    //    Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
-    //    Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
-    //}
+    private void DrawTotalNum()
+    {
+        drawTotalNum++;
+        int i = drawTotalNum;
+        int j = i / 20;
+        Debug.Log(j);
+        //左                 右は4回しか通らない
+        if (drawTotalNum - (j * 20) > 20 && i / 20 <= 4)
+        {
+            //fieldEffect = true;
+            Debug.Log("drawTotalNumは" + drawTotalNum);
+        }
+    }
 
     public void ImageChangeSemimaru()
     {
