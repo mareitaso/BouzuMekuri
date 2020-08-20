@@ -2,22 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RuleCreate : MonoBehaviour
+public class RuleCreate : SingletonMonoBehaviour<RuleCreate>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //カードの種類(天皇・段付き・武官・弓持ち・偉い姫の順)
+    public List<int> cardType;
+    //カードの効果(何枚引く等)
+    public List<int> cardEffect;
+    //スキルの対象枚数
+    public List<int> cardNum;
+    //スキルの対象人数
+    public List<int> playerNum;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<bool> myRule;
 
-    public void ButtonBuck()
+
+    public int PlayerNumber = 0;
+
+    private void Start()
     {
-        SceneController.instance.LoadScene(SceneController.SceneName.Rule);
+        if (instance != null)
+        {
+            DontDestroyOnLoad(this);
+        }
     }
 }

@@ -44,7 +44,7 @@ public class Draw : MonoBehaviour
     public int drawNum = 0;
 
     public List<bool> playerBreak;
-    public List<bool> myRule;
+    //public List<bool> RuleCreate.instance.myRule;
 
     private void Start()
     {
@@ -157,7 +157,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(天皇)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 1 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 MyRule.instance.CardTypeCheck();
@@ -165,7 +165,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(段付き)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 2 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 MyRule.instance.CardTypeCheck();
@@ -173,7 +173,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(武官)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 3 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
             {
                 MyRule.instance.CardTypeCheck();
@@ -181,7 +181,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(弓持ち)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 4 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
             {
                 MyRule.instance.CardTypeCheck();
@@ -189,7 +189,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(偉い姫)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 5 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
             {
                 MyRule.instance.CardTypeCheck();
@@ -312,7 +312,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(天皇)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 1 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
             {
                 MyRule.instance.CardTypeCheck();
@@ -320,7 +320,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(段付き)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 2 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
             {
                 MyRule.instance.CardTypeCheck();
@@ -328,7 +328,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(武官)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 3 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
             {
                 MyRule.instance.CardTypeCheck();
@@ -336,7 +336,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(弓持ち)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 4 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
             {
                 MyRule.instance.CardTypeCheck();
@@ -344,7 +344,7 @@ public class Draw : MonoBehaviour
             }
 
             //自作ルール(偉い姫)
-            else if (myRule[deck.Count] == true && MyRule.instance.cardType[deck.Count] == 5 &&
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
                 cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
             {
                 MyRule.instance.CardTypeCheck();

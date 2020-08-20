@@ -13,14 +13,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     [SerializeField]
     CardAnimation cardAnime;
 
-    //カードの種類(天皇・段付き・武官・弓持ち・偉い姫の順)
-    public List<int> cardType;
-    //カードの効果(何枚引く等)
-    public List<int> cardEffect;
-    //スキルの対象枚数
-    public List<int> cardNum;
-    //スキルの対象人数
-    public List<int> playerNum;
+
 
     //自分のルールのカードの枚数
     private int moveNCards = 1;
@@ -77,37 +70,37 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
         count = deck.Count;
 
         //天皇を引く
-        if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou && cardType[count] == 1)
+        if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou && RuleCreate.instance.cardType[count] == 1)
         {
             CardEffectCheck();
         }
         //段付きを引く
-        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki && cardType[count] == 2)
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki && RuleCreate.instance.cardType[count] == 2)
         {
             CardEffectCheck();
         }
 
         //武官を引く
-        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan && cardType[count] == 3)
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan && RuleCreate.instance.cardType[count] == 3)
         {
             CardEffectCheck();
         }
 
         //弓持ちを引く
-        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti && cardType[count] == 4)
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti && RuleCreate.instance.cardType[count] == 4)
         {
             CardEffectCheck();
         }
 
         //偉い姫を引く
-        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime && cardType[count] == 5)
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime && RuleCreate.instance.cardType[count] == 5)
         {
             CardEffectCheck();
         }
         else
         {
             Debug.LogError(deck.drawcard);
-            Debug.LogError(cardType[count]);
+            Debug.LogError(RuleCreate.instance.cardType[count]);
             Debug.LogError("この人の自作ルールがおかしい");
         }
     }
@@ -115,45 +108,75 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     private void CardEffectCheck()
     {
         MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-        switch (cardEffect[count])
+        switch (RuleCreate.instance.cardEffect[count])
         {
             case 1:
                 //カードをもらう
-                moveNCards = cardNum[count];
-                somePlayer = playerNum[count];
+                moveNCards = RuleCreate.instance.cardNum[count];
+                somePlayer = RuleCreate.instance.playerNum[count];
                 SomeoneToMe();
                 break;
 
             case 2:
                 //カードを引く
-                moveNCards = cardNum[count];
-                somePlayer = playerNum[count];
+                moveNCards = RuleCreate.instance.cardNum[count];
+                somePlayer = RuleCreate.instance.playerNum[count];
                 DrawnNCards();
                 break;
 
             case 3:
                 //場に置く
-                moveNCards = cardNum[count];
-                somePlayer = playerNum[count];
+                moveNCards = RuleCreate.instance.cardNum[count];
+                somePlayer = RuleCreate.instance.playerNum[count];
                 DisNCard();
                 break;
 
             case 4:
                 //一回休み
-                if (playerNum[count] == 1)
+                if (RuleCreate.instance.playerNum[count] == 1)
                 {
-                    int i = count + 1;
-                    i %= 4;
-                    draw.playerBreak[i] = true;
+                    if (BukanDraw.instance.clockWise == true)
+                    {
+                        int i = count + 1;
+                        i %= 4;
+                        draw.playerBreak[i] = true;
+                    }
+                    else
+                    {
+                        int i = count - 1;
+                        if (i < 0)
+                        {
+                            i = 3;
+                        }
+                        draw.playerBreak[i] = true;
+                    }
                 }
                 else
                 {
-                    int i = count + 1;
-                    i %= 4;
-                    draw.playerBreak[i] = true;
-                    i++;
-                    i %= 4;
-                    draw.playerBreak[i] = true;
+                    if (BukanDraw.instance.clockWise == true)
+                    {
+                        int i = count + 1;
+                        i %= 4;
+                        draw.playerBreak[i] = true;
+                        i++;
+                        i %= 4;
+                        draw.playerBreak[i] = true;
+                    }
+                    else
+                    {
+                        int i = count - 1;
+                        if (i < 0)
+                        {
+                            i = 3;
+                        }
+                        draw.playerBreak[i] = true;
+                        i--;
+                        if (i < 0)
+                        {
+                            i = 3;
+                        }
+                        draw.playerBreak[i] = true;
+                    }
                 }
                 break;
 
@@ -199,7 +222,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 }
             }
         }
-        
+
     }
 
     //n枚捨札に置く
