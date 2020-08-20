@@ -10,6 +10,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     private Deck deck;
     [SerializeField]
     private Draw draw;
+    [SerializeField]
+    CardAnimation cardAnime;
 
     //カードの種類(天皇・段付き・武官・弓持ち・偉い姫の順)
     public List<int> cardType;
@@ -27,6 +29,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     private int somePlayer = 1;
 
     private int count;
+
 
     private void Update()
     {
@@ -111,6 +114,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
 
     private void CardEffectCheck()
     {
+        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
         switch (cardEffect[count])
         {
             case 1:
@@ -195,8 +199,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 }
             }
         }
-
-
+        
     }
 
     //n枚捨札に置く
