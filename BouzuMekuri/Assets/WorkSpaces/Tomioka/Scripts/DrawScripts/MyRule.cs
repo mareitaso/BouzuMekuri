@@ -11,9 +11,13 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
     [SerializeField]
     private Draw draw;
 
+    //カードの種類(天皇・段付き・武官・弓持ち・偉い姫の順)
     public List<int> cardType;
+    //カードの効果(何枚引く等)
     public List<int> cardEffect;
+    //スキルの対象枚数
     public List<int> cardNum;
+    //スキルの対象人数
     public List<int> playerNum;
 
     //自分のルールのカードの枚数

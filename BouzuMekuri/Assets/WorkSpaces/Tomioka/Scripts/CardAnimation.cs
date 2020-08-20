@@ -1230,7 +1230,6 @@ public class CardAnimation : MonoBehaviour
         movePlace = deck.Count;
         SoundManager.instance.SeApply(Se.cardSkill);
 
-        Debug.Log("関数内も呼ばれた");
         CutInText();
         skillCutInCard.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
         skillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
