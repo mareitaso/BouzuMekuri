@@ -16,6 +16,7 @@ public class TonoDraw : SingletonMonoBehaviour<TonoDraw>
     {
         Debug.Log("殿" + deck.Count + "のばん");
         MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+        cardAnime.movePlace = deck.Count;
         cardAnime.AnimeTono();
     }
 

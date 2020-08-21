@@ -28,6 +28,7 @@ public class BouzuDraw : SingletonMonoBehaviour<BouzuDraw>
         }
 
         MasterList.instance.list[deck.Count].Clear();//手札を初期化
+        cardAnime.movePlace = deck.Count;
         cardAnime.AnimeBouzu();
     }
 }

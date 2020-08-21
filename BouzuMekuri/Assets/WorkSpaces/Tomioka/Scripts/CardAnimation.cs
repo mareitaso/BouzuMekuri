@@ -51,7 +51,7 @@ public class CardAnimation : MonoBehaviour
     public int skillDamagePlayer;
     [HideInInspector]
     public int animeFunctionNum;
-    private int movePlace;
+    public int movePlace;
 
     private readonly float animeTime = 0.6f;
     private readonly float rotateTime = 0.3f;
@@ -60,7 +60,7 @@ public class CardAnimation : MonoBehaviour
     public void AnimeTono()
     {
         animeEnd = false;
-        movePlace = deck.Count;
+        //movePlace = deck.Count;
 
         //山札1から各プレイヤーに移動
         if (draw.drowYama1 == true)
@@ -116,7 +116,7 @@ public class CardAnimation : MonoBehaviour
     public void AnimeBouzu()
     {
         animeEnd = false;
-        movePlace = deck.Count;
+        //movePlace = deck.Count;
 
         if (draw.drowYama1 == true)
         {
@@ -199,7 +199,7 @@ public class CardAnimation : MonoBehaviour
     public void AnimeHime()
     {
         animeEnd = false;
-        movePlace = deck.Count;
+        //movePlace = deck.Count;
 
         if (draw.drowYama1 == true)
         {

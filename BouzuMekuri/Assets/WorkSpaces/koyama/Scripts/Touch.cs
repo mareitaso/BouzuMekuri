@@ -40,10 +40,10 @@ public class Touch : MonoBehaviour
         }
     }
 
-    private bool Player1 = false;
-    private bool Player2 = false;
-    private bool Player3 = false;
-    private bool Player4 = false;
+    public bool Player1 = false;
+    public bool Player2 = false;
+    public bool Player3 = false;
+    public bool Player4 = false;
     public void P1()
     {
         touchPlayer = 0;
@@ -112,16 +112,19 @@ public class Touch : MonoBehaviour
 
     public void Skill2()
     {
-        playerSkill.PlayerSkill2();
         Judge();
+        playerSkill.PlayerSkill2();
         panel.SetActive(false);
     }
 
     public void Skill3()
     {
-        playerSkill.PlayerSkill3();
-        Judge();
-        panel.SetActive(false);
+        if (deck.cards1.Count + deck.cards2.Count > 10)
+        {
+            playerSkill.PlayerSkill3();
+            Judge();
+            panel.SetActive(false);
+        }
     }
 
     public void Move()
@@ -150,7 +153,7 @@ public class Touch : MonoBehaviour
             Judge();
             setValue(0);
         }
-        else if(dropdown.value ==3)
+        else if (dropdown.value == 3)
         {
             Debug.Log("aaaa");
             playerSkill.PlayerSkill3();
@@ -179,7 +182,7 @@ public class Touch : MonoBehaviour
 
     private void Judge()
     {
-        if(touchPlayer == 0)
+        if (touchPlayer == 0)
         {
             Player1 = true;
         }

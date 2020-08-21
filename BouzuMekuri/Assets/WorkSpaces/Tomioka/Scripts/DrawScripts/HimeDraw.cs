@@ -29,6 +29,7 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
                 deck.DiscardCount.RemoveAt(0);//捨て札を初期化
             }
             MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+            cardAnime.movePlace = deck.Count;
             //draw.ImageChangeHime();
             cardAnime.AnimeHime();
 
@@ -38,6 +39,7 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
         {
             draw.drawAgain = true;
             MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+            cardAnime.movePlace = deck.Count;
             //draw.ImageChangeHime();
             cardAnime.AnimeOneDraw();
             

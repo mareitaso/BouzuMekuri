@@ -18,19 +18,27 @@ public class FieldEffect : MonoBehaviour
     [SerializeField]
     private GameObject panel;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            BoxTap();
-        }
-    }
+    private bool animeEnd = false;
 
     private void Start()
     {
+        animeEnd = false;
         KujiBefore.sprite = Resources.Load<Sprite>("Images/Null");
         Invoke("BoxTap", 2.5f); 
     }
+    
+    private void Update()
+    {
+        //if (Input.GetMouseButtonDown(0)&&animeEnd ==false)
+        //{
+        //    BoxTap();
+        //}
+        if (Input.GetMouseButtonDown(0)&&animeEnd ==true)
+        {
+            PanelOff();
+        }
+    }
+
 
     private void BoxTap()
     {
@@ -61,7 +69,7 @@ public class FieldEffect : MonoBehaviour
         KujiBefore.transform.DOMove(mikujiPlace.transform.position, 1.2f).OnComplete(() =>
         {
             KujiAfter.transform.DOMove(new Vector2(0, 0), 0.5f);
-            Invoke("PanelOff", 2.5f);
+            animeEnd = true;
         });
     }
 

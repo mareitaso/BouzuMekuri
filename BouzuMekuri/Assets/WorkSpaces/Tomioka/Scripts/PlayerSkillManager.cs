@@ -44,40 +44,63 @@ public class PlayerSkillManager : MonoBehaviour
             }
         }
 
-        cardAnime.skillPlayer = b;
-
-        if (MasterList.instance.list[cardAnime.skillPlayer].Count < 1)
+        if (b != deck.Count)
         {
-            Debug.Log("1位の人が１枚のため何も起こらない");
+            cardAnime.skillPlayer = b;
+
+            if (MasterList.instance.list[cardAnime.skillPlayer].Count < 1)
+            {
+                Debug.Log("1位の人が１枚のため何も起こらない");
+            }
+            else
+            {
+
+                int a = MasterList.instance.list[touch.touchPlayer].Count;
+                //スキルを使った人の手札を捨て札に加算
+                for (int t = 0; t < a; t++)
+                {
+                    int y = MasterList.instance.list[touch.touchPlayer][0];
+                    deck.DiscardCount.Add(y);
+                    MasterList.instance.list[touch.touchPlayer].RemoveAt(0);
+                }
+                MasterList.instance.list[touch.touchPlayer].Clear();//手札を初期化
+
+
+                int g = MasterList.instance.list[b].Count;
+                //一番っ持っている人の手札を捨て札に加算
+                for (int m = 0; m < g / 2; m++)
+                {
+                    int z = MasterList.instance.list[b][0];
+                    deck.DiscardCount.Add(z);
+                    MasterList.instance.list[b].RemoveAt(0);
+                }
+
+                Debug.Log((touch.touchPlayer + 1) + "がスキルを使い全部捨てた");
+                Debug.Log("Player" + (cardAnime.skillPlayer + 1) + "がスキル対象で半分捨てた");
+
+                draw.TextChange();
+                cardAnime.AnimePlayerSkill2();
+            }
         }
         else
         {
-
-            int a = MasterList.instance.list[touch.touchPlayer].Count;
-            //スキルを使った人の手札を捨て札に加算
-            for (int t = 0; t < a; t++)
+            if (touch.touchPlayer == 0)
             {
-                int y = MasterList.instance.list[touch.touchPlayer][0];
-                deck.DiscardCount.Add(y);
-                MasterList.instance.list[touch.touchPlayer].RemoveAt(0);
+                touch.Player1 = false;
             }
-            MasterList.instance.list[touch.touchPlayer].Clear();//手札を初期化
-
-
-            int g = MasterList.instance.list[b].Count;
-            //一番っ持っている人の手札を捨て札に加算
-            for (int m = 0; m < g / 2; m++)
+            if (touch.touchPlayer == 1)
             {
-                int z = MasterList.instance.list[b][0];
-                deck.DiscardCount.Add(z);
-                MasterList.instance.list[b].RemoveAt(0);
+                touch.Player2 = false;
             }
-
-            Debug.Log((touch.touchPlayer + 1) + "がスキルを使い全部捨てた");
-            Debug.Log("Player" + (cardAnime.skillPlayer + 1) + "がスキル対象で半分捨てた");
-
-            draw.TextChange();
-            cardAnime.AnimePlayerSkill2();
+            if (touch.touchPlayer == 2)
+            {
+                touch.Player3 = false;
+            }
+            if (touch.touchPlayer == 3)
+            {
+                touch.Player4 = false;
+            }
+            Debug.Log("スキルを使った人が1位なのだ、へケ");
         }
     }
 
