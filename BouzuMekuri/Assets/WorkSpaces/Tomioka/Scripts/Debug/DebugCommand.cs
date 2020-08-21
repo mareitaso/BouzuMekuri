@@ -108,7 +108,7 @@ public class DebugCommand : MonoBehaviour
         {
             for (int i = 0; i < deck.cards1.Count; i++)
             {
-                deck.cards1[i] = Random.Range(22,30);
+                deck.cards1[i] = Random.Range(22, 30);
             }
 
             RuleManager.instance.PlayerList[0].RuleList[1].RuleEfect[0] = 2;
