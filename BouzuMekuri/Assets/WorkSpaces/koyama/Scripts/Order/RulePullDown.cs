@@ -147,6 +147,7 @@ public class RulePullDown : MonoBehaviour
         }
     }
     */
+
     public void Tennou()
     {
         if(Skilldown1.value == 0)
@@ -275,6 +276,23 @@ public class RulePullDown : MonoBehaviour
         {
             s.interactable = true;
         }
+
+        if (RuleCreate.instance.PlayerNumber == 0)
+        {
+            text.text = "P2へ";
+        }
+        else if (RuleCreate.instance.PlayerNumber == 1)
+        {
+            text.text = "P3へ";
+        }
+        else if (RuleCreate.instance.PlayerNumber == 2)
+        {
+            text.text = "P4へ";
+        }
+        else if (RuleCreate.instance.PlayerNumber == 3)
+        {
+            text.text = "試合へ";
+        }
     }
     public void Down()
     {
@@ -297,6 +315,7 @@ public class RulePullDown : MonoBehaviour
         }
         else if (RuleCreate.instance.PlayerNumber == 4)
         {
+            RuleCreate.instance.PlayerNumber = 0;
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
         }
         s.interactable = false;
@@ -305,4 +324,6 @@ public class RulePullDown : MonoBehaviour
         Skilldown3.value = 0;
         Skilldown4.value = 0;
     }
+
+
 }
