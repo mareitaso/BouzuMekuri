@@ -129,7 +129,7 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[3].RuleList[2].RuleEfect[0] = 5;
         }
     }
-
+    
     private void TonoOnly()
     {
         if (Input.GetKey(KeyCode.T) && Input.GetKey(KeyCode.C))
@@ -150,4 +150,5 @@ public class DebugCommand : MonoBehaviour
             deck.cards1[0] = 30;
         }
     }
+
 }

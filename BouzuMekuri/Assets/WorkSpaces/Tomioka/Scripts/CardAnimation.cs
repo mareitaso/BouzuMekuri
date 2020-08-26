@@ -1377,7 +1377,7 @@ public class CardAnimation : MonoBehaviour
 
         //蝉丸スキル2
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 1)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 2)
         {
             drawCardType.text = "蝉丸ルール";
             skillType.text = "次の人1回休み";
@@ -1385,7 +1385,7 @@ public class CardAnimation : MonoBehaviour
 
         //蝉丸スキル3
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 2)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 3)
         {
             drawCardType.text = "蝉丸ルール";
             skillType.text = "他のプレイヤーの手札を全てもらう";
@@ -1393,7 +1393,7 @@ public class CardAnimation : MonoBehaviour
 
         //蝉丸スキル4
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 3)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 4)
         {
             drawCardType.text = "蝉丸ルール";
             skillType.text = "他のプレイヤーは全ての手札を捨て札に置く";
@@ -1401,7 +1401,7 @@ public class CardAnimation : MonoBehaviour
 
         //蝉丸スキル5
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 4)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 5)
         {
             drawCardType.text = "蝉丸ルール";
             skillType.text = "山札の数を半分に";
@@ -1409,7 +1409,7 @@ public class CardAnimation : MonoBehaviour
 
         //蝉丸スキル6
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 5)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 6)
         {
             drawCardType.text = "蝉丸ルール";
             skillType.text = "次に発動するスキルを無効化する";
@@ -1420,6 +1420,7 @@ public class CardAnimation : MonoBehaviour
             drawCardType.text = "エラー";
             skillType.text = "ここのメッセージはでないはずだよ";
             Debug.LogError("");
+            DebugSkill();
         }
 
     }
@@ -1442,6 +1443,111 @@ public class CardAnimation : MonoBehaviour
             }
         }
     }
+
+
+    //スキルエラーを探す用の関数
+    private void DebugSkill()
+    {
+        Debug.LogError("引いたカードは" + deck.drawcard);
+        Debug.LogError("引いたカードの情報1は" + cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob());
+        Debug.LogError("引いたカードの情報2は" + cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob());
+        Debug.LogError("引いたカードの情報3は" + cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob());
+        Debug.LogError("引いたカードの情報4は" + cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob());
+
+        Debug.LogError("プレイヤー" + (deck.drawcard + 1) + "のスキル設定1は" + RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0]);
+        Debug.LogError("プレイヤー" + (deck.drawcard + 1) + "のスキル設定2は" + RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0]);
+        Debug.LogError("プレイヤー" + (deck.drawcard + 1) + "のスキル設定3は" + RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0]);
+
+        //天皇スキル1
+        if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1)
+        {
+            Debug.LogError("天皇スキル1");
+        }
+
+        //天皇スキル2
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2)
+        {
+            Debug.LogError("天皇スキル2");
+        }
+
+        //段付きスキル1
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3)
+        {
+            Debug.LogError("段付きスキル1");
+        }
+
+        //段付きスキル2
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4)
+        {
+            Debug.LogError("段付きスキル2");
+        }
+
+        //武官スキル1
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1)
+        {
+            Debug.LogError("武官スキル1");
+        }
+
+        //武官スキル2
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2)
+        {
+            Debug.LogError("武官スキル2");
+        }
+
+        //弓持ちスキル1
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+        {
+            Debug.LogError("弓持ちスキル1");
+        }
+
+        //蝉丸スキル2
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 1)
+        {
+            Debug.LogError("蝉丸スキル2");
+        }
+
+        //蝉丸スキル3
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 2)
+        {
+            Debug.LogError("蝉丸スキル3");
+        }
+
+        //蝉丸スキル4
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 3)
+        {
+            Debug.LogError("蝉丸スキル4");
+        }
+
+        //蝉丸スキル5
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 4)
+        {
+            Debug.LogError("蝉丸スキル5");
+        }
+
+        //蝉丸スキル6
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 5)
+        {
+            Debug.LogError("蝉丸スキル6");
+        }
+        else
+        {
+            Debug.LogError("もうわけわかめ");
+            Debug.LogError("引いたカードは" + deck.drawcard + "だよね？");
+        }
+    }
+
 
     /*雛形
     public void Anime()
