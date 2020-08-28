@@ -7,8 +7,11 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
     [SerializeField]
     private Deck deck;
     [SerializeField]
+<<<<<<< .merge_file_a14212
     private HandCount hand;
     [SerializeField]
+=======
+>>>>>>> .merge_file_a09336
     private CardAnimation cardAnime;
 
     [HideInInspector]
@@ -23,6 +26,7 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
         for (int w = 0; w < 4; w++)
         {
             g %= 4;
+<<<<<<< .merge_file_a14212
             if (MasterList.Instance.list[g].Count != 0)
             {
                 if (MasterList.Instance.list[g].Count > 5)
@@ -42,6 +46,27 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
                         int y = MasterList.Instance.list[g][0];//i番目の人の一番上の札を格納
                         MasterList.Instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
                         MasterList.Instance.list[g].RemoveAt(0);//i番目の人の札の初期化
+=======
+            if (MasterList.instance.list[g].Count != 0)
+            {
+                if (MasterList.instance.list[g].Count > 5)
+                {
+                    for (int t = 0; t < 5; t++)
+                    {
+                        int y = MasterList.instance.list[g][0];//次の人の一番上の札を格納
+                        MasterList.instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                        MasterList.instance.list[g].RemoveAt(0);//i番目の人の札の初期化
+                    }
+                }
+                else if (MasterList.instance.list[g].Count > 0)
+                {
+                    int m = MasterList.instance.list[g].Count;
+                    for (int t = 0; t < m; t++)
+                    {
+                        int y = MasterList.instance.list[g][0];//i番目の人の一番上の札を格納
+                        MasterList.instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう
+                        MasterList.instance.list[g].RemoveAt(0);//i番目の人の札の初期化
+>>>>>>> .merge_file_a09336
                     }
                 }
                 YumimotiNum = g;
@@ -51,6 +76,7 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
             g %= 4;
         }
 
+<<<<<<< .merge_file_a14212
 
         //Count-1の人から5枚もらう
         //if (hand.handCount[deck.Count - 1] > 5)
@@ -70,5 +96,14 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
         Debug.Log("弓持ちのスキル発動");
 
         MasterList.Instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+=======
+        cardAnime.animeFunctionNum = 7;
+        cardAnime.AnimeSkillCutIn();
+        //cardAnime.AnimeLeftToRight();
+        Debug.Log("最終的にカードを渡す人は" + (YumimotiNum + 1) + "→" + (deck.Count + 1));
+        Debug.Log("弓持ちのスキル発動");
+
+        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+>>>>>>> .merge_file_a09336
     }
 }

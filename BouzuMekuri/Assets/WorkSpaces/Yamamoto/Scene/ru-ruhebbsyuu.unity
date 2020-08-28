@@ -426,7 +426,11 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_AnchorMax: {x: 1, y: 0.2}
+=======
+  m_AnchorMax: {x: 1, y: 1}
+>>>>>>> .merge_file_a20560
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -596,11 +600,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< .merge_file_a18088
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
+=======
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 50
+>>>>>>> .merge_file_a20560
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -838,11 +850,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< .merge_file_a18088
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
+=======
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+>>>>>>> .merge_file_a20560
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -941,6 +961,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< .merge_file_a18088
+=======
+--- !u!1 &135666911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135666913}
+  - component: {fileID: 135666912}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &135666912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135666911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ad80dfadbf6b54f93cb8d033fd19ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardType: 00000000000000000000000000000000
+  cardEffect: 00000000000000000000000000000000
+  cardNum: 00000000000000000000000000000000
+  playerNum: 00000000000000000000000000000000
+  myRule: 00000000
+  PlayerNumber: 0
+--- !u!4 &135666913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135666911}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5385645, y: -0.22431302, z: 52.447815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> .merge_file_a20560
 --- !u!1 &160932336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,11 +1138,31 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+<<<<<<< .merge_file_a18088
+=======
+    - m_Text: "\u306A\u3057"
+      m_Image: {fileID: 0}
+>>>>>>> .merge_file_a20560
     - m_Text: "\u5DE6\u96A3\u306E\u30D7\u30EC\u30A4\u30E4\u30FC\u304B\u30895\u679A\u624B\u672D\u306B\u52A0\u3048\u308B(\u5F13)"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
+<<<<<<< .merge_file_a18088
       m_Calls: []
+=======
+      m_Calls:
+      - m_Target: {fileID: 1109997939}
+        m_MethodName: Yumimoti
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+>>>>>>> .merge_file_a20560
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &183481936
 MonoBehaviour:
@@ -1290,11 +1382,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< .merge_file_a18088
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
+=======
+    m_FontSize: 80
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 8
+    m_MaxSize: 80
+>>>>>>> .merge_file_a20560
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1752,7 +1852,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< .merge_file_a18088
   m_RootOrder: 4
+=======
+  m_RootOrder: 6
+>>>>>>> .merge_file_a20560
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &279577348
 GameObject:
@@ -2293,7 +2397,11 @@ MonoBehaviour:
   m_HandleRect: {fileID: 65932207}
   m_Direction: 2
   m_Value: 0
+<<<<<<< .merge_file_a18088
   m_Size: 0.2
+=======
+  m_Size: 1
+>>>>>>> .merge_file_a20560
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2750,6 +2858,69 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< .merge_file_a18088
+=======
+--- !u!1 &503244139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503244141}
+  - component: {fileID: 503244140}
+  m_Layer: 0
+  m_Name: RuleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &503244140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503244139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35b6d4dfedd0844b9f0f7d1662b0d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerList:
+  - RuleList:
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+  - RuleList:
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+  - RuleList:
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+  - RuleList:
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+    - RuleEfect: 00000000
+--- !u!4 &503244141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503244139}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> .merge_file_a20560
 --- !u!1 &523025985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,7 +2958,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 20}
+=======
+  m_SizeDelta: {x: 0, y: 120}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &523025987
 MonoBehaviour:
@@ -2873,7 +3048,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 20}
+=======
+  m_SizeDelta: {x: 0, y: 120}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529743700
 MonoBehaviour:
@@ -3412,6 +3591,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+<<<<<<< .merge_file_a18088
+=======
+      - m_Target: {fileID: 1109997939}
+        m_MethodName: Down
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+>>>>>>> .merge_file_a20560
 --- !u!114 &615753403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3643,6 +3836,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661291198}
   m_CullTransparentMesh: 0
+<<<<<<< .merge_file_a18088
 --- !u!1 &676749435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3723,6 +3917,8 @@ Transform:
   m_Father: {fileID: 811293655}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> .merge_file_a20560
 --- !u!1 &682630635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,7 +3992,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 20}
+=======
+  m_SizeDelta: {x: 0, y: 150}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686342381
 MonoBehaviour:
@@ -3882,7 +4082,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 20}
+=======
+  m_SizeDelta: {x: 0, y: 100}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &694821836
 MonoBehaviour:
@@ -4133,7 +4337,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 20}
+=======
+  m_SizeDelta: {x: 0, y: 100}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740181196
 MonoBehaviour:
@@ -4220,7 +4428,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 150}
+=======
+  m_SizeDelta: {x: 0, y: 600}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &762878565
 MonoBehaviour:
@@ -4574,8 +4786,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+<<<<<<< .merge_file_a18088
   - {fileID: 1800602175}
   - {fileID: 676749437}
+=======
+  - {fileID: 1381360786}
+  - {fileID: 1644507389}
+  - {fileID: 1800602175}
+>>>>>>> .merge_file_a20560
   - {fileID: 1139670038}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -4715,11 +4933,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< .merge_file_a18088
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
+=======
+    m_FontSize: 80
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 8
+    m_MaxSize: 80
+>>>>>>> .merge_file_a20560
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4905,11 +5131,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< .merge_file_a18088
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
+=======
+    m_FontSize: 80
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 80
+>>>>>>> .merge_file_a20560
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5039,7 +5273,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 20}
+=======
+  m_SizeDelta: {x: 0, y: 150}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &950777477
 MonoBehaviour:
@@ -5257,7 +5495,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 28}
+=======
+  m_SizeDelta: {x: 0, y: 120}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1016324645
 GameObject:
@@ -5293,7 +5535,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 28}
+=======
+  m_SizeDelta: {x: 0, y: 100}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1016446945
 GameObject:
@@ -5333,7 +5579,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 150}
+=======
+  m_SizeDelta: {x: 0, y: 400}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1016446947
 MonoBehaviour:
@@ -5490,6 +5740,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+<<<<<<< .merge_file_a18088
     - m_Text: "\u5168\u54E1\u304B\u30895\u679A\u3082\u3089\u3046"
       m_Image: {fileID: 0}
     - m_Text: "\u5168\u54E1\u306E\u624B\u672D\u3092\u3082\u3089\u3046"
@@ -5497,6 +5748,28 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+=======
+    - m_Text: "\u306A\u3057"
+      m_Image: {fileID: 0}
+    - m_Text: "\u5168\u54E1\u304B\u3089  5\u679A\u3082\u3089\u3046"
+      m_Image: {fileID: 0}
+    - m_Text: "\u5168\u54E1\u306E\u624B\u672D\u3092  \u3082\u3089\u3046"
+      m_Image: {fileID: 0}
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1109997939}
+        m_MethodName: Dantuki
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+>>>>>>> .merge_file_a20560
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1027913733
 MonoBehaviour:
@@ -5568,7 +5841,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 28}
+=======
+  m_SizeDelta: {x: 0, y: 120}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1074860985
 GameObject:
@@ -5760,6 +6037,62 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< .merge_file_a18088
+=======
+--- !u!1 &1109997938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1109997940}
+  - component: {fileID: 1109997939}
+  m_Layer: 0
+  m_Name: PullDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1109997939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109997938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08cb45417cd05bd4c9a7126ec4c65aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown1: {fileID: 1962058888}
+  dropdown2: {fileID: 1969189319}
+  dropdown3: {fileID: 1550412405}
+  Skilldown1: {fileID: 1925211268}
+  Skilldown2: {fileID: 1027913732}
+  Skilldown3: {fileID: 1182849783}
+  Skilldown4: {fileID: 183481935}
+  s: {fileID: 615753402}
+  text: {fileID: 1578920708}
+  SemimaruDrop: {fileID: 1959425896}
+--- !u!4 &1109997940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109997938}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> .merge_file_a20560
 --- !u!1 &1132363667
 GameObject:
   m_ObjectHideFlags: 0
@@ -5828,7 +6161,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< .merge_file_a18088
   m_Text: "1\u56DE\u4F11\u307F"
+=======
+  m_Text: "\u574A\u4E3B\u3068\u3057\u3066\u6271\u3046"
+>>>>>>> .merge_file_a20560
 --- !u!222 &1132363670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5892,7 +6229,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< .merge_file_a18088
   m_IsActive: 1
+=======
+  m_IsActive: 0
+>>>>>>> .merge_file_a20560
 --- !u!224 &1139670038
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5906,7 +6247,11 @@ RectTransform:
   m_Children:
   - {fileID: 920023984}
   m_Father: {fileID: 811293655}
+<<<<<<< .merge_file_a18088
   m_RootOrder: 2
+=======
+  m_RootOrder: 3
+>>>>>>> .merge_file_a20560
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6052,7 +6397,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: -18, y: 0}
+=======
+  m_SizeDelta: {x: -17, y: 0}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1165431822
 MonoBehaviour:
@@ -6192,6 +6541,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+<<<<<<< .merge_file_a18088
     - m_Text: "\u5168\u54E1\u304B\u3089\uFF14\u679A\u3082\u3089\u3046"
       m_Image: {fileID: 0}
     - m_Text: "\u5C71\u672D\u3092\u5F15\u304F\u9806\u304C\u9006\u5468\u308A\u306B\u306A\u308B"
@@ -6199,6 +6549,28 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+=======
+    - m_Text: "\u306A\u3057"
+      m_Image: {fileID: 0}
+    - m_Text: "\u5168\u54E1\u304B\u3089 \uFF14\u679A\u3082\u3089\u3046"
+      m_Image: {fileID: 0}
+    - m_Text: "\u5C71\u672D\u3092\u5F15\u304F\u9806\u304C      \u9006\u5468\u308A\u306B\u306A\u308B"
+      m_Image: {fileID: 0}
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1109997939}
+        m_MethodName: Bukan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+>>>>>>> .merge_file_a20560
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1182849784
 MonoBehaviour:
@@ -6533,7 +6905,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 28}
+=======
+  m_SizeDelta: {x: 0, y: 150}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1232802526
 GameObject:
@@ -6592,11 +6968,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< .merge_file_a18088
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
+=======
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 60
+>>>>>>> .merge_file_a20560
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -6800,7 +7184,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 150}
+=======
+  m_SizeDelta: {x: 0, y: 400}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1257087387
 MonoBehaviour:
@@ -6918,7 +7306,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
+<<<<<<< .merge_file_a18088
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+=======
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+>>>>>>> .merge_file_a20560
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7125,7 +7517,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 28}
+=======
+  m_SizeDelta: {x: 0, y: 120}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1336263292
 GameObject:
@@ -7389,6 +7785,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< .merge_file_a18088
+=======
+--- !u!1 &1381360785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1381360786}
+  - component: {fileID: 1381360788}
+  - component: {fileID: 1381360787}
+  m_Layer: 5
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1381360786
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381360785}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 811293655}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2048, y: 1536}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1381360787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381360785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 58dfdd2ea291b4340bacf55ee85f4880, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1381360788
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381360785}
+  m_CullTransparentMesh: 0
+>>>>>>> .merge_file_a20560
 --- !u!1 &1404601533
 GameObject:
   m_ObjectHideFlags: 0
@@ -7792,7 +8264,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 150}
+=======
+  m_SizeDelta: {x: 0, y: 400}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1469717986
 MonoBehaviour:
@@ -7967,7 +8443,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 28}
+=======
+  m_SizeDelta: {x: 0, y: 150}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1508316544
 GameObject:
@@ -8083,7 +8563,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 20}
+=======
+  m_SizeDelta: {x: 0, y: 120}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509531313
 MonoBehaviour:
@@ -8200,7 +8684,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+<<<<<<< .merge_file_a18088
   m_Text: "\u306A\u3057"
+=======
+  m_Text: " \u306A\u3057"
+>>>>>>> .merge_file_a20560
 --- !u!222 &1510713310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8209,6 +8697,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510713307}
   m_CullTransparentMesh: 0
+<<<<<<< .merge_file_a18088
+=======
+--- !u!1 &1528738371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1528738372}
+  - component: {fileID: 1528738373}
+  m_Layer: 0
+  m_Name: Debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1528738372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528738371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.4819965, y: -0.10234489, z: 42.56713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1528738373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528738371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956fdcc1a74183642a6e88c7b9ffaa94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> .merge_file_a20560
 --- !u!1 &1533264582
 GameObject:
   m_ObjectHideFlags: 0
@@ -8462,7 +8996,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 28}
+=======
+  m_SizeDelta: {x: 0, y: 100}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1555328235
 GameObject:
@@ -8982,11 +9520,19 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< .merge_file_a18088
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
+=======
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 50
+>>>>>>> .merge_file_a20560
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -9353,6 +9899,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643832501}
   m_CullTransparentMesh: 0
+<<<<<<< .merge_file_a18088
+=======
+--- !u!1 &1644507388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1644507389}
+  - component: {fileID: 1644507391}
+  - component: {fileID: 1644507390}
+  m_Layer: 5
+  m_Name: BG2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1644507389
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644507388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 811293655}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 184}
+  m_SizeDelta: {x: 1908.83, y: 1100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1644507390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644507388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: efe6ce2e1a5e12a4a9778adb547e95a0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1644507391
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644507388}
+  m_CullTransparentMesh: 0
+>>>>>>> .merge_file_a20560
 --- !u!1 &1697072591
 GameObject:
   m_ObjectHideFlags: 0
@@ -9780,7 +10402,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 20}
+=======
+  m_SizeDelta: {x: 0, y: 120}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1767554990
 MonoBehaviour:
@@ -9903,7 +10529,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 150}
+=======
+  m_SizeDelta: {x: 0, y: 400}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1796722200
 MonoBehaviour:
@@ -10023,7 +10653,11 @@ RectTransform:
   - {fileID: 1560377987}
   - {fileID: 1823641242}
   m_Father: {fileID: 811293655}
+<<<<<<< .merge_file_a18088
   m_RootOrder: 0
+=======
+  m_RootOrder: 2
+>>>>>>> .merge_file_a20560
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10128,7 +10762,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
+<<<<<<< .merge_file_a18088
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+=======
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+>>>>>>> .merge_file_a20560
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10212,6 +10850,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< .merge_file_a18088
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -10222,6 +10861,18 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
+=======
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 80
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+>>>>>>> .merge_file_a20560
     m_LineSpacing: 1
   m_Text: Option A
 --- !u!222 &1861000123
@@ -10270,7 +10921,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 150}
+=======
+  m_SizeDelta: {x: 0, y: 400}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1889814074
 MonoBehaviour:
@@ -10427,6 +11082,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+<<<<<<< .merge_file_a18088
     - m_Text: "2\u679A\u5F15\u304F"
       m_Image: {fileID: 0}
     - m_Text: "\u5168\u54E1\u306E\u672D\u3068\u6368\u3066\u672D\u3092\u3082\u3089\u3046"
@@ -10434,6 +11090,28 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+=======
+    - m_Text: "\u306A\u3057"
+      m_Image: {fileID: 0}
+    - m_Text: "2\u679A\u5F15\u304F"
+      m_Image: {fileID: 0}
+    - m_Text: "\u5168\u54E1\u306E\u672D\u3068   \u6368\u3066\u672D\u3092\u3082\u3089\u3046"
+      m_Image: {fileID: 0}
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1109997939}
+        m_MethodName: Tennou
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+>>>>>>> .merge_file_a20560
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1925211269
 MonoBehaviour:
@@ -10710,14 +11388,21 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+<<<<<<< .merge_file_a18088
     - m_Text: "1\u56DE\u4F11\u307F"
       m_Image: {fileID: 0}
     - m_Text: "\u6700\u4E0B\u4F4D\u306B\u306A\u308B"
+=======
+    - m_Text: "\u574A\u4E3B\u3068\u3057\u3066\u6271\u3046"
+      m_Image: {fileID: 0}
+    - m_Text: "1\u56DE\u4F11\u307F"
+>>>>>>> .merge_file_a20560
       m_Image: {fileID: 0}
     - m_Text: "\u5168\u30D7\u30EC\u30A4\u30E4\u30FC\u306E\u624B\u672D\u3092\u3059\u3079\u3066\u3082\u3089\u3046"
       m_Image: {fileID: 0}
     - m_Text: "\u4ED6\u306E\u30D7\u30EC\u30A4\u30E4\u30FC\u306F\u624B\u672D\u3092\u3059\u3079\u3066\u6368\u3066\u308B"
       m_Image: {fileID: 0}
+<<<<<<< .merge_file_a18088
     - m_Text: "\u574A\u4E3B\u3068\u3057\u3066\u6271\u3046"
       m_Image: {fileID: 0}
     - m_Text: "\u5C71\u672D\u306E\u534A\u5206\u3092\u5834\u306B\u7F6E\u304F(\u5C71\u672D\u304C2\u679A\u4EE5\u4E0A\u306A\u3089)"
@@ -10725,6 +11410,24 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+=======
+    - m_Text: "\u5C71\u672D\u306E\u534A\u5206\u3092\u5834\u306B\u7F6E\u304F (\u5C71\u672D\u304C2\u679A\u4EE5\u4E0A\u306A\u3089)"
+      m_Image: {fileID: 0}
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1109997939}
+        m_MethodName: Semimaru
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+>>>>>>> .merge_file_a20560
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1959425897
 MonoBehaviour:
@@ -11328,7 +12031,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 2}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 150}
+=======
+  m_SizeDelta: {x: 0, y: 300}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1999927944
 MonoBehaviour:
@@ -11649,7 +12356,11 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
+<<<<<<< .merge_file_a18088
   m_SizeDelta: {x: 0, y: 28}
+=======
+  m_SizeDelta: {x: 0, y: 120}
+>>>>>>> .merge_file_a20560
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &2111927372
 GameObject:

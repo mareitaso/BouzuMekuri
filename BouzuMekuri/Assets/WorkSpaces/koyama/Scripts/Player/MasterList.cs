@@ -4,10 +4,15 @@ using UnityEngine;
 using System.Linq;
 using System;
 
+<<<<<<< .merge_file_a06252
 public class MasterList : MonoBehaviour
 {
     public static MasterList Instance;
 
+=======
+public class MasterList : SingletonMonoBehaviour<MasterList>
+{
+>>>>>>> .merge_file_a08540
     public List<List<int>> list = new List<List<int>>();
     //人数の列挙
     public enum Player
@@ -26,6 +31,7 @@ public class MasterList : MonoBehaviour
         new PlayerModel()
     };
 
+<<<<<<< .merge_file_a06252
     private void Awake()
     {
         if(Instance == null)
@@ -38,6 +44,8 @@ public class MasterList : MonoBehaviour
             Destroy(gameObject);
         }
     }
+=======
+>>>>>>> .merge_file_a08540
     public void Start()
     {
         //リストの初期化
@@ -51,6 +59,13 @@ public class MasterList : MonoBehaviour
         {
             list.Add(pmodel.Card);
         }
+<<<<<<< .merge_file_a06252
+=======
+        if(instance != null)
+        {
+            DontDestroyOnLoad(this);
+        }
+>>>>>>> .merge_file_a08540
 
     }
     //手札のカード番号と枚数をランダムに並び替え
@@ -92,6 +107,7 @@ public class MasterList : MonoBehaviour
             list[i].Clear();
             list[i].AddRange(totalList.GetRange(0, index));
             totalList.RemoveRange(0, index);
+<<<<<<< .merge_file_a06252
             ////範囲内の値を移動させるまでループ
             //while (index>0) 
             //{
@@ -103,11 +119,14 @@ public class MasterList : MonoBehaviour
             //    totalList.RemoveAt(0);
             //    index--;
             //}
+=======
+>>>>>>> .merge_file_a08540
         }
         //余りを全部4Pへ
         list[3].Clear();
         list[3].AddRange(totalList);
         totalList.Clear();
+<<<<<<< .merge_file_a06252
         //for (int z = 0; z < totalList.Count; z++)
         //{
         //    int r = totalList[0];
@@ -115,5 +134,7 @@ public class MasterList : MonoBehaviour
         //    totalList.RemoveAt(0);
         //}
 
+=======
+>>>>>>> .merge_file_a08540
     }
 }

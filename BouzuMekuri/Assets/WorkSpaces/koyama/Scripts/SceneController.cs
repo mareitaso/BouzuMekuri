@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+<<<<<<< .merge_file_a18064
 public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
+=======
+public class SceneController : SingletonMonoBehaviour<SceneController>
+{
+>>>>>>> .merge_file_a22196
     //遷移テクスチャ
     private Texture2D blackTexture;
     private float fadeAlpha = 0;
     private bool isFading = false;
     public bool IsFading { get { return isFading; } }
 
+<<<<<<< .merge_file_a18064
     private void Awake()
     {
         if (Instance == null)
@@ -29,6 +35,18 @@ public class SceneController : MonoBehaviour
         else
         {
             Destroy(gameObject);
+=======
+    private void Start()
+    {
+        DontDestroyOnLoad(this);
+        if (blackTexture == null)
+        {
+            //黒テクスチャを生成
+            blackTexture = new Texture2D(32, 32, TextureFormat.RGB24, false);
+            blackTexture.ReadPixels(new Rect(0, 0, 32, 32), 0, 0, false);
+            blackTexture.SetPixel(0, 0, Color.white);
+            blackTexture.Apply();
+>>>>>>> .merge_file_a22196
         }
     }
     private void OnGUI()
@@ -90,6 +108,7 @@ public class SceneController : MonoBehaviour
         UnityEngine.Application.Quit();
 #endif
     }
+<<<<<<< .merge_file_a18064
     private void Update()
     {
         //if (PS4ControllerInput.pS4ControllerInput.contorollerState.Circle||
@@ -119,6 +138,8 @@ public class SceneController : MonoBehaviour
         //    return;
         //}
     }
+=======
+>>>>>>> .merge_file_a22196
     /// <summary>
     /// <para>シーン遷移</para>
     /// <para>フェードなし: LoadScene(SceneControl.SceneName.シーン名); </para>
@@ -138,6 +159,11 @@ public class SceneController : MonoBehaviour
     public enum SceneName
     {
         Title = 0,
+<<<<<<< .merge_file_a18064
+=======
+        Rule,
+        Jisaku,
+>>>>>>> .merge_file_a22196
         Main,
         Result
     }
