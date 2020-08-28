@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class FieldEffect : MonoBehaviour
+public class MikujiEffect : MonoBehaviour
 {
     [SerializeField]
     private Image MikujiBox;
@@ -13,7 +13,7 @@ public class FieldEffect : MonoBehaviour
     private Image KujiBefore, KujiAfter;
 
     [SerializeField]
-    private GameObject shakePlace1, shakePlace2, shakePlace3, shakePlace4, mikujiPlace;
+    private GameObject mikujiPlace;
 
     [SerializeField]
     private GameObject panel;
@@ -29,10 +29,6 @@ public class FieldEffect : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetMouseButtonDown(0)&&animeEnd ==false)
-        //{
-        //    BoxTap();
-        //}
         if (Input.GetMouseButtonDown(0) && animeEnd == true)
         {
             PanelOff();
