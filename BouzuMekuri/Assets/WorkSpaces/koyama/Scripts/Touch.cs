@@ -52,12 +52,16 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("1P押せたよ");
         }
-        else
+        else if(Player1 == true && deck.Count == 0)
         {
             Debug.Log("1P使い終わったよ");
             return;
         }
-
+        else
+        {
+            Debug.Log("1Pの番じゃないよ");
+            return;
+        }
     }
     public void P2()
     {
@@ -67,9 +71,14 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("2P押せたよ");
         }
-        else
+        else if (Player2 == true && deck.Count == 0)
         {
             Debug.Log("2P使い終わったよ");
+            return;
+        }
+        else
+        {
+            Debug.Log("2Pの番じゃないよ");
             return;
         }
     }
@@ -81,9 +90,14 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("3押せたよ");
         }
-        else
+        else if (Player3 == true && deck.Count == 0)
         {
             Debug.Log("3P使い終わったよ");
+            return;
+        }
+        else
+        {
+            Debug.Log("3Pの番じゃないよ");
             return;
         }
     }
@@ -95,9 +109,14 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("4P押せたよ");
         }
-        else
+        else if (Player4 == true && deck.Count == 0)
         {
             Debug.Log("4P使い終わったよ");
+            return;
+        }
+        else
+        {
+            Debug.Log("4Pの番じゃないよ");
             return;
         }
     }
@@ -105,8 +124,8 @@ public class Touch : MonoBehaviour
 
     public void Skill1()
     {
-        shuf();
         Judge();
+        shuf();
         panel.SetActive(false);
     }
 
@@ -121,8 +140,8 @@ public class Touch : MonoBehaviour
     {
         if (deck.cards1.Count + deck.cards2.Count > 10)
         {
-            playerSkill.PlayerSkill3();
             Judge();
+            playerSkill.PlayerSkill3();
             panel.SetActive(false);
         }
     }
@@ -170,10 +189,20 @@ public class Touch : MonoBehaviour
 
     private void shuf()
     {
-        MasterList.instance.Shuffle2();
-        SoundManager.instance.SeApply(Se.cardShuffle);
-        CardAnime.AnimePlayerSkill1();
-        draw.TextChange();
+        if(MasterList.instance.list[0].Count==0&&
+            MasterList.instance.list[1].Count == 0 &&
+            MasterList.instance.list[2].Count == 0 &&
+            MasterList.instance.list[3].Count == 0)
+        {
+            playerSkill.EPanel();
+        }
+        else
+        {
+            MasterList.instance.Shuffle2();
+            SoundManager.instance.SeApply(Se.cardShuffle);
+            CardAnime.AnimePlayerSkill1();
+            draw.TextChange();
+        }
     }
     public void setValue(int value)
     {
