@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,9 @@ public class Draw : MonoBehaviour
 
     [SerializeField]
     private GameObject Yama1, Yama2;
+
+    [SerializeField]
+    private List<Image> playerLabel;
 
     public List<Image> Player;
 
@@ -511,8 +515,8 @@ public class Draw : MonoBehaviour
                 }
             }
             fieldEffect = false;
-            TextChange();
         }
+        TextChange();
     }
 
     public void Image()
@@ -569,6 +573,22 @@ public class Draw : MonoBehaviour
         PlayerCards[4].text = deck.DiscardCount.Count.ToString();
         PlayerCards[5].text = deck.cards1.Count.ToString();
         PlayerCards[6].text = deck.cards2.Count.ToString();
+        PlayerLabel();
+    }
+
+    public void PlayerLabel()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == deck.Count)
+            {
+                playerLabel[i].sprite = Resources.Load<Sprite>("Images/NowPlayerLabel");
+            }
+            else
+            {
+                playerLabel[i].sprite = Resources.Load<Sprite>("Images/NamePanel");
+            }
+        }
     }
 
 

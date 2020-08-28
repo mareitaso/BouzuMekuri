@@ -3306,6 +3306,11 @@ MonoBehaviour:
   Sutehuda: {fileID: 2100363399}
   Yama1: {fileID: 113391758}
   Yama2: {fileID: 933497667}
+  playerLabel:
+  - {fileID: 2069065799}
+  - {fileID: 1040753702}
+  - {fileID: 2073311399}
+  - {fileID: 1300501197}
   Player:
   - {fileID: 1104655307}
   - {fileID: 1674692677}
@@ -5305,7 +5310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1515286186
 RectTransform:
   m_ObjectHideFlags: 0
