@@ -24,16 +24,16 @@ public class FieldEffect : MonoBehaviour
     {
         animeEnd = false;
         KujiBefore.sprite = Resources.Load<Sprite>("Images/Null");
-        Invoke("BoxTap", 2.5f); 
+        Invoke("BoxTap", 2.5f);
     }
-    
+
     private void Update()
     {
         //if (Input.GetMouseButtonDown(0)&&animeEnd ==false)
         //{
         //    BoxTap();
         //}
-        if (Input.GetMouseButtonDown(0)&&animeEnd ==true)
+        if (Input.GetMouseButtonDown(0) && animeEnd == true)
         {
             PanelOff();
         }
@@ -42,20 +42,19 @@ public class FieldEffect : MonoBehaviour
 
     private void BoxTap()
     {
-        MikujiBox.transform.DOMove(shakePlace1.transform.position, 0.5f).OnComplete(() =>
+        float z = 5f;
+
+        MikujiBox.transform.DORotate(new Vector3(0, 0, z), 0.2f).OnComplete(() =>
         {
-            MikujiBox.transform.DOMove(shakePlace2.transform.position, 0.5f).OnComplete(() =>
+            MikujiBox.transform.DORotate(new Vector3(0, 0, -z), 0.2f).OnComplete(() =>
             {
-                MikujiBox.transform.DOMove(shakePlace3.transform.position, 0.5f).OnComplete(() =>
+                MikujiBox.transform.DORotate(new Vector3(0, 0, z), 0.2f).OnComplete(() =>
                 {
-                    MikujiBox.transform.DOMove(shakePlace4.transform.position, 0.5f).OnComplete(() =>
+                    MikujiBox.transform.DORotate(new Vector3(0, 0, -z), 0.2f).OnComplete(() =>
                     {
-                        MikujiBox.transform.DOMove(new Vector2(0, 0), 0.5f).OnComplete(() =>
+                        MikujiBox.transform.DORotate(new Vector3(0, 0, 0), 0.2f).OnComplete(() =>
                         {
-                            MikujiBox.transform.DORotate(new Vector3(0, 0, 180), 0.5f).OnComplete(() =>
-                            {
-                                MikujiMove();
-                            });
+                            MikujiMove();
                         });
                     });
                 });
