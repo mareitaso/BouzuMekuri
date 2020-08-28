@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Test : MonoBehaviour
+public class Draw : MonoBehaviour
 {
     [HideInInspector]
     public bool drowYama1;
@@ -14,6 +14,9 @@ public class Test : MonoBehaviour
     [SerializeField]
     private Image Yamahuda1, Yamahuda2, Sutehuda;//, Hikihuda;
 
+    [SerializeField]
+    private GameObject Yama1, Yama2;
+
     public List<Image> Player;
 
     [Header("ここにはプレイヤーと捨て札と山札の枚数を入れる")]
@@ -21,39 +24,64 @@ public class Test : MonoBehaviour
     private List<Text> PlayerCards;
     [SerializeField]
     private Deck deck;
-    //[SerializeField]
-    //private HandCount hand;
 
     [SerializeField]
-    CardAnimation cardAnimation;
+    CardAnimation cardAnime;
 
     [HideInInspector]
     public bool drawAgain = false;
 
+    //[HideInInspector]
+    public bool fieldEffect = false;
+
+    public int fieldEffectNum;
+    private int drawTotalNum = 0;
+    private int Effect2Num = 0;
+
     [SerializeField]
     Text drawType;
+
+    public int drawNum = 0;
+
+    public List<bool> playerBreak;
+    //public List<bool> RuleCreate.instance.myRule;
 
     private void Start()
     {
         SoundManager.instance.BgmApply(Bgm.Main);
         TextChange();
         drawType.text = "";
+        drawNum = 0;
+        for (int i = 0; i > 4; i++)
+        {
+            playerBreak[i] = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            FieldEffect2();
+        }
     }
 
     public void Draw1()
     {
+        Yama1.transform.SetAsLastSibling();
         SoundManager.instance.SeApply(Se.cardOpen);
         if (deck.cards1.Count > 0)//山札1があるとき
         {
 
             //山札1がラストの時
-            if (deck.cards1.Count == 1)
+            if (deck.cards1.Count < 1)
             {
                 Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
             }
 
             drowYama1 = true;
             deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
+            deck.cards1.RemoveAt(0);//0番目を削除
 
 
             Debug.LogError(deck.drawcard);
@@ -66,7 +94,7 @@ public class Test : MonoBehaviour
             //デバッグ用
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.Debug)
             {
-                MyRule.instance.DisNCard();
+                MyRule.instance.DrawnNCards();
                 drawType.text = "デバッグ";
             }
 
@@ -74,6 +102,8 @@ public class Test : MonoBehaviour
             /// <summary>
             /// ここにスキル判別してifで囲む
             /// </summary>
+
+
 
             //天皇を引く
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
@@ -119,11 +149,51 @@ public class Test : MonoBehaviour
             //}
 
             //蝉丸を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru /*&&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1*/)
+            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
             {
                 SemimaruDraw.instance.Semimaru_Draw();
                 drawType.text = "蝉丸";
+            }
+
+            //自作ルール(天皇)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
+            //自作ルール(段付き)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
+            //自作ルール(武官)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
+            //自作ルール(弓持ち)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
+            //自作ルール(偉い姫)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
             }
 
             //坊主を引く
@@ -148,8 +218,6 @@ public class Test : MonoBehaviour
             {
                 Debug.LogError("カードの種類がおかしい");
             }
-
-            deck.cards1.RemoveAt(0);//0番目を削除
             BukanDraw.instance.ReverseRotation();
             TextChange();
         }
@@ -162,24 +230,27 @@ public class Test : MonoBehaviour
         {
             GameEnd();
         }
+        DrawTotalNum();
     }
     public void Draw2()
     {
+        Yama2.transform.SetAsLastSibling();
         SoundManager.instance.SeApply(Se.cardOpen);
         if (deck.cards2.Count > 0)//山札2があるとき
         {
             //山札2がラストの時
-            if (deck.cards2.Count == 1)
+            if (deck.cards2.Count < 1)
             {
                 Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
             }
 
             drowYama1 = false;
             deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
+            deck.cards2.RemoveAt(0);//0番目を削除
             Debug.LogError(deck.drawcard);
             //Hikihuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
 
-            //cardAnimation.AnimeYamaToPlayer();
+            //cardAnime.AnimeYamaToPlayer();
 
             //デバッグ用
             if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.Debug)
@@ -240,6 +311,46 @@ public class Test : MonoBehaviour
                 drawType.text = "蝉丸";
             }
 
+            //自作ルール(天皇)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
+            //自作ルール(段付き)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
+            //自作ルール(武官)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
+            //自作ルール(弓持ち)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
+            //自作ルール(偉い姫)
+            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
+                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
+            {
+                MyRule.instance.CardTypeCheck();
+                drawType.text = "自作ルール";
+            }
+
             //坊主を引く
             else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
             {
@@ -262,8 +373,6 @@ public class Test : MonoBehaviour
             {
                 Debug.LogError("カードの種類がおかしい");
             }
-
-            deck.cards2.RemoveAt(0);//0番目を削除
             BukanDraw.instance.ReverseRotation();
             TextChange();
         }
@@ -276,27 +385,149 @@ public class Test : MonoBehaviour
         {
             GameEnd();
         }
+        DrawTotalNum();
     }
-    public void S()
+
+    public void FieldEffectSwitch()
     {
-        MasterList.Instance.Shuffle2();
-        TextChange();
-        Debug.LogError("");
+        switch (fieldEffectNum)
+        {
+            //case 1:
+            //    FieldEffect1();
+            //    break;
+
+            case 2:
+                //FieldEffect2();
+                break;
+
+            case 3:
+                FieldEffect3();
+                break;
+
+            default:
+                Debug.LogError("フィールド効果の値がおかしいよ");
+                break;
+        }
+    }
+
+    //カード引く枚数が+１される
+    private void FieldEffect1()
+    {
+
+    }
+
+    //山札が２０枚減るごとに手札を入れ替える
+    private void FieldEffect2()
+    {
+        //List<int> numbers = new List<int>();
+        //List<int> list = new List<int>();
+
+        //List<int> player1 = MasterList.instance.list[0];
+        //List<int> player2 = MasterList.instance.list[1];
+        //List<int> player3 = MasterList.instance.list[2];
+        //List<int> player4 = MasterList.instance.list[3];
+
+        //for (int i = 0; i < 4; i++)
+        //{
+        //    numbers.Add(i);
+        //    MasterList.instance.list[i].Clear();
+        //}
+
+        //while (numbers.Count > 0)
+        //{
+        //    int index = Random.Range(0, numbers.Count);
+        //    int ransu = numbers[index];
+        //    list[0] = ransu;
+        //    numbers.RemoveAt(index);
+        //}
+        //MasterList.instance.list[list[0]] = player1;
+        //MasterList.instance.list[list[1]] = player2;
+        //MasterList.instance.list[list[2]] = player3;
+        //MasterList.instance.list[list[3]] = player4;
+        cardAnime.AnimePlayerSkill1();
+    }
+
+    //プレイヤーが4回ひいたら山札から捨て場に３枚置く
+    private void FieldEffect3()
+    {
+        if (fieldEffect == true)
+        {
+            if (drowYama1 == true)
+            {
+                deck.drawcard = deck.cards1[0];
+                if (deck.cards1.Count == 0)
+                {
+                    Debug.Log("山札1にカードがないから何もしない");
+                }
+                else if (deck.cards1.Count < 3)
+                {
+                    int f = deck.cards1.Count;
+                    for (int i = 0; i < f; i++)
+                    {
+                        int q = deck.cards1[0];
+                        deck.DiscardCount.Add(q);
+                        deck.cards1.RemoveAt(0);//0番目を削除
+                    }
+                    cardAnime.AnimeFieldEffect3();
+                }
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        int q = deck.cards1[0];
+                        deck.DiscardCount.Add(q);
+                        deck.cards1.RemoveAt(0);//0番目を削除
+                    }
+                    cardAnime.AnimeFieldEffect3();
+                }
+            }
+            else
+            {
+                deck.drawcard = deck.cards2[0];
+                if (deck.cards1.Count == 0)
+                {
+                    Debug.Log("山札2にカードがないから何もしない");
+                }
+                else if (deck.cards2.Count < 3)
+                {
+                    int f = deck.cards2.Count;
+                    for (int i = 0; i < f; i++)
+                    {
+                        int q = deck.cards2[0];
+                        deck.DiscardCount.Add(q);
+                        deck.cards2.RemoveAt(0);//0番目を削除
+                    }
+                    cardAnime.AnimeFieldEffect3();
+                }
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        int q = deck.cards2[0];
+                        deck.DiscardCount.Add(q);
+                        deck.cards2.RemoveAt(0);//0番目を削除
+                    }
+                    cardAnime.AnimeFieldEffect3();
+                }
+            }
+            fieldEffect = false;
+            TextChange();
+        }
     }
 
     public void Image()
     {
         //ListAの長さの所にListBの長さを入れるのはやめよう!!
-        if (MasterList.Instance.list[deck.Count].Count != 0)
+        if (MasterList.instance.list[deck.Count].Count != 0)
         {
             try
             {
                 Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                MasterList.Instance.list[deck.Count][MasterList.Instance.list[deck.Count].Count - 1]);
+                MasterList.instance.list[deck.Count][MasterList.instance.list[deck.Count].Count - 1]);
             }
             catch
             {
-                Debug.Log("例外発生　" + deck.Count + "  " + MasterList.Instance.list[deck.Count].Count + " " + MasterList.Instance.list.Count);
+                Debug.Log("例外発生　" + deck.Count + "  " + MasterList.instance.list[deck.Count].Count + " " + MasterList.instance.list.Count);
             }
 
         }
@@ -304,24 +535,24 @@ public class Test : MonoBehaviour
         {
             Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
         }
-        //int x = MasterList.Instance.list[deck.Count]
-        //Debug.Log(MasterList.Instance.list[deck.Count][MasterList.Instance.list[deck.Count].Count-1]);
+        //int x = MasterList.instance.list[deck.Count]
+        //Debug.Log(MasterList.instance.list[deck.Count][MasterList.instance.list[deck.Count].Count-1]);
     }
 
-    public void ImageChangeTono()
+    private void DrawTotalNum()
     {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
-    }
-    public void ImageChangeHime()
-    {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/Null");
-    }
-
-    public void ImageChangeBouzu()
-    {
-        Player[deck.Count].sprite = Resources.Load<Sprite>("Images/Null");
-        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + (deck.drawcard));
+        if (fieldEffectNum == 2)
+        {
+            drawTotalNum = 100 - (deck.cards1.Count + deck.cards2.Count);
+            Effect2Num++;
+            //左20枚超えたか    右は4回しか通らない
+            if (Effect2Num >= 20 && drawTotalNum / 20 <= 4)
+            {
+                Effect2Num = 0;
+                //fieldEffect = true;
+                FieldEffect2();
+            }
+        }
     }
 
     public void ImageChangeSemimaru()
@@ -331,10 +562,10 @@ public class Test : MonoBehaviour
 
     public void TextChange()
     {
-        PlayerCards[0].text = MasterList.Instance.list[0].Count.ToString();
-        PlayerCards[1].text = MasterList.Instance.list[1].Count.ToString();
-        PlayerCards[2].text = MasterList.Instance.list[2].Count.ToString();
-        PlayerCards[3].text = MasterList.Instance.list[3].Count.ToString();
+        PlayerCards[0].text = MasterList.instance.list[0].Count.ToString();
+        PlayerCards[1].text = MasterList.instance.list[1].Count.ToString();
+        PlayerCards[2].text = MasterList.instance.list[2].Count.ToString();
+        PlayerCards[3].text = MasterList.instance.list[3].Count.ToString();
         PlayerCards[4].text = deck.DiscardCount.Count.ToString();
         PlayerCards[5].text = deck.cards1.Count.ToString();
         PlayerCards[6].text = deck.cards2.Count.ToString();
@@ -347,49 +578,7 @@ public class Test : MonoBehaviour
         //Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
         //Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
         Debug.LogError("終わり");
-        SceneController.Instance.LoadScene(SceneController.SceneName.Result);
+        SceneController.instance.LoadScene(SceneController.SceneName.Result);
         //hand.Settlement();
     }
-
-    public void MockShuffle()
-    {
-        MasterList.Instance.Shuffle2();
-        /*
-        if (hand.handCount[0] == 0)
-        {
-            Player[0].sprite = Resources.Load<Sprite>("Images/Null");
-        }
-        else
-        {
-            Player[0].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[0] + 1));
-        }
-
-        if (hand.handCount[1] == 0)
-        {
-            Player[1].sprite = Resources.Load<Sprite>("Images/Null");
-        }
-        else
-        {
-            Player[1].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[1] + 1));
-        }
-
-        if (hand.handCount[2] == 0)
-        {
-            Player[2].sprite = Resources.Load<Sprite>("Images/Null");
-        }
-        else
-        {
-            Player[2].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[2] + 1));
-        }
-
-        if (hand.handCount[3] == 0)
-        {
-            Player[3].sprite = Resources.Load<Sprite>("Images/Null");
-        }
-        else
-        {
-            Player[3].sprite = Resources.Load<Sprite>("Images/MainCards/" + (hand.handCount[3] + 1));
-        }*/
-    }
-
 }

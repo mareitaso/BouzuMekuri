@@ -4,10 +4,10 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class touvh : MonoBehaviour
+public class Touch : MonoBehaviour
 {
     [SerializeField]
-    private Test test;
+    private Draw draw;
     [SerializeField]
     private Deck deck;
     [SerializeField]
@@ -29,28 +29,26 @@ public class touvh : MonoBehaviour
     {
         if (CardAnime.animeEnd == true)
         {
-            test.Draw1();
+            draw.Draw1();
         }
     }
     public void draw2()
     {
         if (CardAnime.animeEnd == true)
         {
-            test.Draw2();
+            draw.Draw2();
         }
     }
 
-    private bool Player1 = false;
-    private bool Player2 = false;
-    private bool Player3 = false;
-    private bool Player4 = false;
+    public bool Player1 = false;
+    public bool Player2 = false;
+    public bool Player3 = false;
+    public bool Player4 = false;
     public void P1()
     {
         touchPlayer = 0;
-        if (Player1 == false)
+        if (Player1 == false && deck.Count == 0)
         {
-            //shuf();
-            //Player1 = true;
             panel.SetActive(true);
             Debug.Log("1P押せたよ");
         }
@@ -64,10 +62,8 @@ public class touvh : MonoBehaviour
     public void P2()
     {
         touchPlayer = 1;
-        if (Player2 == false)
+        if (Player2 == false && deck.Count == 1)
         {
-            //shuf();
-            //Player2 = true;
             panel.SetActive(true);
             Debug.Log("2P押せたよ");
         }
@@ -80,10 +76,8 @@ public class touvh : MonoBehaviour
     public void P3()
     {
         touchPlayer = 2;
-        if (Player3 == false)
+        if (Player3 == false && deck.Count == 2)
         {
-            //shuf();
-            //Player3 = true;
             panel.SetActive(true);
             Debug.Log("3押せたよ");
         }
@@ -96,10 +90,8 @@ public class touvh : MonoBehaviour
     public void P4()
     {
         touchPlayer = 3;
-        if (Player4 == false)
+        if (Player4 == false && deck.Count == 3)
         {
-            //shuf();
-            //Player4 = true;
             panel.SetActive(true);
             Debug.Log("4P押せたよ");
         }
@@ -108,6 +100,36 @@ public class touvh : MonoBehaviour
             Debug.Log("4P使い終わったよ");
             return;
         }
+    }
+
+
+    public void Skill1()
+    {
+        shuf();
+        Judge();
+        panel.SetActive(false);
+    }
+
+    public void Skill2()
+    {
+        Judge();
+        playerSkill.PlayerSkill2();
+        panel.SetActive(false);
+    }
+
+    public void Skill3()
+    {
+        if (deck.cards1.Count + deck.cards2.Count > 10)
+        {
+            playerSkill.PlayerSkill3();
+            Judge();
+            panel.SetActive(false);
+        }
+    }
+
+    public void Move()
+    {
+        panel.SetActive(false);
     }
 
     public void drop()
@@ -131,7 +153,7 @@ public class touvh : MonoBehaviour
             Judge();
             setValue(0);
         }
-        else if(dropdown.value ==3)
+        else if (dropdown.value == 3)
         {
             Debug.Log("aaaa");
             playerSkill.PlayerSkill3();
@@ -148,18 +170,10 @@ public class touvh : MonoBehaviour
 
     private void shuf()
     {
-        MasterList.Instance.Shuffle2();
+        MasterList.instance.Shuffle2();
         SoundManager.instance.SeApply(Se.cardShuffle);
         CardAnime.AnimePlayerSkill1();
-        int z = deck.Count;
-        deck.Count = 0;
-        //for (int i = 0; i < 4; i++)
-        //{
-        //    test.Image();
-        //    deck.Count++;
-        //}
-        test.TextChange();
-        deck.Count = z;
+        draw.TextChange();
     }
     public void setValue(int value)
     {
@@ -168,7 +182,7 @@ public class touvh : MonoBehaviour
 
     private void Judge()
     {
-        if(touchPlayer == 0)
+        if (touchPlayer == 0)
         {
             Player1 = true;
         }
@@ -184,22 +198,5 @@ public class touvh : MonoBehaviour
         {
             Player4 = true;
         }
-
-        /*
-        switch (touchPlayer)
-        {
-            case 1:
-                Player1 = true;
-                break;
-            case 2:
-                Player2 = true;
-                break;
-            case 3:
-                Player3 = true;
-                break;
-            case 4:
-                Player4 = true;
-                break;
-        }*/
     }
 }
