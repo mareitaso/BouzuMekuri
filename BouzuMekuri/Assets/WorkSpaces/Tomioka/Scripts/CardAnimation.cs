@@ -1311,6 +1311,16 @@ public class CardAnimation : MonoBehaviour
                 AnimeTono();
                 break;
 
+            case 13:
+                //フィールド効果2
+
+                break;
+
+            case 14:
+                //フィールド効果3
+                draw.FieldEffect3();
+                break;
+
             default:
                 Debug.Log(animeFunctionNum + "がおかしい");
                 break;

@@ -60,6 +60,7 @@ public class Draw : MonoBehaviour
         {
             playerBreak[i] = false;
         }
+        ruleBreak = false;
     }
 
     private void Update()
@@ -462,10 +463,12 @@ public class Draw : MonoBehaviour
     }
 
     //プレイヤーが4回ひいたら山札から捨て場に３枚置く
-    private void FieldEffect3()
+    public void FieldEffect3()
     {
         if (fieldEffect == true)
         {
+            cardAnime.animeFunctionNum = 14;
+            cardAnime.AnimeSkillCutIn();
             if (drowYama1 == true)
             {
                 deck.drawcard = deck.cards1[0];
