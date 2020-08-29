@@ -32,12 +32,16 @@ public class CardAnimation : MonoBehaviour
     [SerializeField]
     private Image skillCutIn;
     [SerializeField]
+    private Image fieldSkillCutIn;
+    [SerializeField]
     private Image skillCutInCard;
 
     [SerializeField]
     private Text drawCardType;
     [SerializeField]
     private Text skillType;
+    [SerializeField]
+    private Text fieldSkillType;
 
     [SerializeField]
     private GameObject CutInBefore, CutInAfter;
@@ -1317,8 +1321,6 @@ public class CardAnimation : MonoBehaviour
                 break;
 
             case 14:
-                //フィールド効果3
-                draw.FieldEffect3();
                 break;
 
             default:
@@ -1454,6 +1456,43 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
+    //フィールド効果のカットイン
+    public void FieldSkillCutIn()
+    {
+        animeEnd = false;
+        movePlace = deck.Count;
+        SoundManager.instance.SeApply(Se.cardSkill);
+
+        if (draw.fieldEffectNum == 2)
+        {
+            fieldSkillType.text = "山札が２０枚減るごとに\n手札を入れ替える";
+        }
+        else
+        {
+            fieldSkillType.text = "プレイヤーが4回ひいたら\n山札から捨て場に３枚置く";
+        }
+        
+        fieldSkillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
+        {
+            fieldSkillCutIn.transform.DOMove(new Vector3(0, 0, 0), 2f).OnComplete(() =>
+            {
+                fieldSkillCutIn.transform.DOMove(CutInAfter.transform.position, animeTime / 2).OnComplete(() =>
+                {
+                    fieldSkillCutIn.transform.position = CutInBefore.transform.position;
+                    if (draw.fieldEffectNum == 2)
+                    {
+                        //フィールド効果3
+                        draw.FieldEffect3();
+                    }
+                    else
+                    {
+                        //フィールド効果3
+                        draw.FieldEffect3();
+                    }
+                });
+            });
+        });
+    }
 
     //スキルエラーを探す用の関数
     private void DebugSkill()
