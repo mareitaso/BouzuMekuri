@@ -21,7 +21,8 @@ public class RulePullDown : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Button s;
     //[SerializeField] private UnityEngine.UI.Button k;
 
-    [SerializeField] private Text text;
+    [SerializeField] private Text text1;
+    [SerializeField] private Text text2;
 
     [SerializeField] private Dropdown SemimaruDrop;
 
@@ -285,19 +286,23 @@ public class RulePullDown : MonoBehaviour
 
         if (RuleCreate.instance.PlayerNumber == 0)
         {
-            text.text = "P2へ";
+            text1.text = "P2へ";
+            text2.text = "P1の番";
         }
         else if (RuleCreate.instance.PlayerNumber == 1)
         {
-            text.text = "P3へ";
+            text1.text = "P3へ";
+            text2.text = "P2の番";
         }
         else if (RuleCreate.instance.PlayerNumber == 2)
         {
-            text.text = "P4へ";
+            text1.text = "P4へ";
+            text2.text = "P3の番";
         }
         else if (RuleCreate.instance.PlayerNumber == 3)
         {
-            text.text = "試合へ";
+            text1.text = "試合へ";
+            text2.text = "P4の番";
         }
     }
     public void Down()
@@ -309,15 +314,15 @@ public class RulePullDown : MonoBehaviour
         //}
         if (RuleCreate.instance.PlayerNumber == 1)
         {
-            text.text = "P3へ";
+            text1.text = "P3へ";
         }
         else if (RuleCreate.instance.PlayerNumber == 2)
         {
-            text.text = "P4へ";
+            text1.text = "P4へ";
         }
         else if (RuleCreate.instance.PlayerNumber == 3)
         {
-            text.text = "試合へ";
+            text1.text = "試合へ";
         }
         else if (RuleCreate.instance.PlayerNumber == 4)
         {
