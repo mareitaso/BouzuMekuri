@@ -3407,6 +3407,7 @@ MonoBehaviour:
   drawType: {fileID: 1522327116}
   drawNum: 0
   playerBreak: 00000000
+  ruleBreak: 0
 --- !u!4 &972917171
 Transform:
   m_ObjectHideFlags: 0
