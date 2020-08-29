@@ -196,6 +196,6 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     //次に発動するスキルを無効化する
     public void SemimaruSkill6()
     {
-
+        draw.ruleBreak = true;
     }
 }

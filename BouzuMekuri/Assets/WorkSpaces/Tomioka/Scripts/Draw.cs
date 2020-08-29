@@ -48,7 +48,7 @@ public class Draw : MonoBehaviour
     public int drawNum = 0;
 
     public List<bool> playerBreak;
-    //public List<bool> RuleCreate.instance.myRule;
+    public bool ruleBreak;
 
     private void Start()
     {
@@ -107,120 +107,124 @@ public class Draw : MonoBehaviour
             /// ここにスキル判別してifで囲む
             /// </summary>
 
-
-
-            //天皇を引く
-            if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
+            if (ruleBreak == false)
             {
-                TennouDraw.instance.Tennou_Draw();
-                drawType.text = "天皇";
-            }
-            //段付きを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
-            {
-                DantukiDraw.instance.Dantuki_Draw();
-                drawType.text = "段付き";
-            }
+                //天皇を引く
+                if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
+                    (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
+                {
+                    TennouDraw.instance.Tennou_Draw();
+                    drawType.text = "天皇";
+                }
+                //段付きを引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
+                    (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
+                {
+                    DantukiDraw.instance.Dantuki_Draw();
+                    drawType.text = "段付き";
+                }
 
 
 
-            //武官を引くかつ武官スキルあり
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
-            {
-                BukanDraw.instance.Bukan_Draw();
-                drawType.text = "武官";
-            }
+                //武官を引くかつ武官スキルあり
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
+                    (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
+                {
+                    BukanDraw.instance.Bukan_Draw();
+                    drawType.text = "武官";
+                }
 
-            //弓持ちを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
-            {
-                YumimotiDraw.instance.Yumimoti_Draw();
-                drawType.text = "弓持ち";
-            }
+                //弓持ちを引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+                {
+                    YumimotiDraw.instance.Yumimoti_Draw();
+                    drawType.text = "弓持ち";
+                }
 
 
-            ////偉い姫を引く
-            //else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
-            //{
-            //    GreatHimeDraw.instance.GreatHime_Draw();
-            //}
+                ////偉い姫を引く
+                //else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
+                //{
+                //    GreatHimeDraw.instance.GreatHime_Draw();
+                //}
 
-            //蝉丸を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
-            {
-                SemimaruDraw.instance.Semimaru_Draw();
-                drawType.text = "蝉丸";
-            }
+                //蝉丸を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
+                {
+                    SemimaruDraw.instance.Semimaru_Draw();
+                    drawType.text = "蝉丸";
+                }
 
-            //自作ルール(天皇)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(天皇)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //自作ルール(段付き)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(段付き)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //自作ルール(武官)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(武官)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //自作ルール(弓持ち)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(弓持ち)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //自作ルール(偉い姫)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(偉い姫)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //坊主を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
-            {
-                BouzuDraw.instance.Bouzu_Draw();
-                drawType.text = "坊主";
-            }
-            //姫を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
-            {
-                HimeDraw.instance.Hime_Draw();
-                drawType.text = "姫";
-            }
-            //殿を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Tono)
-            {
-                TonoDraw.instance.Tono_Draw();
-                drawType.text = "殿";
+                //坊主を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
+                {
+                    BouzuDraw.instance.Bouzu_Draw();
+                    drawType.text = "坊主";
+                }
+                //姫を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
+                {
+                    HimeDraw.instance.Hime_Draw();
+                    drawType.text = "姫";
+                }
+                else
+                {
+                    TonoDraw.instance.Tono_Draw();
+                    drawType.text = "殿";
+                    // Debug.LogError("カードの種類がおかしい");
+                }
             }
             else
             {
-                Debug.LogError("カードの種類がおかしい");
+                TrueEffect();
+                TonoDraw.instance.Tono_Draw();
+                drawType.text = "殿";
+                // Debug.LogError("カードの種類がおかしい");
             }
             BukanDraw.instance.ReverseRotation();
             TextChange();
@@ -263,119 +267,125 @@ public class Draw : MonoBehaviour
                 drawType.text = "デバッグ";
             }
 
+            if (ruleBreak == false)
+            {
 
-            //天皇を引く
-            if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
+                //天皇を引く
+                if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
                 (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
                 RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
-            {
-                TennouDraw.instance.Tennou_Draw();
-                drawType.text = "天皇";
-            }
-            //段付きを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
-            {
-                DantukiDraw.instance.Dantuki_Draw();
-                drawType.text = "段付き";
-            }
+                {
+                    TennouDraw.instance.Tennou_Draw();
+                    drawType.text = "天皇";
+                }
+                //段付きを引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
+                    (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
+                {
+                    DantukiDraw.instance.Dantuki_Draw();
+                    drawType.text = "段付き";
+                }
 
 
 
-            //武官を引くかつ武官スキルあり
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
-                (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
-                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
-            {
-                BukanDraw.instance.Bukan_Draw();
-                drawType.text = "武官";
-            }
+                //武官を引くかつ武官スキルあり
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
+                    (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
+                {
+                    BukanDraw.instance.Bukan_Draw();
+                    drawType.text = "武官";
+                }
 
-            //弓持ちを引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
-            {
-                YumimotiDraw.instance.Yumimoti_Draw();
-                drawType.text = "弓持ち";
-            }
+                //弓持ちを引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+                {
+                    YumimotiDraw.instance.Yumimoti_Draw();
+                    drawType.text = "弓持ち";
+                }
 
 
-            ////偉い姫を引く
-            //else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
-            //{
-            //    GreatHimeDraw.instance.GreatHime_Draw();
-            //}
+                ////偉い姫を引く
+                //else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
+                //{
+                //    GreatHimeDraw.instance.GreatHime_Draw();
+                //}
 
-            //蝉丸を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
-            {
-                SemimaruDraw.instance.Semimaru_Draw();
-                drawType.text = "蝉丸";
-            }
+                //蝉丸を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                    RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
+                {
+                    SemimaruDraw.instance.Semimaru_Draw();
+                    drawType.text = "蝉丸";
+                }
 
-            //自作ルール(天皇)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(天皇)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //自作ルール(段付き)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(段付き)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //自作ルール(武官)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(武官)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //自作ルール(弓持ち)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(弓持ち)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //自作ルール(偉い姫)
-            else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
-                cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
-            {
-                MyRule.instance.CardTypeCheck();
-                drawType.text = "自作ルール";
-            }
+                //自作ルール(偉い姫)
+                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
+                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
+                {
+                    MyRule.instance.CardTypeCheck();
+                    drawType.text = "自作ルール";
+                }
 
-            //坊主を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
-            {
-                BouzuDraw.instance.Bouzu_Draw();
-                drawType.text = "坊主";
-            }
-            //姫を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
-            {
-                HimeDraw.instance.Hime_Draw();
-                drawType.text = "姫";
-            }
-            //殿を引く
-            else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Tono)
-            {
-                TonoDraw.instance.Tono_Draw();
-                drawType.text = "殿";
+                //坊主を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
+                {
+                    BouzuDraw.instance.Bouzu_Draw();
+                    drawType.text = "坊主";
+                }
+                //姫を引く
+                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
+                {
+                    HimeDraw.instance.Hime_Draw();
+                    drawType.text = "姫";
+                }
+                else
+                {
+                    TonoDraw.instance.Tono_Draw();
+                    drawType.text = "殿";
+                    // Debug.LogError("カードの種類がおかしい");
+                }
             }
             else
             {
-                Debug.LogError("カードの種類がおかしい");
+                TrueEffect();
+                TonoDraw.instance.Tono_Draw();
+                drawType.text = "殿";
+                // Debug.LogError("カードの種類がおかしい");
             }
             BukanDraw.instance.ReverseRotation();
             TextChange();
@@ -591,6 +601,90 @@ public class Draw : MonoBehaviour
         }
     }
 
+    private void TrueEffect()
+    {
+        //天皇を引く
+        if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
+        (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
+        RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
+        {
+            ruleBreak = false;
+        }
+        //段付きを引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
+            (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
+            RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
+        {
+            ruleBreak = false;
+        }
+        //武官を引くかつ武官スキルあり
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
+            (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
+            RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
+        {
+            ruleBreak = false;
+        }
+
+        //弓持ちを引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
+        {
+            ruleBreak = false;
+        }
+
+        //蝉丸を引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+            RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
+        {
+            ruleBreak = false;
+        }
+
+        //自作ルール(天皇)
+        else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
+            cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
+        {
+            ruleBreak = false;
+        }
+
+        //自作ルール(段付き)
+        else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
+            cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
+        {
+            ruleBreak = false;
+        }
+
+        //自作ルール(武官)
+        else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
+            cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
+        {
+            ruleBreak = false;
+        }
+
+        //自作ルール(弓持ち)
+        else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
+            cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
+        {
+            ruleBreak = false;
+        }
+
+        //自作ルール(偉い姫)
+        else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
+            cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
+        {
+            ruleBreak = false;
+        }
+
+        //坊主を引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
+        {
+            ruleBreak = false;
+        }
+        //姫を引く
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
+        {
+            ruleBreak = false;
+        }
+    }
 
     //どちらの山札もカードがなくなったときの処理
     private void GameEnd()
