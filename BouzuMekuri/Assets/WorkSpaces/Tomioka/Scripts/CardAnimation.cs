@@ -1287,27 +1287,27 @@ public class CardAnimation : MonoBehaviour
                 break;
 
             case 8:
-                //蝉丸スキル2
+                //蝉丸スキル1
                 AnimeTono();
                 break;
 
             case 9:
-                //蝉丸スキル3
+                //蝉丸スキル2
                 AnimeHandCardGet();
                 break;
 
             case 10:
-                //蝉丸スキル4
+                //蝉丸スキル3
                 AnimeAllDiscard();
                 break;
 
             case 11:
-                //蝉丸スキル5
+                //蝉丸スキル4
                 AnimeYamaHalf();
                 break;
 
             case 12:
-                //蝉丸スキル6
+                //蝉丸スキル5
                 AnimeTono();
                 break;
 
@@ -1375,12 +1375,20 @@ public class CardAnimation : MonoBehaviour
             skillType.text = "左隣のプレイヤーの手札から5枚もらう";
         }
 
+        //蝉丸スキル1
+        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 1)
+        {
+            drawCardType.text = "蝉丸ルール";
+            skillType.text = "次の人1回休み";
+        }
+
         //蝉丸スキル2
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
                 RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 2)
         {
             drawCardType.text = "蝉丸ルール";
-            skillType.text = "次の人1回休み";
+            skillType.text = "他のプレイヤーの手札を全てもらう";
         }
 
         //蝉丸スキル3
@@ -1388,7 +1396,7 @@ public class CardAnimation : MonoBehaviour
                 RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 3)
         {
             drawCardType.text = "蝉丸ルール";
-            skillType.text = "他のプレイヤーの手札を全てもらう";
+            skillType.text = "他のプレイヤーは全ての手札を捨て札に置く";
         }
 
         //蝉丸スキル4
@@ -1396,20 +1404,12 @@ public class CardAnimation : MonoBehaviour
                 RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 4)
         {
             drawCardType.text = "蝉丸ルール";
-            skillType.text = "他のプレイヤーは全ての手札を捨て札に置く";
-        }
-
-        //蝉丸スキル5
-        else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 5)
-        {
-            drawCardType.text = "蝉丸ルール";
             skillType.text = "山札の数を半分に";
         }
 
         //蝉丸スキル6
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 6)
+                RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] == 5)
         {
             drawCardType.text = "蝉丸ルール";
             skillType.text = "次に発動するスキルを無効化する";
@@ -1448,6 +1448,9 @@ public class CardAnimation : MonoBehaviour
     //スキルエラーを探す用の関数
     private void DebugSkill()
     {
+        Debug.LogError("引いたプレイヤー(count)は" + deck.Count);
+        Debug.LogError("引いたプレイヤー(movePlace)は" + movePlace);
+
         Debug.LogError("引いたカードは" + deck.drawcard);
         Debug.LogError("引いたカードの情報1は" + cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob());
         Debug.LogError("引いたカードの情報2は" + cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob());
