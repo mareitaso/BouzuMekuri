@@ -1231,10 +1231,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundMager
       objectReference: {fileID: 0}
+    - target: {fileID: 3431448994878473230, guid: d428c69a81b5c734b816e919772bc921,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431448994878473231, guid: d428c69a81b5c734b816e919772bc921,
+        type: 3}
+      propertyPath: sesounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3431448994878473231, guid: d428c69a81b5c734b816e919772bc921,
         type: 3}
       propertyPath: bgmsounds.Array.data[1].audioSize
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431448994878473231, guid: d428c69a81b5c734b816e919772bc921,
+        type: 3}
+      propertyPath: sesounds.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 69e0e354312383541a50af8ed44cc3e9, type: 3}
+    - target: {fileID: 3431448994878473231, guid: d428c69a81b5c734b816e919772bc921,
+        type: 3}
+      propertyPath: sesounds.Array.data[4].audioSize
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d428c69a81b5c734b816e919772bc921, type: 3}
