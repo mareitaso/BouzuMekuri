@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class JisakuDropdownManager : MonoBehaviour
+public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManager>
 {
     // Start is called before the first frame update
     [SerializeField]
@@ -18,6 +18,8 @@ public class JisakuDropdownManager : MonoBehaviour
     private GameObject Panel5;
     [SerializeField]
     private GameObject Panel6;
+    [SerializeField]
+    private GameObject Panel7;
     [SerializeField]
     private Dropdown dropdown1;
     [SerializeField]
@@ -36,6 +38,7 @@ public class JisakuDropdownManager : MonoBehaviour
             Panel4.SetActive(true);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
+            Panel7.SetActive(false);
             text1.SetActive(true);
             text2.SetActive(true);
             Debug.Log("もらう");
@@ -46,9 +49,10 @@ public class JisakuDropdownManager : MonoBehaviour
             Panel1.SetActive(false);
             Panel2.SetActive(true);
             Panel3.SetActive(false);
-            Panel4.SetActive(true);
+            Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(true);
+            Panel7.SetActive(false);
             text1.SetActive(true);
             text2.SetActive(true);
             Debug.Log("引く");
@@ -60,8 +64,9 @@ public class JisakuDropdownManager : MonoBehaviour
             Panel2.SetActive(false);
             Panel3.SetActive(true);
             Panel4.SetActive(false);
-            Panel5.SetActive(true);
+            Panel5.SetActive(false);
             Panel6.SetActive(false);
+            Panel7.SetActive(true);
             text1.SetActive(true);
             text2.SetActive(true);
             Debug.Log("置く");
@@ -69,16 +74,17 @@ public class JisakuDropdownManager : MonoBehaviour
         }
         else if (dropdown1.value == 3)
         {
-            Panel1.SetActive(true);
+            Panel1.SetActive(false);
             Panel2.SetActive(false);
             Panel3.SetActive(false);
             Panel4.SetActive(false);
             Panel5.SetActive(true);
             Panel6.SetActive(false);
+            Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(true);
             Debug.Log("1回休み");
-            SetValue(2);
+            SetValue(3);
         }
         else if (dropdown1.value == 4)
         {
@@ -88,10 +94,11 @@ public class JisakuDropdownManager : MonoBehaviour
             Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
+            Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
             Debug.Log("逆回り");
-            SetValue(2);
+            SetValue(4);
         }
         else if (dropdown1.value == 5)
         {
@@ -101,10 +108,11 @@ public class JisakuDropdownManager : MonoBehaviour
             Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
+            Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
             Debug.Log("無効");
-            SetValue(2);
+            SetValue(5);
         }
         else
         {
@@ -114,6 +122,7 @@ public class JisakuDropdownManager : MonoBehaviour
             Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
+            Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
             SetValue(0);
@@ -128,4 +137,9 @@ public class JisakuDropdownManager : MonoBehaviour
     {
         dropdown1.value = 0;
     }
+     public static void InputText()
+    {
+
+    }
+    
 }
