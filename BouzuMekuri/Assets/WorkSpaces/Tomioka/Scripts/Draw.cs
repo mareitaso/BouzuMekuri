@@ -39,7 +39,10 @@ public class Draw : MonoBehaviour
     public bool fieldEffect = false;
 
     public int fieldEffectNum;
+    
+    [SerializeField]
     private int drawTotalNum = 0;
+    [SerializeField]
     private int Effect2Num = 0;
 
     [SerializeField]
@@ -63,14 +66,6 @@ public class Draw : MonoBehaviour
         ruleBreak = false;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            FieldEffect2();
-        }
-    }
-
     public void Draw1()
     {
         Yama1.transform.SetAsLastSibling();
@@ -82,6 +77,10 @@ public class Draw : MonoBehaviour
             if (deck.cards1.Count < 1)
             {
                 Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
+            }
+            if (deck.cards1.Count == 1)
+            {
+
             }
 
             drowYama1 = true;
@@ -215,9 +214,24 @@ public class Draw : MonoBehaviour
                 }
                 else
                 {
-                    TonoDraw.instance.Tono_Draw();
-                    drawType.text = "殿";
-                    // Debug.LogError("カードの種類がおかしい");
+                    if (fieldEffectNum == 1 && deck.cards1.Count > 1)
+                    {
+                        //山札から2枚引く
+                        for (int i = 0; i < 1; i++)
+                        {
+                            //deck.drawcard = deck.cards1[0];//いらないかも
+                            MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+                            deck.cards1.RemoveAt(0);
+                        }
+                        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+                        cardAnime.movePlace = deck.Count;
+                        cardAnime.AnimeTono();
+                    }
+                    else
+                    {
+                        TonoDraw.instance.Tono_Draw();
+                        drawType.text = "殿";
+                    }
                 }
             }
             else
@@ -376,9 +390,24 @@ public class Draw : MonoBehaviour
                 }
                 else
                 {
-                    TonoDraw.instance.Tono_Draw();
-                    drawType.text = "殿";
-                    // Debug.LogError("カードの種類がおかしい");
+                    if (fieldEffectNum == 1 && deck.cards2.Count > 1)
+                    {
+                        //山札から2枚引く
+                        for (int i = 0; i < 1; i++)
+                        {
+                            MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+                            deck.cards2.RemoveAt(0);
+                        }
+                        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+                        cardAnime.movePlace = deck.Count;
+                        cardAnime.AnimeTono();
+                    }
+                    else
+                    {
+                        TonoDraw.instance.Tono_Draw();
+                        drawType.text = "殿";
+                        // Debug.LogError("カードの種類がおかしい");
+                    }
                 }
             }
             else
@@ -407,12 +436,12 @@ public class Draw : MonoBehaviour
     {
         switch (fieldEffectNum)
         {
-            //case 1:
-            //    FieldEffect1();
-            //    break;
+            case 1:
+                Debug.Log("引く枚数が+1");
+                break;
 
             case 2:
-                //FieldEffect2();
+                
                 break;
 
             case 3:
@@ -438,32 +467,8 @@ public class Draw : MonoBehaviour
     //山札が２０枚減るごとに手札を入れ替える
     private void FieldEffect2()
     {
-        //List<int> numbers = new List<int>();
-        //List<int> list = new List<int>();
-
-        //List<int> player1 = MasterList.instance.list[0];
-        //List<int> player2 = MasterList.instance.list[1];
-        //List<int> player3 = MasterList.instance.list[2];
-        //List<int> player4 = MasterList.instance.list[3];
-
-        //for (int i = 0; i < 4; i++)
-        //{
-        //    numbers.Add(i);
-        //    MasterList.instance.list[i].Clear();
-        //}
-
-        //while (numbers.Count > 0)
-        //{
-        //    int index = Random.Range(0, numbers.Count);
-        //    int ransu = numbers[index];
-        //    list[0] = ransu;
-        //    numbers.RemoveAt(index);
-        //}
-        //MasterList.instance.list[list[0]] = player1;
-        //MasterList.instance.list[list[1]] = player2;
-        //MasterList.instance.list[list[2]] = player3;
-        //MasterList.instance.list[list[3]] = player4;
-        cardAnime.AnimePlayerSkill1();
+        cardAnime.FieldSkillCutIn();
+        Debug.LogError("ここ何回通る？");
     }
 
     //プレイヤーが4回ひいたら山札から捨て場に３枚置く

@@ -1481,8 +1481,10 @@ public class CardAnimation : MonoBehaviour
                     fieldSkillCutIn.transform.position = CutInBefore.transform.position;
                     if (draw.fieldEffectNum == 2)
                     {
-                        //フィールド効果3
-                        draw.FieldEffect3();
+                        //フィールド効果2
+                        MasterList.instance.Shuffle2();
+                        AnimePlayerSkill1();
+                        draw.TextChange();
                     }
                     else
                     {

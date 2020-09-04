@@ -7,6 +7,9 @@ using DG.Tweening;
 public class MikujiEffect : MonoBehaviour
 {
     [SerializeField]
+    private Draw draw;
+
+    [SerializeField]
     private Image MikujiBox;
 
     [SerializeField]
@@ -18,10 +21,14 @@ public class MikujiEffect : MonoBehaviour
     [SerializeField]
     private GameObject panel;
 
+    [SerializeField]
+    private Text fieldEffectText;
+
     private bool animeEnd = false;
 
     private void Start()
     {
+        FieldEffectDecide();
         animeEnd = false;
         KujiBefore.sprite = Resources.Load<Sprite>("Images/Null");
         Invoke("BoxTap", 2.5f);
@@ -71,5 +78,32 @@ public class MikujiEffect : MonoBehaviour
     private void PanelOff()
     {
         panel.SetActive(false);
+    }
+
+    private void FieldEffectDecide()
+    {
+        int i = Random.Range(1, 4);
+        draw.fieldEffectNum = i;
+
+        switch (i)
+        {
+            case 1:
+                fieldEffectText.text = "今回のフィールドスキルは\n引く枚数が+1される";
+                break;
+            
+            case 2:
+                fieldEffectText.text = "今回のフィールドスキルは\n20枚引くごとに手札シャッフル";
+                break;
+            
+            case 3:
+                fieldEffectText.text = "今回のフィールドスキルは\nプレイヤーが4回ひいたら\n山札から捨て場に３枚置く";
+                break;
+            
+            default:
+                fieldEffectText.text = "今回のフィールドスキルは\nエラーになりました";
+                Debug.LogError("フィールド効果がおかしい");
+                break;
+        }
+
     }
 }
