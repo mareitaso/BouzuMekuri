@@ -3435,6 +3435,7 @@ MonoBehaviour:
   drawAgain: 0
   fieldEffect: 0
   fieldEffectNum: 3
+  effect1Num: 0
   drawTotalNum: 0
   Effect2Num: 0
   drawType: {fileID: 1522327116}
@@ -3758,6 +3759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}
   cardAnime: {fileID: 1818914147}
+  draw: {fileID: 972917170}
   YumimotiNum: 0
 --- !u!114 &1003503231
 MonoBehaviour:

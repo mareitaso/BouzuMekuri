@@ -8,14 +8,18 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
     private Deck deck;
     [SerializeField]
     private CardAnimation cardAnime;
+    [SerializeField]
+    private Draw draw;
 
     [HideInInspector]
     public int YumimotiNum;
 
     public void Yumimoti_Draw()
     {
-
+        //左隣から5枚もらう
         Debug.Log("弓持ち" + deck.Count + "のばん");
+
+        int drawNum = 5 + draw.effect1Num;
 
         int g = deck.Count + 1;
         for (int w = 0; w < 4; w++)
@@ -23,9 +27,9 @@ public class YumimotiDraw : SingletonMonoBehaviour<YumimotiDraw>
             g %= 4;
             if (MasterList.instance.list[g].Count != 0)
             {
-                if (MasterList.instance.list[g].Count > 5)
+                if (MasterList.instance.list[g].Count > drawNum)
                 {
-                    for (int t = 0; t < 5; t++)
+                    for (int t = 0; t < drawNum; t++)
                     {
                         int y = MasterList.instance.list[g][0];//次の人の一番上の札を格納
                         MasterList.instance.list[deck.Count].Add(y);//count番目の人がi番目の一番上のカードをもらう

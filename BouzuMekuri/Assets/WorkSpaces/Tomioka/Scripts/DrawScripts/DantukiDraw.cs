@@ -29,14 +29,17 @@ public class DantukiDraw : SingletonMonoBehaviour<DantukiDraw>
 
             case 3:
                 //全員から5枚もらえる
+
+                int drawNum = 5 + draw.effect1Num;
+
                 for (int i = 0; i < 4; i++)
                 {
                     if (i != deck.Count)
                     {
                         //5枚以上持っていたら
-                        if (MasterList.instance.list[i].Count > 5)
+                        if (MasterList.instance.list[i].Count > drawNum)
                         {
-                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に5枚渡す");
+                            Debug.Log(i + 1 + "番の人が" + (deck.Count + 1) + "番目の人に" + drawNum + "枚渡す");
                             for (int t = 0; t < 5; t++)
                             {
                                 int y = MasterList.instance.list[i][0];//i番目の人の一番上の札を格納

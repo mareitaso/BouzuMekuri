@@ -40,6 +40,8 @@ public class Draw : MonoBehaviour
 
     public int fieldEffectNum;
 
+    public int effect1Num = 0;
+
     [SerializeField]
     private int drawTotalNum = 0;
     [SerializeField]
@@ -64,6 +66,14 @@ public class Draw : MonoBehaviour
             playerBreak[i] = false;
         }
         ruleBreak = false;
+        if (fieldEffectNum == 1)
+        {
+            effect1Num = 1;
+        }
+        else
+        {
+            effect1Num = 0;
+        }
     }
 
     public void Draw1()
