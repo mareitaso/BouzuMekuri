@@ -39,7 +39,7 @@ public class Draw : MonoBehaviour
     public bool fieldEffect = false;
 
     public int fieldEffectNum;
-    
+
     [SerializeField]
     private int drawTotalNum = 0;
     [SerializeField]
@@ -78,9 +78,11 @@ public class Draw : MonoBehaviour
             {
                 Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
             }
-            if (deck.cards1.Count == 1)
+            if (fieldEffectNum == 1 && deck.cards1.Count > 1)
             {
-
+                deck.drawcard = deck.cards1[0];//0番目を引いたカードとして登録
+                deck.cards1.RemoveAt(0);//0番目を削除
+                MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
             }
 
             drowYama1 = true;
@@ -214,24 +216,9 @@ public class Draw : MonoBehaviour
                 }
                 else
                 {
-                    if (fieldEffectNum == 1 && deck.cards1.Count > 1)
-                    {
-                        //山札から2枚引く
-                        for (int i = 0; i < 1; i++)
-                        {
-                            //deck.drawcard = deck.cards1[0];//いらないかも
-                            MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-                            deck.cards1.RemoveAt(0);
-                        }
-                        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-                        cardAnime.movePlace = deck.Count;
-                        cardAnime.AnimeTono();
-                    }
-                    else
-                    {
-                        TonoDraw.instance.Tono_Draw();
-                        drawType.text = "殿";
-                    }
+                    TonoDraw.instance.Tono_Draw();
+                    drawType.text = "殿";
+                    // Debug.LogError("カードの種類がおかしい");
                 }
             }
             else
@@ -265,6 +252,13 @@ public class Draw : MonoBehaviour
             if (deck.cards2.Count < 1)
             {
                 Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
+            }
+
+            if (fieldEffectNum == 1 && deck.cards2.Count > 1)
+            {
+                deck.drawcard = deck.cards2[0];//0番目を引いたカードとして登録
+                deck.cards2.RemoveAt(0);//0番目を削除
+                MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
             }
 
             drowYama1 = false;
@@ -390,24 +384,9 @@ public class Draw : MonoBehaviour
                 }
                 else
                 {
-                    if (fieldEffectNum == 1 && deck.cards2.Count > 1)
-                    {
-                        //山札から2枚引く
-                        for (int i = 0; i < 1; i++)
-                        {
-                            MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-                            deck.cards2.RemoveAt(0);
-                        }
-                        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
-                        cardAnime.movePlace = deck.Count;
-                        cardAnime.AnimeTono();
-                    }
-                    else
-                    {
-                        TonoDraw.instance.Tono_Draw();
-                        drawType.text = "殿";
-                        // Debug.LogError("カードの種類がおかしい");
-                    }
+                    TonoDraw.instance.Tono_Draw();
+                    drawType.text = "殿";
+                    // Debug.LogError("カードの種類がおかしい");
                 }
             }
             else
@@ -441,7 +420,7 @@ public class Draw : MonoBehaviour
                 break;
 
             case 2:
-                
+
                 break;
 
             case 3:
