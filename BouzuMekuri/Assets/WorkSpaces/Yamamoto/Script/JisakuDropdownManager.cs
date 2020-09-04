@@ -27,6 +27,8 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     [SerializeField]
     private GameObject text2;
 
+    public static int str2;
+
     // Use this for initialization
     public void Drop1()
     {
@@ -129,9 +131,15 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         }
 
     }
+    
     public void SetValue(int value)
     {
         dropdown1.value = value;
+       // dropdown1.value = str2;
+    }
+    public static int GetValue()
+    {
+        return str2;
     }
     public void OnClick()
     {
