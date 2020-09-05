@@ -63,6 +63,7 @@ public class CardAnimation : MonoBehaviour
     //山札からプレイヤーの手札に移動するアニメーション
     public void AnimeTono()
     {
+        YamaLoss();
         animeEnd = false;
         //movePlace = deck.Count;
 
@@ -119,6 +120,7 @@ public class CardAnimation : MonoBehaviour
     //捨て札に全部移動するアニメーション
     public void AnimeBouzu()
     {
+        YamaLoss();
         animeEnd = false;
         //movePlace = deck.Count;
 
@@ -202,6 +204,7 @@ public class CardAnimation : MonoBehaviour
     //捨て札を全部回収するアニメーション
     public void AnimeHime()
     {
+        YamaLoss();
         animeEnd = false;
         //movePlace = deck.Count;
 
@@ -277,6 +280,7 @@ public class CardAnimation : MonoBehaviour
     //もう一枚引くアニメーション
     public void AnimeOneDraw()
     {
+        YamaLoss();
         animeEnd = false;
         movePlace = deck.Count;
 
@@ -333,6 +337,7 @@ public class CardAnimation : MonoBehaviour
     //全プレイヤーの手札を回収するアニメーション
     public void AnimeHandCardGet()
     {
+        YamaLoss();
         animeEnd = false;
         //movePlace = deck.Count;
 
@@ -419,6 +424,7 @@ public class CardAnimation : MonoBehaviour
     //プレイヤー1人にN枚カードを移動する
     private void AnimeCardNMove()
     {
+        YamaLoss();
         animeEnd = false;
         //movePlace = deck.Count;
 
@@ -521,6 +527,7 @@ public class CardAnimation : MonoBehaviour
     //全プレイヤーの手札と捨て札を回収するアニメーション
     private void AnimeAllGet()
     {
+        YamaLoss();
         //山札1から各プレイヤーに移動
         if (draw.drowYama1 == true)
         {
@@ -614,6 +621,7 @@ public class CardAnimation : MonoBehaviour
     //左隣からカードをもらうアニメーション
     private void AnimeLeftToRight()
     {
+        YamaLoss();
         animeEnd = false;
         //movePlace = deck.Count:
         int YumiNum = YumimotiDraw.instance.YumimotiNum;
@@ -721,6 +729,7 @@ public class CardAnimation : MonoBehaviour
     //自分以外のプレイヤーの手札をすべて捨てる
     public void AnimeAllDiscard()
     {
+        YamaLoss();
         animeEnd = false;
         //movePlace = deck.Count;
 
@@ -827,6 +836,7 @@ public class CardAnimation : MonoBehaviour
     //蝉丸の山札半分捨てる処理
     public void AnimeYamaHalf()
     {
+        YamaLoss();
         animeEnd = false;
         //movePlace = deck.Count:
 
@@ -958,7 +968,6 @@ public class CardAnimation : MonoBehaviour
         if (deck.cards1.Count <= 0)
         {
             Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/Null");
-            Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
         }
         else
         {
@@ -972,11 +981,22 @@ public class CardAnimation : MonoBehaviour
         if (deck.cards2.Count <= 0)
         {
             Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/Null");
-            Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
         }
         else
         {
             Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/CardBack");
+        }
+    }
+
+    private void YamaLoss()
+    {
+        if (deck.cards1.Count <= 0)
+        {
+            Yamahuda1.sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        if (deck.cards2.Count <= 0)
+        {
+            Yamahuda2.sprite = Resources.Load<Sprite>("Images/Null");
         }
     }
 
@@ -1173,6 +1193,7 @@ public class CardAnimation : MonoBehaviour
     //プレイヤーが4回ひいたら山札から捨て場に３枚置く
     public void AnimeFieldEffect3()
     {
+        YamaLoss();
         animeEnd = false;
         movePlace = deck.Count;
 
@@ -1384,7 +1405,7 @@ public class CardAnimation : MonoBehaviour
             RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
         {
             drawCardType.text = "弓持ちルール";
-            skillType.text = "左隣のプレイヤーの手札から5枚もらう";
+            skillType.text = "左隣のプレイヤーの\n手札から5枚もらう";
         }
 
         //蝉丸スキル1
@@ -1471,7 +1492,7 @@ public class CardAnimation : MonoBehaviour
         {
             fieldSkillType.text = "プレイヤーが4回ひいたら\n山札から捨て場に３枚置く";
         }
-        
+
         fieldSkillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
         {
             fieldSkillCutIn.transform.DOMove(new Vector3(0, 0, 0), 2f).OnComplete(() =>
@@ -1488,8 +1509,16 @@ public class CardAnimation : MonoBehaviour
                     }
                     else
                     {
-                        //フィールド効果3
-                        draw.FieldEffect3();
+                        if (draw.drowYama1 == true && deck.cards1.Count != 0)
+                        {
+                            //フィールド効果3
+                            draw.FieldEffect3();
+                        }
+                        if (draw.drowYama1 == false && deck.cards2.Count != 0)
+                        {
+                            //フィールド効果3
+                            draw.FieldEffect3();
+                        }
                     }
                 });
             });

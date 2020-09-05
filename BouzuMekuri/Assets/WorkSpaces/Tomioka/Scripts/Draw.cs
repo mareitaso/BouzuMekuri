@@ -436,7 +436,15 @@ public class Draw : MonoBehaviour
             case 3:
                 if (fieldEffect == true)
                 {
-                    cardAnime.FieldSkillCutIn();
+                    if (drowYama1 == true && deck.cards1.Count != 0)
+                    {
+                        cardAnime.FieldSkillCutIn();
+                    }
+                    if (drowYama1 == false && deck.cards2.Count != 0)
+                    {
+                        cardAnime.FieldSkillCutIn();
+                    }
+                    fieldEffect = false;
                 }
                 TextChange();
                 break;
@@ -495,7 +503,7 @@ public class Draw : MonoBehaviour
         else
         {
             deck.drawcard = deck.cards2[0];
-            if (deck.cards1.Count == 0)
+            if (deck.cards2.Count == 0)
             {
                 Debug.Log("山札2にカードがないから何もしない");
             }
