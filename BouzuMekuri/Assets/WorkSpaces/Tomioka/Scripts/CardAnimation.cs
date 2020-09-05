@@ -1043,7 +1043,7 @@ public class CardAnimation : MonoBehaviour
         });
 
 
-        playerFake[skillPlayer].sprite = player[skillPlayer].sprite;
+        playerFake[skillPlayer].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
         //枚数によってはNullか持ってる1番上のカードにする
 
         player[skillPlayer].sprite = Resources.Load<Sprite>("Images/MainCards/" +
@@ -1052,7 +1052,7 @@ public class CardAnimation : MonoBehaviour
         playerFake[skillPlayer].transform.DOMove(Sutehuda.transform.position, animeTime).OnComplete(() =>
         {
             playerFake[skillPlayer].transform.position = Place[skillPlayer].transform.position;
-            Sutehuda.sprite = playerFake[skillDamagePlayer].sprite;
+            Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
             playerFake[skillPlayer].sprite = Resources.Load<Sprite>("Images/Null");
             animeEnd = true;
             draw.FieldEffectSwitch();
