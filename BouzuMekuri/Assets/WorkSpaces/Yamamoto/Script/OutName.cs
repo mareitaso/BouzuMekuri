@@ -7,6 +7,8 @@ public class OutName : MonoBehaviour
 {
     [SerializeField]
     Text text1;
+    [SerializeField]
+    Text koukaname;
 
     public GameObject KoukaName = null;
 
@@ -14,11 +16,12 @@ public class OutName : MonoBehaviour
     {
         text1.text = InName.str1;
         Debug.Log("きたよ");
+        koukaname = KoukaName.GetComponent<Text>();
+        
     }
     // Update is called once per frame
     void Update()
     {
-        Text koukaname = KoukaName.GetComponent<Text>();
         if (JisakuDropdownManager.str2 == 0)
         {
             koukaname.text = "";//ココを効果内容によって変える
@@ -47,5 +50,10 @@ public class OutName : MonoBehaviour
         {
             koukaname.text = "効果無効";
         }
+    }
+    public void OnClick()
+    {
+        text1.text = "";
+        //koukaname.text = "";
     }
 }

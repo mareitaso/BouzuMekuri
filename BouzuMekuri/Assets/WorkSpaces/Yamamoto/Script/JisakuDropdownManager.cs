@@ -33,7 +33,7 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     // Use this for initialization
     public void Drop1()
     {
-        if (dropdown1.value == 0)
+        if (dropdown1.value == 1)
         {
             Panel1.SetActive(true);
             Panel2.SetActive(false);
@@ -45,10 +45,10 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             text1.SetActive(true);
             text2.SetActive(true);
             Debug.Log("もらう");
-            SetValue(0);
+            SetValue(1);
             i = 1;
         }
-        else if (dropdown1.value == 1)
+        else if (dropdown1.value == 2)
         {
             Panel1.SetActive(false);
             Panel2.SetActive(true);
@@ -60,10 +60,10 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             text1.SetActive(true);
             text2.SetActive(true);
             Debug.Log("引く");
-            SetValue(1);
+            SetValue(2);
             i = 2;
         }
-        else if (dropdown1.value == 2)
+        else if (dropdown1.value == 3)
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
@@ -75,10 +75,10 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             text1.SetActive(true);
             text2.SetActive(true);
             Debug.Log("置く");
-            SetValue(2);
+            SetValue(3);
             i = 3;
         }
-        else if (dropdown1.value == 3)
+        else if (dropdown1.value == 4)
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
@@ -90,23 +90,8 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             text1.SetActive(false);
             text2.SetActive(true);
             Debug.Log("1回休み");
-            SetValue(3);
-            i = 4;
-        }
-        else if (dropdown1.value == 4)
-        {
-            Panel1.SetActive(false);
-            Panel2.SetActive(false);
-            Panel3.SetActive(false);
-            Panel4.SetActive(false);
-            Panel5.SetActive(false);
-            Panel6.SetActive(false);
-            Panel7.SetActive(false);
-            text1.SetActive(false);
-            text2.SetActive(false);
-            Debug.Log("逆回り");
             SetValue(4);
-            i = 5;
+            i = 4;
         }
         else if (dropdown1.value == 5)
         {
@@ -119,8 +104,23 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
-            Debug.Log("無効");
+            Debug.Log("逆回り");
             SetValue(5);
+            i = 5;
+        }
+        else if (dropdown1.value == 6)
+        {
+            Panel1.SetActive(false);
+            Panel2.SetActive(false);
+            Panel3.SetActive(false);
+            Panel4.SetActive(false);
+            Panel5.SetActive(false);
+            Panel6.SetActive(false);
+            Panel7.SetActive(false);
+            text1.SetActive(false);
+            text2.SetActive(false);
+            Debug.Log("無効");
+            SetValue(6);
             i = 6;
         }
         else
@@ -134,6 +134,7 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
+            Debug.Log("未選択");
             SetValue(0);
             i = 0;
         }
@@ -149,13 +150,8 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     {
         return str2;
     }
-    public void OnClick()
-    {
-        dropdown1.value = 0;
-    }
-     public static void InputText()
-    {
-
-    }
-    
+    //public void OnClick()
+    //{
+    //    dropdown1.value = 0;
+    //}
 }
