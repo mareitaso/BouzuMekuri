@@ -1255,7 +1255,8 @@ public class CardAnimation : MonoBehaviour
         movePlace = deck.Count;
         SoundManager.instance.SeApply(Se.cardSkill);
 
-        CutInText();
+        CutInSwitch();
+        //CutInText();上に世代交代
         skillCutInCard.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
         skillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
         {
@@ -1337,17 +1338,44 @@ public class CardAnimation : MonoBehaviour
                 break;
 
             case 13:
-                //フィールド効果2
+                //自作ルール(他の人からカードをもらう)
 
                 break;
 
             case 14:
+                //自作ルール(山札から追加で引く)
+                break;
+
+            case 15:
+                //自作ルール(他のプレイヤーの手札を捨てさせる)
+                break;
+            
+            case 16:
+                //自作ルール(1回休み)
+                AnimeTono();
+                break;
+            
+            case 17:
+                //自作ルール(逆回り)
+                AnimeTono();
+                Reverses();
+                break;
+            
+            case 18:
+                //自作ルール(効果無効化)
+                AnimeTono();
+                break;
+            
+            case 19:
+                //
+
                 break;
 
             default:
                 Debug.Log(animeFunctionNum + "がおかしい");
                 break;
         }
+        draw.TextChange();
     }
 
     private void CutInText()
@@ -1455,8 +1483,136 @@ public class CardAnimation : MonoBehaviour
             Debug.LogError("");
             DebugSkill();
         }
-
     }
+
+    private void CutInSwitch()
+    {
+        Debug.Log(animeFunctionNum);
+        switch (animeFunctionNum)
+        {
+            case 1:
+                //天皇のスキル1
+                drawCardType.text = "天皇ルール";
+                skillType.text = "山札から2枚引く";
+                break;
+
+            case 2:
+                //天皇のスキル2
+                drawCardType.text = "天皇ルール";
+                skillType.text = "全員の札と捨て札をすべてもらう";
+                break;
+
+            case 3:
+                //段付きスキル1
+                drawCardType.text = "段付きルール";
+                skillType.text = "全員から5枚もらう";
+                break;
+
+            case 4:
+                //段付きスキル2
+                drawCardType.text = "段付きルール";
+                skillType.text = "全員の札をすべてもらう";
+                break;
+
+            case 5:
+                drawCardType.text = "武官ルール";
+                skillType.text = "全員から4枚もらう";
+                break;
+
+            case 6:
+                //武官スキル2
+                drawCardType.text = "武官ルール";
+                skillType.text = "山札を引く順番が逆周りに";
+                break;
+
+            case 7:
+                //弓持ちスキル
+                drawCardType.text = "弓持ちルール";
+                skillType.text = "左隣のプレイヤーの\n手札から5枚もらう";
+                break;
+
+            case 8:
+                //蝉丸スキル1
+                drawCardType.text = "蝉丸ルール";
+                skillType.text = "次の人1回休み";
+                break;
+
+            case 9:
+                //蝉丸スキル2
+                drawCardType.text = "蝉丸ルール";
+                skillType.text = "他のプレイヤーの手札を全てもらう";
+                break;
+
+            case 10:
+                //蝉丸スキル3
+                drawCardType.text = "蝉丸ルール";
+                skillType.text = "他のプレイヤーは全ての手札を捨て札に置く";
+                break;
+
+            case 11:
+                //蝉丸スキル4
+                drawCardType.text = "蝉丸ルール";
+                skillType.text = "山札の数を半分に";
+                break;
+
+            case 12:
+                //蝉丸スキル5
+                drawCardType.text = "蝉丸ルール";
+                skillType.text = "次に発動するスキルを無効化する";
+                break;
+
+            case 13:
+                //自作ルール(他の人からカードをもらう)
+                drawCardType.text = "自作ルール";
+                skillType.text = "他の人からカードをもらう";
+                break;
+
+            case 14:
+                //自作ルール(山札から追加で引く)
+                drawCardType.text = "自作ルール";
+                skillType.text = "山札から追加で引く";
+                break;
+
+            case 15:
+                //自作ルール(他のプレイヤーの手札を捨てる)
+                drawCardType.text = "自作ルール";
+                skillType.text = "他のプレイヤーの手札を捨てる";
+                break;
+
+            case 16:
+                //自作ルール(1回休み)
+                drawCardType.text = "自作ルール";
+                skillType.text = "次のプレイヤーは1回休み";
+                break;
+
+            case 17:
+                //自作ルール(逆回り)
+                drawCardType.text = "自作ルール";
+                skillType.text = "山札を引く順番が逆周りに";
+                break;
+
+            case 18:
+                //自作ルール(効果無効化)
+                drawCardType.text = "自作ルール";
+                skillType.text = "次に発動するスキルを無効化する";
+                break;
+
+            case 19:
+                //
+
+                break;
+
+            default:
+                Debug.LogError("ここのメッセージはでないはずだよ");
+                drawCardType.text = "エラー";
+                skillType.text = "ここのメッセージはでないはずだよ";
+                Debug.Log(animeFunctionNum + "がおかしい");
+                Debug.LogError("");
+                DebugSkill();
+                break;
+        }
+    }
+
 
     //武官の逆回転引いたとき用
     private void Reverses()

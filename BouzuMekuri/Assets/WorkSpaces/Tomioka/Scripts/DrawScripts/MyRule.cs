@@ -73,6 +73,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 moveNCards = RuleCreate.instance.cardNum[count];
                 somePlayer = RuleCreate.instance.playerNum[count];
                 SomeoneToMe();
+                cardAnime.animeFunctionNum = 13;
+                cardAnime.AnimeSkillCutIn();
                 break;
 
             case 2:
@@ -80,6 +82,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 moveNCards = RuleCreate.instance.cardNum[count];
                 somePlayer = RuleCreate.instance.playerNum[count];
                 DrawnNCards();
+                cardAnime.animeFunctionNum = 14;
+                cardAnime.AnimeSkillCutIn();
                 break;
 
             case 3:
@@ -87,6 +91,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 moveNCards = RuleCreate.instance.cardNum[count];
                 somePlayer = RuleCreate.instance.playerNum[count];
                 DisNCard();
+                cardAnime.animeFunctionNum = 15;
+                cardAnime.AnimeSkillCutIn();
                 break;
 
             case 4:
@@ -136,16 +142,23 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                         draw.playerBreak[i] = true;
                     }
                 }
+
+                cardAnime.animeFunctionNum = 16;
+                cardAnime.AnimeSkillCutIn();
                 break;
 
             case 5:
                 //逆回り
                 BukanDraw.instance.clockWise = !BukanDraw.instance.clockWise;
+                cardAnime.animeFunctionNum = 17;
+                cardAnime.AnimeSkillCutIn();
                 break;
             
             case 6:
                 //効果無効
                 draw.ruleBreak = true;
+                cardAnime.animeFunctionNum = 18;
+                cardAnime.AnimeSkillCutIn();
                 break;
         }
     }

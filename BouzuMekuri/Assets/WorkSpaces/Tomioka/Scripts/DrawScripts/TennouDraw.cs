@@ -38,9 +38,6 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                         MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
                         deck.cards1.RemoveAt(0);
                     }
-                    cardAnime.animeFunctionNum = 1;
-                    cardAnime.AnimeSkillCutIn();
-                    //cardAnime.AnimeOneDraw();
                 }
                 else
                 {
@@ -51,10 +48,9 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                         MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加;
                         deck.cards2.RemoveAt(0);
                     }
-                    cardAnime.animeFunctionNum = 1;
-                    cardAnime.AnimeSkillCutIn();
-                    //cardAnime.AnimeOneDraw();
                 }
+                cardAnime.animeFunctionNum = 1;
+                cardAnime.AnimeSkillCutIn();
                 Debug.Log("天皇のスキル1発動");
                 break;
 

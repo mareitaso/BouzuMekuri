@@ -201,10 +201,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
                 deck.DiscardCount.Add(g);
                 deck.cards2.RemoveAt(0);//0番目を削除
             }
-
         }
-        cardAnime.animeFunctionNum = 11;
-        cardAnime.AnimeSkillCutIn();
     }
 
     //次に発動するスキルを無効化する
