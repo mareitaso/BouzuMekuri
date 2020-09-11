@@ -14,14 +14,17 @@ public class OutName : MonoBehaviour
 
     void Start()
     {
+        //自作ネーム表示
         text1.text = InName.str1;
         Debug.Log("きたよ");
-        koukaname = KoukaName.GetComponent<Text>();
-        
+
+        koukaname = KoukaName.GetComponent<Text>();//自作スキルを表示させる場所
+
     }
     // Update is called once per frame
     void Update()
     {
+        //自作スキル表示
         if (JisakuDropdownManager.str2 == 0)
         {
             koukaname.text = "";//ココを効果内容によって変える
@@ -54,6 +57,6 @@ public class OutName : MonoBehaviour
     public void OnClick()
     {
         text1.text = "";
-        //koukaname.text = "";
+        //koukaname.text = "";  //リセットできない
     }
 }

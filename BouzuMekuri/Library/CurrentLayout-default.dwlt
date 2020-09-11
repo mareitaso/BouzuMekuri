@@ -115,7 +115,7 @@ MonoBehaviour:
   m_MinSize: {x: 919, y: 444}
   m_MaxSize: {x: 22014, y: 14044}
   vertical: 0
-  controlID: 35
+  controlID: 172
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 444}
   m_MaxSize: {x: 4002, y: 8044}
   vertical: 1
-  controlID: 36
+  controlID: 173
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_MinSize: {x: 438, y: 394}
   m_MaxSize: {x: 14008, y: 14044}
   vertical: 1
-  controlID: 135
+  controlID: 137
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_MinSize: {x: 438, y: 272}
   m_MaxSize: {x: 14008, y: 10022}
   vertical: 0
-  controlID: 79
+  controlID: 82
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -315,8 +315,8 @@ MonoBehaviour:
     y: 479
     width: 701
     height: 238
-  m_MinSize: {x: 104, y: 122}
-  m_MaxSize: {x: 4004, y: 4022}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -341,8 +341,8 @@ MonoBehaviour:
     y: 0
     width: 478
     height: 717
-  m_MinSize: {x: 279, y: 72}
-  m_MaxSize: {x: 4004, y: 4022}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -556,10 +556,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 82b50200
-      m_LastClickedID: 177538
-      m_ExpandedIDs: 1041ffffe844ffff0846ffff664bffff9a4cffff6a56ffffbe57ffffe464ffffd065ffff566effff5071ffff3278ffff4c79ffff407dffff7680ffffae8dffff248effff528effff8a8effff8e92ffff1e9affffca9afffff89affff84b6ffffd6b7ffff84bdfffffebeffff32d2ffff82d6ffff92dfffff5ce0ffff4ee4ffffe2e5ffff1eebffff06ecffff72fbffff6e480000604a0000ec5a0000005c0000de5c0000227a0000a8a200003ea30000bca300009aa4000086ee00001cef000098ef00007cf00000be0d0100540e0100b00f0100ac9301003c9401001ea201002ac20100c0c201003cc301001ac401009ed8010034d901008eda0100c4ed010012ef0100a8ef010024f0010002f10100681202004a570200e057020062580200f658020040590200f288020088890200088a0200e68a02006e9f020004a002005ea10200e2b50200d2b70200
+      scrollPos: {x: 0, y: 149}
+      m_SelectedIDs: 40260000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 72fbffff52370000e83700006438000042390000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -622,19 +622,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/WorkSpaces/Yamamoto/Scene
+    - Assets/WorkSpaces/Yamamoto/Script
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/WorkSpaces/Yamamoto/Scene
+  - Assets/WorkSpaces/Yamamoto/Script
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\\u4F73\u6B66\u6597\\Documents\\BouzuMekuri\\BouzuMekuri"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 40}
-    m_SelectedIDs: 90310000
-    m_LastClickedID: 12688
+    m_SelectedIDs: d62f0000
+    m_LastClickedID: 12246
     m_ExpandedIDs: 00000000bc2d00003a2e00007a2e0000c42f00009a30000074310000f03300009c34000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -663,7 +663,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000bc2d00007a2e0000c42f00009a30000074310000f03300009c340000
+    m_ExpandedIDs: 00000000bc2d00003a2e00007a2e0000c42f00009a30000074310000f03300009c340000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -715,7 +715,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 248}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 176
@@ -900,4 +900,4 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 295
+  m_LastVerticalScrollValue: 431
