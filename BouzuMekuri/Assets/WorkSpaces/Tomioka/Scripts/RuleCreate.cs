@@ -14,10 +14,11 @@ public class RuleCreate : SingletonMonoBehaviour<RuleCreate>
 
     //スキルの対象枚数
     [Header("対象枚数(休み・逆回り・効果無効のみ例外)")]
+    [Header("※引くの場合0で1枚引く")]
     public List<int> cardNum;
 
     //スキルの対象人数
-    [Header("対象人数(逆回り・効果無効のみ例外)")]
+    [Header("対象人数(引く・逆回り・効果無効のみ例外)")]
     public List<int> playerNum;
 
     [Header("自作ルールを持っているか")]
