@@ -105,49 +105,9 @@ public class PlayerSkillManager : MonoBehaviour
             }
         }else
         {
-            if (MasterList.instance.list[cardAnime.skillPlayer].Count == 1)
-            {
-                text.text = "あなたが1位のため何も起こらない";
-                Debug.Log("1位の人が１枚のため何も起こらない");
-            }
-            else if (MasterList.instance.list[0].Count +
-            MasterList.instance.list[1].Count +
-            MasterList.instance.list[2].Count +
-            MasterList.instance.list[3].Count == 0)
-            {
-                EPanel();
-                text.text = "あなたが1位のため何も起こらない";
-                Debug.Log("スキルを使った人が1位なのだ、へケ");
-            }
-            else
-            {
+            EPanel();
+            text.text = "あなたが1位のため何も起こらない";
 
-                int a = MasterList.instance.list[touch.touchPlayer].Count;
-                //スキルを使った人の手札を捨て札に加算
-                for (int t = 0; t < a; t++)
-                {
-                    int y = MasterList.instance.list[touch.touchPlayer][0];
-                    deck.DiscardCount.Add(y);
-                    MasterList.instance.list[touch.touchPlayer].RemoveAt(0);
-                }
-                MasterList.instance.list[touch.touchPlayer].Clear();//手札を初期化
-
-
-                int g = MasterList.instance.list[b].Count;
-                //一番っ持っている人の手札を捨て札に加算
-                for (int m = 0; m < g / 2; m++)
-                {
-                    int z = MasterList.instance.list[b][0];
-                    deck.DiscardCount.Add(z);
-                    MasterList.instance.list[b].RemoveAt(0);
-                }
-
-                Debug.Log((touch.touchPlayer + 1) + "がスキルを使い全部捨てた");
-                Debug.Log("Player" + (cardAnime.skillPlayer + 1) + "がスキル対象で半分捨てた");
-
-                draw.TextChange();
-                cardAnime.AnimePlayerSkill2();
-            }
         }
     }
 
