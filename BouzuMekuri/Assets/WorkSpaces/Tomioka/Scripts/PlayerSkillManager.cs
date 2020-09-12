@@ -61,7 +61,18 @@ public class PlayerSkillManager : MonoBehaviour
 
             if (MasterList.instance.list[cardAnime.skillPlayer].Count == 1)
             {
+                EPanel();
+                text.text = "1位の人が１枚のため何も起こらない";
                 Debug.Log("1位の人が１枚のため何も起こらない");
+            }
+            else if(MasterList.instance.list[0].Count +
+            MasterList.instance.list[1].Count +
+            MasterList.instance.list[2].Count +
+            MasterList.instance.list[3].Count == 0)
+            {
+                EPanel();
+                text.text = "あなたが1位のため何も起こらない";
+                Debug.Log("スキルを使った人が1位なのだ、へケ");
             }
             else
             {
@@ -92,12 +103,11 @@ public class PlayerSkillManager : MonoBehaviour
                 draw.TextChange();
                 cardAnime.AnimePlayerSkill2();
             }
-        }
-        else
+        }else
         {
             EPanel();
-            text.text= "あなたが1位なので効果がありません";
-            Debug.Log("スキルを使った人が1位なのだ、へケ");
+            text.text = "あなたが1位のため何も起こらない";
+
         }
     }
 
@@ -122,7 +132,10 @@ public class PlayerSkillManager : MonoBehaviour
         Debug.Log("最小枚数は" + v);
 
 
-        if(v == 0)
+        if(MasterList.instance.list[0].Count+
+            MasterList.instance.list[1].Count+
+            MasterList.instance.list[2].Count+
+            MasterList.instance.list[3].Count==0)
         {
             EPanel();
         }
