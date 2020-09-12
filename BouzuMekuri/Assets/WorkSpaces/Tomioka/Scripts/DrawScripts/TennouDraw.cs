@@ -38,23 +38,19 @@ public class TennouDraw : SingletonMonoBehaviour<TennouDraw>
                         MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
                         deck.cards1.RemoveAt(0);
                     }
-                    cardAnime.animeFunctionNum = 1;
-                    cardAnime.AnimeSkillCutIn();
-                    //cardAnime.AnimeOneDraw();
                 }
                 else
                 {
                     //山札から2枚引く
                     for (int i = 0; i < 1; i++)
                     {
-                        deck.drawcard = deck.cards2[0];//いらないかも
+                        //deck.drawcard = deck.cards2[0];//いらないかも
                         MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加;
                         deck.cards2.RemoveAt(0);
                     }
-                    cardAnime.animeFunctionNum = 1;
-                    cardAnime.AnimeSkillCutIn();
-                    //cardAnime.AnimeOneDraw();
                 }
+                cardAnime.animeFunctionNum = 1;
+                cardAnime.AnimeSkillCutIn();
                 Debug.Log("天皇のスキル1発動");
                 break;
 

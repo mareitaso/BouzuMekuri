@@ -33,13 +33,16 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
 
             //全員から4枚もらえる
             case 1:
+
+                int drawNum = 5 + draw.effect1Num;
+
                 for (int i = deck.Count; i < 4 + deck.Count + 1; i++)
                 {
                     int k = i % 4;
                     if (k != deck.Count)
                     {
                         //N枚以上もってたら
-                        if (MasterList.instance.list[k].Count > 4)
+                        if (MasterList.instance.list[k].Count > drawNum)
                         {
                             Debug.Log(i + "は" + MasterList.instance.list[k].Count);
                             for (int t = 0; t < 4; t++)
@@ -49,7 +52,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                                 MasterList.instance.list[k].RemoveAt(0);//k番目の人の札の初期化
                                 Debug.Log(i % 4 + "は" + t + "回");
                             }
-                            Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に4枚渡す");
+                            Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に" + drawNum + "枚渡す");
                         }
                         //N枚以下なら
                         else
@@ -61,7 +64,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                                 MasterList.instance.list[deck.Count].Add(y);//count番目の人がk番目の一番上のカードをもらう
                                 MasterList.instance.list[k].RemoveAt(0);//k番目の人の札の初期化
                             }
-                            Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に4枚渡せないから全部渡す");
+                            Debug.Log(k + 1 + "番の人が" + (deck.Count + 1) + "番目の人に"+ drawNum + "枚渡せないから全部渡す");
                         }
                     }
                 }

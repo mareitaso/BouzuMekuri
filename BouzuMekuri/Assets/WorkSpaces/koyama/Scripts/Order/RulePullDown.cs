@@ -226,7 +226,7 @@ public class RulePullDown : MonoBehaviour
         if(SemimaruDrop.value == 0)
         {
             //坊主として扱う
-            RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 4;
+            RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 0;
         }
         //SemimaruDropのValueが0のとき
         else if (SemimaruDrop.value == 1)
@@ -250,6 +250,12 @@ public class RulePullDown : MonoBehaviour
         else if (SemimaruDrop.value == 4)
         {
             //山札の半分を捨てる
+            RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 4;
+        }
+        //SemimaruDropのValueが5のとき
+        else if (SemimaruDrop.value == 5)
+        {
+            //効果無効
             RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 5;
         }
     }

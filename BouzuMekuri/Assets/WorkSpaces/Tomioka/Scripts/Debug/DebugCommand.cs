@@ -36,6 +36,7 @@ public class DebugCommand : MonoBehaviour
 
         PlayerSkillChange();
         TonoOnly();
+        FieldSkill3Debug();
     }
 
     private void PlayerSkillChange()
@@ -148,6 +149,34 @@ public class DebugCommand : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             deck.cards1[0] = 30;
+        }
+    }
+
+    private void FieldSkill3Debug()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            int c1 = deck.cards1.Count;
+            for (int i = 4; i < c1; i++) 
+            {
+                deck.cards1.RemoveAt(0);
+            }
+            for (int i = 0; i < deck.cards1.Count; i++)
+            {
+                deck.cards1[i] = Random.Range(22, 30);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            int c2 = deck.cards2.Count;
+            for (int i = 4; i < c2; i++)
+            {
+                deck.cards2.RemoveAt(0);
+            }
+            for (int i = 0; i < deck.cards2.Count; i++)
+            {
+                deck.cards2[i] = Random.Range(22, 30);
+            }
         }
     }
 }

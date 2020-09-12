@@ -16,6 +16,7 @@ public class RuleManager : SingletonMonoBehaviour<RuleManager>
     [System.SerializableAttribute]
     public class ValueList
     {
+        [Header ("カードの効果")]
         public List<int> RuleEfect = new List<int>();
 
         public ValueList(List<int> list)
@@ -27,6 +28,7 @@ public class RuleManager : SingletonMonoBehaviour<RuleManager>
     [System.SerializableAttribute]
     public class ValueList2
     {
+        [Header("カードの種類")]
         public List<ValueList> RuleList = new List<ValueList>();
 
         public ValueList2(List<ValueList> list)
@@ -37,6 +39,7 @@ public class RuleManager : SingletonMonoBehaviour<RuleManager>
 
     //Inspectorに表示される
     [SerializeField]
+    [Header("プレイヤー")]
     public List<ValueList2> PlayerList = new List<ValueList2>();
     //public List<List<int>> lists = new List<List<int>>();
     //ルールの列挙
