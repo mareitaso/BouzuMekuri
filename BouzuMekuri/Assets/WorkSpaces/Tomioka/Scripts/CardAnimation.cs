@@ -776,6 +776,7 @@ public class CardAnimation : MonoBehaviour
                                 player[i].sprite = Resources.Load<Sprite>("Images/Null");
                             }
                         }
+                        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
                         animeEnd = true;
                         draw.FieldEffectSwitch();
                     });
@@ -962,156 +963,11 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
-    private void AnimeCardNMoveNPlayer()
-    {
-        YamaLoss();
-        animeEnd = false;
-        //movePlace = deck.Count;
-
-        //山札1から各プレイヤーに移動
-        if (draw.drowYama1 == true)
-        {
-            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
-            {
-                //引いたカードのspriteにする
-                Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
-                {
-                    //次のプレイヤーからカードをもらう
-                    if (RuleCreate.instance.playerNum[movePlace] == 1)
-                    {
-                        if (draw.drowYama1 == true)
-                        {
-                            skillDamagePlayer = movePlace + 1;
-                            if (MasterList.instance.list[skillDamagePlayer].Count == 0)
-                            {
-                                player[skillDamagePlayer].sprite = Resources.Load<Sprite>("Images/Null");
-                            }
-                            else
-                            {
-                                player[skillDamagePlayer].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                                MasterList.instance.list[skillDamagePlayer][MasterList.instance.list[skillDamagePlayer].Count - 1]);
-                            }
-                        }
-                        else
-                        {
-                            skillDamagePlayer = movePlace - 1;
-                            if (skillDamagePlayer < 0)
-                            {
-                                skillDamagePlayer = 4;
-                            }
-                            if (MasterList.instance.list[skillDamagePlayer].Count == 0)
-                            {
-                                player[skillDamagePlayer].sprite = Resources.Load<Sprite>("Images/Null");
-                            }
-                            else
-                            {
-                                player[skillDamagePlayer].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                                MasterList.instance.list[skillDamagePlayer][MasterList.instance.list[skillDamagePlayer].Count - 1]);
-                            }
-                        }
-                    }
-                    //次とその次のプレイヤーからカードをもらう
-                    else
-                    {
-                        if (draw.drowYama1 == true)
-                        {
-
-                        }
-                        else
-                        {
-
-                        }
-
-                    }
-                    //DoToweenで移動
-                    //for (int i = 0; i < 4; i++)
-                    //{
-                    //    if (i != movePlace)
-                    //    {
-                    //        playerFake[i].sprite = player[i].sprite;
-                    //        if (MasterList.instance.list[i].Count == 0)
-                    //        {
-                    //            player[i].sprite = Resources.Load<Sprite>("Images/Null");
-                    //        }
-                    //        else
-                    //        {
-                    //            player[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                    //            MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
-                    //        }
-                    //        playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
-                    //    }
-                    //}
-                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
-                    {
-                        //コールバックで移動後の処理
-                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                        //偽山札を作り移動アニメーションを見せる
-                        Yama1Null();
-                        //アニメーション後元の場所に戻す
-                        Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
-                        //元の位置に戻す
-                        for (int i = 0; i < 4; i++)
-                        {
-                            playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
-                            playerFake[i].transform.position = player[i].transform.position;
-                        }
-                        animeEnd = true;
-                        draw.FieldEffectSwitch();
-                    });
-                });
-            });
-        }
-        else
-        //山札2から各プレイヤーに移動
-        {
-            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
-            {
-                //引いたカードのspriteにする
-                Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
-                {
-                    //DoToweenで移動
-                    //for (int i = 0; i < 4; i++)
-                    //{
-                    //    if (i != movePlace)
-                    //    {
-                    //        playerFake[i].sprite = player[i].sprite;
-                    //        if (MasterList.instance.list[i].Count == 0)
-                    //        {
-                    //            player[i].sprite = Resources.Load<Sprite>("Images/Null");
-                    //        }
-                    //        else
-                    //        {
-                    //            playerFake[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                    //            MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
-                    //        }
-                    //        playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
-                    //    }
-                    //}
-                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
-                    {
-                        //コールバックで移動後の処理
-                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
-                        //偽山札を作り移動アニメーションを見せる
-                        Yama2Null();
-                        //アニメーション後元の場所に戻す
-                        Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
-                        //元の位置に戻す
-                        for (int i = 0; i < 4; i++)
-                        {
-                            playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
-                            playerFake[i].transform.position = player[i].transform.position;
-                        }
-                        animeEnd = true;
-                        draw.FieldEffectSwitch();
-                    });
-                });
-            });
-        }
-    }
-
-    private void AnimeCardNMoveNPlus2Player()
+    /// <summary>
+    ///自作ルールで他の人からカードをもらう
+    ///(人数は対応したが逆回りのときでも左隣からもらっている)
+    /// </summary>
+    private void MyRuleGetCard()
     {
         YamaLoss();
         animeEnd = false;
@@ -1127,21 +983,22 @@ public class CardAnimation : MonoBehaviour
                 Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
                     //DoToweenで移動
-                    for (int i = movePlace + 1; i < (3 + movePlace); i++)
+                    for (int i = 0; i < 4; i++)
                     {
-                        int j = i % 4;
-
-                        playerFake[j].sprite = player[j].sprite;
-                        if (MasterList.instance.list[j].Count == 0)
+                        if (i != movePlace && MyRule.instance.cardN[i] != 0)
                         {
-                            player[j].sprite = Resources.Load<Sprite>("Images/Null");
+                            playerFake[i].sprite = player[i].sprite;
+                            if (MasterList.instance.list[i].Count == 0)
+                            {
+                                player[i].sprite = Resources.Load<Sprite>("Images/Null");
+                            }
+                            else
+                            {
+                                playerFake[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                                MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
+                            }
+                            playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
                         }
-                        else
-                        {
-                            player[j].sprite = Resources.Load<Sprite>("Images/MainCards/" +
-                            MasterList.instance.list[j][MasterList.instance.list[j].Count - 1]);
-                        }
-                        playerFake[j].transform.DOMove(Place[movePlace].transform.position, animeTime);
                     }
                     Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
                     {
@@ -1152,11 +1009,10 @@ public class CardAnimation : MonoBehaviour
                         //アニメーション後元の場所に戻す
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
                         //元の位置に戻す
-                        for (int i = movePlace + 1; i < (2 + movePlace); i++)
+                        for (int i = 0; i < 4; i++)
                         {
-                            int j = i % 4;
-                            playerFake[j].sprite = Resources.Load<Sprite>("Images/Null");
-                            playerFake[j].transform.position = player[j].transform.position;
+                            playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
+                            playerFake[i].transform.position = player[i].transform.position;
                         }
                         animeEnd = true;
                         draw.FieldEffectSwitch();
@@ -1176,7 +1032,7 @@ public class CardAnimation : MonoBehaviour
                     //DoToweenで移動
                     for (int i = 0; i < 4; i++)
                     {
-                        if (i != movePlace)
+                        if (i != movePlace && MyRule.instance.cardN[i] != 0)
                         {
                             playerFake[i].sprite = player[i].sprite;
                             if (MasterList.instance.list[i].Count == 0)
@@ -1205,6 +1061,114 @@ public class CardAnimation : MonoBehaviour
                             playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
                             playerFake[i].transform.position = player[i].transform.position;
                         }
+                        animeEnd = true;
+                        draw.FieldEffectSwitch();
+                    });
+                });
+            });
+        }
+    }
+
+    /// <summary>
+    ///自作ルールで他の人のカードを捨てさせる
+    ///(人数は対応したが逆回りのときでも左隣からもらっている)
+    /// </summary>
+    private void MyRuleDisCard()
+    {
+        YamaLoss();
+        animeEnd = false;
+        //movePlace = deck.Count;
+
+        //山札1から各プレイヤーに移動
+        if (draw.drowYama1 == true)
+        {
+            Yamahuda1Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
+            {
+                //引いたカードのspriteにする
+                Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
+                {
+                    //DoToweenで移動
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (i != movePlace && MyRule.instance.cardN[i] != 0)
+                        {
+                            playerFake[i].sprite = player[i].sprite;
+                            if (MasterList.instance.list[i].Count == 0)
+                            {
+                                player[i].sprite = Resources.Load<Sprite>("Images/Null");
+                            }
+                            else
+                            {
+                                playerFake[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                                MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
+                            }
+                            playerFake[i].transform.DOMove(Sutehuda.transform.position, animeTime);
+                        }
+                    }
+                    Yamahuda1Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
+                    {
+                        //コールバックで移動後の処理
+                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        //偽山札を作り移動アニメーションを見せる
+                        Yama1Null();
+                        //アニメーション後元の場所に戻す
+                        Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
+                        //元の位置に戻す
+                        for (int i = 0; i < 4; i++)
+                        {
+                            playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
+                            playerFake[i].transform.position = player[i].transform.position;
+                        }
+                        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
+                        animeEnd = true;
+                        draw.FieldEffectSwitch();
+                    });
+                });
+            });
+        }
+        else
+        //山札2から各プレイヤーに移動
+        {
+            Yamahuda2Fake.transform.DORotate(new Vector3(0, 90, 0), rotateTime).OnComplete(() =>
+            {
+                //引いたカードのspriteにする
+                Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
+                {
+                    //DoToweenで移動
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (i != movePlace && MyRule.instance.cardN[i] != 0)
+                        {
+                            playerFake[i].sprite = player[i].sprite;
+                            if (MasterList.instance.list[i].Count == 0)
+                            {
+                                player[i].sprite = Resources.Load<Sprite>("Images/Null");
+                            }
+                            else
+                            {
+                                playerFake[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
+                                MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
+                            }
+                            playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
+                        }
+                    }
+                    Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
+                    {
+                        //コールバックで移動後の処理
+                        player[movePlace].sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
+                        //偽山札を作り移動アニメーションを見せる
+                        Yama2Null();
+                        //アニメーション後元の場所に戻す
+                        Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
+                        //元の位置に戻す
+                        for (int i = 0; i < 4; i++)
+                        {
+                            playerFake[i].sprite = Resources.Load<Sprite>("Images/Null");
+                            playerFake[i].transform.position = player[i].transform.position;
+                        }
+                        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
                         animeEnd = true;
                         draw.FieldEffectSwitch();
                     });
@@ -1590,14 +1554,7 @@ public class CardAnimation : MonoBehaviour
 
             case 13:
                 //自作ルール(他の人からカードをもらう)
-                if (RuleCreate.instance.playerNum[deck.Count] == 1 || RuleCreate.instance.playerNum[deck.Count] == 2)
-                {
-
-                }
-                else if (RuleCreate.instance.playerNum[deck.Count] == 3)
-                {
-                    AnimeCardNMove();
-                }
+                MyRuleGetCard();
                 break;
 
             case 14:
@@ -1607,7 +1564,7 @@ public class CardAnimation : MonoBehaviour
 
             case 15:
                 //自作ルール(他のプレイヤーの手札を捨てさせる)
-
+                MyRuleDisCard();
                 break;
 
             case 16:

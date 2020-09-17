@@ -3991,6 +3991,7 @@ MonoBehaviour:
   deck: {fileID: 972917169}
   draw: {fileID: 972917170}
   cardAnime: {fileID: 1818914147}
+  cardN: 00000000000000000000000000000000
 --- !u!1 &1007456600
 GameObject:
   m_ObjectHideFlags: 0
