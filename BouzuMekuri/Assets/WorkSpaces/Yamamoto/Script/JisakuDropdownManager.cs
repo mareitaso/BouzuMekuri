@@ -143,4 +143,9 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     {
         dropdown1.value = value;
     }
+    public void OnClick()
+    {
+        dropdown1.value = 0;
+        koukaname.text = "";
+    }
 }

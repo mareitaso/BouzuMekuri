@@ -120,6 +120,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2531572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2531574}
+  - component: {fileID: 2531573}
+  m_Layer: 0
+  m_Name: JisakuDropdownManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2531573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73cbab9a5827d304c970e532d2c3f074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel1: {fileID: 1398674338}
+  Panel2: {fileID: 57829135}
+  Panel3: {fileID: 945675465}
+  Panel4: {fileID: 2025841730}
+  Panel5: {fileID: 524283434}
+  Panel6: {fileID: 415045902}
+  Panel7: {fileID: 855920149}
+  dropdown1: {fileID: 961050335}
+  text1: {fileID: 861044417}
+  text2: {fileID: 1745850245}
+  koukaname: {fileID: 600638806}
+--- !u!4 &2531574
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24970031, y: -0.2889843, z: -1.0253906}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8098590
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,7 +627,7 @@ RectTransform:
   - {fileID: 116939846}
   - {fileID: 589248460}
   m_Father: {fileID: 187986508}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -637,8 +691,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CardNumber
+      - m_Target: {fileID: 974197331}
+        m_MethodName: PlayerNumber
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2619,14 +2673,14 @@ RectTransform:
   m_Children:
   - {fileID: 23919357}
   - {fileID: 961050333}
+  - {fileID: 600895175}
   - {fileID: 1398674339}
   - {fileID: 57829136}
   - {fileID: 945675466}
+  - {fileID: 2025841731}
   - {fileID: 524283435}
-  - {fileID: 600895175}
   - {fileID: 415045903}
   - {fileID: 855920150}
-  - {fileID: 2025841731}
   - {fileID: 1630607064}
   - {fileID: 1644151985}
   - {fileID: 1872043461}
@@ -5093,6 +5147,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &381619388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381619390}
+  - component: {fileID: 381619389}
+  m_Layer: 0
+  m_Name: InName
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &381619389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381619388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c54a6ff2a01bd043823f232670d298d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 1068340623}
+  text1: {fileID: 546904407}
+--- !u!4 &381619390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381619388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.195405, y: 0.51876044, z: -11.983079}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &397409637
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,7 +5426,7 @@ RectTransform:
   - {fileID: 546018164}
   - {fileID: 1403219195}
   m_Father: {fileID: 187986508}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5387,7 +5486,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 974197331}
         m_MethodName: PlayerNumber
         m_Mode: 1
         m_Arguments:
@@ -6569,7 +6668,7 @@ RectTransform:
   - {fileID: 1314584401}
   - {fileID: 154677811}
   m_Father: {fileID: 187986508}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6631,7 +6730,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 974197331}
         m_MethodName: PlayerNumber
         m_Mode: 1
         m_Arguments:
@@ -7171,7 +7270,6 @@ GameObject:
   - component: {fileID: 546904409}
   - component: {fileID: 546904408}
   - component: {fileID: 546904407}
-  - component: {fileID: 546904410}
   m_Layer: 5
   m_Name: JisakuNameText
   m_TagString: Untagged
@@ -7238,21 +7336,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 123}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &546904410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546904406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d6e931c686d7040b4b536d4f70123b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text1: {fileID: 546904407}
-  koukaname: {fileID: 0}
-  KoukaName: {fileID: 0}
 --- !u!1 &550692243
 GameObject:
   m_ObjectHideFlags: 0
@@ -7762,7 +7845,6 @@ GameObject:
   - component: {fileID: 600638804}
   - component: {fileID: 600638807}
   - component: {fileID: 600638806}
-  - component: {fileID: 600638805}
   m_Layer: 5
   m_Name: JsukillText
   m_TagString: Untagged
@@ -7789,21 +7871,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 123}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &600638805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600638803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1d6e931c686d7040b4b536d4f70123b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text1: {fileID: 0}
-  koukaname: {fileID: 600638806}
-  KoukaName: {fileID: 1210931682}
 --- !u!114 &600638806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7878,7 +7945,7 @@ RectTransform:
   - {fileID: 223815495}
   - {fileID: 258717252}
   m_Father: {fileID: 187986508}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8224,7 +8291,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 546904410}
+      - m_Target: {fileID: 2531573}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 381619389}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -10526,7 +10604,7 @@ RectTransform:
   - {fileID: 1713137631}
   - {fileID: 194652394}
   m_Father: {fileID: 187986508}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10592,7 +10670,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 974197331}
         m_MethodName: PlayerNumber
         m_Mode: 1
         m_Arguments:
@@ -11096,7 +11174,7 @@ RectTransform:
   - {fileID: 136286466}
   - {fileID: 105216302}
   m_Father: {fileID: 187986508}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11166,8 +11244,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CardNumber
+      - m_Target: {fileID: 974197331}
+        m_MethodName: PlayerNumber
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11535,7 +11613,6 @@ GameObject:
   - component: {fileID: 961050337}
   - component: {fileID: 961050336}
   - component: {fileID: 961050335}
-  - component: {fileID: 961050334}
   m_Layer: 5
   m_Name: Kouka
   m_TagString: Untagged
@@ -11565,20 +11642,6 @@ RectTransform:
   m_AnchoredPosition: {x: 649.99994, y: 180}
   m_SizeDelta: {x: 450, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &961050334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961050332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c54a6ff2a01bd043823f232670d298d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
-  dropdown: {fileID: 961050335}
 --- !u!114 &961050335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11644,7 +11707,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2531573}
         m_MethodName: Drop1
         m_Mode: 1
         m_Arguments:
@@ -11692,6 +11755,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961050332}
   m_CullTransparentMesh: 0
+--- !u!1 &974197330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 974197332}
+  - component: {fileID: 974197331}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &974197331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974197330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ffc0245837b5e40888bed11025f4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardType: {fileID: 600895176}
+  CardEffect: {fileID: 961050335}
+  CardNum: {fileID: 1398674340}
+  PlayerNum: {fileID: 2025841732}
+--- !u!4 &974197332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974197330}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5385645, y: -0.22431302, z: 52.447815}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &980537498
 GameObject:
   m_ObjectHideFlags: 0
@@ -12563,18 +12673,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1192325877}
-        m_MethodName: SaveText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 381619389}
         m_MethodName: InputText
         m_Mode: 1
         m_Arguments:
@@ -12588,7 +12687,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 381619389}
         m_MethodName: InputText
         m_Mode: 1
         m_Arguments:
@@ -13515,7 +13614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1068340623}
-  dropdown: {fileID: 0}
+  text1: {fileID: 0}
 --- !u!114 &1192325878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15505,7 +15604,7 @@ RectTransform:
   - {fileID: 8098591}
   - {fileID: 1055504379}
   m_Father: {fileID: 187986508}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15573,8 +15672,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CardNumber
+      - m_Target: {fileID: 974197331}
+        m_MethodName: PlayerNumber
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21892,7 +21991,7 @@ RectTransform:
   - {fileID: 1755833669}
   - {fileID: 622386672}
   m_Father: {fileID: 187986508}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21956,7 +22055,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 974197331}
         m_MethodName: PlayerNumber
         m_Mode: 1
         m_Arguments:

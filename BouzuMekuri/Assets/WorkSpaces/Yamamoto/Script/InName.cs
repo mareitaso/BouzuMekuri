@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class InName : MonoBehaviour
 {
-    [SerializeField] InputField inputField;//自作ルールの名前
-    [SerializeField] Text text1;
+    public InputField inputField;//自作ルールの名前
+    public Text text1;
     void Start()
     {
         inputField = inputField.GetComponent<InputField>();
@@ -16,6 +16,11 @@ public class InName : MonoBehaviour
     public void InputText()
     {
         text1.text = inputField.text;
+        Debug.Log("入った");
     }
-
+    public void OnClick()
+    {
+        inputField.text = "";
+        text1.text = "";
+    }
 }
