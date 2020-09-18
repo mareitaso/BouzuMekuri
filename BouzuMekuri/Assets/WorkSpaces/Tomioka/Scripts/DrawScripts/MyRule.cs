@@ -23,51 +23,15 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
 
     private int count;
 
-
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    somePlayer = 1;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    somePlayer = 2;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha3))
-        //{
-        //    somePlayer = 3;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Keypad1))
-        //{
-        //    moveNCards = 1;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Keypad2))
-        //{
-        //    moveNCards = 2;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Keypad3))
-        //{
-        //    moveNCards = 3;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Keypad4))
-        //{
-        //    moveNCards = 4;
-        //}
-        //if (Input.GetKeyDown(KeyCode.Keypad5))
-        //{
-        //    moveNCards = 5;
-        //}
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    deck.cards1[0] = 100;
-        //    deck.cards2[0] = 100;
-        //}
-    }
+    //カードをもらうか捨てるの時のみ使用
+    public List<int> cardN;
 
     public void CardTypeCheck()
     {
         count = deck.Count;
+
+        //card123を初期化
+        CardNull();
 
         //天皇を引く
         if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou && RuleCreate.instance.cardType[count] == 1)
@@ -115,6 +79,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 moveNCards = RuleCreate.instance.cardNum[count];
                 somePlayer = RuleCreate.instance.playerNum[count];
                 SomeoneToMe();
+                cardAnime.animeFunctionNum = 13;
+                cardAnime.AnimeSkillCutIn();
                 break;
 
             case 2:
@@ -122,6 +88,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 moveNCards = RuleCreate.instance.cardNum[count];
                 somePlayer = RuleCreate.instance.playerNum[count];
                 DrawnNCards();
+                cardAnime.animeFunctionNum = 14;
+                cardAnime.AnimeSkillCutIn();
                 break;
 
             case 3:
@@ -129,6 +97,8 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 moveNCards = RuleCreate.instance.cardNum[count];
                 somePlayer = RuleCreate.instance.playerNum[count];
                 DisNCard();
+                cardAnime.animeFunctionNum = 15;
+                cardAnime.AnimeSkillCutIn();
                 break;
 
             case 4:
@@ -178,11 +148,23 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                         draw.playerBreak[i] = true;
                     }
                 }
+
+                cardAnime.animeFunctionNum = 16;
+                cardAnime.AnimeSkillCutIn();
                 break;
 
             case 5:
                 //逆回り
                 BukanDraw.instance.clockWise = !BukanDraw.instance.clockWise;
+                cardAnime.animeFunctionNum = 17;
+                cardAnime.AnimeSkillCutIn();
+                break;
+
+            case 6:
+                //効果無効
+                draw.ruleBreak = true;
+                cardAnime.animeFunctionNum = 18;
+                cardAnime.AnimeSkillCutIn();
                 break;
         }
     }
@@ -201,6 +183,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 //N枚以上もってたら
                 if (MasterList.instance.list[k].Count > moveNCards)
                 {
+                    cardN[k] = moveNCards;
                     for (int t = 0; t < moveNCards; t++)
                     {
                         int y = MasterList.instance.list[k][0];//k番目の人の一番上の札を格納
@@ -212,6 +195,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 //N枚以下なら
                 else
                 {
+                    cardN[k] = MasterList.instance.list[k].Count;
                     for (int t = 0; t < MasterList.instance.list[k].Count; t++)
                     {
                         int y = MasterList.instance.list[k][0];//k番目の人の一番上の札を格納
@@ -220,6 +204,10 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                     }
                     Debug.Log(k + 1 + "番の人が" + (count + 1) + "番目の人に全部渡す");
                 }
+            }
+            else
+            {
+                cardN[k] = 0;
             }
         }
 
@@ -238,6 +226,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 //1枚でも持っていたら
                 if (MasterList.instance.list[k].Count > moveNCards)
                 {
+                    cardN[k] = moveNCards;
                     for (int f = 0; f < moveNCards; f++)
                     {
                         int v = MasterList.instance.list[k][0];
@@ -250,6 +239,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                 }
                 else
                 {
+                    cardN[k] = moveNCards;
                     for (int f = 0; f < MasterList.instance.list[k].Count; f++)
                     {
                         int v = MasterList.instance.list[k][0];
@@ -261,12 +251,17 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                     Debug.Log(k + 1 + "番の人が全部捨てる");
                 }
             }
+            else
+            {
+                cardN[k] = 0;
+            }
         }
     }
 
     //n枚山札から引く
     public void DrawnNCards()
     {
+        draw.drawAgain = true;
         int j = moveNCards;
 
         if (draw.drowYama1 == true)
@@ -274,7 +269,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
             //山札からj枚引く
             for (int i = 0; i < j; i++)
             {
-                deck.drawcard = deck.cards1[0];//いらないかも
+                //deck.drawcard = deck.cards1[0];//いらないかも
                 MasterList.instance.list[count].Add(deck.drawcard);//手札に追加
                 deck.cards1.RemoveAt(0);
             }
@@ -284,13 +279,18 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
             //山札から2枚引く
             for (int i = 0; i < j; i++)
             {
-                deck.drawcard = deck.cards2[0];//いらないかも
+                //deck.drawcard = deck.cards2[0];//いらないかも
                 MasterList.instance.list[count].Add(deck.drawcard);//手札に追加;
                 deck.cards2.RemoveAt(0);
             }
         }
     }
 
-
-
+    private void CardNull()
+    {
+        cardN[0] = 0;
+        cardN[1] = 0;
+        cardN[2] = 0;
+        cardN[3] = 0;
+    }
 }

@@ -16,6 +16,15 @@ public class TitleEffect : MonoBehaviour
     {
         SoundManager.instance.BgmApply(Bgm.Title);
     }
+
+    private void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            SceneLoad();
+        }
+    }
+
     public void SceneLoad()
     {
         SoundManager.instance.FadeOutBgm(1f);

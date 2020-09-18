@@ -23,7 +23,6 @@ public class DoropdownManager : MonoBehaviour
     private GameObject text1;
     [SerializeField]
     private GameObject text2;
-
     // Use this for initialization
     public void Drop1()
     {
@@ -32,6 +31,7 @@ public class DoropdownManager : MonoBehaviour
             Panel1.SetActive(false);
             Panel2.SetActive(false);
             text1.SetActive(false);
+            RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[0].RuleEfect[0] = 0;
             Debug.Log("なし");
             SetValue(0);
         }
@@ -71,6 +71,7 @@ public class DoropdownManager : MonoBehaviour
             Panel3.SetActive(false);
             Panel4.SetActive(false);
             text2.SetActive(false);
+            RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[1].RuleEfect[0] = 0;
             Debug.Log("なし");
             SetValue2(0);
         }

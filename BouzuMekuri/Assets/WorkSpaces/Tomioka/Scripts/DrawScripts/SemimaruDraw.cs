@@ -80,7 +80,21 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
     //1回休み
     public void SemimaruSkill2()
     {
-        draw.playerBreak[deck.Count] = true;
+        if (BukanDraw.instance.clockWise == true)
+        {
+            int i = deck.Count + 1;
+            i %= 4;
+            draw.playerBreak[i] = true;
+        }
+        else
+        {
+            int i = deck.Count - 1;
+            if (i < 0)
+            {
+                i = 3;
+            }
+            draw.playerBreak[i] = true;
+        }
     }
 
     //他のプレイヤーの全ての手札を自分の手札に加える
@@ -187,15 +201,12 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
                 deck.DiscardCount.Add(g);
                 deck.cards2.RemoveAt(0);//0番目を削除
             }
-
         }
-        cardAnime.animeFunctionNum = 11;
-        cardAnime.AnimeSkillCutIn();
     }
 
     //次に発動するスキルを無効化する
     public void SemimaruSkill6()
     {
-
+        draw.ruleBreak = true;
     }
 }

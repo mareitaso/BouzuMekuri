@@ -148,7 +148,6 @@ public class RulePullDown : MonoBehaviour
         }
     }
     */
-
     public void Tennou()
     {
         if(Skilldown1.value == 0)
@@ -227,7 +226,7 @@ public class RulePullDown : MonoBehaviour
         if(SemimaruDrop.value == 0)
         {
             //坊主として扱う
-            RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 4;
+            RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 0;
         }
         //SemimaruDropのValueが0のとき
         else if (SemimaruDrop.value == 1)
@@ -251,6 +250,12 @@ public class RulePullDown : MonoBehaviour
         else if (SemimaruDrop.value == 4)
         {
             //山札の半分を捨てる
+            RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 4;
+        }
+        //SemimaruDropのValueが5のとき
+        else if (SemimaruDrop.value == 5)
+        {
+            //効果無効
             RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 5;
         }
     }
@@ -267,7 +272,8 @@ public class RulePullDown : MonoBehaviour
     public void Update()
     {
         if ((Skilldown1.value == 0&&Skilldown2.value ==0) &&
-            (Skilldown3.value == 0&&Skilldown4.value ==0))
+            (Skilldown3.value == 0&&Skilldown4.value ==0)||
+            dropdown1.value ==0&&dropdown2.value ==0)
         {
             //確認ボタンが押せない
             //s.gameObject.SetActive(false);

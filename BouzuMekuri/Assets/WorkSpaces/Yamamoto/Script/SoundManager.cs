@@ -16,6 +16,7 @@ public enum Se
     Choice,
     cardShuffle,
     cardSkill,
+    semimaruSkill,
     //SE3,//手札を捨てる 
     //SE4,//スキル発動
     //SE5,//試合終了

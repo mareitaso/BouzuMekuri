@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSkillManager : MonoBehaviour
 {
@@ -13,8 +14,18 @@ public class PlayerSkillManager : MonoBehaviour
     [SerializeField]
     private CardAnimation cardAnime;
 
+    [SerializeField]
+    private GameObject Panel;
+
+    [SerializeField]
+    private Text text;
+
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Panel.SetActive(false);
+        }
         //if (Input.GetKeyDown(KeyCode.Keypad2))
         //{
         //    PlayerSkill2();
@@ -48,9 +59,20 @@ public class PlayerSkillManager : MonoBehaviour
         {
             cardAnime.skillPlayer = b;
 
-            if (MasterList.instance.list[cardAnime.skillPlayer].Count < 1)
+            if (MasterList.instance.list[cardAnime.skillPlayer].Count == 1)
             {
+                EPanel();
+                text.text = "1位の人が１枚のため何も起こらない";
                 Debug.Log("1位の人が１枚のため何も起こらない");
+            }
+            else if(MasterList.instance.list[0].Count +
+            MasterList.instance.list[1].Count +
+            MasterList.instance.list[2].Count +
+            MasterList.instance.list[3].Count == 0)
+            {
+                EPanel();
+                text.text = "あなたが1位のため何も起こらない";
+                Debug.Log("スキルを使った人が1位なのだ、へケ");
             }
             else
             {
@@ -81,26 +103,11 @@ public class PlayerSkillManager : MonoBehaviour
                 draw.TextChange();
                 cardAnime.AnimePlayerSkill2();
             }
-        }
-        else
+        }else
         {
-            if (touch.touchPlayer == 0)
-            {
-                touch.Player1 = false;
-            }
-            if (touch.touchPlayer == 1)
-            {
-                touch.Player2 = false;
-            }
-            if (touch.touchPlayer == 2)
-            {
-                touch.Player3 = false;
-            }
-            if (touch.touchPlayer == 3)
-            {
-                touch.Player4 = false;
-            }
-            Debug.Log("スキルを使った人が1位なのだ、へケ");
+            EPanel();
+            text.text = "あなたが1位のため何も起こらない";
+
         }
     }
 
@@ -124,28 +131,60 @@ public class PlayerSkillManager : MonoBehaviour
 
         Debug.Log("最小枚数は" + v);
 
-        int h;
-        for (int i = s + 1; i < s + 4; i++)
-        {
-            h = i % 4;
-            Debug.Log(h + "player");
-            int d = MasterList.instance.list[h].Count;
 
-            //スキルを使った人以外の手札を捨て札に加算
-            for (int t = 0; t < (d - v); t++)
-            {
-                int y = MasterList.instance.list[h][0];
-                deck.DiscardCount.Add(y);
-                MasterList.instance.list[h].RemoveAt(0);
-            }
-            if (MasterList.instance.list[h].Count > v)
-            {
-                cardAnime.skillDamagePlayer = h;
-            }
-            Debug.Log("Player" + (h + 1) + "がスキル対象で" + (d - v) + "枚捨てた");
+        if(MasterList.instance.list[0].Count+
+            MasterList.instance.list[1].Count+
+            MasterList.instance.list[2].Count+
+            MasterList.instance.list[3].Count==0)
+        {
+            EPanel();
         }
-        cardAnime.skillPlayer = s;
-        draw.TextChange();
-        cardAnime.AnimePlayerSkill3();
+        else
+        {
+            int h;
+            for (int i = s + 1; i < s + 4; i++)
+            {
+                h = i % 4;
+                Debug.Log(h + "player");
+                int d = MasterList.instance.list[h].Count;
+
+                //スキルを使った人以外の手札を捨て札に加算
+                for (int t = 0; t < (d - v); t++)
+                {
+                    int y = MasterList.instance.list[h][0];
+                    deck.DiscardCount.Add(y);
+                    MasterList.instance.list[h].RemoveAt(0);
+                }
+                if (MasterList.instance.list[h].Count > v)
+                {
+                    cardAnime.skillDamagePlayer = h;
+                }
+                Debug.Log("Player" + (h + 1) + "がスキル対象で" + (d - v) + "枚捨てた");
+            }
+            cardAnime.skillPlayer = s;
+            draw.TextChange();
+            cardAnime.AnimePlayerSkill3();
+        }
+    }
+    public void EPanel()
+    {
+        if (touch.touchPlayer == 0)
+        {
+            touch.Player1 = false;
+        }
+        if (touch.touchPlayer == 1)
+        {
+            touch.Player2 = false;
+        }
+        if (touch.touchPlayer == 2)
+        {
+            touch.Player3 = false;
+        }
+        if (touch.touchPlayer == 3)
+        {
+            touch.Player4 = false;
+        }
+        Panel.SetActive(true);
+        text.text = "全員0枚なので効果がありません";
     }
 }
