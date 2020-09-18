@@ -26,9 +26,8 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     private GameObject text1;
     [SerializeField]
     private GameObject text2;
-
-    public static int str2;
-    int i;
+    [SerializeField]
+    private Text koukaname;
 
     // Use this for initialization
     public void Drop1()
@@ -44,9 +43,9 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(false);
             text1.SetActive(true);
             text2.SetActive(true);
+            koukaname.text = "もらう";
             Debug.Log("もらう");
             SetValue(1);
-            i = 1;
         }
         else if (dropdown1.value == 2)
         {
@@ -59,9 +58,9 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(false);
             text1.SetActive(true);
             text2.SetActive(true);
+            koukaname.text = "引く";
             Debug.Log("引く");
             SetValue(2);
-            i = 2;
         }
         else if (dropdown1.value == 3)
         {
@@ -74,9 +73,9 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(true);
             text1.SetActive(true);
             text2.SetActive(true);
+            koukaname.text = "置く";
             Debug.Log("置く");
             SetValue(3);
-            i = 3;
         }
         else if (dropdown1.value == 4)
         {
@@ -89,9 +88,9 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(true);
+            koukaname.text = "1回休み";
             Debug.Log("1回休み");
             SetValue(4);
-            i = 4;
         }
         else if (dropdown1.value == 5)
         {
@@ -104,9 +103,9 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
+            koukaname.text = "逆回り";
             Debug.Log("逆回り");
             SetValue(5);
-            i = 5;
         }
         else if (dropdown1.value == 6)
         {
@@ -119,9 +118,9 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
+            koukaname.text = "無効";
             Debug.Log("無効");
             SetValue(6);
-            i = 6;
         }
         else
         {
@@ -134,24 +133,14 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
             Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
+            koukaname.text = "";
             Debug.Log("未選択");
             SetValue(0);
-            i = 0;
         }
-        str2 = i;
     }
     
     public void SetValue(int value)
     {
         dropdown1.value = value;
-       // dropdown1.value = str2;
     }
-    public static int GetValue()
-    {
-        return str2;
-    }
-    //public void OnClick()
-    //{
-    //    dropdown1.value = 0;
-    //}
 }

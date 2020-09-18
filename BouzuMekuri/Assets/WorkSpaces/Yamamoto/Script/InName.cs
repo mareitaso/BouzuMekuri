@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class InName : MonoBehaviour
 {
-    public static string str1;
-    //public static int str2;
-    public InputField inputField;//自作ルールの名前
-    public Dropdown dropdown;//効果名
-
-    public void SaveText()
+    [SerializeField] InputField inputField;//自作ルールの名前
+    [SerializeField] Text text1;
+    void Start()
     {
-        str1 = inputField.text;
-        Debug.Log("入力した");
+        inputField = inputField.GetComponent<InputField>();
+        text1 = text1.GetComponent<Text>();
     }
+
+    public void InputText()
+    {
+        text1.text = inputField.text;
+    }
+
 }

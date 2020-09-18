@@ -14,12 +14,7 @@ public class OutName : MonoBehaviour
 
     void Start()
     {
-        //自作ネーム表示
-        text1.text = InName.str1;
-        Debug.Log("きたよ");
-
-        koukaname = KoukaName.GetComponent<Text>();//自作スキルを表示させる場所
-
+        
     }
     // Update is called once per frame
     void Update()
