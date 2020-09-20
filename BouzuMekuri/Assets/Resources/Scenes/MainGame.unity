@@ -2085,6 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df0841dcc6a6ae47af75ffc5ad71a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draw: {fileID: 972917170}
   MenuPanel: {fileID: 597968652}
   titlePanel: {fileID: 1156776662}
   ruleCheckPanel: {fileID: 1666671726}
@@ -2095,6 +2096,7 @@ MonoBehaviour:
   skill2Text: {fileID: 1417415933}
   skill3Text: {fileID: 1042595991}
   myRule: {fileID: 1448874367}
+  fieldEffectText: {fileID: 2029165236}
 --- !u!114 &597968656
 MonoBehaviour:
   m_ObjectHideFlags: 0

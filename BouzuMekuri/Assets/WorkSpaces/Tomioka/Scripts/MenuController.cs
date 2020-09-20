@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [SerializeField]
+    private Draw draw;
+
+    [SerializeField]
     private GameObject MenuPanel;
 
     [SerializeField]
@@ -20,7 +23,33 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private Text skill1, skill2, skill1Text, skill2Text, skill3Text, myRule;
 
+    [SerializeField]
+    private Text fieldEffectText;
+
     private int playerRule;
+
+    private void Start()
+    {
+        switch (draw.fieldEffectNum)
+        {
+            case 1:
+                fieldEffectText.text = "引く枚数が+1される";
+                break;
+
+            case 2:
+                fieldEffectText.text = "20枚引くごとに手札シャッフル";
+                break;
+
+            case 3:
+                fieldEffectText.text = "プレイヤーが4回ひいたら\n山札から捨て場に３枚置く";
+                break;
+
+            default:
+                fieldEffectText.text = "ERROR!! ERROR!!";
+                break;
+        }
+    }
+
 
     //メニューをオンにする
     public void MenuOn()
@@ -45,12 +74,14 @@ public class MenuController : MonoBehaviour
         titlePanel.SetActive(true);
     }
 
+    //タイトルに戻る
     public void LoadTitle()
     {
         SoundManager.instance.FadeOutBgm(1f);
         ReSetCommand.instance.ReSet();
     }
 
+    //タイトルの戻る？からメニューに戻る
     public void MenuBack()
     {
         titlePanel.SetActive(false);
