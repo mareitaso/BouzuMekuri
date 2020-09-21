@@ -21,10 +21,13 @@ public class MenuController : MonoBehaviour
     private GameObject EachPlayerRulePanel;
 
     [SerializeField]
-    private Text skill1, skill2, skill1Text, skill2Text, skill3Text, myRule;
+    private Text skill1, skill2, skill1Text, skill2Text, skill3Text, myRule1, myRule2, myRule3;
 
     [SerializeField]
     private Text fieldEffectText;
+
+    [SerializeField]
+    private Text playerNumber;
 
     private int playerRule;
 
@@ -127,28 +130,31 @@ public class MenuController : MonoBehaviour
     public void Player1RuleButton()
     {
         playerRule = 0;
+        playerNumber.text = "プレイヤー1";
         PlayerRuleText();
     }
     public void Player2RuleButton()
     {
         playerRule = 1;
+        playerNumber.text = "プレイヤー2";
         PlayerRuleText();
     }
     public void Player3RuleButton()
     {
         playerRule = 2;
+        playerNumber.text = "プレイヤー3";
         PlayerRuleText();
     }
     public void Player4RuleButton()
     {
         playerRule = 3;
+        playerNumber.text = "プレイヤー4";
         PlayerRuleText();
     }
 
 
     public void PlayerRuleText()
     {
-
         switch (RuleManager.instance.PlayerList[playerRule].RuleList[0].RuleEfect[0])
         {
             case 0:
@@ -242,135 +248,136 @@ public class MenuController : MonoBehaviour
                 break;
         }
 
-        /*
-        //天皇ルールも段付きルールもない時
-        if (RuleManager.instance.PlayerList[playerRule].RuleList[0].RuleEfect[0] == 0)
+        if (RuleCreate.instance.myRule[playerRule] == true)
         {
-
+            MyRuleSwitch();
         }
-        //天皇ルールの時
-        else if (RuleManager.instance.PlayerList[playerRule].RuleList[0].RuleEfect[0] == 1 ||
-            RuleManager.instance.PlayerList[playerRule].RuleList[0].RuleEfect[0] == 2)
+        else
         {
-
+            myRule1.text = "なし";
+            myRule2.text = "";
+            myRule3.text = "";
         }
-        //段付きルールの時
-        else if (RuleManager.instance.PlayerList[playerRule].RuleList[0].RuleEfect[0] == 3 ||
-            RuleManager.instance.PlayerList[playerRule].RuleList[0].RuleEfect[0] == 4)
-        {
-
-        }
-
-
-        //武官ルールも弓持ちルールもない時
-        if (RuleManager.instance.PlayerList[playerRule].RuleList[1].RuleEfect[0] == 0)
-        {
-
-        }
-        //武官ルールの時
-        else if (RuleManager.instance.PlayerList[playerRule].RuleList[1].RuleEfect[0] == 1 ||
-            RuleManager.instance.PlayerList[playerRule].RuleList[1].RuleEfect[0] == 2)
-        {
-
-        }
-        //弓持ちルールの時
-        else if (RuleManager.instance.PlayerList[playerRule].RuleList[1].RuleEfect[0] == 3)
-        {
-
-        }
-        */
-
     }
 
-    /*/
-    //天皇を引く
-                if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou &&
-                    (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 1 ||
-                    RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
-                {
-                    TennouDraw.instance.Tennou_Draw();
-                    drawType.text = "天皇";
-                }
-                //段付きを引く
-                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
-                    (RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 3 ||
-                    RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
-                {
-                    DantukiDraw.instance.Dantuki_Draw();
-                    drawType.text = "段付き";
-                }
+    private void MyRuleSwitch()
+    {
+        //int cardEffect = RuleCreate.instance.cardEffect[playerRule];
+        //int playerNum = RuleCreate.instance.playerNum[playerRule];
+        //int cardNum = RuleCreate.instance.cardNum[playerRule];
+        //int cardType = RuleCreate.instance.cardType[playerRule];
+
+        //効果内容
+        switch (RuleCreate.instance.cardEffect[playerRule])
+        {
+            case 1:
+                myRule1.text = "カードをもらう";
+                break;
+
+            case 2:
+                myRule1.text = "カードを引く";
+                break;
+
+            case 3:
+                myRule1.text = "カードを場に置く";
+                break;
+
+            case 4:
+                myRule1.text = "1回休み";
+                break;
+
+            case 5:
+                myRule1.text = "引く順番が逆周りになる";
+                break;
+
+            case 6:
+                myRule1.text = "効果無効";
+                break;
+
+            default:
+                myRule1.text = "？？？";
+                break;
+        }
 
 
-
-                //武官を引くかつ武官スキルあり
-                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
-                    (RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 1 ||
-                    RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
-                {
-                    BukanDraw.instance.Bukan_Draw();
-                    drawType.text = "武官";
-                }
-
-                //弓持ちを引く
-                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti &&
-                    RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
-                {
-                    YumimotiDraw.instance.Yumimoti_Draw();
-                    drawType.text = "弓持ち";
-                }
+        string myRule2Text = "";
 
 
-                ////偉い姫を引く
-                //else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
-                //{
-                //    GreatHimeDraw.instance.GreatHime_Draw();
-                //}
+        //対象人数と対象枚数
+        switch (RuleCreate.instance.cardEffect[playerRule])
+        {
+            case 1:
+            case 3:
+            case 4:
+                myRule2Text += "対象人数 : " + RuleCreate.instance.playerNum[playerRule] + "人";
+                break;
 
-                //蝉丸を引く
-                else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru &&
-                    RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
-                {
-                    SemimaruDraw.instance.Semimaru_Draw();
-                    drawType.text = "蝉丸";
-                }
+            case 2:
+            case 5:
+            case 6:
+                myRule2Text += "対象人数 : なし";
+                break;
 
-                //自作ルール(天皇)
-                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 1 &&
-                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
-                {
-                    MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
-                }
+            default:
+                myRule2Text += "対象人数 : えらいこっちゃ";
+                break;
+        }
 
-                //自作ルール(段付き)
-                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 2 &&
-                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
-                {
-                    MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
-                }
+        if (RuleCreate.instance.cardEffect[playerRule] <= 3)
+        {
+            switch (RuleCreate.instance.cardNum[playerRule])
+            {
+                case 1:
+                    myRule2Text += "　対象枚数 : " + (RuleCreate.instance.cardNum[playerRule] + 1) + "枚";
+                    break;
 
-                //自作ルール(武官)
-                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 3 &&
-                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
-                {
-                    MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
-                }
+                case 2:
+                case 3:
+                    myRule2Text += "　対象枚数 : " + RuleCreate.instance.cardNum[playerRule] + "枚";
+                    break;
 
-                //自作ルール(弓持ち)
-                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 4 &&
-                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
-                {
-                    MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
-                }
+                default:
+                    myRule2Text += "　対象枚数 : 謎";
+                    break;
+            }
+        }
+        else
+        {
+            myRule2Text += "　対象枚数 : なし";
+        }
 
-                //自作ルール(偉い姫)
-                else if (RuleCreate.instance.myRule[deck.Count] == true && RuleCreate.instance.cardType[deck.Count] == 5 &&
-                    cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
-                {
-                    MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
-                }*/
+        myRule2.text = myRule2Text;
+
+        //カードの種類
+        switch (RuleCreate.instance.cardType[playerRule])
+        {
+            case 1:
+                myRule3.text = "対象カード : 天皇";
+                break;
+
+            case 2:
+                myRule3.text = "対象カード : 段付き";
+                break;
+
+            case 3:
+                myRule3.text = "対象カード : 武官";
+                break;
+
+            case 4:
+                myRule3.text = "対象カード : 弓持ち";
+                break;
+
+            case 5:
+                myRule3.text = "対象カード : 偉い姫";
+                break;
+
+            case 6:
+                myRule3.text = "対象カード : 坊主";
+                break;
+
+            default:
+                myRule3.text = "対象カード : XXX";
+                break;
+        }
+    }
 }
