@@ -30,13 +30,14 @@ public class DebugCommand : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            deck.cards2[0] = 10;
+            deck.cards2[0] = 1;
             draw.TextChange();
         }
 
         PlayerSkillChange();
         TonoOnly();
         FieldSkill3Debug();
+        ReverseArrowDebug();
     }
 
     private void PlayerSkillChange()
@@ -157,7 +158,7 @@ public class DebugCommand : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             int c1 = deck.cards1.Count;
-            for (int i = 4; i < c1; i++) 
+            for (int i = 4; i < c1; i++)
             {
                 deck.cards1.RemoveAt(0);
             }
@@ -177,6 +178,29 @@ public class DebugCommand : MonoBehaviour
             {
                 deck.cards2[i] = Random.Range(22, 30);
             }
+        }
+    }
+
+    private void ReverseArrowDebug()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            draw.fieldEffectNum = 0;
+
+            RuleCreate.instance.cardType[0] = 1;
+            RuleCreate.instance.cardType[1] = 1;
+            RuleCreate.instance.cardType[2] = 1;
+            RuleCreate.instance.cardType[3] = 1;
+
+            RuleCreate.instance.cardEffect[0] = 5;
+            RuleCreate.instance.cardEffect[1] = 5;
+            RuleCreate.instance.cardEffect[2] = 5;
+            RuleCreate.instance.cardEffect[3] = 5;
+
+            RuleCreate.instance.myRule[0] = true;
+            RuleCreate.instance.myRule[1] = true;
+            RuleCreate.instance.myRule[2] = true;
+            RuleCreate.instance.myRule[3] = true;
         }
     }
 }

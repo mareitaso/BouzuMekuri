@@ -23,6 +23,9 @@ public class CardAnimation : MonoBehaviour
     private GameObject[] Place;
 
     [SerializeField]
+    private GameObject ReverseArrowR, ReverseArrowL;
+
+    [SerializeField]
     private Deck deck;
     [SerializeField]
     private Draw draw;
@@ -1464,6 +1467,33 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
+    private void AnimeReverseArrow()
+    {
+        animeEnd = false;
+        if (BukanDraw.instance.clockWise == true)
+        {
+            ReverseArrowR.SetActive(true);
+
+            ReverseArrowR.transform.DORotate(new Vector3(0, 0, -180), 1.5f).OnComplete(() =>
+            {
+                ReverseArrowR.SetActive(false);
+                ReverseArrowR.transform.DORotate(new Vector3(0, 0, 0), 1.5f);
+                animeEnd = true;
+            });
+        }
+        else
+        {
+            ReverseArrowL.SetActive(true);
+
+            ReverseArrowL.transform.DORotate(new Vector3(0, 0, 180), 1.5f).OnComplete(() =>
+            {
+                ReverseArrowL.SetActive(false);
+                ReverseArrowL.transform.DORotate(new Vector3(0, 0, 0), 1f);
+                animeEnd = true;
+            });
+        }
+    }
+
     public void AnimeSkillCutIn()
     {
         animeEnd = false;
@@ -1520,6 +1550,7 @@ public class CardAnimation : MonoBehaviour
                 //武官スキル2
                 AnimeTono();
                 Reverses();
+                AnimeReverseArrow();
                 break;
 
             case 7:
@@ -1576,6 +1607,7 @@ public class CardAnimation : MonoBehaviour
                 //自作ルール(逆回り)
                 AnimeTono();
                 Reverses();
+                AnimeReverseArrow();
                 break;
 
             case 18:
@@ -1830,7 +1862,6 @@ public class CardAnimation : MonoBehaviour
         }
     }
 
-
     //武官の逆回転引いたとき用
     private void Reverses()
     {
@@ -2019,7 +2050,7 @@ public class CardAnimation : MonoBehaviour
                 Yamahuda1Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                 Yamahuda1Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
-                    
+
                 });
             });
         }
@@ -2032,7 +2063,7 @@ public class CardAnimation : MonoBehaviour
                 Yamahuda2Fake.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
                 Yamahuda2Fake.transform.DORotate(new Vector3(0, 0, 0), rotateTime).OnComplete(() =>
                 {
-                    
+
                 });
             });
         }
