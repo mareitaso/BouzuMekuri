@@ -1474,7 +1474,7 @@ public class CardAnimation : MonoBehaviour
         {
             ReverseArrowR.SetActive(true);
 
-            ReverseArrowR.transform.DORotate(new Vector3(0, 0, -180), 1.5f).OnComplete(() =>
+            ReverseArrowR.transform.DORotate(new Vector3(0, 0, -180), 1f).OnComplete(() =>
             {
                 ReverseArrowR.SetActive(false);
                 ReverseArrowR.transform.DORotate(new Vector3(0, 0, 0), 1.5f);
@@ -1485,7 +1485,7 @@ public class CardAnimation : MonoBehaviour
         {
             ReverseArrowL.SetActive(true);
 
-            ReverseArrowL.transform.DORotate(new Vector3(0, 0, 180), 1.5f).OnComplete(() =>
+            ReverseArrowL.transform.DORotate(new Vector3(0, 0, 180), 1f).OnComplete(() =>
             {
                 ReverseArrowL.SetActive(false);
                 ReverseArrowL.transform.DORotate(new Vector3(0, 0, 0), 1f);

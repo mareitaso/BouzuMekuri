@@ -9,7 +9,6 @@ public class Draw : MonoBehaviour
     [HideInInspector]
     public bool drowYama1;
 
-    //富岡編集
     [SerializeField]
     private CardDataBase cardDataBase;
     [SerializeField]
@@ -177,7 +176,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "天皇";
                 }
 
                 //自作ルール(段付き)
@@ -185,7 +184,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "段付き";
                 }
 
                 //自作ルール(武官)
@@ -193,7 +192,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "武官";
                 }
 
                 //自作ルール(弓持ち)
@@ -201,7 +200,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "弓持ち";
                 }
 
                 //自作ルール(偉い姫)
@@ -209,7 +208,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "偉い姫";
                 }
 
                 //坊主を引く
@@ -345,7 +344,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "天皇";
                 }
 
                 //自作ルール(段付き)
@@ -353,7 +352,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "段付き";
                 }
 
                 //自作ルール(武官)
@@ -361,7 +360,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "武官";
                 }
 
                 //自作ルール(弓持ち)
@@ -369,7 +368,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "弓持ち";
                 }
 
                 //自作ルール(偉い姫)
@@ -377,7 +376,7 @@ public class Draw : MonoBehaviour
                     cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
                 {
                     MyRule.instance.CardTypeCheck();
-                    drawType.text = "自作ルール";
+                    drawType.text = "偉い姫";
                 }
 
                 //坊主を引く
