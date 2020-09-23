@@ -18,47 +18,55 @@ public class MyDropDown : MonoBehaviour
     {
         if (CardType.value == 0)
         {
-           RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 1;
+            RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 1;
         }
         else if (CardType.value == 1)
         {
-           RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 2;
+            RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 2;
         }
         else if (CardType.value == 2)
         {
-           RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 3;
+            RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 3;
         }
         else if (CardType.value == 3)
         {
-           RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 4;
+            RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 4;
         }
         else if (CardType.value == 4)
         {
-           RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 5;
+            RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 5;
         }
     }
 
     public void Effect()
     {
-        if(CardEffect.value == 0)
+        if (CardEffect.value == 0)
         {
-            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 1;
+            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 0;
         }
         else if (CardEffect.value == 1)
         {
-            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 2;
+            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 1;
         }
         else if (CardEffect.value == 2)
         {
-            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 3;
+            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 2;
         }
         else if (CardEffect.value == 3)
         {
-            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 4;
+            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 3;
         }
         else if (CardEffect.value == 4)
         {
+            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 4;
+        }
+        else if (CardEffect.value == 5)
+        {
             RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 5;
+        }
+        else if (CardEffect.value == 6)
+        {
+            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 6;
         }
     }
 
@@ -109,12 +117,12 @@ public class MyDropDown : MonoBehaviour
     public void Decision()
     {
         RuleCreate.instance.myRule[RuleCreate.instance.PlayerNumber] = true;
-        SceneController.instance.LoadScene(SceneController.SceneName.Rule);
+        //SceneController.instance.LoadScene(SceneController.SceneName.Rule);
     }
     public void Back()
     {
         RuleCreate.instance.myRule[RuleCreate.instance.PlayerNumber] = false;
-        SceneController.instance.LoadScene(SceneController.SceneName.Rule);
+        //SceneController.instance.LoadScene(SceneController.SceneName.Rule);
         RuleCreate.instance.cardType[RuleCreate.instance.PlayerNumber] = 0;
         RuleCreate.instance.cardNum[RuleCreate.instance.PlayerNumber] = 0;
         RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 0;

@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class InName : MonoBehaviour
 {
     public InputField inputField;//自作ルールの名前
+    [HideInInspector]
     public Text text1;
     void Start()
     {
         inputField = inputField.GetComponent<InputField>();
-        text1 = text1.GetComponent<Text>();
+        //text1 = text1.GetComponent<Text>();
     }
 
     public void InputText()

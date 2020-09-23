@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/Title.unity
     guid: 942b62667b56576499e8b7ee12f5d565
   - enabled: 1
-    path: Assets/WorkSpaces/Yamamoto/Scene/ru-ruhebbsyuu.unity
+    path: Assets/Resources/Scenes/ru-ruhebbsyuu.unity
     guid: e91a7c34e23c5bd41a74b6ecb2e5560a
   - enabled: 1
     path: Assets/WorkSpaces/Yamamoto/Scene/Jisakuru-ru.unity
