@@ -23,6 +23,11 @@ public class Touch : MonoBehaviour
     private GameObject panel;
 
     [SerializeField]
+    private GameObject panels;
+    [SerializeField]
+    private Text text;
+
+    [SerializeField]
     private Dropdown dropdown;
 
     public void draw1()
@@ -54,13 +59,15 @@ public class Touch : MonoBehaviour
         }
         else if(Player1 == true && deck.Count == 0)
         {
+            panels.SetActive(true);
+            text.text = "既にスキルを使っています";
             Debug.Log("1P使い終わったよ");
-            return;
         }
         else
         {
+            panels.SetActive(true);
+            text.text = "あなたの番じゃないよ";
             Debug.Log("1Pの番じゃないよ");
-            return;
         }
     }
     public void P2()
@@ -71,15 +78,17 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("2P押せたよ");
         }
-        else if (Player2 == true && deck.Count == 0)
+        else if (Player2 == true && deck.Count == 1)
         {
+            panels.SetActive(true);
+            text.text = "既にスキルを使っています";
             Debug.Log("2P使い終わったよ");
-            return;
         }
         else
         {
+            panels.SetActive(true);
+            text.text = "あなたの番じゃないよ";
             Debug.Log("2Pの番じゃないよ");
-            return;
         }
     }
     public void P3()
@@ -90,15 +99,17 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("3押せたよ");
         }
-        else if (Player3 == true && deck.Count == 0)
+        else if (Player3 == true && deck.Count == 2)
         {
+            panels.SetActive(true);
+            text.text = "既にスキルを使っています";
             Debug.Log("3P使い終わったよ");
-            return;
         }
         else
         {
+            panels.SetActive(true);
+            text.text = "あなたの番じゃないよ";
             Debug.Log("3Pの番じゃないよ");
-            return;
         }
     }
     public void P4()
@@ -109,15 +120,17 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("4P押せたよ");
         }
-        else if (Player4 == true && deck.Count == 0)
+        else if (Player4 == true && deck.Count == 3)
         {
+            panels.SetActive(true);
+            text.text = "既にスキルを使っています";
             Debug.Log("4P使い終わったよ");
-            return;
         }
         else
         {
+            panels.SetActive(true);
+            text.text = "あなたの番じゃないよ";
             Debug.Log("4Pの番じゃないよ");
-            return;
         }
     }
 
