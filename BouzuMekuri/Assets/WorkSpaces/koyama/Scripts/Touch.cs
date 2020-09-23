@@ -157,6 +157,12 @@ public class Touch : MonoBehaviour
             playerSkill.PlayerSkill3();
             panel.SetActive(false);
         }
+        else
+        {
+            panel.SetActive(false);
+            panels.SetActive(true);
+            text.text = "山札が10枚以下なので使用出来ません";
+        }
     }
 
     public void Move()
@@ -166,38 +172,11 @@ public class Touch : MonoBehaviour
 
     public void drop()
     {
-        if (dropdown.value == 0)
-        {
-            panel.SetActive(false);
-            setValue(0);
-        }
-        else if (dropdown.value == 1)
-        {
-            Debug.Log("aa");
-            shuf();
-            Judge();
-            setValue(0);
-        }
-        else if (dropdown.value == 2)
-        {
-            Debug.Log("aaa");
-            playerSkill.PlayerSkill2();
-            Judge();
-            setValue(0);
-        }
-        else if (dropdown.value == 3)
-        {
-            Debug.Log("aaaa");
-            playerSkill.PlayerSkill3();
-            Judge();
-            setValue(0);
-        }
-        else
-        {
-            panel.SetActive(false);
-            setValue(0);
-        }
-        panel.SetActive(false);
+        dropdown.options.Add(new Dropdown.OptionData { text = "未選択" });
+        dropdown.options.Add(new Dropdown.OptionData { text = "1" });
+        dropdown.options.Add(new Dropdown.OptionData { text = "2" });
+        dropdown.options.Add(new Dropdown.OptionData { text = "3" });
+
     }
 
     private void shuf()
