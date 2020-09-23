@@ -14,7 +14,7 @@ public class TitleEffect : MonoBehaviour
 
     private void Start()
     {
-        SoundManager.instance.BgmApply(Bgm.Title);
+        Invoke("StartBGM", 1f);
     }
 
     private void Update()
@@ -23,6 +23,11 @@ public class TitleEffect : MonoBehaviour
         {
             SceneLoad();
         }
+    }
+
+    private void StartBGM()
+    {
+        SoundManager.instance.BgmApply(Bgm.Title);
     }
 
     public void SceneLoad()
