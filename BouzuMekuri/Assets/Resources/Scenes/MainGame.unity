@@ -12280,6 +12280,8 @@ MonoBehaviour:
   touchPlayer: 0
   playerSkill: {fileID: 999937998}
   panel: {fileID: 1272038722}
+  panels: {fileID: 149678460}
+  text: {fileID: 1772251561}
   dropdown: {fileID: 599437744}
   Player1: 0
   Player2: 0

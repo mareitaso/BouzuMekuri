@@ -13,10 +13,10 @@ public class HandCount : MonoBehaviour
 
     private List<Ranking> rankLists = new List<Ranking>()
     {
-        new Ranking(){Name = "P1",Score = MasterList.instance.list[0].Count},
-        new Ranking(){Name = "P2",Score = MasterList.instance.list[1].Count},
-        new Ranking(){Name = "P3",Score = MasterList.instance.list[2].Count},
-        new Ranking(){Name = "P4",Score = MasterList.instance.list[3].Count},
+        new Ranking(){Name = "プレイヤー1",Score = MasterList.instance.list[0].Count},
+        new Ranking(){Name = "プレイヤー2",Score = MasterList.instance.list[1].Count},
+        new Ranking(){Name = "プレイヤー3",Score = MasterList.instance.list[2].Count},
+        new Ranking(){Name = "プレイヤー4",Score = MasterList.instance.list[3].Count},
     };
     public void Settlement()//順位決定
     {

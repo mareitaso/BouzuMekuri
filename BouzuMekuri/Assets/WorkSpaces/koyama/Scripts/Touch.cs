@@ -23,6 +23,11 @@ public class Touch : MonoBehaviour
     private GameObject panel;
 
     [SerializeField]
+    private GameObject panels;
+    [SerializeField]
+    private Text text;
+
+    [SerializeField]
     private Dropdown dropdown;
 
     public void draw1()
@@ -54,13 +59,15 @@ public class Touch : MonoBehaviour
         }
         else if(Player1 == true && deck.Count == 0)
         {
+            panels.SetActive(true);
+            text.text = "既にスキルを使っています";
             Debug.Log("1P使い終わったよ");
-            return;
         }
         else
         {
+            panels.SetActive(true);
+            text.text = "あなたの番じゃないよ";
             Debug.Log("1Pの番じゃないよ");
-            return;
         }
     }
     public void P2()
@@ -71,15 +78,17 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("2P押せたよ");
         }
-        else if (Player2 == true && deck.Count == 0)
+        else if (Player2 == true && deck.Count == 1)
         {
+            panels.SetActive(true);
+            text.text = "既にスキルを使っています";
             Debug.Log("2P使い終わったよ");
-            return;
         }
         else
         {
+            panels.SetActive(true);
+            text.text = "あなたの番じゃないよ";
             Debug.Log("2Pの番じゃないよ");
-            return;
         }
     }
     public void P3()
@@ -90,15 +99,17 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("3押せたよ");
         }
-        else if (Player3 == true && deck.Count == 0)
+        else if (Player3 == true && deck.Count == 2)
         {
+            panels.SetActive(true);
+            text.text = "既にスキルを使っています";
             Debug.Log("3P使い終わったよ");
-            return;
         }
         else
         {
+            panels.SetActive(true);
+            text.text = "あなたの番じゃないよ";
             Debug.Log("3Pの番じゃないよ");
-            return;
         }
     }
     public void P4()
@@ -109,15 +120,17 @@ public class Touch : MonoBehaviour
             panel.SetActive(true);
             Debug.Log("4P押せたよ");
         }
-        else if (Player4 == true && deck.Count == 0)
+        else if (Player4 == true && deck.Count == 3)
         {
+            panels.SetActive(true);
+            text.text = "既にスキルを使っています";
             Debug.Log("4P使い終わったよ");
-            return;
         }
         else
         {
+            panels.SetActive(true);
+            text.text = "あなたの番じゃないよ";
             Debug.Log("4Pの番じゃないよ");
-            return;
         }
     }
 
@@ -144,6 +157,12 @@ public class Touch : MonoBehaviour
             playerSkill.PlayerSkill3();
             panel.SetActive(false);
         }
+        else
+        {
+            panel.SetActive(false);
+            panels.SetActive(true);
+            text.text = "山札が10枚以下なので使用出来ません";
+        }
     }
 
     public void Move()
@@ -153,38 +172,11 @@ public class Touch : MonoBehaviour
 
     public void drop()
     {
-        if (dropdown.value == 0)
-        {
-            panel.SetActive(false);
-            setValue(0);
-        }
-        else if (dropdown.value == 1)
-        {
-            Debug.Log("aa");
-            shuf();
-            Judge();
-            setValue(0);
-        }
-        else if (dropdown.value == 2)
-        {
-            Debug.Log("aaa");
-            playerSkill.PlayerSkill2();
-            Judge();
-            setValue(0);
-        }
-        else if (dropdown.value == 3)
-        {
-            Debug.Log("aaaa");
-            playerSkill.PlayerSkill3();
-            Judge();
-            setValue(0);
-        }
-        else
-        {
-            panel.SetActive(false);
-            setValue(0);
-        }
-        panel.SetActive(false);
+        dropdown.options.Add(new Dropdown.OptionData { text = "未選択" });
+        dropdown.options.Add(new Dropdown.OptionData { text = "1" });
+        dropdown.options.Add(new Dropdown.OptionData { text = "2" });
+        dropdown.options.Add(new Dropdown.OptionData { text = "3" });
+
     }
 
     private void shuf()
