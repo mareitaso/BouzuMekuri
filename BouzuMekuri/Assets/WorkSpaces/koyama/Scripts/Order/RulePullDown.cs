@@ -326,6 +326,7 @@ public class RulePullDown : MonoBehaviour
         }
         else if (RuleCreate.instance.PlayerNumber == 4)
         {
+            RuleCreate.instance.PlayerNumber = 0;
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
         }
         s.interactable = false;
