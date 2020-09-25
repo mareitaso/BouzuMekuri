@@ -1406,6 +1406,8 @@ public class CardAnimation : MonoBehaviour
                 draw.FieldEffectSwitch();
             });
         }
+
+        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
     }
 
     //プレイヤーが4回ひいたら山札から捨て場に３枚置く
