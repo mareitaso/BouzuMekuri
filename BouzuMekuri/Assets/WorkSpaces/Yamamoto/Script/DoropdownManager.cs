@@ -111,4 +111,3 @@ public class DoropdownManager : MonoBehaviour
         dropdown3.value = 0;
     }
 }
-//ボタンを押したら～に変える
