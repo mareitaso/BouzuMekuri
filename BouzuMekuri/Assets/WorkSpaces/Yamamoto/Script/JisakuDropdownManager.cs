@@ -22,12 +22,36 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     private GameObject Panel7;
     [SerializeField]
     private Dropdown dropdown1;
+
     [SerializeField]
     private GameObject text1;
     [SerializeField]
     private GameObject text2;
     [SerializeField]
     private Text koukaname;
+
+    [SerializeField]
+    private Dropdown dropdown2;
+    [SerializeField]
+    private Dropdown dropdown3;
+    [SerializeField]
+    private GameObject Panel8;
+    [SerializeField]
+    private GameObject Panel9;
+    [SerializeField]
+    private GameObject Panel10;
+    [SerializeField]
+    private GameObject Panel11;
+    [SerializeField]
+    private GameObject Panel12;
+    [SerializeField]
+    private GameObject Panel13;
+    [SerializeField]
+    private GameObject Panel14;
+    [SerializeField]
+    private GameObject Panel15;
+    [SerializeField]
+    private GameObject Panel16;
 
     // Use this for initialization
     public void Drop1()
@@ -139,6 +163,136 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         }
     }
     
+    public void Drop2()
+    {
+        if (dropdown2.value == 1 && dropdown3.value == 0)
+        {
+            Panel8.SetActive(false);
+            Panel9.SetActive(true);
+            Panel10.SetActive(false);
+            Panel11.SetActive(false);
+            Panel12.SetActive(false);
+            Panel13.SetActive(false);
+            Panel14.SetActive(false);
+            Panel15.SetActive(false);
+            Panel16.SetActive(false);
+            Debug.Log("天皇なし");
+           
+        }
+        else if (dropdown2.value == 1 && dropdown3.value == 1)
+        {
+            Panel8.SetActive(false);
+            Panel9.SetActive(false);
+            Panel10.SetActive(true);
+            Panel11.SetActive(false);
+            Panel12.SetActive(false);
+            Panel13.SetActive(false);
+            Panel14.SetActive(false);
+            Panel15.SetActive(false);
+            Panel16.SetActive(false);
+            Debug.Log("天皇武官");
+            
+        }
+        else if (dropdown2.value == 1 && dropdown3.value == 2)
+        {
+            Panel8.SetActive(false);
+            Panel9.SetActive(false);
+            Panel10.SetActive(false);
+            Panel11.SetActive(true);
+            Panel12.SetActive(false);
+            Panel13.SetActive(false);
+            Panel14.SetActive(false);
+            Panel15.SetActive(false);
+            Panel16.SetActive(false);
+            Debug.Log("天皇弓持ち");
+            
+        }
+        else if (dropdown2.value == 2 && dropdown3.value == 0)
+        {
+            Panel8.SetActive(false);
+            Panel9.SetActive(false);
+            Panel10.SetActive(false);
+            Panel11.SetActive(false);
+            Panel12.SetActive(true);
+            Panel13.SetActive(false);
+            Panel14.SetActive(false);
+            Panel15.SetActive(false);
+            Panel16.SetActive(false);
+            Debug.Log("段付きなし");
+            
+        }
+        else if (dropdown2.value == 2 && dropdown3.value == 1)
+        {
+            Panel8.SetActive(false);
+            Panel9.SetActive(false);
+            Panel10.SetActive(false);
+            Panel11.SetActive(false);
+            Panel12.SetActive(false);
+            Panel13.SetActive(true);
+            Panel14.SetActive(false);
+            Panel15.SetActive(false);
+            Panel16.SetActive(false);
+            Debug.Log("段付き武官");
+            
+        }
+        else if (dropdown2.value == 2 && dropdown3.value == 2)
+        {
+            Panel8.SetActive(false);
+            Panel9.SetActive(false);
+            Panel10.SetActive(false);
+            Panel11.SetActive(false);
+            Panel12.SetActive(false);
+            Panel13.SetActive(false);
+            Panel14.SetActive(true);
+            Panel15.SetActive(false);
+            Panel16.SetActive(false);
+            Debug.Log("段付き弓持ち");
+           
+        }
+        else if (dropdown2.value == 0 && dropdown3.value == 1)
+        {
+            Panel8.SetActive(false);
+            Panel9.SetActive(false);
+            Panel10.SetActive(false);
+            Panel11.SetActive(false);
+            Panel12.SetActive(false);
+            Panel13.SetActive(false);
+            Panel14.SetActive(false);
+            Panel15.SetActive(true);
+            Panel16.SetActive(false);
+            Debug.Log("なし武官");
+            
+        }
+        else if (dropdown2.value == 0 && dropdown3.value == 2)
+        {
+            Panel8.SetActive(false);
+            Panel9.SetActive(false);
+            Panel10.SetActive(false);
+            Panel11.SetActive(false);
+            Panel12.SetActive(false);
+            Panel13.SetActive(false);
+            Panel14.SetActive(false);
+            Panel15.SetActive(false);
+            Panel16.SetActive(true);
+            Debug.Log("なし弓持ち");
+            
+        }
+        else
+        {
+            Panel8.SetActive(true);
+            Panel9.SetActive(false);
+            Panel10.SetActive(false);
+            Panel11.SetActive(false);
+            Panel12.SetActive(false);
+            Panel13.SetActive(false);
+            Panel14.SetActive(false);
+            Panel15.SetActive(false);
+            Panel16.SetActive(false);
+            Debug.Log("なしなし");
+            
+        }
+    }
+
     public void SetValue(int value)
     {
         dropdown1.value = value;
@@ -146,6 +300,8 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     public void OnClick()
     {
         dropdown1.value = 0;
+        dropdown2.value = 0;
+        dropdown3.value = 0;
         koukaname.text = "";
     }
 }
