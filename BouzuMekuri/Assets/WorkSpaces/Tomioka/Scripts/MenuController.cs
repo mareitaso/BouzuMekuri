@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [SerializeField]
+    CardAnimation cardAnime;
+
+    [SerializeField]
     private Draw draw;
 
     [SerializeField]
@@ -57,7 +60,10 @@ public class MenuController : MonoBehaviour
     //メニューをオンにする
     public void MenuOn()
     {
-        MenuPanel.SetActive(true);
+        if (cardAnime.animeEnd == true)
+        {
+            MenuPanel.SetActive(true);
+        }
     }
 
 
