@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 3431448994878473231, guid: d428c69a81b5c734b816e919772bc921,
         type: 3}
       propertyPath: sesounds.Array.data[4].audioSize
-      value: 0.12
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3431448994878473231, guid: d428c69a81b5c734b816e919772bc921,
         type: 3}

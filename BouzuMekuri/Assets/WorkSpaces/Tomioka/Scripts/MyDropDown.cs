@@ -14,6 +14,11 @@ public class MyDropDown : MonoBehaviour
     [SerializeField]
     private Dropdown PlayerNum;
 
+    private void Start()
+    {
+        SoundManager.instance.BgmApply(Bgm.RuleEditor);
+    }
+
     public void Type()
     {
         if (CardType.value == 0)
@@ -63,10 +68,6 @@ public class MyDropDown : MonoBehaviour
         else if (CardEffect.value == 5)
         {
             RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 5;
-        }
-        else if (CardEffect.value == 6)
-        {
-            RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 6;
         }
     }
 
@@ -127,5 +128,15 @@ public class MyDropDown : MonoBehaviour
         RuleCreate.instance.cardNum[RuleCreate.instance.PlayerNumber] = 0;
         RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 0;
         RuleCreate.instance.playerNum[RuleCreate.instance.PlayerNumber] = 0;
+    }
+
+    /// <summary>
+    /// 他の効果で対象人数を3にしてから
+    /// 効果を一回休みに変えるとそのまま3人を一回休みにできるため
+    /// 変更した際に戻す処理
+    /// </summary>
+    private void PlayerNumReset()
+    {
+        RuleCreate.instance.playerNum[RuleCreate.instance.PlayerNumber] = 1;
     }
 }

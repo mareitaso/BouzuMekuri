@@ -1500,7 +1500,15 @@ public class CardAnimation : MonoBehaviour
     {
         animeEnd = false;
         movePlace = deck.Count;
-        SoundManager.instance.SeApply(Se.cardSkill);
+
+        if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Semimaru)
+        {
+            SoundManager.instance.SeApply(Se.semimaruSkill);
+        }
+        else
+        {
+            SoundManager.instance.SeApply(Se.cardSkill);
+        }
 
         CutInSwitch();
         //CutInText();上に世代交代
