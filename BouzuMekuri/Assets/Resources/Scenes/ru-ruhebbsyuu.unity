@@ -2444,6 +2444,11 @@ MonoBehaviour:
   cardNum: 00000000000000000000000000000000
   playerNum: 00000000000000000000000000000000
   myRule: 00000000
+  ruleName:
+  - 
+  - 
+  - 
+  - 
   PlayerNumber: 0
 --- !u!4 &135666913
 Transform:

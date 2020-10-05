@@ -1715,37 +1715,37 @@ public class CardAnimation : MonoBehaviour
 
             case 13:
                 //自作ルール(他の人からカードをもらう)
-                drawCardType.text = "自作ルール";
+                drawCardType.text = RuleCreate.instance.ruleName[movePlace];
                 skillType.text = "他の人からカードをもらう";
                 break;
 
             case 14:
                 //自作ルール(山札から追加で引く)
-                drawCardType.text = "自作ルール";
+                drawCardType.text = RuleCreate.instance.ruleName[movePlace];
                 skillType.text = "山札から追加で引く";
                 break;
 
             case 15:
                 //自作ルール(他のプレイヤーの手札を捨てる)
-                drawCardType.text = "自作ルール";
+                drawCardType.text = RuleCreate.instance.ruleName[movePlace];
                 skillType.text = "他のプレイヤーの手札を捨てる";
                 break;
 
             case 16:
                 //自作ルール(1回休み)
-                drawCardType.text = "自作ルール";
+                drawCardType.text = RuleCreate.instance.ruleName[movePlace];
                 skillType.text = "次のプレイヤーは1回休み";
                 break;
 
             case 17:
                 //自作ルール(逆回り)
-                drawCardType.text = "自作ルール";
+                drawCardType.text = RuleCreate.instance.ruleName[movePlace];
                 skillType.text = "山札を引く順番が逆周りに";
                 break;
 
             case 18:
                 //自作ルール(効果無効化)
-                drawCardType.text = "自作ルール";
+                drawCardType.text = RuleCreate.instance.ruleName[movePlace];
                 skillType.text = "次に発動するスキルを無効化する";
                 break;
 

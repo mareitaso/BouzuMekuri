@@ -24,6 +24,8 @@ public class RuleCreate : SingletonMonoBehaviour<RuleCreate>
     [Header("自作ルールを持っているか")]
     public List<bool> myRule;
 
+    [Header("自作ルールの名前")]
+    public List<string> ruleName;
 
     public int PlayerNumber = 0;
 
