@@ -17,6 +17,7 @@ public class InName : MonoBehaviour
     public void InputText()
     {
         text1.text = inputField.text;
+        RuleCreate.instance.ruleName[RuleCreate.instance.PlayerNumber] = text1.text;
         Debug.Log("入った");
     }
     public void OnClick()
