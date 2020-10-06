@@ -17563,7 +17563,7 @@ MonoBehaviour:
     m_Options:
     - m_Text: "\u306A\u3057"
       m_Image: {fileID: 0}
-    - m_Text: "\u5168\u54E1\u304B\u3089 1\u305A\u3064\u3082\u3089\u3046"
+    - m_Text: "\u5168\u54E1\u304B\u3089 4\u305A\u3064\u3082\u3089\u3046"
       m_Image: {fileID: 0}
     - m_Text: "\u5F15\u304F\u9806\u304C \u9006\u5468\u308A\u306B\u306A\u308B"
       m_Image: {fileID: 0}

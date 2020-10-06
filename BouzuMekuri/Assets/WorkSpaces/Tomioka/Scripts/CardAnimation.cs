@@ -1074,7 +1074,6 @@ public class CardAnimation : MonoBehaviour
 
     /// <summary>
     ///自作ルールで他の人のカードを捨てさせる
-    ///(人数は対応したが逆回りのときでも左隣からもらっている)
     /// </summary>
     private void MyRuleDisCard()
     {
@@ -1154,7 +1153,7 @@ public class CardAnimation : MonoBehaviour
                                 playerFake[i].sprite = Resources.Load<Sprite>("Images/MainCards/" +
                                 MasterList.instance.list[i][MasterList.instance.list[i].Count - 1]);
                             }
-                            playerFake[i].transform.DOMove(Place[movePlace].transform.position, animeTime);
+                            playerFake[i].transform.DOMove(Sutehuda.transform.position, animeTime);
                         }
                     }
                     Yamahuda2Fake.transform.DOMove(Place[movePlace].transform.position, animeTime).OnComplete(() =>
@@ -1651,7 +1650,7 @@ public class CardAnimation : MonoBehaviour
             case 2:
                 //天皇のスキル2
                 drawCardType.text = "天皇ルール";
-                skillType.text = "全員の札と捨て札をすべてもらう";
+                skillType.text = "全員の札と捨て札をもらう";
                 break;
 
             case 3:
@@ -1663,7 +1662,7 @@ public class CardAnimation : MonoBehaviour
             case 4:
                 //段付きスキル2
                 drawCardType.text = "段付きルール";
-                skillType.text = "全員の札をすべてもらう";
+                skillType.text = "全員の札をもらう";
                 break;
 
             case 5:
@@ -1674,7 +1673,7 @@ public class CardAnimation : MonoBehaviour
             case 6:
                 //武官スキル2
                 drawCardType.text = "武官ルール";
-                skillType.text = "山札を引く順番が逆周りに";
+                skillType.text = "山札を引く順が逆周りに";
                 break;
 
             case 7:
@@ -1686,25 +1685,25 @@ public class CardAnimation : MonoBehaviour
             case 8:
                 //蝉丸スキル1
                 drawCardType.text = "蝉丸ルール";
-                skillType.text = "次の人1回休み";
+                skillType.text = "次のプレイヤー1回休み";
                 break;
 
             case 9:
                 //蝉丸スキル2
                 drawCardType.text = "蝉丸ルール";
-                skillType.text = "他のプレイヤーの手札を全てもらう";
+                skillType.text = "全員の札をもらう";
                 break;
 
             case 10:
                 //蝉丸スキル3
                 drawCardType.text = "蝉丸ルール";
-                skillType.text = "他のプレイヤーは全ての手札を捨て札に置く";
+                skillType.text = "自分以外は全ての札を全て捨てる";
                 break;
 
             case 11:
                 //蝉丸スキル4
                 drawCardType.text = "蝉丸ルール";
-                skillType.text = "山札の数を半分に";
+                skillType.text = "山札の半分を場に捨てる";
                 break;
 
             case 12:
@@ -1716,7 +1715,7 @@ public class CardAnimation : MonoBehaviour
             case 13:
                 //自作ルール(他の人からカードをもらう)
                 drawCardType.text = RuleCreate.instance.ruleName[movePlace];
-                skillType.text = "他の人からカードをもらう";
+                skillType.text = "カードをもらう";
                 break;
 
             case 14:
@@ -1734,7 +1733,7 @@ public class CardAnimation : MonoBehaviour
             case 16:
                 //自作ルール(1回休み)
                 drawCardType.text = RuleCreate.instance.ruleName[movePlace];
-                skillType.text = "次のプレイヤーは1回休み";
+                skillType.text = "次のプレイヤー1回休み";
                 break;
 
             case 17:
@@ -1797,7 +1796,7 @@ public class CardAnimation : MonoBehaviour
         }
         else
         {
-            fieldSkillType.text = "プレイヤーが4回ひいたら\n山札から捨て場に３枚置く";
+            fieldSkillType.text = "プレイヤーが4回ひいたら\n山札から捨て場に３枚捨てる";
         }
 
         fieldSkillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
