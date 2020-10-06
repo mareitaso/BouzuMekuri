@@ -237,10 +237,10 @@ public class DebugCommand : MonoBehaviour
         RuleCreate.instance.myRule[2] = true;
         RuleCreate.instance.myRule[3] = true;
 
-        RuleCreate.instance.ruleName[0] = "自作1P";
-        RuleCreate.instance.ruleName[1] = "自作2P";
-        RuleCreate.instance.ruleName[2] = "自作3P";
-        RuleCreate.instance.ruleName[3] = "自作4P";
+        RuleCreate.instance.ruleName[0] = "自作壱";
+        RuleCreate.instance.ruleName[1] = "自作弐";
+        RuleCreate.instance.ruleName[2] = "自作参";
+        RuleCreate.instance.ruleName[3] = "自作肆";
 
     }
 }
