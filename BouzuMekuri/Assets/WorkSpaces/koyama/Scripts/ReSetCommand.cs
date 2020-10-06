@@ -11,6 +11,7 @@ public class ReSetCommand : SingletonMonoBehaviour<ReSetCommand>
     public void ReSet()
     {
         MasterList.instance.Start();
+        RuleCreate.instance.PlayerNumber = 0;
         RuleManager.instance.PlayerList[0].RuleList[0].RuleEfect[0] = 0;
         RuleManager.instance.PlayerList[0].RuleList[1].RuleEfect[0] = 0;
         RuleManager.instance.PlayerList[0].RuleList[2].RuleEfect[0] = 0;

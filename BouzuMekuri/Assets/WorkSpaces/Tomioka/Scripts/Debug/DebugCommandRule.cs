@@ -13,7 +13,7 @@ public class DebugCommandRule : MonoBehaviour
     private void Debug()
     {
         //
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
 
