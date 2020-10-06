@@ -34,6 +34,11 @@ public class DebugCommand : MonoBehaviour
             draw.TextChange();
         }
 
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            MyRule();
+        }
+
         PlayerSkillChange();
         TonoOnly();
         FieldSkill3Debug();
@@ -202,5 +207,40 @@ public class DebugCommand : MonoBehaviour
             RuleCreate.instance.myRule[2] = true;
             RuleCreate.instance.myRule[3] = true;
         }
+    }
+
+    private void MyRule()
+    {
+        //Debug.LogError("");
+        RuleCreate.instance.cardType[0] = 1;
+        RuleCreate.instance.cardType[1] = 3;
+        RuleCreate.instance.cardType[2] = 2;
+        RuleCreate.instance.cardType[3] = 4;
+
+        RuleCreate.instance.cardEffect[0] = 5;
+        RuleCreate.instance.cardEffect[1] = 5;
+        RuleCreate.instance.cardEffect[2] = 5;
+        RuleCreate.instance.cardEffect[3] = 5;
+
+        //RuleCreate.instance.cardNum[0] = 5;
+        //RuleCreate.instance.cardNum[1] = 5;
+        RuleCreate.instance.cardNum[2] = 0;
+        //RuleCreate.instance.cardNum[3] = 5;
+
+        //RuleCreate.instance.playerNum[0] = 5;
+        //RuleCreate.instance.playerNum[1] = 5;
+        //RuleCreate.instance.playerNum[2] = 5;
+        //RuleCreate.instance.playerNum[3] = 5;
+
+        RuleCreate.instance.myRule[0] = true;
+        RuleCreate.instance.myRule[1] = true;
+        RuleCreate.instance.myRule[2] = true;
+        RuleCreate.instance.myRule[3] = true;
+
+        RuleCreate.instance.ruleName[0] = "自作1P";
+        RuleCreate.instance.ruleName[1] = "自作2P";
+        RuleCreate.instance.ruleName[2] = "自作3P";
+        RuleCreate.instance.ruleName[3] = "自作4P";
+
     }
 }
