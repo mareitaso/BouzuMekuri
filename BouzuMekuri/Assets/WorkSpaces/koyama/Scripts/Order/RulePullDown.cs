@@ -286,23 +286,23 @@ public class RulePullDown : MonoBehaviour
 
         if (RuleCreate.instance.PlayerNumber == 0)
         {
-            text1.text = "P2へ";
-            text2.text = "P1の番";
+            text1.text = "2P";
+            text2.text = "1P";
         }
         else if (RuleCreate.instance.PlayerNumber == 1)
         {
-            text1.text = "P3へ";
-            text2.text = "P2の番";
+            text1.text = "3P";
+            text2.text = "2P";
         }
         else if (RuleCreate.instance.PlayerNumber == 2)
         {
-            text1.text = "P4へ";
-            text2.text = "P3の番";
+            text1.text = "4P";
+            text2.text = "3P";
         }
         else if (RuleCreate.instance.PlayerNumber == 3)
         {
-            text1.text = "試合へ";
-            text2.text = "P4の番";
+            text1.text = "試合";
+            text2.text = "4P";
         }
     }
     public void Down()

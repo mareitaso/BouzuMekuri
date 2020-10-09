@@ -14,6 +14,10 @@ public class DoropdownManager : MonoBehaviour
     [SerializeField]
     private GameObject Panel4;
     [SerializeField]
+    private GameObject Panel5;
+    [SerializeField]
+    private GameObject Panel6;
+    [SerializeField]
     private Dropdown dropdown1;
     [SerializeField]
     private Dropdown dropdown2;
@@ -23,6 +27,10 @@ public class DoropdownManager : MonoBehaviour
     private GameObject text1;
     [SerializeField]
     private GameObject text2;
+    [SerializeField]
+    private GameObject text3;
+    [SerializeField]
+    private GameObject text4;
     // Use this for initialization
     public void Drop1()
     {
@@ -109,5 +117,9 @@ public class DoropdownManager : MonoBehaviour
         dropdown1.value = 0;
         dropdown2.value = 0;
         dropdown3.value = 0;
+        Panel5.SetActive(false);
+        Panel6.SetActive(false);
+        text3.SetActive(false);
+        text4.SetActive(false);
     }
 }
