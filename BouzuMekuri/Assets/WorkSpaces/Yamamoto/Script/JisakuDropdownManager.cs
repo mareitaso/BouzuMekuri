@@ -34,6 +34,26 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     private Dropdown dropdown2;
     [SerializeField]
     private Dropdown dropdown3;
+
+    [SerializeField]
+    private Dropdown dropdown4;
+    [SerializeField]
+    private Dropdown dropdown5;
+    [SerializeField]
+    private Dropdown dropdown6;
+    [SerializeField]
+    private Dropdown dropdown7;
+    [SerializeField]
+    private Dropdown dropdown8;
+    [SerializeField]
+    private Dropdown dropdown9;
+    [SerializeField]
+    private Dropdown dropdown10;
+    [SerializeField]
+    private Dropdown dropdown11;
+    [SerializeField]
+    private Dropdown dropdown12;
+
     [SerializeField]
     private GameObject Panel8;
     [SerializeField]
@@ -52,6 +72,15 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     private GameObject Panel15;
     [SerializeField]
     private GameObject Panel16;
+
+    [SerializeField]
+    private GameObject Panel17;
+    [SerializeField]
+    private GameObject Panel18;
+    [SerializeField]
+    private GameObject text3;
+    [SerializeField]
+    private GameObject text4;
 
     // Use this for initialization
     public void Drop1()
@@ -297,11 +326,26 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     {
         dropdown1.value = value;
     }
+    public void OnClickJ()
+    {
+        Panel17.SetActive(true);
+        Panel18.SetActive(true);
+        text3.SetActive(true);
+        text4.SetActive(true);
+    }
     public void OnClick()
     {
         dropdown1.value = 0;
         dropdown2.value = 0;
         dropdown3.value = 0;
+        dropdown4.value = 0;
+        dropdown5.value = 0;
+        dropdown6.value = 0;
+        dropdown7.value = 0;
+        dropdown8.value = 0;
+        dropdown9.value = 0;
+        dropdown10.value = 0;
+        dropdown11.value = 0;
         koukaname.text = "";
     }
 }
