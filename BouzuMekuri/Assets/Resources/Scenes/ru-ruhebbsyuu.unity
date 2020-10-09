@@ -162,6 +162,15 @@ MonoBehaviour:
   koukaname: {fileID: 600638806}
   dropdown2: {fileID: 1962058888}
   dropdown3: {fileID: 1969189319}
+  dropdown4: {fileID: 0}
+  dropdown5: {fileID: 0}
+  dropdown6: {fileID: 0}
+  dropdown7: {fileID: 0}
+  dropdown8: {fileID: 0}
+  dropdown9: {fileID: 0}
+  dropdown10: {fileID: 0}
+  dropdown11: {fileID: 0}
+  dropdown12: {fileID: 0}
   Panel8: {fileID: 600895174}
   Panel9: {fileID: 1269118642}
   Panel10: {fileID: 665673821}
@@ -171,6 +180,10 @@ MonoBehaviour:
   Panel14: {fileID: 102493054}
   Panel15: {fileID: 2000174786}
   Panel16: {fileID: 72117912}
+  Panel17: {fileID: 0}
+  Panel18: {fileID: 0}
+  text3: {fileID: 0}
+  text4: {fileID: 0}
 --- !u!4 &2531574
 Transform:
   m_ObjectHideFlags: 0
@@ -2441,8 +2454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 00000000000000000000000000000000
   cardEffect: 00000000000000000000000000000000
-  cardNum: 00000000000000000000000000000000
-  playerNum: 00000000000000000000000000000000
+  cardNum: 01000000010000000100000001000000
+  playerNum: 01000000010000000100000001000000
   myRule: 00000000
   ruleName:
   - 
@@ -3415,11 +3428,15 @@ MonoBehaviour:
   Panel2: {fileID: 1027913730}
   Panel3: {fileID: 1182849781}
   Panel4: {fileID: 183481933}
+  Panel5: {fileID: 0}
+  Panel6: {fileID: 0}
   dropdown1: {fileID: 1962058888}
   dropdown2: {fileID: 1969189319}
   dropdown3: {fileID: 1959425896}
   text1: {fileID: 1196610407}
   text2: {fileID: 545278396}
+  text3: {fileID: 0}
+  text4: {fileID: 0}
 --- !u!4 &183586430
 Transform:
   m_ObjectHideFlags: 0
