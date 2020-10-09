@@ -97,4 +97,9 @@ public class TitleAnimetion : MonoBehaviour
             cardObj.RemoveAt(0);
         });
     }
+
+    public void SemimaruAnmime()
+    {
+        Debug.Log("蝉丸の効果");
+    }
 }
