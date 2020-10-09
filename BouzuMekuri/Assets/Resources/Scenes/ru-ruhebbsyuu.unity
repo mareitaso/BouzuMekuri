@@ -162,6 +162,15 @@ MonoBehaviour:
   koukaname: {fileID: 600638806}
   dropdown2: {fileID: 1962058888}
   dropdown3: {fileID: 1969189319}
+  dropdown4: {fileID: 600895176}
+  dropdown5: {fileID: 1269118644}
+  dropdown6: {fileID: 665673823}
+  dropdown7: {fileID: 171831009}
+  dropdown8: {fileID: 1516475022}
+  dropdown9: {fileID: 504886846}
+  dropdown10: {fileID: 102493056}
+  dropdown11: {fileID: 2000174788}
+  dropdown12: {fileID: 72117913}
   Panel8: {fileID: 600895174}
   Panel9: {fileID: 1269118642}
   Panel10: {fileID: 665673821}
@@ -171,6 +180,9 @@ MonoBehaviour:
   Panel14: {fileID: 102493054}
   Panel15: {fileID: 2000174786}
   Panel16: {fileID: 72117912}
+  RulePanel: {fileID: 1800602174}
+  JisakuPanel: {fileID: 187986507}
+  Sakusei: {fileID: 1630607065}
 --- !u!4 &2531574
 Transform:
   m_ObjectHideFlags: 0
@@ -1136,8 +1148,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: "\u5049\u3044\u59EB"
       m_Image: {fileID: 0}
-    - m_Text: "\u574A\u4E3B"
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1625,8 +1635,6 @@ MonoBehaviour:
     - m_Text: "\u6B66\u5B98"
       m_Image: {fileID: 0}
     - m_Text: "\u5049\u3044\u59EB"
-      m_Image: {fileID: 0}
-    - m_Text: "\u574A\u4E3B"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3039,8 +3047,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: "\u5049\u3044\u59EB"
       m_Image: {fileID: 0}
-    - m_Text: "\u574A\u4E3B"
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3420,6 +3426,8 @@ MonoBehaviour:
   dropdown3: {fileID: 1959425896}
   text1: {fileID: 1196610407}
   text2: {fileID: 545278396}
+  RulePanel: {fileID: 1800602174}
+  JisakuPanel: {fileID: 187986507}
 --- !u!4 &183586430
 Transform:
   m_ObjectHideFlags: 0
@@ -3524,7 +3532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &187986508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8442,8 +8450,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: "\u5049\u3044\u59EB"
       m_Image: {fileID: 0}
-    - m_Text: "\u574A\u4E3B"
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -10623,17 +10629,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2531573}
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 381619389}
         m_MethodName: OnClick
         m_Mode: 1
@@ -11654,8 +11649,6 @@ MonoBehaviour:
     - m_Text: "\u5F13\u6301\u3061"
       m_Image: {fileID: 0}
     - m_Text: "\u5049\u3044\u59EB"
-      m_Image: {fileID: 0}
-    - m_Text: "\u574A\u4E3B"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19368,8 +19361,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: "\u5049\u3044\u59EB"
       m_Image: {fileID: 0}
-    - m_Text: "\u574A\u4E3B"
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -22737,8 +22728,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: "\u5049\u3044\u59EB"
       m_Image: {fileID: 0}
-    - m_Text: "\u574A\u4E3B"
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -24249,8 +24238,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871991383}
-        m_MethodName: OnClick1
+      - m_Target: {fileID: 183586429}
+        m_MethodName: OnClickS1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24390,8 +24379,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871991383}
-        m_MethodName: OnClick2
+      - m_Target: {fileID: 2531573}
+        m_MethodName: OnClickS2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24814,8 +24803,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1871991383}
-        m_MethodName: OnClick2
+      - m_Target: {fileID: 2531573}
+        m_MethodName: OnClickS2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27813,8 +27802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa5d7dfa350a784687f01015aff27fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RulePanel: {fileID: 1800602174}
-  JisakuPanel: {fileID: 187986507}
 --- !u!4 &1871991384
 Transform:
   m_ObjectHideFlags: 0
@@ -30014,8 +30001,6 @@ MonoBehaviour:
     - m_Text: "\u5F13\u6301\u3061"
       m_Image: {fileID: 0}
     - m_Text: "\u5049\u3044\u59EB"
-      m_Image: {fileID: 0}
-    - m_Text: "\u574A\u4E3B"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
