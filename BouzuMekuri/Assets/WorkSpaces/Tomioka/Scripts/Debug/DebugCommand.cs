@@ -211,15 +211,28 @@ public class DebugCommand : MonoBehaviour
 
     private void MyRule()
     {
+        RuleManager.instance.PlayerList[0].RuleList[1].RuleEfect[0] = 2;
+        RuleManager.instance.PlayerList[0].RuleList[2].RuleEfect[0] = 2;
+
+        RuleManager.instance.PlayerList[1].RuleList[0].RuleEfect[0] = 2;
+        RuleManager.instance.PlayerList[1].RuleList[2].RuleEfect[0] = 3;
+        
+        RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 2;
+        RuleManager.instance.PlayerList[2].RuleList[2].RuleEfect[0] = 4;
+        
+        RuleManager.instance.PlayerList[3].RuleList[0].RuleEfect[0] = 4;
+        RuleManager.instance.PlayerList[3].RuleList[2].RuleEfect[0] = 0;
+
+
         //Debug.LogError("");
         RuleCreate.instance.cardType[0] = 1;
         RuleCreate.instance.cardType[1] = 3;
         RuleCreate.instance.cardType[2] = 2;
         RuleCreate.instance.cardType[3] = 4;
 
-        RuleCreate.instance.cardEffect[0] = 5;
+        RuleCreate.instance.cardEffect[0] = 6;
         RuleCreate.instance.cardEffect[1] = 5;
-        RuleCreate.instance.cardEffect[2] = 5;
+        RuleCreate.instance.cardEffect[2] = 2;
         RuleCreate.instance.cardEffect[3] = 5;
 
         //RuleCreate.instance.cardNum[0] = 5;
