@@ -15,6 +15,7 @@ public class TitleEffect : MonoBehaviour
     private void Start()
     {
         SoundManager.instance.BgmApply(Bgm.Title);
+        Cursor.visible = false;
     }
 
     private void Update()
