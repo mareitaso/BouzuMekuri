@@ -1457,7 +1457,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 294587619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f27f52445cd977042b9035ceb69c7e2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b411b4f0f7987a42a296aee0e1ccc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   draw: {fileID: 972917170}
@@ -4506,6 +4506,10 @@ MonoBehaviour:
   Yamahuda1: {fileID: 1394826702}
   Yamahuda2: {fileID: 1414400389}
   Sutehuda: {fileID: 2100363399}
+  player1Break: {fileID: 0}
+  player2Break: {fileID: 0}
+  player3Break: {fileID: 0}
+  player4Break: {fileID: 0}
   Yama1: {fileID: 113391758}
   Yama2: {fileID: 933497667}
   playerLabel:
