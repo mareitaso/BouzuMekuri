@@ -15,6 +15,9 @@ public class Draw : MonoBehaviour
     private Image Yamahuda1, Yamahuda2, Sutehuda;//, Hikihuda;
 
     [SerializeField]
+    private Image player1Break, player2Break, player3Break, player4Break;
+
+    [SerializeField]
     private GameObject Yama1, Yama2;
 
     [SerializeField]
@@ -78,9 +81,9 @@ public class Draw : MonoBehaviour
     public void Draw1()
     {
         Yama1.transform.SetAsLastSibling();
-        SoundManager.instance.SeApply(Se.cardOpen);
         if (deck.cards1.Count > 0)//山札1があるとき
         {
+            SoundManager.instance.SeApply(Se.cardOpen);
 
             //山札1がラストの時
             if (deck.cards1.Count < 1)
@@ -239,6 +242,7 @@ public class Draw : MonoBehaviour
             }
             BukanDraw.instance.ReverseRotation();
             TextChange();
+            DrawTotalNum();
         }
         //山札2にカードがある場合
         else if (deck.cards2.Count > 0)
@@ -249,14 +253,13 @@ public class Draw : MonoBehaviour
         {
             GameEnd();
         }
-        DrawTotalNum();
     }
     public void Draw2()
     {
         Yama2.transform.SetAsLastSibling();
-        SoundManager.instance.SeApply(Se.cardOpen);
         if (deck.cards2.Count > 0)//山札2があるとき
         {
+            SoundManager.instance.SeApply(Se.cardOpen);
             //山札2がラストの時
             if (deck.cards2.Count < 1)
             {
@@ -407,6 +410,7 @@ public class Draw : MonoBehaviour
             }
             BukanDraw.instance.ReverseRotation();
             TextChange();
+            DrawTotalNum();
         }
         //山札2にカードがある場合
         else if (deck.cards1.Count > 0)
@@ -417,7 +421,6 @@ public class Draw : MonoBehaviour
         {
             GameEnd();
         }
-        DrawTotalNum();
     }
 
     public void FieldEffectSwitch()
