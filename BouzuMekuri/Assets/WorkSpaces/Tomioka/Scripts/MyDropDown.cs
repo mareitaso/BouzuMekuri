@@ -135,7 +135,7 @@ public class MyDropDown : MonoBehaviour
     /// 効果を一回休みに変えるとそのまま3人を一回休みにできるため
     /// 変更した際に戻す処理
     /// </summary>
-    private void PlayerNumReset()
+    public void PlayerNumReset()
     {
         RuleCreate.instance.playerNum[RuleCreate.instance.PlayerNumber] = 1;
     }
