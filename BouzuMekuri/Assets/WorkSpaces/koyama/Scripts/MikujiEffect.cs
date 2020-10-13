@@ -90,15 +90,15 @@ public class MikujiEffect : MonoBehaviour
             case 1:
                 fieldEffectText.text = "今回のフィールドスキルは\n引く枚数が+1される";
                 break;
-            
+
             case 2:
                 fieldEffectText.text = "今回のフィールドスキルは\n20枚引くごとに手札シャッフル";
                 break;
-            
+
             case 3:
                 fieldEffectText.text = "今回のフィールドスキルは\nプレイヤーが4回ひいたら\n山札から捨て場に３枚置く";
                 break;
-            
+
             default:
                 fieldEffectText.text = "今回のフィールドスキルは\nエラーになりました";
                 Debug.LogError("フィールド効果がおかしい");
@@ -107,3 +107,4 @@ public class MikujiEffect : MonoBehaviour
 
     }
 }
+
