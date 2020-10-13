@@ -170,6 +170,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 else
                 {
                     draw.playerBreak[i] = false;
+                    //draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Null");
                     deck.Count++;
                     deck.Count %= 4;
                 }
@@ -186,6 +187,7 @@ public class BukanDraw : SingletonMonoBehaviour<BukanDraw>
                 else
                 {
                     draw.playerBreak[i] = false;
+                    //draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Null");
                     deck.Count--;
                     if (deck.Count < 0)
                     {

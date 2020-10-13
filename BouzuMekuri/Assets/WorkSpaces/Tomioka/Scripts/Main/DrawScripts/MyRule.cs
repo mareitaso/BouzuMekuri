@@ -110,6 +110,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                         int i = count + 1;
                         i %= 4;
                         draw.playerBreak[i] = true;
+                        draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Skip");
                     }
                     else
                     {
@@ -119,6 +120,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                             i = 3;
                         }
                         draw.playerBreak[i] = true;
+                        draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Skip");
                     }
                 }
                 else
@@ -128,9 +130,11 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                         int i = count + 1;
                         i %= 4;
                         draw.playerBreak[i] = true;
+                        draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Skip");
                         i++;
                         i %= 4;
                         draw.playerBreak[i] = true;
+                        draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Skip");
                     }
                     else
                     {
@@ -140,12 +144,14 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
                             i = 3;
                         }
                         draw.playerBreak[i] = true;
+                        draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Skip");
                         i--;
                         if (i < 0)
                         {
                             i = 3;
                         }
                         draw.playerBreak[i] = true;
+                        draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Skip");
                     }
                 }
 

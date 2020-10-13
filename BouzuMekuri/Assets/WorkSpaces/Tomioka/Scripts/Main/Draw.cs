@@ -15,7 +15,7 @@ public class Draw : MonoBehaviour
     private Image Yamahuda1, Yamahuda2, Sutehuda;//, Hikihuda;
 
     [SerializeField]
-    private Image player1Break, player2Break, player3Break, player4Break;
+    public List<Image> playerSkip;
 
     [SerializeField]
     private GameObject Yama1, Yama2;
@@ -66,6 +66,7 @@ public class Draw : MonoBehaviour
         for (int i = 0; i > 4; i++)
         {
             playerBreak[i] = false;
+            playerSkip[i].sprite = Resources.Load<Sprite>("Images/Null");
         }
         ruleBreak = false;
         if (fieldEffectNum == 1)

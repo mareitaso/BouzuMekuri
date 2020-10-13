@@ -85,6 +85,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
             int i = deck.Count + 1;
             i %= 4;
             draw.playerBreak[i] = true;
+            draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Skip");
         }
         else
         {
@@ -94,6 +95,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
                 i = 3;
             }
             draw.playerBreak[i] = true;
+            draw.playerSkip[i].sprite = Resources.Load<Sprite>("Images/Skip");
         }
     }
 
