@@ -11,6 +11,10 @@ public class TitleAnimetion : MonoBehaviour
     private GameObject card;
 
     [SerializeField]
+    private GameObject UFO;
+
+
+    [SerializeField]
     private GameObject generatePoint, movePoint;
 
     //カードを生成する時間
@@ -23,10 +27,18 @@ public class TitleAnimetion : MonoBehaviour
     [SerializeField]
     private List<GameObject> cardObj;
 
+    [SerializeField]
+    private List<GameObject> UFOPlace;
+
     private bool anime = true;
+
+    private int animeCardNum;
 
     private void Start()
     {
+        anime = true;
+        animeCardNum = Random.Range(4, 7);
+
         if (cardList == null)
         {
             cardList = new List<int>();//初期化
@@ -36,11 +48,13 @@ public class TitleAnimetion : MonoBehaviour
             cardList.Clear();//cardsを空にする
         }
 
-        for (int i = 1; i < 100; i++)
+        for (int i = 1; i < animeCardNum; i++)
         {
-            if (i != 10)
+            int j = Random.Range(1, 100);
+
+            if (j != 10)
             {
-                cardList.Add(i);
+                cardList.Add(j);
             }
             else
             {
@@ -48,7 +62,8 @@ public class TitleAnimetion : MonoBehaviour
             }
         }
 
-        int n = cardList.Count;//nの初期値はカードの枚数
+        //nの初期値はカードの枚数
+        int n = animeCardNum - 1;
         while (n > 1)
         {
             n--;
@@ -95,11 +110,46 @@ public class TitleAnimetion : MonoBehaviour
         {
             Destroy(cardObj[0]);
             cardObj.RemoveAt(0);
+            if (cardList.Count == 0)
+            {
+                UFOAnime();
+            }
         });
     }
 
     public void SemimaruAnmime()
     {
         Debug.Log("蝉丸の効果");
+    }
+
+    private void UFOAnime()
+    {
+        Debug.Log("ここからアニメーション");
+
+        UFO.transform.DOMove(UFOPlace[0].transform.position, 1f).OnComplete(() =>
+        {
+            UFO.transform.DOMove(UFOPlace[1].transform.position, 1f).OnComplete(() =>
+            {
+                UFO.transform.DOMove(UFOPlace[2].transform.position, 1f).OnComplete(() =>
+                {
+                    UFO.transform.DOMove(UFOPlace[3].transform.position, 1f).OnComplete(() =>
+                    {
+                        UFO.transform.DOMove(UFOPlace[4].transform.position, 1f).OnComplete(() =>
+                        {
+                            UFO.transform.DOMove(UFOPlace[5].transform.position, 1f).OnComplete(() =>
+                            {
+                                UFO.transform.DOMove(UFOPlace[6].transform.position, 1f).OnComplete(() =>
+                                {
+                                    UFO.transform.DOMove(UFOPlace[7].transform.position, 1f).OnComplete(() =>
+                                    {
+                                        Start();
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
     }
 }
