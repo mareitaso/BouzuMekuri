@@ -26,7 +26,7 @@ public class HandCount : MonoBehaviour
         string txt = "";
         foreach (var rank in rankSort.Select((data, index) => new { index, data }))
         {
-            txt += string.Format("{0} 位  {1} ... {2} 枚", rank.index + 1,
+            txt += string.Format("{0}位 {1}... {2}枚", rank.index + 1,
                 rank.data.Name, rank.data.Score) + Environment.NewLine;
         }
         text.text = txt;
