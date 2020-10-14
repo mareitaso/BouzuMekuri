@@ -81,6 +81,7 @@ public class Draw : MonoBehaviour
 
     public void Draw1()
     {
+        PlayerSkipImage();
         Yama1.transform.SetAsLastSibling();
         if (deck.cards1.Count > 0)//山札1があるとき
         {
@@ -257,6 +258,7 @@ public class Draw : MonoBehaviour
     }
     public void Draw2()
     {
+        PlayerSkipImage();
         Yama2.transform.SetAsLastSibling();
         if (deck.cards2.Count > 0)//山札2があるとき
         {
@@ -591,6 +593,29 @@ public class Draw : MonoBehaviour
         PlayerCards[5].text = deck.cards1.Count.ToString();
         PlayerCards[6].text = deck.cards2.Count.ToString();
         PlayerLabel();
+    }
+
+    private void PlayerSkipImage()
+    {
+        int i = deck.Count;
+        if (BukanDraw.instance.clockWise == true)
+        {
+            i++;
+            i %= 4;
+            playerSkip[i].sprite = Resources.Load<Sprite>("Images/Null");
+        }
+        else
+        {
+            i--;
+            if (i < 0)
+            {
+                playerSkip[3].sprite = Resources.Load<Sprite>("Images/Null");
+            }
+            else
+            {
+                playerSkip[i].sprite = Resources.Load<Sprite>("Images/Null");
+            }
+        }
     }
 
     public void PlayerLabel()
