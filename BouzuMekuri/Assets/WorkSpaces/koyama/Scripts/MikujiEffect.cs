@@ -10,7 +10,7 @@ public class MikujiEffect : MonoBehaviour
     private Draw draw;
 
     [SerializeField]
-    private Image MikujiBox;
+    private GameObject MikujiBox;
 
     [SerializeField]
     private Image KujiBefore, KujiAfter;
