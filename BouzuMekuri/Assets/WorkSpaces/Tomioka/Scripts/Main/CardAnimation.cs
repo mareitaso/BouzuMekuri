@@ -38,6 +38,8 @@ public class CardAnimation : MonoBehaviour
     private Image fieldSkillCutIn;
     [SerializeField]
     private Image skillCutInCard;
+    [SerializeField]
+    private Image cardBreak;
 
     [SerializeField]
     private Text drawCardType;
@@ -1627,6 +1629,7 @@ public class CardAnimation : MonoBehaviour
             case 19:
                 //効果無効化された札
                 AnimeTono();
+                cardBreak.sprite = Resources.Load<Sprite>("Images/Null");
                 break;
 
             default:
@@ -1750,6 +1753,7 @@ public class CardAnimation : MonoBehaviour
 
             case 19:
                 //効果無効化された札
+                cardBreak.sprite = Resources.Load<Sprite>("Images/Skip");
                 drawCardType.text = "無効化";
                 skillType.text = "スキルを無効化された";
                 break;
