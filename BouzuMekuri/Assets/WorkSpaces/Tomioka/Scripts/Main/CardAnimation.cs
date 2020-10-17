@@ -1625,8 +1625,8 @@ public class CardAnimation : MonoBehaviour
                 break;
 
             case 19:
-                //
-
+                //効果無効化された札
+                AnimeTono();
                 break;
 
             default:
@@ -1749,8 +1749,9 @@ public class CardAnimation : MonoBehaviour
                 break;
 
             case 19:
-                //
-
+                //効果無効化された札
+                drawCardType.text = "無効化";
+                skillType.text = "スキルを無効化された";
                 break;
 
             default:

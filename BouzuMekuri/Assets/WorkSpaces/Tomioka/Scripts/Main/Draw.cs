@@ -238,8 +238,7 @@ public class Draw : MonoBehaviour
             else
             {
                 TrueEffect();
-                TonoDraw.instance.Tono_Draw();
-                drawType.text = "殿";
+                drawType.text = "無効";
                 // Debug.LogError("カードの種類がおかしい");
             }
             BukanDraw.instance.ReverseRotation();
@@ -407,8 +406,8 @@ public class Draw : MonoBehaviour
             else
             {
                 TrueEffect();
-                TonoDraw.instance.Tono_Draw();
-                drawType.text = "殿";
+                //TonoDraw.instance.Tono_Draw();
+                drawType.text = "無効化";
                 // Debug.LogError("カードの種類がおかしい");
             }
             BukanDraw.instance.ReverseRotation();
@@ -641,6 +640,9 @@ public class Draw : MonoBehaviour
         RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 2))
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
         //段付きを引く
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki &&
@@ -648,6 +650,9 @@ public class Draw : MonoBehaviour
             RuleManager.instance.PlayerList[deck.Count].RuleList[0].RuleEfect[0] == 4))
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
         //武官を引くかつ武官スキルあり
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan &&
@@ -655,6 +660,9 @@ public class Draw : MonoBehaviour
             RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 2))
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
 
         //弓持ちを引く
@@ -662,6 +670,9 @@ public class Draw : MonoBehaviour
             RuleManager.instance.PlayerList[deck.Count].RuleList[1].RuleEfect[0] == 3)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
 
         //蝉丸を引く
@@ -669,6 +680,9 @@ public class Draw : MonoBehaviour
             RuleManager.instance.PlayerList[deck.Count].RuleList[2].RuleEfect[0] >= 1)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
 
         //自作ルール(天皇)
@@ -676,6 +690,9 @@ public class Draw : MonoBehaviour
             cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Tennou)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
 
         //自作ルール(段付き)
@@ -683,6 +700,9 @@ public class Draw : MonoBehaviour
             cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Dantuki)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
 
         //自作ルール(武官)
@@ -690,6 +710,9 @@ public class Draw : MonoBehaviour
             cardDataBase.YamahudaLists()[deck.drawcard - 1].GetSecondJob() == Card.SecondJob.Bukan)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
 
         //自作ルール(弓持ち)
@@ -697,6 +720,9 @@ public class Draw : MonoBehaviour
             cardDataBase.YamahudaLists()[deck.drawcard - 1].GetThirdJob() == Card.ThirdJob.Yumimoti)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
 
         //自作ルール(偉い姫)
@@ -704,18 +730,37 @@ public class Draw : MonoBehaviour
             cardDataBase.YamahudaLists()[deck.drawcard - 1].GetOtherJob() == Card.OtherJob.GreatHime)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
 
         //坊主を引く
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
         //姫を引く
         else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
         {
             ruleBreak = false;
+            NoneEffect();
+            cardAnime.animeFunctionNum = 19;
+            cardAnime.AnimeSkillCutIn();
         }
+        else
+        {
+            TonoDraw.instance.Tono_Draw();
+        }
+    }
+
+    private void NoneEffect()
+    {
+        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+        cardAnime.movePlace = deck.Count;
     }
 
     //どちらの山札もカードがなくなったときの処理
