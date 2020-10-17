@@ -61,7 +61,8 @@ public class TitleAnimetion : MonoBehaviour
     private bool anime = true;
 
     //落下用
-    private bool animes = true;
+    private bool animes = false;
+    private int s = 0;
 
     private int n = 0;
 
@@ -74,79 +75,11 @@ public class TitleAnimetion : MonoBehaviour
 
     private void Start()
     {
-        anime = true;
-        animes = true;
-        animeCardNum = Random.Range(4, 7);
-        DownCardNum = Random.Range(4, 7);
-        if (cardList == null)
+        if (s == 0)
         {
-            cardList = new List<int>();//初期化
+            s = 1;
+            AniStart();
         }
-        else
-        {
-            cardList.Clear();//cardsを空にする
-        }
-
-        for (int i = 1; i < animeCardNum; i++)
-        {
-            int j = Random.Range(1, 100);
-
-            if (j != 10)
-            {
-                cardList.Add(j);
-            }
-            else
-            {
-                cardList.Add(100);
-            }
-        }
-
-        //nの初期値はカードの枚数
-        int n = animeCardNum - 1;
-        while (n > 1)
-        {
-            n--;
-            int k = Random.Range(0, n + 1);//
-            int temp = cardList[k];//k番目のカードをtempに追加
-            cardList[k] = cardList[n];
-            cardList[n] = temp;
-        }
-
-
-        //
-        if (cardLists == null)
-        {
-            cardLists = new List<int>();//初期化
-        }
-        else
-        {
-            cardLists.Clear();//cardsを空にする
-        }
-
-        for (int u = 1; u < DownCardNum; u++)
-        {
-            int f = Random.Range(1, 100);
-
-            if (f != 10)
-            {
-                cardLists.Add(f);
-            }
-            else
-            {
-                cardLists.Add(100);
-            }
-        }
-        //sの初期値はカードの枚数
-        int s = DownCardNum - 1;
-        while (s > 1)
-        {
-            s--;
-            int d = Random.Range(0, s + 1);//
-            int temps = cardLists[d];//D番目のカードをtempsに追加
-            cardLists[d] = cardLists[s];
-            cardLists[s] = temps;
-        }
-
         /*
         if (cardListss == null)
         {
@@ -182,11 +115,96 @@ public class TitleAnimetion : MonoBehaviour
         }
         */
     }
+
+    private void AniStart()
+    {
+        anime = true;
+        animeCardNum = Random.Range(4, 7);
+
+        if (cardList == null)
+        {
+            cardList = new List<int>();//初期化
+        }
+        else
+        {
+            cardList.Clear();//cardsを空にする
+        }
+
+        for (int i = 1; i < animeCardNum; i++)
+        {
+            int j = Random.Range(1, 100);
+
+            if (j != 10)
+            {
+                cardList.Add(j);
+            }
+            else
+            {
+                cardList.Add(100);
+            }
+        }
+
+        //nの初期値はカードの枚数
+        int n = animeCardNum - 1;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);//
+            int temp = cardList[k];//k番目のカードをtempに追加
+            cardList[k] = cardList[n];
+            cardList[n] = temp;
+        }
+        GenerateDownCards();
+    }
+
+    private void DownStart()
+    {
+        animes = true;
+        DownCardNum = Random.Range(4, 7);
+
+        //
+        if (cardLists == null)
+        {
+            cardLists = new List<int>();//初期化
+        }
+        else
+        {
+            cardLists.Clear();//cardsを空にする
+        }
+
+        for (int u = 1; u < DownCardNum; u++)
+        {
+            int f = Random.Range(1, 100);
+
+            if (f != 10)
+            {
+                cardLists.Add(f);
+            }
+            else
+            {
+                cardLists.Add(100);
+            }
+        }
+        //sの初期値はカードの枚数
+        int s = DownCardNum - 1;
+        while (s > 1)
+        {
+            s--;
+            int d = Random.Range(0, s + 1);//
+            int temps = cardLists[d];//D番目のカードをtempsに追加
+            cardLists[d] = cardLists[s];
+            cardLists[s] = temps;
+        }
+    }
     void Update()
     {
         GenerateCards();
-        GenerateDownCards();
+        if(animes == true)
+        {
+            GenerateDownCards();
+        }
     }
+
 
     private void GenerateCards()
     {
@@ -220,7 +238,7 @@ public class TitleAnimetion : MonoBehaviour
             generateTimes -= 0.1f;
             if (0 > generateTimes)
             {
-                generateTimes = 5.0f;
+                generateTimes = 15.0f;
 
                 cards = Instantiate(DownCards);
                 CardObj.Add(cards);
@@ -233,7 +251,7 @@ public class TitleAnimetion : MonoBehaviour
                 cardListss.RemoveAt(0);*/
                 if (cardLists.Count < 1)
                 {
-                    anime = false;
+                    animes = false;
                 }
                 cards.transform.position = generaterP.transform.position;
                 //cards.transform.position = GeneP.transform.position;
@@ -259,6 +277,8 @@ public class TitleAnimetion : MonoBehaviour
     public void SemimaruAnmime()
     {
         Debug.Log("蝉丸の効果");
+        animes = false;
+        DownStart();
     }
 
     private void CardAnime()
@@ -269,7 +289,7 @@ public class TitleAnimetion : MonoBehaviour
             CardObj.RemoveAt(0);
             if(cardLists.Count == 0)
             {
-                Start();
+                DownStart();
             }
         });
         /*
@@ -304,7 +324,7 @@ public class TitleAnimetion : MonoBehaviour
                                 {
                                     UFO.transform.DOMove(UFOPlace[7].transform.position, 1f).OnComplete(() =>
                                     {
-                                        Start();
+                                        AniStart();
                                     });
                                 });
                             });
