@@ -152,9 +152,25 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[3].RuleList[1].RuleEfect[0] = 2;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.T))
         {
-            deck.cards1[0] = 30;
+            deck.cards1[0] = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.D))
+        {
+            deck.cards1[0] = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.B))
+        {
+            deck.cards1[0] = 11;
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.Y))
+        {
+            deck.cards1[0] = 11;
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.S))
+        {
+            deck.cards1[0] = 10;
         }
     }
 
@@ -216,10 +232,10 @@ public class DebugCommand : MonoBehaviour
 
         RuleManager.instance.PlayerList[1].RuleList[0].RuleEfect[0] = 2;
         RuleManager.instance.PlayerList[1].RuleList[2].RuleEfect[0] = 3;
-        
+
         RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 2;
         RuleManager.instance.PlayerList[2].RuleList[2].RuleEfect[0] = 4;
-        
+
         RuleManager.instance.PlayerList[3].RuleList[0].RuleEfect[0] = 4;
         RuleManager.instance.PlayerList[3].RuleList[2].RuleEfect[0] = 0;
 

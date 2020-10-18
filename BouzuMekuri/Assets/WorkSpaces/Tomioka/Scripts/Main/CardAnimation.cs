@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Video;
 
 public class CardAnimation : MonoBehaviour
 {
@@ -64,6 +65,9 @@ public class CardAnimation : MonoBehaviour
 
     private readonly float animeTime = 0.6f;
     private readonly float rotateTime = 0.3f;
+
+    [SerializeField]
+    private VideoPlayer video;
 
     //山札からプレイヤーの手札に移動するアニメーション
     public void AnimeTono()
@@ -1513,6 +1517,10 @@ public class CardAnimation : MonoBehaviour
 
         CutInSwitch();
         //CutInText();上に世代交代
+
+        //カットインの映像再生
+        video.Play();
+
         skillCutInCard.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
         skillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
         {
@@ -1520,6 +1528,7 @@ public class CardAnimation : MonoBehaviour
              {
                  skillCutIn.transform.DOMove(CutInAfter.transform.position, animeTime / 2).OnComplete(() =>
                  {
+                     video.Stop();
                      skillCutIn.transform.position = CutInBefore.transform.position;
                      AnimeSwitch();
                  });
