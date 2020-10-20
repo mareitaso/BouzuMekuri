@@ -835,6 +835,7 @@ public class CardAnimation : MonoBehaviour
                                 player[i].sprite = Resources.Load<Sprite>("Images/Null");
                             }
                         }
+                        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[0]);
                         animeEnd = true;
                         draw.FieldEffectSwitch();
                     });

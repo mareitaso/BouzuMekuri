@@ -41,7 +41,7 @@ public class DebugCommand : MonoBehaviour
 
         PlayerSkillChange();
         TonoOnly();
-        FieldSkill3Debug();
+        //FieldSkill3Debug();
         ReverseArrowDebug();
     }
 
@@ -152,25 +152,52 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[3].RuleList[1].RuleEfect[0] = 2;
         }
 
-        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.T))
+
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            draw.effect1Num = 0;
+            draw.fieldEffectNum = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.T))
         {
             deck.cards1[0] = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.D))
         {
             deck.cards1[0] = 1;
         }
-        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.B))
         {
             deck.cards1[0] = 11;
         }
-        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.Y))
         {
             deck.cards1[0] = 11;
         }
-        if (Input.GetKeyDown(KeyCode.Return) && Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.S))
         {
             deck.cards1[0] = 10;
+        } 
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.T))
+        {
+            deck.cards2[0] = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.D))
+        {
+            deck.cards2[0] = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.B))
+        {
+            deck.cards2[0] = 11;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.Y))
+        {
+            deck.cards2[0] = 11;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.S))
+        {
+            deck.cards2[0] = 10;
         }
     }
 

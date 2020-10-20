@@ -116,7 +116,7 @@ public class SemimaruDraw : SingletonMonoBehaviour<SemimaruDraw>
                 }
             }
         }
-        cardAnime.AnimeHandCardGet();
+        //cardAnime.AnimeHandCardGet();
     }
 
     //他のプレイヤーは全ての手札を捨て札に置く
