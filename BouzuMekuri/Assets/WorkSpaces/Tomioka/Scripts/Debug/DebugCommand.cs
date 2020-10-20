@@ -100,6 +100,13 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 3;
             RuleManager.instance.PlayerList[3].RuleList[1].RuleEfect[0] = 3;
         }
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Keypad0))
+        {
+            RuleManager.instance.PlayerList[0].RuleList[2].RuleEfect[0] = 0;
+            RuleManager.instance.PlayerList[1].RuleList[2].RuleEfect[0] = 0;
+            RuleManager.instance.PlayerList[2].RuleList[2].RuleEfect[0] = 0;
+            RuleManager.instance.PlayerList[3].RuleList[2].RuleEfect[0] = 0;
+        }
         if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Keypad1))
         {
             RuleManager.instance.PlayerList[0].RuleList[2].RuleEfect[0] = 1;
@@ -177,6 +184,10 @@ public class DebugCommand : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.S))
         {
             deck.cards1[0] = 10;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.H))
+        {
+            deck.cards1[0] = 9;
         } 
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.T))
@@ -198,6 +209,10 @@ public class DebugCommand : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.S))
         {
             deck.cards2[0] = 10;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.H))
+        {
+            deck.cards2[0] = 9;
         }
     }
 
