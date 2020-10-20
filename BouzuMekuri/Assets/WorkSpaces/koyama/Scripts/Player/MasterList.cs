@@ -88,4 +88,5 @@ public class MasterList : SingletonMonoBehaviour<MasterList>
         list[3].AddRange(totalList);
         totalList.Clear();
     }
+
 }

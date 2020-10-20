@@ -5,11 +5,20 @@ using UnityEngine.UI;
 using System;
 using System.Linq;
 using System.Dynamic;
+using Unity.Collections.LowLevel.Unsafe;
 
 public class HandCount : MonoBehaviour
 {
     [SerializeField]
     private Text text;
+
+    [SerializeField]
+    private Image image1;
+    [SerializeField]
+    private Image image2;
+    [SerializeField]
+    private Image image3;
+
 
     private List<Ranking> rankLists = new List<Ranking>()
     {
@@ -40,20 +49,37 @@ public class HandCount : MonoBehaviour
                       } into s3
                       orderby s3.Rank//順位で並べ替え
                       select s3;
-        /*
-        foreach(var Rankings in ranking)
-        {
-            Debug.LogFormat("{0}位 {1} {2} 点", Rankings.Rank, Rankings.Name, Rankings.Score);
-        }
-        */
         string txt = "";
 
         foreach (var rank in ranking.Select((data,index) => new { index,data }))
         {
+            if (rank.data.Rank == 1)
+            {
+                image1.sprite = Resources.Load<Sprite>("Images/goldcrown");
+                image2.sprite = Resources.Load<Sprite>("Images/goldcrown");
+                image3.sprite = Resources.Load<Sprite>("Images/goldcrown");
+            }
+            else if(rank.data.Rank == 2)
+            {
+                image1.sprite = Resources.Load<Sprite>("Images/slivercrown");
+                image2.sprite = Resources.Load<Sprite>("Images/slivercrown");
+                image3.sprite = Resources.Load<Sprite>("Images/slivercrown");
+            }
+            else if (rank.data.Rank == 3)
+            {
+                image2.sprite = Resources.Load<Sprite>("Images/bronzecrown");
+                image3.sprite = Resources.Load<Sprite>("Images/bronzecrown");
+            }
+            else
+            {
+                image3.sprite = Resources.Load<Sprite>("Images/Null");
+            }
+
             txt += string.Format("{0}位\n {1}... {2}枚",rank.data.Rank ,
                 rank.data.Name, rank.data.Score) + Environment.NewLine;
         }
         text.text = txt;
+
     }
     private void Start()
     {
