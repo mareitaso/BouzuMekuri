@@ -13,14 +13,14 @@ public class SceneController : SingletonMonoBehaviour<SceneController>
     private void Start()
     {
         DontDestroyOnLoad(this);
-        if (blackTexture == null)
-        {
-            //黒テクスチャを生成
-            blackTexture = new Texture2D(32, 32, TextureFormat.RGB24, false);
-            blackTexture.ReadPixels(new Rect(0, 0, 32, 32), 0, 0, false);
-            blackTexture.SetPixel(0, 0, Color.white);
-            blackTexture.Apply();
-        }
+        //if (blackTexture == null)
+        //{
+        //    //黒テクスチャを生成
+        //    blackTexture = new Texture2D(32, 32, TextureFormat.RGB24, false);
+        //    blackTexture.ReadPixels(new Rect(0, 0, 32, 32), 0, 0, false);
+        //    blackTexture.SetPixel(0, 0, Color.white);
+        //    blackTexture.Apply();
+        //}
     }
     private void OnGUI()
     {
