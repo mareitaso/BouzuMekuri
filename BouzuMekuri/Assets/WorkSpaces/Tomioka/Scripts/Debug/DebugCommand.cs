@@ -10,39 +10,11 @@ public class DebugCommand : MonoBehaviour
     [SerializeField]
     private Draw draw;
 
-    [SerializeField]
-    private Text count;
-
     void Update()
     {
-        count.text = (deck.Count + 1).ToString();
-
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            int x = deck.cards1.Count - 2;
-            for (int i = 0; i < x; i++)
-            {
-                deck.cards1.RemoveAt(0);//0番目を削除
-            }
-            deck.cards2[0] = 10;
-            draw.TextChange();
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            deck.cards2[0] = 1;
-            draw.TextChange();
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            MyRule();
-        }
-
         PlayerSkillChange();
         TonoOnly();
-        //FieldSkill3Debug();
-        ReverseArrowDebug();
+        CardChange();
     }
 
     private void PlayerSkillChange()
@@ -62,6 +34,7 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[2].RuleList[0].RuleEfect[0] = 2;
             RuleManager.instance.PlayerList[3].RuleList[0].RuleEfect[0] = 2;
         }
+
         //デバッグコマンド段付き
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.Keypad1))
         {
@@ -77,6 +50,7 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[2].RuleList[0].RuleEfect[0] = 4;
             RuleManager.instance.PlayerList[3].RuleList[0].RuleEfect[0] = 4;
         }
+
         //デバッグコマンド武官
         if (Input.GetKey(KeyCode.B) && Input.GetKey(KeyCode.Keypad1))
         {
@@ -92,6 +66,7 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 2;
             RuleManager.instance.PlayerList[3].RuleList[1].RuleEfect[0] = 2;
         }
+
         //デバッグコマンド弓持ち
         if (Input.GetKeyDown(KeyCode.Y))
         {
@@ -100,6 +75,8 @@ public class DebugCommand : MonoBehaviour
             RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 3;
             RuleManager.instance.PlayerList[3].RuleList[1].RuleEfect[0] = 3;
         }
+
+        //デバッグコマンド蝉丸
         if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.Keypad0))
         {
             RuleManager.instance.PlayerList[0].RuleList[2].RuleEfect[0] = 0;
@@ -152,14 +129,12 @@ public class DebugCommand : MonoBehaviour
             {
                 deck.cards1[i] = Random.Range(22, 30);
             }
-
-            RuleManager.instance.PlayerList[0].RuleList[1].RuleEfect[0] = 2;
-            RuleManager.instance.PlayerList[1].RuleList[1].RuleEfect[0] = 2;
-            RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 2;
-            RuleManager.instance.PlayerList[3].RuleList[1].RuleEfect[0] = 2;
         }
+    }
 
 
+    private void CardChange()
+    {
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             draw.effect1Num = 0;
@@ -188,7 +163,7 @@ public class DebugCommand : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.H))
         {
             deck.cards1[0] = 9;
-        } 
+        }
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.T))
         {
@@ -216,102 +191,102 @@ public class DebugCommand : MonoBehaviour
         }
     }
 
-    private void FieldSkill3Debug()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            int c1 = deck.cards1.Count;
-            for (int i = 4; i < c1; i++)
-            {
-                deck.cards1.RemoveAt(0);
-            }
-            for (int i = 0; i < deck.cards1.Count; i++)
-            {
-                deck.cards1[i] = Random.Range(22, 30);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            int c2 = deck.cards2.Count;
-            for (int i = 4; i < c2; i++)
-            {
-                deck.cards2.RemoveAt(0);
-            }
-            for (int i = 0; i < deck.cards2.Count; i++)
-            {
-                deck.cards2[i] = Random.Range(22, 30);
-            }
-        }
-    }
+    //private void FieldSkill3Debug()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.LeftArrow))
+    //    {
+    //        int c1 = deck.cards1.Count;
+    //        for (int i = 4; i < c1; i++)
+    //        {
+    //            deck.cards1.RemoveAt(0);
+    //        }
+    //        for (int i = 0; i < deck.cards1.Count; i++)
+    //        {
+    //            deck.cards1[i] = Random.Range(22, 30);
+    //        }
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.RightArrow))
+    //    {
+    //        int c2 = deck.cards2.Count;
+    //        for (int i = 4; i < c2; i++)
+    //        {
+    //            deck.cards2.RemoveAt(0);
+    //        }
+    //        for (int i = 0; i < deck.cards2.Count; i++)
+    //        {
+    //            deck.cards2[i] = Random.Range(22, 30);
+    //        }
+    //    }
+    //}
 
-    private void ReverseArrowDebug()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            draw.fieldEffectNum = 0;
+    //private void ReverseArrowDebug()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        draw.fieldEffectNum = 0;
 
-            RuleCreate.instance.cardType[0] = 1;
-            RuleCreate.instance.cardType[1] = 1;
-            RuleCreate.instance.cardType[2] = 1;
-            RuleCreate.instance.cardType[3] = 1;
+    //        RuleCreate.instance.cardType[0] = 1;
+    //        RuleCreate.instance.cardType[1] = 1;
+    //        RuleCreate.instance.cardType[2] = 1;
+    //        RuleCreate.instance.cardType[3] = 1;
 
-            RuleCreate.instance.cardEffect[0] = 5;
-            RuleCreate.instance.cardEffect[1] = 5;
-            RuleCreate.instance.cardEffect[2] = 5;
-            RuleCreate.instance.cardEffect[3] = 5;
+    //        RuleCreate.instance.cardEffect[0] = 5;
+    //        RuleCreate.instance.cardEffect[1] = 5;
+    //        RuleCreate.instance.cardEffect[2] = 5;
+    //        RuleCreate.instance.cardEffect[3] = 5;
 
-            RuleCreate.instance.myRule[0] = true;
-            RuleCreate.instance.myRule[1] = true;
-            RuleCreate.instance.myRule[2] = true;
-            RuleCreate.instance.myRule[3] = true;
-        }
-    }
+    //        RuleCreate.instance.myRule[0] = true;
+    //        RuleCreate.instance.myRule[1] = true;
+    //        RuleCreate.instance.myRule[2] = true;
+    //        RuleCreate.instance.myRule[3] = true;
+    //    }
+    //}
 
-    private void MyRule()
-    {
-        RuleManager.instance.PlayerList[0].RuleList[1].RuleEfect[0] = 2;
-        RuleManager.instance.PlayerList[0].RuleList[2].RuleEfect[0] = 2;
+    //private void MyRule()
+    //{
+    //    RuleManager.instance.PlayerList[0].RuleList[1].RuleEfect[0] = 2;
+    //    RuleManager.instance.PlayerList[0].RuleList[2].RuleEfect[0] = 2;
 
-        RuleManager.instance.PlayerList[1].RuleList[0].RuleEfect[0] = 2;
-        RuleManager.instance.PlayerList[1].RuleList[2].RuleEfect[0] = 3;
+    //    RuleManager.instance.PlayerList[1].RuleList[0].RuleEfect[0] = 2;
+    //    RuleManager.instance.PlayerList[1].RuleList[2].RuleEfect[0] = 3;
 
-        RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 2;
-        RuleManager.instance.PlayerList[2].RuleList[2].RuleEfect[0] = 4;
+    //    RuleManager.instance.PlayerList[2].RuleList[1].RuleEfect[0] = 2;
+    //    RuleManager.instance.PlayerList[2].RuleList[2].RuleEfect[0] = 4;
 
-        RuleManager.instance.PlayerList[3].RuleList[0].RuleEfect[0] = 4;
-        RuleManager.instance.PlayerList[3].RuleList[2].RuleEfect[0] = 0;
+    //    RuleManager.instance.PlayerList[3].RuleList[0].RuleEfect[0] = 4;
+    //    RuleManager.instance.PlayerList[3].RuleList[2].RuleEfect[0] = 0;
 
 
-        //Debug.LogError("");
-        RuleCreate.instance.cardType[0] = 1;
-        RuleCreate.instance.cardType[1] = 3;
-        RuleCreate.instance.cardType[2] = 2;
-        RuleCreate.instance.cardType[3] = 4;
+    //    //Debug.LogError("");
+    //    RuleCreate.instance.cardType[0] = 1;
+    //    RuleCreate.instance.cardType[1] = 3;
+    //    RuleCreate.instance.cardType[2] = 2;
+    //    RuleCreate.instance.cardType[3] = 4;
 
-        RuleCreate.instance.cardEffect[0] = 6;
-        RuleCreate.instance.cardEffect[1] = 5;
-        RuleCreate.instance.cardEffect[2] = 2;
-        RuleCreate.instance.cardEffect[3] = 5;
+    //    RuleCreate.instance.cardEffect[0] = 6;
+    //    RuleCreate.instance.cardEffect[1] = 5;
+    //    RuleCreate.instance.cardEffect[2] = 2;
+    //    RuleCreate.instance.cardEffect[3] = 5;
 
-        //RuleCreate.instance.cardNum[0] = 5;
-        //RuleCreate.instance.cardNum[1] = 5;
-        RuleCreate.instance.cardNum[2] = 0;
-        //RuleCreate.instance.cardNum[3] = 5;
+    //    //RuleCreate.instance.cardNum[0] = 5;
+    //    //RuleCreate.instance.cardNum[1] = 5;
+    //    RuleCreate.instance.cardNum[2] = 0;
+    //    //RuleCreate.instance.cardNum[3] = 5;
 
-        //RuleCreate.instance.playerNum[0] = 5;
-        //RuleCreate.instance.playerNum[1] = 5;
-        //RuleCreate.instance.playerNum[2] = 5;
-        //RuleCreate.instance.playerNum[3] = 5;
+    //    //RuleCreate.instance.playerNum[0] = 5;
+    //    //RuleCreate.instance.playerNum[1] = 5;
+    //    //RuleCreate.instance.playerNum[2] = 5;
+    //    //RuleCreate.instance.playerNum[3] = 5;
 
-        RuleCreate.instance.myRule[0] = true;
-        RuleCreate.instance.myRule[1] = true;
-        RuleCreate.instance.myRule[2] = true;
-        RuleCreate.instance.myRule[3] = true;
+    //    RuleCreate.instance.myRule[0] = true;
+    //    RuleCreate.instance.myRule[1] = true;
+    //    RuleCreate.instance.myRule[2] = true;
+    //    RuleCreate.instance.myRule[3] = true;
 
-        RuleCreate.instance.ruleName[0] = "自作壱";
-        RuleCreate.instance.ruleName[1] = "自作弐";
-        RuleCreate.instance.ruleName[2] = "自作参";
-        RuleCreate.instance.ruleName[3] = "自作肆";
+    //    RuleCreate.instance.ruleName[0] = "自作壱";
+    //    RuleCreate.instance.ruleName[1] = "自作弐";
+    //    RuleCreate.instance.ruleName[2] = "自作参";
+    //    RuleCreate.instance.ruleName[3] = "自作肆";
 
-    }
+    //}
 }
