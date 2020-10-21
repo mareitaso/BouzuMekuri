@@ -875,7 +875,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 974197331}
-        m_MethodName: PlayerNumber
+        m_MethodName: CardNumber
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14979,13 +14979,11 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: "5\u679A"
       m_Image: {fileID: 0}
-    - m_Text: "\u5168\u3066"
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 974197331}
-        m_MethodName: PlayerNumber
+        m_MethodName: CardNumber
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
