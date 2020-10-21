@@ -132,7 +132,6 @@ public class DebugCommand : MonoBehaviour
         }
     }
 
-
     private void CardChange()
     {
         if (Input.GetKeyDown(KeyCode.Keypad0))

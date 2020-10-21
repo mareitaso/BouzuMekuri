@@ -273,7 +273,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
         if (draw.drowYama1 == true)
         {
             //山札からj枚引く
-            for (int i = 0; i < j; i++)
+            for (int i = 1; i < j; i++)
             {
                 //deck.drawcard = deck.cards1[0];//いらないかも
                 MasterList.instance.list[count].Add(deck.drawcard);//手札に追加
@@ -283,7 +283,7 @@ public class MyRule : SingletonMonoBehaviour<MyRule>
         else
         {
             //山札から2枚引く
-            for (int i = 0; i < j; i++)
+            for (int i = 1; i < j; i++)
             {
                 //deck.drawcard = deck.cards2[0];//いらないかも
                 MasterList.instance.list[count].Add(deck.drawcard);//手札に追加;

@@ -14,7 +14,6 @@ public class RuleCreate : SingletonMonoBehaviour<RuleCreate>
 
     //スキルの対象枚数
     [Header("対象枚数(休み・逆回り・効果無効のみ例外)")]
-    [Header("※引くの場合0で1枚引く")]
     public List<int> cardNum;
 
     //スキルの対象人数
