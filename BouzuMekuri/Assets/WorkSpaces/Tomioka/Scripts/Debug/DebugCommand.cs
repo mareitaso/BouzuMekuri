@@ -189,6 +189,26 @@ public class DebugCommand : MonoBehaviour
         {
             deck.cards2[0] = 9;
         }
+
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Input.GetKey(KeyCode.Keypad0))
+        {
+            int x = deck.cards1.Count;
+            for (int i = 0; i < x; i++)
+            {
+                deck.cards1.RemoveAt(0);//0番目を削除
+            }
+            draw.TextChange();
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Input.GetKey(KeyCode.Keypad0))
+        {
+            int y = deck.cards2.Count;
+            for (int i = 0; i < y; i++)
+            {
+                deck.cards2.RemoveAt(0);//0番目を削除
+            }
+            draw.TextChange();
+        }
     }
 
     //private void FieldSkill3Debug()
