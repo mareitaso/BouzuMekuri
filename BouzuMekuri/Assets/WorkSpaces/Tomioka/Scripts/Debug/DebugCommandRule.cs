@@ -17,10 +17,10 @@ public class DebugCommandRule : MonoBehaviour
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            SoundManager.instance.SeApply(Se.semimaruSkill);
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    SoundManager.instance.SeApply(Se.semimaruSkill);
+        //}
 
         if (Input.GetKeyDown(KeyCode.M))
         {

@@ -35,7 +35,7 @@ public class TitleAnimetion : MonoBehaviour
     private float generateTime = 10.0f;
     //落下用のカード生成時間
     [SerializeField]
-    private float generateTimes = 3.0f;
+    private float generateTimes = 2.0f;
 
     [SerializeField]
     private List<int> cardList;
@@ -238,7 +238,7 @@ public class TitleAnimetion : MonoBehaviour
             generateTimes -= 0.1f;
             if (0 > generateTimes)
             {
-                generateTimes = 15.0f;
+                generateTimes = 4.0f;
 
                 cards = Instantiate(DownCards);
                 CardObj.Add(cards);
@@ -283,7 +283,7 @@ public class TitleAnimetion : MonoBehaviour
 
     private void CardAnime()
     {
-        cards.transform.DOMove(MoverP.transform.position, 3f).OnComplete(() =>
+        cards.transform.DOMove(MoverP.transform.position, 2f).OnComplete(() =>
         {
             Destroy(CardObj[0]);
             CardObj.RemoveAt(0);

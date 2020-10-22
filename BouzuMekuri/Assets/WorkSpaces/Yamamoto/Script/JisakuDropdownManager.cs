@@ -12,16 +12,16 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
     private GameObject Panel1;
     [SerializeField]
     private GameObject Panel2;
-    [SerializeField]
-    private GameObject Panel3;
+    //[SerializeField]
+    //private GameObject //Panel3;
     [SerializeField]
     private GameObject Panel4;
     [SerializeField]
     private GameObject Panel5;
     [SerializeField]
     private GameObject Panel6;
-    [SerializeField]
-    private GameObject Panel7;
+    //[SerializeField]
+    //private GameObject //Panel7;
     [SerializeField]
     private Dropdown dropdown1;
     [SerializeField]
@@ -70,11 +70,11 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         {
             Panel1.SetActive(true);
             Panel2.SetActive(false);
-            Panel3.SetActive(false);
+            ////Panel3.SetActive(false);
             Panel4.SetActive(true);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
-            Panel7.SetActive(false);
+            ////Panel7.SetActive(false);
             text1.SetActive(true);
             text2.SetActive(true);
             koukaname.text = "もらう";
@@ -85,11 +85,11 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         {
             Panel1.SetActive(false);
             Panel2.SetActive(true);
-            Panel3.SetActive(false);
+            ////Panel3.SetActive(false);
             Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(true);
-            Panel7.SetActive(false);
+            ////Panel7.SetActive(false);
             text1.SetActive(true);
             text2.SetActive(true);
             koukaname.text = "引く";
@@ -100,11 +100,11 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
-            Panel3.SetActive(true);
+            //Panel3.SetActive(true);
             Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
-            Panel7.SetActive(true);
+            //Panel7.SetActive(true);
             text1.SetActive(true);
             text2.SetActive(true);
             koukaname.text = "置く";
@@ -115,11 +115,11 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
-            Panel3.SetActive(false);
+            //Panel3.SetActive(false);
             Panel4.SetActive(false);
             Panel5.SetActive(true);
             Panel6.SetActive(false);
-            Panel7.SetActive(false);
+            //Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(true);
             koukaname.text = "1回休み";
@@ -130,11 +130,11 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
-            Panel3.SetActive(false);
+            //Panel3.SetActive(false);
             Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
-            Panel7.SetActive(false);
+            //Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
             koukaname.text = "逆回り";
@@ -145,11 +145,11 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
-            Panel3.SetActive(false);
+            //Panel3.SetActive(false);
             Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
-            Panel7.SetActive(false);
+            //Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
             koukaname.text = "無効";
@@ -160,11 +160,11 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
-            Panel3.SetActive(false);
+            //Panel3.SetActive(false);
             Panel4.SetActive(false);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
-            Panel7.SetActive(false);
+            //Panel7.SetActive(false);
             text1.SetActive(false);
             text2.SetActive(false);
             koukaname.text = "";

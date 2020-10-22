@@ -34,15 +34,18 @@ public class RuleButtonOnOff : MonoBehaviour
 
     void Update()
     {
-        if (RuleCreate.instance.myRule[RuleCreate.instance.PlayerNumber] == true)
+        if (RuleCreate.instance.PlayerNumber <= 3)
         {
-            button.SetActive(false);
-            myRules.SetActive(true);
-        }
-        else
-        {
-            button.SetActive(true);
-            myRules.SetActive(false);
+            if (RuleCreate.instance.myRule[RuleCreate.instance.PlayerNumber] == true)
+            {
+                button.SetActive(false);
+                myRules.SetActive(true);
+            }
+            else
+            {
+                button.SetActive(true);
+                myRules.SetActive(false);
+            }
         }
     }
 }

@@ -150,7 +150,7 @@ public class RulePullDown : MonoBehaviour
     */
     public void Tennou()
     {
-        if(Skilldown1.value == 0)
+        if (Skilldown1.value == 0)
         {
             RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[0].RuleEfect[0] = 0;
         }
@@ -170,7 +170,7 @@ public class RulePullDown : MonoBehaviour
 
     public void Dantuki()
     {
-        if(Skilldown2.value == 0)
+        if (Skilldown2.value == 0)
         {
             RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[0].RuleEfect[0] = 0;
         }
@@ -190,7 +190,7 @@ public class RulePullDown : MonoBehaviour
 
     public void Bukan()
     {
-        if(Skilldown3.value == 0)
+        if (Skilldown3.value == 0)
         {
             RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[1].RuleEfect[0] = 0;
         }
@@ -210,7 +210,7 @@ public class RulePullDown : MonoBehaviour
 
     public void Yumimoti()
     {
-        if(Skilldown4.value == 0)
+        if (Skilldown4.value == 0)
         {
             RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[1].RuleEfect[0] = 0;
         }
@@ -223,7 +223,7 @@ public class RulePullDown : MonoBehaviour
     }
     public void Semimaru()
     {
-        if(SemimaruDrop.value == 0)
+        if (SemimaruDrop.value == 0)
         {
             //坊主として扱う
             RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0] = 0;
@@ -271,9 +271,9 @@ public class RulePullDown : MonoBehaviour
     */
     public void Update()
     {
-        if ((Skilldown1.value == 0&&Skilldown2.value ==0) &&
-            (Skilldown3.value == 0&&Skilldown4.value ==0)||
-            dropdown1.value ==0&&dropdown2.value ==0)
+        if ((Skilldown1.value == 0 && Skilldown2.value == 0) &&
+            (Skilldown3.value == 0 && Skilldown4.value == 0) ||
+            dropdown1.value == 0 && dropdown2.value == 0)
         {
             //確認ボタンが押せない
             //s.gameObject.SetActive(false);
@@ -307,7 +307,14 @@ public class RulePullDown : MonoBehaviour
     }
     public void Down()
     {
-        RuleCreate.instance.PlayerNumber++;
+        if (RuleCreate.instance.PlayerNumber == 3)
+        {
+            RuleCreate.instance.PlayerNumber = 0;
+        }
+        else
+        {
+            RuleCreate.instance.PlayerNumber++;
+        }
         //if (RuleCreate.instance.PlayerNumber > 3)
         //{
         //    RuleCreate.instance.PlayerNumber = 0;
@@ -324,7 +331,7 @@ public class RulePullDown : MonoBehaviour
         {
             text1.text = "試合へ";
         }
-        else if (RuleCreate.instance.PlayerNumber == 4)
+        else if (RuleCreate.instance.PlayerNumber == 0)
         {
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
         }
