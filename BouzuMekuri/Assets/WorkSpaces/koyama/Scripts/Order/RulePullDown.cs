@@ -26,6 +26,7 @@ public class RulePullDown : MonoBehaviour
 
     [SerializeField] private Dropdown SemimaruDrop;
 
+    public bool AutoFlag = false;
 
     /*
     // 天皇　段付き判定
@@ -273,7 +274,8 @@ public class RulePullDown : MonoBehaviour
     {
         if ((Skilldown1.value == 0 && Skilldown2.value == 0) &&
             (Skilldown3.value == 0 && Skilldown4.value == 0) ||
-            dropdown1.value == 0 && dropdown2.value == 0)
+            dropdown1.value == 0 && dropdown2.value == 0||
+            AutoFlag == true)
         {
             //確認ボタンが押せない
             //s.gameObject.SetActive(false);
@@ -322,14 +324,17 @@ public class RulePullDown : MonoBehaviour
         if (RuleCreate.instance.PlayerNumber == 1)
         {
             text1.text = "P3へ";
+            AutoFlag = false;
         }
         else if (RuleCreate.instance.PlayerNumber == 2)
         {
             text1.text = "P4へ";
+            AutoFlag = false;
         }
         else if (RuleCreate.instance.PlayerNumber == 3)
         {
             text1.text = "試合へ";
+            AutoFlag = false;
         }
         else if (RuleCreate.instance.PlayerNumber == 0)
         {

@@ -137,16 +137,34 @@ public class Touch : MonoBehaviour
 
     public void Skill1()
     {
-        Judge();
-        shuf();
-        panel.SetActive(false);
+        if (deck.cards1.Count + deck.cards2.Count > 0)
+        {
+            Judge();
+            shuf();
+            panel.SetActive(false);
+        }
+        else
+        {
+            panel.SetActive(false);
+            panels.SetActive(true);
+            text.text = "山札がないので使用出来ません";
+        }
     }
 
     public void Skill2()
     {
-        Judge();
-        playerSkill.PlayerSkill2();
-        panel.SetActive(false);
+        if (deck.cards1.Count + deck.cards2.Count > 0)
+        {
+            Judge();
+            playerSkill.PlayerSkill2();
+            panel.SetActive(false);
+        }
+        else
+        {
+            panel.SetActive(false);
+            panels.SetActive(true);
+            text.text = "山札がないので使用出来ません";
+        }
     }
 
     public void Skill3()
