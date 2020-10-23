@@ -24,6 +24,12 @@ public class ReSetCommand : SingletonMonoBehaviour<ReSetCommand>
         RuleManager.instance.PlayerList[3].RuleList[0].RuleEfect[0] = 0;
         RuleManager.instance.PlayerList[3].RuleList[1].RuleEfect[0] = 0;
         RuleManager.instance.PlayerList[3].RuleList[2].RuleEfect[0] = 0;
+
+        RuleCreate.instance.myRule[0] = false;
+        RuleCreate.instance.myRule[1] = false;
+        RuleCreate.instance.myRule[2] = false;
+        RuleCreate.instance.myRule[3] = false;
+
         SceneController.instance.LoadScene(SceneController.SceneName.Title);
     }
 }

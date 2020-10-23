@@ -1784,6 +1784,8 @@ public class CardAnimation : MonoBehaviour
         animeEnd = false;
         movePlace = deck.Count;
         SoundManager.instance.SeApply(Se.cardSkill);
+        //カットインの映像再生
+        video.Play();
 
         if (draw.fieldEffectNum == 2)
         {
@@ -1821,6 +1823,8 @@ public class CardAnimation : MonoBehaviour
                             draw.FieldEffect3();
                         }
                     }
+                    //カットインの映像再生
+                    video.Stop();
                 });
             });
         });
