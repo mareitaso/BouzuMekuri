@@ -30,6 +30,8 @@ public class ReSetCommand : SingletonMonoBehaviour<ReSetCommand>
         RuleCreate.instance.myRule[2] = false;
         RuleCreate.instance.myRule[3] = false;
 
+        RulePullDown.Pflag = false;
+
         SceneController.instance.LoadScene(SceneController.SceneName.Title);
     }
 }
