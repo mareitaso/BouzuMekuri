@@ -58,6 +58,8 @@ public class TitleAnimetion : MonoBehaviour
     [SerializeField]
     private List<GameObject> UFOPlace;
 
+    private bool cardTap = false;
+
     private bool anime = true;
 
     //落下用
@@ -198,13 +200,21 @@ public class TitleAnimetion : MonoBehaviour
     }
     void Update()
     {
-        GenerateCards();
-        if(animes == true)
+        if (cardTap == true)
+        {
+            GenerateCards();
+        }
+        if (animes == true)
         {
             GenerateDownCards();
         }
     }
 
+    public void SemimaruStart()
+    {
+        cardTap = true;
+        UFO.transform.DOMove(UFOPlace[7].transform.position, 1f);
+    }
 
     private void GenerateCards()
     {
@@ -230,7 +240,7 @@ public class TitleAnimetion : MonoBehaviour
             }
         }
     }
-    
+
     private void GenerateDownCards()
     {
         if (animes == true)
@@ -287,7 +297,7 @@ public class TitleAnimetion : MonoBehaviour
         {
             Destroy(CardObj[0]);
             CardObj.RemoveAt(0);
-            if(cardLists.Count == 0)
+            if (cardLists.Count == 0)
             {
                 DownStart();
             }

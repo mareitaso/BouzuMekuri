@@ -12186,6 +12186,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e8ab73e8292ec41b1a10848145beba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TDmenu: {fileID: 1962058888}
+  BYmenu: {fileID: 1969189319}
+  Teffect: {fileID: 1925211268}
+  Deffect: {fileID: 1027913732}
+  Beffect: {fileID: 1182849783}
+  Yeffect: {fileID: 183481935}
+  Seffect: {fileID: 1959425896}
   rulePullDown: {fileID: 1109997939}
 --- !u!1 &975352444
 GameObject:
@@ -13390,6 +13397,7 @@ MonoBehaviour:
   text2: {fileID: 682992673}
   SemimaruDrop: {fileID: 1959425896}
   AutoFlag: 0
+  g: 0
 --- !u!4 &1109997940
 Transform:
   m_ObjectHideFlags: 0
