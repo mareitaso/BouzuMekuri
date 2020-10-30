@@ -89,13 +89,13 @@ public class JisakuDropdownManager : SingletonMonoBehaviour<JisakuDropdownManage
         }
         else if (dropdown1.value == 3)
         {
-            Panel1.SetActive(false);
+            Panel1.SetActive(true);
             Panel2.SetActive(false);
-            Panel4.SetActive(false);
+            Panel4.SetActive(true);
             Panel5.SetActive(false);
             Panel6.SetActive(false);
-            text1.SetActive(false);
-            text2.SetActive(false);
+            text1.SetActive(true);
+            text2.SetActive(true);
             koukaname.text = "置く";
             Debug.Log("置く");
             SetValue(3);
