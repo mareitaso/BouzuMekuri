@@ -18,13 +18,13 @@ public class TextOnOff : MonoBehaviour
 
     void Update()
     {
-        text.color = GetAlphaColor(text.color);
+        text.color = ChangeAlpha(text.color);
     }
 
-    //α値を更新させる
-    Color GetAlphaColor(Color color)
+    //α値を変更
+    private Color ChangeAlpha(Color color)
     {
-        time += Time.deltaTime * 5.0f * speed;
+        time += Time.deltaTime * 5f * speed;
         color.a = Mathf.Sin(time) * 0.5f + 0.5f;
 
         return color;
