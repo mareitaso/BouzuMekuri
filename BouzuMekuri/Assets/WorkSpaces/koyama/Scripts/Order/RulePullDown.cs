@@ -28,6 +28,7 @@ public class RulePullDown : MonoBehaviour
 
     public bool AutoFlag = false;
 
+    public static bool Pflag = false;
     /*
     // 天皇　段付き判定
     public void ChangeRule1()
@@ -272,10 +273,9 @@ public class RulePullDown : MonoBehaviour
     */
     public void Update()
     {
-        if ((Skilldown1.value == 0 && Skilldown2.value == 0) &&
-            (Skilldown3.value == 0 && Skilldown4.value == 0) ||
-            dropdown1.value == 0 && dropdown2.value == 0||
-            AutoFlag == true)
+        if ((AutoFlag == false&&Skilldown1.value == 0 && Skilldown2.value == 0) &&
+            (AutoFlag == false&&Skilldown3.value == 0 && Skilldown4.value == 0) ||
+            (AutoFlag == false&&dropdown1.value == 0 && dropdown2.value == 0))
         {
             //確認ボタンが押せない
             //s.gameObject.SetActive(false);
@@ -323,29 +323,35 @@ public class RulePullDown : MonoBehaviour
         //}
         if (RuleCreate.instance.PlayerNumber == 1)
         {
-            text1.text = "P3へ";
             AutoFlag = false;
+            s.interactable = false;
+            Skilldown1.value = 0;
+            Skilldown2.value = 0;
+            Skilldown3.value = 0;
+            Skilldown4.value = 0;
         }
         else if (RuleCreate.instance.PlayerNumber == 2)
         {
-            text1.text = "P4へ";
             AutoFlag = false;
+            s.interactable = false;
+            Skilldown1.value = 0;
+            Skilldown2.value = 0;
+            Skilldown3.value = 0;
+            Skilldown4.value = 0;
         }
         else if (RuleCreate.instance.PlayerNumber == 3)
         {
-            text1.text = "試合へ";
             AutoFlag = false;
+            s.interactable = false;
+            Skilldown1.value = 0;
+            Skilldown2.value = 0;
+            Skilldown3.value = 0;
+            Skilldown4.value = 0;
         }
         else if (RuleCreate.instance.PlayerNumber == 0)
         {
+            Pflag = true;
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
         }
-        s.interactable = false;
-        Skilldown1.value = 0;
-        Skilldown2.value = 0;
-        Skilldown3.value = 0;
-        Skilldown4.value = 0;
     }
-
-
 }

@@ -39,6 +39,9 @@ public class DoropdownManager : MonoBehaviour
     [SerializeField]
     private GameObject JisakuPanel;//自作シーン
     // Use this for initialization
+
+    
+
     public void Drop1()
     {
         if (dropdown4.value == 0)//未選択
@@ -60,7 +63,7 @@ public class DoropdownManager : MonoBehaviour
     }
     public void Drop2()
     {
-        if (dropdown1.value == 0) 
+        if (dropdown1.value == 0&& RulePullDown.Pflag == false) 
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
@@ -100,7 +103,7 @@ public class DoropdownManager : MonoBehaviour
     }
     public void Drop3()
     {
-        if (dropdown2.value == 0 )
+        if (dropdown2.value == 0 && RulePullDown.Pflag == false)
         {
             Panel3.SetActive(false);
             Panel4.SetActive(false);
