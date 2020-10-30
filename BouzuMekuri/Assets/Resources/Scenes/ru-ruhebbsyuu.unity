@@ -2502,6 +2502,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2531573}
+        m_MethodName: Drop2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &183481936
 MonoBehaviour:
@@ -2575,6 +2586,10 @@ MonoBehaviour:
   dropdown1: {fileID: 1962058888}
   dropdown2: {fileID: 1969189319}
   dropdown3: {fileID: 1959425896}
+  skillT: {fileID: 1925211268}
+  skillD: {fileID: 1027913732}
+  skillB: {fileID: 1182849783}
+  skillY: {fileID: 183481935}
   rule1: {fileID: 1962058888}
   rule2: {fileID: 1969189319}
   text1: {fileID: 1196610407}
@@ -12648,6 +12663,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2531573}
+        m_MethodName: Drop2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1027913733
 MonoBehaviour:
@@ -13797,6 +13823,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1109997939}
         m_MethodName: Bukan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2531573}
+        m_MethodName: Drop2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19268,6 +19305,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2531573}
+        m_MethodName: Update
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1630607066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21985,6 +22033,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1109997939}
         m_MethodName: Tennou
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2531573}
+        m_MethodName: Drop2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
