@@ -28,7 +28,16 @@ public class RulePullDown : MonoBehaviour
 
     public bool AutoFlag = false;
 
+    [SerializeField]
+    private bool g;
+
     public static bool Pflag = false;
+
+
+    private void Awake()
+    {
+        Pflag = g;
+    }
     /*
     // 天皇　段付き判定
     public void ChangeRule1()
@@ -311,6 +320,7 @@ public class RulePullDown : MonoBehaviour
     {
         if (RuleCreate.instance.PlayerNumber == 3)
         {
+            Pflag = true;
             RuleCreate.instance.PlayerNumber = 0;
         }
         else
@@ -350,7 +360,6 @@ public class RulePullDown : MonoBehaviour
         }
         else if (RuleCreate.instance.PlayerNumber == 0)
         {
-            Pflag = true;
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
         }
     }

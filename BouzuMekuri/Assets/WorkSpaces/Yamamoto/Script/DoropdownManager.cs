@@ -70,7 +70,7 @@ public class DoropdownManager : MonoBehaviour
     }
     public void Drop2()
     {    //選んだものが～
-        if (dropdown1.value == 0) 
+        if (dropdown1.value == 0 && RulePullDown.Pflag == false) 
         {
             Panel1.SetActive(false);
             Panel2.SetActive(false);
@@ -113,7 +113,7 @@ public class DoropdownManager : MonoBehaviour
     }
     public void Drop3()
     {
-        if (dropdown2.value == 0 )
+        if (dropdown2.value == 0 && RulePullDown.Pflag == false)
         {
             Panel3.SetActive(false);
             Panel4.SetActive(false);
@@ -160,10 +160,10 @@ public class DoropdownManager : MonoBehaviour
         dropdown2.value = 0;
         dropdown3.value = 0;
         dropdown4.value = 0;
-        skillT.value = 0;
-        skillD.value = 0;
-        skillB.value = 0;
-        skillY.value = 0;
+        //skillT.value = 0;
+        //skillD.value = 0;
+        //skillB.value = 0;
+        //skillY.value = 0;
     }
     public void OnClickS1()//ローカルから自作へ
     {
