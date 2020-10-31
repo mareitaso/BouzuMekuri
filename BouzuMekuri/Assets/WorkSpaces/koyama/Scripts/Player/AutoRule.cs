@@ -22,6 +22,10 @@ public class AutoRule : MonoBehaviour
         BYnum = RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[1].RuleEfect[0];
         Snum = RuleManager.instance.PlayerList[RuleCreate.instance.PlayerNumber].RuleList[2].RuleEfect[0];
         ActiveMenu();
+        if (TDnum == 0 && BYnum == 0)
+        {
+            rulePullDown.AutoFlag = false;
+        }
     }
 
     private void ActiveMenu()
@@ -29,6 +33,8 @@ public class AutoRule : MonoBehaviour
         switch (TDnum)
         {
             case 0:
+                TDmenu.value = 0;
+                Teffect.value = 0;
                 break;
 
             case 1:
@@ -59,6 +65,8 @@ public class AutoRule : MonoBehaviour
         switch (BYnum)
         {
             case 0:
+                BYmenu.value = 0;
+                Beffect.value = 0;
                 break;
 
             case 1:
@@ -85,6 +93,7 @@ public class AutoRule : MonoBehaviour
         {
 
             case 0:
+                Seffect.value = 0;
                 break;
 
             case 1:
