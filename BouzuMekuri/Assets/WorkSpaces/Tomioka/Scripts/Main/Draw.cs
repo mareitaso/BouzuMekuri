@@ -253,6 +253,7 @@ public class Draw : MonoBehaviour
         }
         else
         {
+            SoundManager.instance.SeApply(Se.gameEnd);
             GameEnd();
         }
     }
@@ -422,6 +423,7 @@ public class Draw : MonoBehaviour
         }
         else
         {
+            SoundManager.instance.SeApply(Se.choice);
             GameEnd();
         }
     }

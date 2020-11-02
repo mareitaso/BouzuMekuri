@@ -12,22 +12,29 @@ public class TitleEffect : MonoBehaviour
     [SerializeField]
     private GameObject cloudPlaceLU, cloudPlaceLD, cloudPlaceRU, cloudPlaceRD;
 
+    private bool startGame = false;
+
     private void Start()
     {
+        startGame = false;
         SoundManager.instance.BgmApply(Bgm.Title);
     }
 
     public void SceneLoad()
     {
-        SoundManager.instance.FadeOutBgm(1f);
-        SoundManager.instance.SeApply(Se.start);
-
-        cloudLU.transform.DOMove(cloudPlaceLU.transform.position, 1.5f);
-        cloudLD.transform.DOMove(cloudPlaceLD.transform.position, 1.5f);
-        cloudRU.transform.DOMove(cloudPlaceRU.transform.position, 1.5f);
-        cloudRD.transform.DOMove(cloudPlaceRD.transform.position, 1.5f).OnComplete(() =>
+        if (startGame == false)
         {
-            SceneController.instance.LoadScene(SceneController.SceneName.Rule);
-        });
+            startGame = true;
+            SoundManager.instance.FadeOutBgm(1f);
+            SoundManager.instance.SeApply(Se.start);
+
+            cloudLU.transform.DOMove(cloudPlaceLU.transform.position, 1.5f);
+            cloudLD.transform.DOMove(cloudPlaceLD.transform.position, 1.5f);
+            cloudRU.transform.DOMove(cloudPlaceRU.transform.position, 1.5f);
+            cloudRD.transform.DOMove(cloudPlaceRD.transform.position, 1.5f).OnComplete(() =>
+            {
+                SceneController.instance.LoadScene(SceneController.SceneName.Rule);
+            });
+        }
     }
 }

@@ -90,7 +90,6 @@ public class MenuController : MonoBehaviour
     public void LoadTitle()
     {
         SoundManager.instance.SeApply(Se.choice);
-        //SoundManager.instance.FadeOutBgm(1f);
         SoundManager.instance.FadeOutBgm(1f);
         //ReSetCommand.instance.ReSet();
         Invoke("Interval", 1.5f);

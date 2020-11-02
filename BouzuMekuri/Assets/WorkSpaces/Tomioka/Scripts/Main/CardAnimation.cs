@@ -208,6 +208,7 @@ public class CardAnimation : MonoBehaviour
                 });
             });
         }
+        SoundManager.instance.SeApply(Se.oku);
     }
 
     //捨て札を全部回収するアニメーション
@@ -769,7 +770,7 @@ public class CardAnimation : MonoBehaviour
                         Yama1Null();
                         //アニメーション後元の場所に戻す
                         Yamahuda1Fake.transform.position = Yamahuda1.transform.position;
-                        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count-1]);
+                        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count - 1]);
                         //元の位置に戻す
                         for (int i = 0; i < 4; i++)
                         {
@@ -809,7 +810,7 @@ public class CardAnimation : MonoBehaviour
                         Yama2Null();
                         //アニメーション後元の場所に戻す
                         Yamahuda2Fake.transform.position = Yamahuda2.transform.position;
-                        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count-1]);
+                        Sutehuda.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.DiscardCount[deck.DiscardCount.Count - 1]);
                         //元の位置に戻す
                         for (int i = 0; i < 4; i++)
                         {
@@ -822,6 +823,7 @@ public class CardAnimation : MonoBehaviour
                 });
             });
         }
+        SoundManager.instance.SeApply(Se.oku);
     }
 
     //蝉丸の山札半分捨てる処理
@@ -951,6 +953,7 @@ public class CardAnimation : MonoBehaviour
             animeEnd = true;
             draw.FieldEffectSwitch();
         }
+        SoundManager.instance.SeApply(Se.oku);
     }
 
     /// <summary>
@@ -1164,6 +1167,7 @@ public class CardAnimation : MonoBehaviour
                 });
             });
         }
+        SoundManager.instance.SeApply(Se.oku);
     }
 
     //偽山札を作り移動アニメーションを見せる用関数
