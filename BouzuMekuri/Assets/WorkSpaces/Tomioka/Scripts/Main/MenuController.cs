@@ -63,6 +63,7 @@ public class MenuController : MonoBehaviour
         if (cardAnime.animeEnd == true)
         {
             MenuPanel.SetActive(true);
+            SoundManager.instance.SeApply(Se.choice);
         }
     }
 
@@ -71,6 +72,7 @@ public class MenuController : MonoBehaviour
     public void MenuOff()
     {
         MenuPanel.SetActive(false);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
 
@@ -81,12 +83,21 @@ public class MenuController : MonoBehaviour
     public void TitleButton()
     {
         titlePanel.SetActive(true);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
     //タイトルに戻る
     public void LoadTitle()
     {
+        SoundManager.instance.SeApply(Se.choice);
+        //SoundManager.instance.FadeOutBgm(1f);
         SoundManager.instance.FadeOutBgm(1f);
+        //ReSetCommand.instance.ReSet();
+        Invoke("Interval", 1.5f);
+    }
+
+    private void Interval()
+    {
         ReSetCommand.instance.ReSet();
     }
 
@@ -94,42 +105,49 @@ public class MenuController : MonoBehaviour
     public void MenuBack()
     {
         titlePanel.SetActive(false);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
     //ルール確認のオン
     public void RuleCheckOn()
     {
         ruleCheckPanel.SetActive(true);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
     //ルール確認のオフ
     public void RuleCheckOff()
     {
         ruleCheckPanel.SetActive(false);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
     //フィールド効果の確認のオン
     public void PlayerRuleOn()
     {
         ruleCheckPanel.SetActive(true);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
     //フィールド効果のオフ
     public void PlayerRuleOff()
     {
         ruleCheckPanel.SetActive(false);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
     //各々のプレイヤーのルール確認のオン
     public void EachPlayerRulePanelOn()
     {
         EachPlayerRulePanel.SetActive(true);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
     //各々のプレイヤーのルール確認のオフ
     public void EachPlayerRulePanelOff()
     {
         EachPlayerRulePanel.SetActive(false);
+        SoundManager.instance.SeApply(Se.choice);
     }
 
 

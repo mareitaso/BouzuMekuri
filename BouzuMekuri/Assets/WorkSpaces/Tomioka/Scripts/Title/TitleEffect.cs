@@ -20,6 +20,7 @@ public class TitleEffect : MonoBehaviour
     public void SceneLoad()
     {
         SoundManager.instance.FadeOutBgm(1f);
+        SoundManager.instance.SeApply(Se.start);
 
         cloudLU.transform.DOMove(cloudPlaceLU.transform.position, 1.5f);
         cloudLD.transform.DOMove(cloudPlaceLD.transform.position, 1.5f);

@@ -59,6 +59,7 @@ public class Draw : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.instance.SeApply(Se.gameStart);
         SoundManager.instance.BgmApply(Bgm.Main);
         TextChange();
         drawType.text = "";

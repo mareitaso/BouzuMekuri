@@ -31,7 +31,7 @@ public class ButtonSE : MonoBehaviour
     public void OnClick()
     {
         //audioSource.Play();
-        SoundManager.instance.SeApply(Se.Choice);
+        SoundManager.instance.SeApply(Se.choice);
         Debug.Log("有効");
     }
 

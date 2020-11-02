@@ -12,16 +12,15 @@ public enum Bgm
 
 public enum Se
 {
-    cardOpen,
-    Choice,
-    cardShuffle,
-    cardSkill,
+    start,
+    choice,
+    gameStart,
+    gameEnd,
     semimaruSkill,
-    //SE3,//手札を捨てる 
-    //SE4,//スキル発動
-    //SE5,//試合終了
-    //SE6,//タイトルのはじめボタン
-    //SE7//決定 タイトル以外
+    cardSkill,
+    cardShuffle,
+    cardOpen,
+    oku
 }
 
 [System.Serializable]

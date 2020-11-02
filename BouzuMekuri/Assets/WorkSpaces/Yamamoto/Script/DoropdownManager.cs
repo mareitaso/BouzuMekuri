@@ -160,6 +160,7 @@ public class DoropdownManager : MonoBehaviour
         dropdown2.value = 0;
         dropdown3.value = 0;
         dropdown4.value = 0;
+        SoundManager.instance.SeApply(Se.choice);
         //skillT.value = 0;
         //skillD.value = 0;
         //skillB.value = 0;
@@ -169,5 +170,6 @@ public class DoropdownManager : MonoBehaviour
     {
         RulePanel.SetActive(false);
         JisakuPanel.SetActive(true);
+        SoundManager.instance.SeApply(Se.choice);
     }
 }

@@ -227,6 +227,7 @@ public class MyDropDown : MonoBehaviour
     public void Decision()
     {
         RuleCreate.instance.myRule[RuleCreate.instance.PlayerNumber] = true;
+        SoundManager.instance.SeApply(Se.choice);
         //SceneController.instance.LoadScene(SceneController.SceneName.Rule);
     }
     public void Back()
@@ -237,6 +238,7 @@ public class MyDropDown : MonoBehaviour
         RuleCreate.instance.cardNum[RuleCreate.instance.PlayerNumber] = 1;
         RuleCreate.instance.cardEffect[RuleCreate.instance.PlayerNumber] = 0;
         RuleCreate.instance.playerNum[RuleCreate.instance.PlayerNumber] = 1;
+        SoundManager.instance.SeApply(Se.choice);
     }
 
     /// <summary>
