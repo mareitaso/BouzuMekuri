@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using UnityEngine.Video;
+//using UnityEngine.Video;
 
 public class CardAnimation : MonoBehaviour
 {
@@ -67,7 +67,10 @@ public class CardAnimation : MonoBehaviour
     private readonly float rotateTime = 0.3f;
 
     [SerializeField]
-    private VideoPlayer video;
+    private GameObject cutIn;
+
+    //[SerializeField]
+    //private VideoPlayer video;
 
     //山札からプレイヤーの手札に移動するアニメーション
     public void AnimeTono()
@@ -1504,7 +1507,8 @@ public class CardAnimation : MonoBehaviour
         //CutInText();上に世代交代
 
         //カットインの映像再生
-        video.Play();
+        cutIn.SetActive(true);
+        //video.Play();
 
         skillCutInCard.sprite = Resources.Load<Sprite>("Images/MainCards/" + deck.drawcard);
         skillCutIn.transform.DOMove(new Vector3(0, 0, 0), animeTime).OnComplete(() =>
@@ -1513,7 +1517,8 @@ public class CardAnimation : MonoBehaviour
             {
                 skillCutIn.transform.DOMove(CutInAfter.transform.position, animeTime / 2).OnComplete(() =>
                 {
-                    video.Stop();
+                    cutIn.SetActive(false);
+                    //video.Stop();
                     skillCutIn.transform.position = CutInBefore.transform.position;
                     AnimeSwitch();
                 });
@@ -1789,7 +1794,8 @@ public class CardAnimation : MonoBehaviour
         movePlace = deck.Count;
         SoundManager.instance.SeApply(Se.cardSkill);
         //カットインの映像再生
-        video.Play();
+        //video.Play();
+        cutIn.SetActive(true);
 
         if (draw.fieldEffectNum == 2)
         {
@@ -1828,7 +1834,8 @@ public class CardAnimation : MonoBehaviour
                         }
                     }
                     //カットインの映像再生
-                    video.Stop();
+                    //video.Stop();
+                    cutIn.SetActive(false);
                 });
             });
         });
