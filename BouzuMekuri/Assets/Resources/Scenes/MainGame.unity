@@ -5242,8 +5242,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1003503226}
-  - component: {fileID: 1003503234}
-  - component: {fileID: 1003503233}
   - component: {fileID: 1003503232}
   - component: {fileID: 1003503231}
   - component: {fileID: 1003503230}
@@ -5360,37 +5358,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1003503225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48308e839ea36e84db57b623058be12d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck: {fileID: 972917169}
-  draw: {fileID: 972917170}
-  cardAnime: {fileID: 1818914147}
---- !u!114 &1003503233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003503225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a8ec0b1729bde4a9bf23f5477d70a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deck: {fileID: 972917169}
-  draw: {fileID: 972917170}
-  cardAnime: {fileID: 1818914147}
---- !u!114 &1003503234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003503225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f89147cf301655a49b488b9094c7afe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c49a51f4e41431408e316005da5425a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 972917169}

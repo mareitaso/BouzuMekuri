@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
+public class NormalDraw : SingletonMonoBehaviour<NormalDraw>
 {
     [SerializeField]
     private Deck deck;
@@ -10,6 +10,17 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
     private Draw draw;
     [SerializeField]
     private CardAnimation cardAnime;
+
+
+    //殿を引いた処理
+    public void Tono_Draw()
+    {
+        Debug.Log("殿" + deck.Count + "のばん");
+        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+        cardAnime.movePlace = deck.Count;
+        cardAnime.AnimeTono();
+    }
+
 
     //姫を引いた処理
     public void Hime_Draw()
@@ -42,19 +53,28 @@ public class HimeDraw : SingletonMonoBehaviour<HimeDraw>
             cardAnime.movePlace = deck.Count;
             //draw.ImageChangeHime();
             cardAnime.AnimeOneDraw();
-            
-            //deck.cards1.RemoveAt(0);//0番目を削除
-
-            //if (draw.drowYama1 == true)
-            //{
-            //    draw.Draw1();
-            //    deck.Count--;
-            //}
-            //else
-            //{
-            //    draw.Draw2();
-            //    deck.Count--;
-            //}
         }
+    }
+
+
+    //坊主を引いた処理
+    public void Bouzu_Draw()
+    {
+        Debug.Log("坊主" + deck.Count + "のばん");
+
+        MasterList.instance.list[deck.Count].Add(deck.drawcard);//手札に追加
+
+        int e = MasterList.instance.list[deck.Count].Count;
+        //手札を捨て札に加算
+        for (int t = 0; t < e; t++)
+        {
+            int y = MasterList.instance.list[deck.Count][0];
+            deck.DiscardCount.Add(y);
+            MasterList.instance.list[deck.Count].RemoveAt(0);
+        }
+
+        MasterList.instance.list[deck.Count].Clear();//手札を初期化
+        cardAnime.movePlace = deck.Count;
+        cardAnime.AnimeBouzu();
     }
 }

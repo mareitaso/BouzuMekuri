@@ -220,18 +220,18 @@ public class Draw : MonoBehaviour
                 //坊主を引く
                 else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
                 {
-                    BouzuDraw.instance.Bouzu_Draw();
+                    NormalDraw.instance.Bouzu_Draw();
                     drawType.text = "坊主";
                 }
                 //姫を引く
                 else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
                 {
-                    HimeDraw.instance.Hime_Draw();
+                    NormalDraw.instance.Hime_Draw();
                     drawType.text = "姫";
                 }
                 else
                 {
-                    TonoDraw.instance.Tono_Draw();
+                    NormalDraw.instance.Tono_Draw();
                     drawType.text = "殿";
                     // Debug.LogError("カードの種類がおかしい");
                 }
@@ -389,18 +389,18 @@ public class Draw : MonoBehaviour
                 //坊主を引く
                 else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Bouzu)
                 {
-                    BouzuDraw.instance.Bouzu_Draw();
+                    NormalDraw.instance.Bouzu_Draw();
                     drawType.text = "坊主";
                 }
                 //姫を引く
                 else if (cardDataBase.YamahudaLists()[deck.drawcard - 1].GetFirstJob() == Card.FirstJob.Hime)
                 {
-                    HimeDraw.instance.Hime_Draw();
+                    NormalDraw.instance.Hime_Draw();
                     drawType.text = "姫";
                 }
                 else
                 {
-                    TonoDraw.instance.Tono_Draw();
+                    NormalDraw.instance.Tono_Draw();
                     drawType.text = "殿";
                     // Debug.LogError("カードの種類がおかしい");
                 }
@@ -756,7 +756,7 @@ public class Draw : MonoBehaviour
         }
         else
         {
-            TonoDraw.instance.Tono_Draw();
+            NormalDraw.instance.Tono_Draw();
         }
     }
 
