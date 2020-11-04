@@ -33,6 +33,8 @@ public class RulePullDown : MonoBehaviour
 
     public static bool Pflag = false;
 
+    [SerializeField]
+    private GameObject lordPanel;
 
     private void Awake()
     {
@@ -360,6 +362,7 @@ public class RulePullDown : MonoBehaviour
         }
         else if (RuleCreate.instance.PlayerNumber == 0)
         {
+            lordPanel.SetActive(true);
             SceneController.instance.LoadScene(SceneController.SceneName.Main);
         }
     }
